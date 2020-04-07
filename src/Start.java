@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Start extends JPanel implements ActionListener {
+    // Hej jag är här och jobbar
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
 
@@ -38,35 +39,35 @@ public class Start extends JPanel implements ActionListener {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-    public Start(){
-        setPreferredSize(new Dimension(500,450));
+    public Start() {
+        setPreferredSize(new Dimension(500, 450));
         setBackground(Color.WHITE);
-        pointer.setPreferredSize(new Dimension(40,40));
+        pointer.setPreferredSize(new Dimension(40, 40));
         pointer.setVisible(false);
-        pointer2.setPreferredSize(new Dimension(40,40));
+        pointer2.setPreferredSize(new Dimension(40, 40));
         pointer2.setVisible(false);
-        pointer3.setPreferredSize(new Dimension(40,40));
+        pointer3.setPreferredSize(new Dimension(40, 40));
         pointer3.setVisible(false);
-        pointer4.setPreferredSize(new Dimension(40,40));
+        pointer4.setPreferredSize(new Dimension(40, 40));
         pointer4.setVisible(false);
 
-        ghost4.setPreferredSize(new Dimension(30,40));
-        ghost5.setPreferredSize(new Dimension(30,40));
-        ghost6.setPreferredSize(new Dimension(19,40));
-        ghost7.setPreferredSize(new Dimension(26,40));
+        ghost4.setPreferredSize(new Dimension(30, 40));
+        ghost5.setPreferredSize(new Dimension(30, 40));
+        ghost6.setPreferredSize(new Dimension(19, 40));
+        ghost7.setPreferredSize(new Dimension(26, 40));
 
         add(ghost);
-        ghost.setPreferredSize(new Dimension(40,40));
+        ghost.setPreferredSize(new Dimension(40, 40));
         add(memoria);
-        memoria.setPreferredSize(new Dimension(260,40));
+        memoria.setPreferredSize(new Dimension(260, 40));
         add(mathLogo);
 
-        add(ghost3).setPreferredSize(new Dimension(300,30));
+        add(ghost3).setPreferredSize(new Dimension(300, 30));
 
         add(beat);
-        beat.setPreferredSize(new Dimension(450,70));
+        beat.setPreferredSize(new Dimension(450, 70));
 
-        add(panel).setPreferredSize(new Dimension(350,130));
+        add(panel).setPreferredSize(new Dimension(350, 130));
         panel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel.setBackground(Color.WHITE);
         panel.add(pointer);
@@ -75,7 +76,7 @@ public class Start extends JPanel implements ActionListener {
         btnSnigle.setBackground(Color.WHITE);
         btnSnigle.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel.add(ghost2);
-        ghost2.setPreferredSize(new Dimension(300,30));
+        ghost2.setPreferredSize(new Dimension(300, 30));
         panel.add(pointer2);
         panel.add(btnMulti);
         btnMulti.setBorder(BorderFactory.createLineBorder(Color.WHITE));
@@ -88,41 +89,41 @@ public class Start extends JPanel implements ActionListener {
         btnIS.addActionListener(this);
 
 
-        add(panel2).setPreferredSize(new Dimension(350,90));
+        add(panel2).setPreferredSize(new Dimension(350, 90));
         panel2.add(pointer3);
         panel2.setBackground(Color.WHITE);
-      //  panel2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panel2.add(btnOP).setPreferredSize(new Dimension(75,75));
+        //  panel2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        panel2.add(btnOP).setPreferredSize(new Dimension(75, 75));
         panel2.add(ghost6);
         panel2.add(pointer4);
         btnOP.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        panel2.add(btnIS).setPreferredSize(new Dimension(56,75));
+        panel2.add(btnIS).setPreferredSize(new Dimension(56, 75));
         btnIS.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel2.add(ghost7);
 
 
     }
 
-    public void actionPerformed(ActionEvent e){
-        if (e.getSource() == btnSnigle){
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btnSnigle) {
             pointer.setVisible(true);
             pointer2.setVisible(false);
             pointer3.setVisible(false);
             pointer4.setVisible(false);
         }
-        if (e.getSource() == btnMulti){
+        if (e.getSource() == btnMulti) {
             pointer.setVisible(false);
             pointer2.setVisible(true);
             pointer3.setVisible(false);
             pointer4.setVisible(false);
         }
-        if (e.getSource() == btnOP){
+        if (e.getSource() == btnOP) {
             pointer.setVisible(false);
             pointer2.setVisible(false);
             pointer3.setVisible(true);
             pointer4.setVisible(false);
         }
-        if (e.getSource() == btnIS){
+        if (e.getSource() == btnIS) {
             pointer.setVisible(false);
             pointer2.setVisible(false);
             pointer3.setVisible(false);
@@ -130,7 +131,8 @@ public class Start extends JPanel implements ActionListener {
         }
 
     }
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         Start start = new Start();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
