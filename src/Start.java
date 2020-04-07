@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 public class Start extends JPanel implements ActionListener {
     // Hej jag är här och jobbar
+    //Försök2
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
 
