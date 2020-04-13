@@ -4,8 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Start extends JPanel implements ActionListener {
-    // Hej jag är här och jobbar
-    //Försök2
+
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
 
@@ -85,7 +84,7 @@ public class Start extends JPanel implements ActionListener {
         panel.add(ghost5);
 
         btnSnigle.addActionListener(this);
-        btnMulti.addActionListener(this);
+        btnMulti.addActionListener(new SceneChange());
         btnOP.addActionListener(this);
         btnIS.addActionListener(this);
 
@@ -103,6 +102,20 @@ public class Start extends JPanel implements ActionListener {
         panel2.add(ghost7);
 
 
+    }
+    public class SceneChange implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pointer.setVisible(false);
+            pointer2.setVisible(true);
+            pointer3.setVisible(false);
+            pointer4.setVisible(false);
+            new Run();
+            /*ändra allt så du ärver JFrame istället för JPanel och sedan använd dig av metoden dispore() här så kommer
+              även start Framen att förvinna*/
+
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
