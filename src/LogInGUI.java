@@ -18,6 +18,7 @@ public class LogInGUI extends JFrame {
         frame.setSize(400,300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
         frame.add(panel);
 
         lblGame.setFont(myFont);
