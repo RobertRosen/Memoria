@@ -39,7 +39,8 @@ public class Start extends JPanel implements ActionListener {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-    public Start() {
+     public Start() {
+
         setPreferredSize(new Dimension(500, 450));
         setBackground(Color.WHITE);
         pointer.setPreferredSize(new Dimension(40, 40));
@@ -84,7 +85,7 @@ public class Start extends JPanel implements ActionListener {
         panel.add(ghost5);
 
         btnSnigle.addActionListener(this);
-        btnMulti.addActionListener(this);
+        btnMulti.addActionListener(new SceneChange());
         btnOP.addActionListener(this);
         btnIS.addActionListener(this);
 
@@ -102,6 +103,20 @@ public class Start extends JPanel implements ActionListener {
         panel2.add(ghost7);
 
 
+    }
+    public class SceneChange implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            pointer.setVisible(false);
+            pointer2.setVisible(true);
+            pointer3.setVisible(false);
+            pointer4.setVisible(false);
+            new Run();
+            /*ändra allt så du ärver JFrame istället för JPanel och sedan använd dig av metoden dispore() här så kommer
+              även start Framen att förvinna*/
+
+        }
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -133,11 +148,6 @@ public class Start extends JPanel implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Start start = new Start();
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.add(start);
-        frame.pack();
+
     }
 }
