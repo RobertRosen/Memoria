@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class LogInGUI extends JFrame {
 
@@ -43,7 +45,29 @@ public class LogInGUI extends JFrame {
         btnlogin.setBounds(120,150,150,40);
         panel.add(btnlogin);
 
+        btnlogin.addActionListener(new Listener());
 
+
+    }
+
+
+    class Listener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            if (txtUser.getText().trim().length() <= 10 && txtUser.getText().trim().length() >= 3 ){
+                JOptionPane.showMessageDialog(null,"Welcome " + txtUser.getText());
+
+                Start start = new Start();
+                JFrame frame = new JFrame();
+                frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+                frame.setVisible(true);
+                frame.add(start);
+                frame.pack();
+                dispose();
+            }else {
+                JOptionPane.showMessageDialog(null,"Invalid username");
+            }
+
+        }
     }
 
 
