@@ -4,7 +4,7 @@ public class Run {
     /**
      * Ta bort kommentar för att se gui för Score
      */
-    public void start(){
+    public Run(){
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -15,9 +15,5 @@ public class Run {
         frame.pack();
 
 
-    }
-    public static void main(String[] args){
-        Run run = new Run();
-        run.start();
     }
 }
