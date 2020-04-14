@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class Start extends JPanel implements ActionListener {
 
@@ -85,7 +87,7 @@ public class Start extends JPanel implements ActionListener {
         panel.add(ghost5);
 
         btnSnigle.addActionListener(this);
-        btnMulti.addActionListener(new SceneChange());
+        btnMulti.addMouseListener(new Mouse());
         btnOP.addActionListener(this);
         btnIS.addActionListener(this);
 
@@ -103,6 +105,35 @@ public class Start extends JPanel implements ActionListener {
         panel2.add(ghost7);
 
 
+    }
+    class Mouse implements MouseListener{
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            new Run();
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+            pointer2.setVisible(true);
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+            pointer2.setVisible(false);
+
+        }
     }
     public class SceneChange implements ActionListener{
 
@@ -148,6 +179,11 @@ public class Start extends JPanel implements ActionListener {
     }
 
     public static void main(String[] args) {
-
+        Start start = new Start();
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+        frame.add(start);
+        frame.pack();
     }
 }
