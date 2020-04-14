@@ -10,8 +10,8 @@ public class Run {
         frame.setVisible(true);
         GuiTest test = new GuiTest();
         Score score = new Score();
-        frame.add(test);
-       // frame.add(score);
+       // frame.add(test);
+        frame.add(score);
         frame.pack();
 
 
