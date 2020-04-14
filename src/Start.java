@@ -39,7 +39,8 @@ public class Start extends JPanel implements ActionListener {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-    public Start() {
+     public Start() {
+
         setPreferredSize(new Dimension(500, 450));
         setBackground(Color.WHITE);
         pointer.setPreferredSize(new Dimension(40, 40));
@@ -147,11 +148,6 @@ public class Start extends JPanel implements ActionListener {
     }
 
     public static void main(String[] args) {
-        Start start = new Start();
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.add(start);
-        frame.pack();
+
     }
 }
