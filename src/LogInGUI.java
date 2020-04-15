@@ -56,13 +56,7 @@ public class LogInGUI extends JFrame {
             if (txtUser.getText().trim().length() <= 10 && txtUser.getText().trim().length() >= 3 ){
                 JOptionPane.showMessageDialog(null,"Welcome " + txtUser.getText());
 
-                Start start = new Start();
-
-                JFrame secondframe = new JFrame();
-                secondframe.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-                secondframe.setVisible(true);
-                secondframe.add(start);
-                secondframe.pack();
+                MenuGUI start = new MenuGUI();
                 frame.dispose();
             }else {
                 JOptionPane.showMessageDialog(null,"Invalid username");

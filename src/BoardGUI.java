@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
-public class GuiTest extends JPanel implements ActionListener{
+public class BoardGUI extends JFrame implements ActionListener{
+    private JPanel mainPanel = new JPanel();
     private JPanel panel = new JPanel();
     private JPanel Mpanel = new JPanel();
     private JPanel estPanel = new JPanel();
@@ -53,13 +53,17 @@ public class GuiTest extends JPanel implements ActionListener{
     private JLabel ghost8 = new JLabel(red);
     private JLabel ghost9 = new JLabel(mathLogo);
     private JLabel ghost10 = new JLabel();
-    public GuiTest(){
+    public BoardGUI(){
+        setSize(1000, 500);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        setPreferredSize(new Dimension(675,460));
-        setBackground(Color.WHITE);
-        add(label);
-        add(ghost9);
-        add(ghost10);
+        mainPanel.setBackground(Color.WHITE);
+        add(mainPanel);
+
+        mainPanel.add(label);
+        mainPanel.add(ghost9);
+        mainPanel.add(ghost10);
         ghost9.setPreferredSize(new Dimension(135,35));
         ghost10.setPreferredSize(new Dimension(265,35));
         //label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -72,37 +76,37 @@ public class GuiTest extends JPanel implements ActionListener{
         ghost7.setPreferredSize(new Dimension(125,20));
         ghost8.setPreferredSize(new Dimension(125,20));
 
-        add(Mpanel);
+        mainPanel.add(Mpanel);
         Mpanel.setPreferredSize(new Dimension(670,386));
        // Mpanel.setBackground(Color.WHITE);
         label.setPreferredSize(new Dimension(250,55));
 
-        add(btn1);
+        mainPanel.add(btn1);
         btn1.setPreferredSize(new Dimension(110,150));
         btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn1.setBackground(Color.WHITE);
 
-        add(btn2);
+        mainPanel.add(btn2);
         btn2.setPreferredSize(new Dimension(110,150));
         btn2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn2.setBackground(Color.WHITE);
 
-        add(btn3);
+        mainPanel.add(btn3);
         btn3.setPreferredSize(new Dimension(110,150));
         btn3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn3.setBackground(Color.WHITE);
 
-        add(btn4);
+        mainPanel.add(btn4);
         btn4.setPreferredSize(new Dimension(110,150));
         btn4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn4.setBackground(Color.WHITE);
 
-        add(btn5);
+        mainPanel.add(btn5);
         btn5.setPreferredSize(new Dimension(110,150));
         btn5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn5.setBackground(Color.WHITE);
 
-        add(btn6);
+        mainPanel.add(btn6);
         btn6.setPreferredSize(new Dimension(110,150));
         btn6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn6.setBackground(Color.WHITE);
@@ -227,6 +231,10 @@ public class GuiTest extends JPanel implements ActionListener{
             iconArray[j] = temp;
         }
         return iconArray;
+    }
+
+    public static void main(String[] args) {
+        BoardGUI guiTest = new BoardGUI();
     }
     }
 
