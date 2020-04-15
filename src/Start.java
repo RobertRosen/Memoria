@@ -149,7 +149,7 @@ public class Start extends JPanel implements ActionListener {
 
         @Override
         public void mouseExited(MouseEvent e) {
-            pointer.setVisible(false);
+
             pointer2.setVisible(false);
 
         }
