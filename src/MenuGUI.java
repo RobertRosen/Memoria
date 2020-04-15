@@ -1,11 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Start extends JPanel {
+public class MenuGUI extends JFrame {
+    private JPanel mainPanel = new JPanel();
 
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
@@ -44,12 +43,16 @@ public class Start extends JPanel {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-    public Start() {
+     public MenuGUI() {
+        setSize(940, 430);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainPanel.setBackground(Color.WHITE);
 
-        setPreferredSize(new Dimension(940, 430));
-        setBackground(Color.WHITE);
+        add(mainPanel);
 
-        add(westPanel);
+
+        mainPanel.add(westPanel);
         westPanel.setPreferredSize(new Dimension(450,340));
         westPanel.setBackground(Color.WHITE);
         westPanel.add(ghost);
@@ -74,15 +77,15 @@ public class Start extends JPanel {
         ghost6.setPreferredSize(new Dimension(19, 40));
         ghost7.setPreferredSize(new Dimension(26, 40));
 
-        // add(ghost);
+       // add(ghost);
         ghost.setPreferredSize(new Dimension(40, 40));
         //add(memoria);
         memoria.setPreferredSize(new Dimension(260, 40));
-        // add(mathLogo);
+       // add(mathLogo);
 
         //add(ghost3).setPreferredSize(new Dimension(300, 30));
 
-        // add(beat);
+       // add(beat);
         beat.setPreferredSize(new Dimension(450, 70));
 
         westPanel.add(panel).setPreferredSize(new Dimension(350, 130));
@@ -101,7 +104,7 @@ public class Start extends JPanel {
         btnMulti.setBackground(Color.WHITE);
         panel.add(ghost5);
 
-        // btnSnigle.addActionListener(this);
+
         btnSnigle.addMouseListener(new MouseSingel());
         btnMulti.addMouseListener(new MouseMulti());
         btnOP.addMouseListener(new MouseOP());
@@ -120,12 +123,14 @@ public class Start extends JPanel {
         btnIS.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel2.add(ghost7);
 
-        add(score);
+        mainPanel.add(score);
 
     }
     class MouseMulti implements MouseListener{
         public void mouseClicked(MouseEvent e) {
-            new Run();
+            new BoardGUI();
+            dispose();
+
         }
         public void mousePressed(MouseEvent e) {
         }
@@ -140,7 +145,7 @@ public class Start extends JPanel {
     }
     class MouseSingel implements MouseListener{
         public void mouseClicked(MouseEvent e) {
-            // new Run();
+           // new Run();
         }
         public void mousePressed(MouseEvent e) {
         }
@@ -155,7 +160,7 @@ public class Start extends JPanel {
     }
     class MouseOP implements MouseListener{
         public void mouseClicked(MouseEvent e) {
-            //   new Run();
+         //   new Run();
         }
         public void mousePressed(MouseEvent e) {
         }
@@ -170,7 +175,7 @@ public class Start extends JPanel {
     }
     class MouseIS implements MouseListener{
         public void mouseClicked(MouseEvent e) {
-            // new Run();
+           // new Run();
         }
         public void mousePressed(MouseEvent e) {
         }
@@ -184,12 +189,14 @@ public class Start extends JPanel {
         }
     }
 
-   public static void main(String[] args) {
-        Start start = new Start();
-        JFrame frame = new JFrame();
+    public static void main(String[] args) {
+     //   Start start = new Start();
+      /*  JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(start);
         frame.pack();
+
+       */
     }
 }
