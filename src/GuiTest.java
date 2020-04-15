@@ -36,6 +36,24 @@ public class GuiTest extends JPanel implements ActionListener{
     private JButton btn4= new JButton(card);
     private JButton btn5= new JButton(card);
     private JButton btn6= new JButton(card);
+    private JButton btn7= new JButton(card);
+    private JButton btn8= new JButton(card);
+    private JButton btn9= new JButton(card);
+    private JButton btn10= new JButton(card);
+    private JButton btn11= new JButton(card);
+    private JButton btn12= new JButton(card);
+    private JButton btn13= new JButton(card);
+    private JButton btn14= new JButton(card);
+    private JButton btn15= new JButton(card);
+    private JButton btn16= new JButton(card);
+    private JButton btn17= new JButton(card);
+    private JButton btn18= new JButton(card);
+    private JButton btn19= new JButton(card);
+    private JButton btn20= new JButton(card);
+    private JButton btn21= new JButton(card);
+    private JButton btn22= new JButton(card);
+    private JButton btn23= new JButton(card);
+    private JButton btn24= new JButton(card);
 
     private JButton panelBonus = new JButton(bonus);
     private JLabel logo1 = new JLabel(logo);
@@ -77,35 +95,128 @@ public class GuiTest extends JPanel implements ActionListener{
        // Mpanel.setBackground(Color.WHITE);
         label.setPreferredSize(new Dimension(250,55));
 
+
         add(btn1);
-        btn1.setPreferredSize(new Dimension(110,150));
+        btn1.setPreferredSize(new Dimension(52,72));
         btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn1.setBackground(Color.WHITE);
 
         add(btn2);
-        btn2.setPreferredSize(new Dimension(110,150));
+        btn2.setPreferredSize(new Dimension(52,72));
         btn2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn2.setBackground(Color.WHITE);
 
         add(btn3);
-        btn3.setPreferredSize(new Dimension(110,150));
+        btn3.setPreferredSize(new Dimension(52,72));
         btn3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn3.setBackground(Color.WHITE);
 
         add(btn4);
-        btn4.setPreferredSize(new Dimension(110,150));
+        btn4.setPreferredSize(new Dimension(52,72));
         btn4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn4.setBackground(Color.WHITE);
 
         add(btn5);
-        btn5.setPreferredSize(new Dimension(110,150));
+        btn5.setPreferredSize(new Dimension(52,72));
         btn5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn5.setBackground(Color.WHITE);
 
         add(btn6);
-        btn6.setPreferredSize(new Dimension(110,150));
+        btn6.setPreferredSize(new Dimension(52,72));
         btn6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn6.setBackground(Color.WHITE);
+
+        add(btn7);
+        btn7.setPreferredSize(new Dimension(52,72));
+        btn7.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn7.setBackground(Color.WHITE);
+
+        add(btn8);
+        btn8.setPreferredSize(new Dimension(52,72));
+        btn8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn8.setBackground(Color.WHITE);
+
+        add(btn9);
+        btn9.setPreferredSize(new Dimension(52,72));
+        btn9.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn9.setBackground(Color.WHITE);
+
+        add(btn10);
+        btn10.setPreferredSize(new Dimension(52,72));
+        btn10.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn10.setBackground(Color.WHITE);
+
+        add(btn11);
+        btn11.setPreferredSize(new Dimension(52,72));
+        btn11.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn11.setBackground(Color.WHITE);
+
+        add(btn12);
+        btn12.setPreferredSize(new Dimension(52,72));
+        btn12.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn12.setBackground(Color.WHITE);
+
+        add(btn13);
+        btn13.setPreferredSize(new Dimension(52,72));
+        btn13.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn13.setBackground(Color.WHITE);
+
+        add(btn14);
+        btn14.setPreferredSize(new Dimension(52,72));
+        btn14.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn14.setBackground(Color.WHITE);
+
+        add(btn15);
+        btn15.setPreferredSize(new Dimension(52,72));
+        btn15.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn15.setBackground(Color.WHITE);
+
+        add(btn16);
+        btn16.setPreferredSize(new Dimension(52,72));
+        btn16.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn16.setBackground(Color.WHITE);
+
+        add(btn17);
+        btn17.setPreferredSize(new Dimension(52,72));
+        btn17.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn17.setBackground(Color.WHITE);
+
+        add(btn18);
+        btn18.setPreferredSize(new Dimension(52,72));
+        btn18.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn18.setBackground(Color.WHITE);
+
+        add(btn19);
+        btn19.setPreferredSize(new Dimension(52,72));
+        btn19.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn19.setBackground(Color.WHITE);
+
+        add(btn20);
+        btn20.setPreferredSize(new Dimension(52,72));
+        btn20.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn20.setBackground(Color.WHITE);
+
+        add(btn21);
+        btn21.setPreferredSize(new Dimension(52,72));
+        btn21.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn21.setBackground(Color.WHITE);
+
+        add(btn22);
+        btn22.setPreferredSize(new Dimension(52,72));
+        btn22.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn22.setBackground(Color.WHITE);
+
+        add(btn23);
+        btn23.setPreferredSize(new Dimension(52,72));
+        btn23.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn23.setBackground(Color.WHITE);
+
+        add(btn24);
+        btn24.setPreferredSize(new Dimension(52,72));
+        btn24.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        btn24.setBackground(Color.WHITE);
+
+
 
 
         btn1.addActionListener(this);
@@ -114,6 +225,24 @@ public class GuiTest extends JPanel implements ActionListener{
         btn4.addActionListener(this);
         btn5.addActionListener(this);
         btn6.addActionListener(this);
+        btn7.addActionListener(this);
+        btn8.addActionListener(this);
+        btn9.addActionListener(this);
+        btn10.addActionListener(this);
+        btn11.addActionListener(this);
+        btn12.addActionListener(this);
+        btn13.addActionListener(this);
+        btn14.addActionListener(this);
+        btn15.addActionListener(this);
+        btn16.addActionListener(this);
+        btn17.addActionListener(this);
+        btn18.addActionListener(this);
+        btn19.addActionListener(this);
+        btn20.addActionListener(this);
+        btn21.addActionListener(this);
+        btn22.addActionListener(this);
+        btn23.addActionListener(this);
+        btn24.addActionListener(this);
 
         Mpanel.add(panel);
         //panel.setBorder(BorderFactory.createTitledBorder(""));
@@ -127,6 +256,24 @@ public class GuiTest extends JPanel implements ActionListener{
         panel.add(btn4);
         panel.add(btn5);
         panel.add(btn6);
+        panel.add(btn7);
+        panel.add(btn8);
+        panel.add(btn9);
+        panel.add(btn10);
+        panel.add(btn11);
+        panel.add(btn12);
+        panel.add(btn13);
+        panel.add(btn14);
+        panel.add(btn15);
+        panel.add(btn16);
+        panel.add(btn17);
+        panel.add(btn18);
+        panel.add(btn19);
+        panel.add(btn20);
+        panel.add(btn21);
+        panel.add(btn22);
+        panel.add(btn23);
+        panel.add(btn24);
         panel.add(ghost2);
 
         Mpanel.add(estPanel);

@@ -47,9 +47,7 @@ public class LogInGUI extends JFrame {
 
         btnlogin.addActionListener(new Listener());
 
-
     }
-
 
     class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
