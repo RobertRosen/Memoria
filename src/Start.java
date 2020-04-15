@@ -9,6 +9,9 @@ public class Start extends JPanel implements ActionListener {
 
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
+    private JPanel westPanel = new JPanel();
+
+    private Score score = new Score();
 
     private ImageIcon logo = new ImageIcon("images/mem3.JPG");
     private ImageIcon mthLogo = new ImageIcon("images/mathLogo.JPG");
@@ -43,8 +46,20 @@ public class Start extends JPanel implements ActionListener {
 
      public Start() {
 
-        setPreferredSize(new Dimension(500, 450));
+        setPreferredSize(new Dimension(940, 430));
         setBackground(Color.WHITE);
+
+        add(westPanel);
+        westPanel.setPreferredSize(new Dimension(450,340));
+        westPanel.setBackground(Color.WHITE);
+        westPanel.add(ghost);
+        westPanel.add(memoria);
+        westPanel.add(mathLogo);
+        westPanel.add(ghost3);
+        westPanel.add(beat);
+        westPanel.add(panel);
+        westPanel.add(panel2);
+
         pointer.setPreferredSize(new Dimension(40, 40));
         pointer.setVisible(false);
         pointer2.setPreferredSize(new Dimension(40, 40));
@@ -59,18 +74,18 @@ public class Start extends JPanel implements ActionListener {
         ghost6.setPreferredSize(new Dimension(19, 40));
         ghost7.setPreferredSize(new Dimension(26, 40));
 
-        add(ghost);
+       // add(ghost);
         ghost.setPreferredSize(new Dimension(40, 40));
-        add(memoria);
+        //add(memoria);
         memoria.setPreferredSize(new Dimension(260, 40));
-        add(mathLogo);
+       // add(mathLogo);
 
-        add(ghost3).setPreferredSize(new Dimension(300, 30));
+        //add(ghost3).setPreferredSize(new Dimension(300, 30));
 
-        add(beat);
+       // add(beat);
         beat.setPreferredSize(new Dimension(450, 70));
 
-        add(panel).setPreferredSize(new Dimension(350, 130));
+        westPanel.add(panel).setPreferredSize(new Dimension(350, 130));
         panel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel.setBackground(Color.WHITE);
         panel.add(pointer);
@@ -87,12 +102,13 @@ public class Start extends JPanel implements ActionListener {
         panel.add(ghost5);
 
         btnSnigle.addActionListener(this);
+        btnSnigle.addMouseListener(new Mouse());
         btnMulti.addMouseListener(new Mouse());
         btnOP.addActionListener(this);
         btnIS.addActionListener(this);
 
 
-        add(panel2).setPreferredSize(new Dimension(350, 90));
+        westPanel.add(panel2).setPreferredSize(new Dimension(350, 90));
         panel2.add(pointer3);
         panel2.setBackground(Color.WHITE);
         //  panel2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -104,6 +120,7 @@ public class Start extends JPanel implements ActionListener {
         btnIS.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel2.add(ghost7);
 
+        add(score);
 
     }
     class Mouse implements MouseListener{
@@ -126,11 +143,13 @@ public class Start extends JPanel implements ActionListener {
         @Override
         public void mouseEntered(MouseEvent e) {
 
-            pointer2.setVisible(true);
+                pointer2.setVisible(true);
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
+            pointer.setVisible(false);
             pointer2.setVisible(false);
 
         }
