@@ -8,7 +8,7 @@ public class Run {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        GuiTest test = new GuiTest();
+        BoardGUI test = new BoardGUI();
         frame.add(test);
         frame.pack();
 

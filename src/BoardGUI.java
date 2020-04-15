@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-public class GuiTest extends JPanel implements ActionListener{
+public class BoardGUI extends JFrame implements ActionListener{
+
+    private JPanel mainPanel = new JPanel();
     private JPanel panel = new JPanel();
     private JPanel Mpanel = new JPanel();
     private JPanel estPanel = new JPanel();
@@ -71,13 +73,18 @@ public class GuiTest extends JPanel implements ActionListener{
     private JLabel ghost8 = new JLabel(red);
     private JLabel ghost9 = new JLabel(mathLogo);
     private JLabel ghost10 = new JLabel();
-    public GuiTest(){
+    public BoardGUI(){
 
-        setPreferredSize(new Dimension(675,460));
-        setBackground(Color.WHITE);
-        add(label);
-        add(ghost9);
-        add(ghost10);
+        setSize(1000, 500);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        mainPanel.setBackground(Color.WHITE);
+        add(mainPanel);
+
+        mainPanel.add(label);
+        mainPanel.add(ghost9);
+        mainPanel.add(ghost10);
         ghost9.setPreferredSize(new Dimension(135,35));
         ghost10.setPreferredSize(new Dimension(265,35));
         //label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -90,128 +97,128 @@ public class GuiTest extends JPanel implements ActionListener{
         ghost7.setPreferredSize(new Dimension(125,20));
         ghost8.setPreferredSize(new Dimension(125,20));
 
-        add(Mpanel);
+        mainPanel.add(Mpanel);
         Mpanel.setPreferredSize(new Dimension(670,386));
        // Mpanel.setBackground(Color.WHITE);
         label.setPreferredSize(new Dimension(250,55));
 
 
-        add(btn1);
+        mainPanel.add(btn1);
         btn1.setPreferredSize(new Dimension(52,72));
         btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn1.setBackground(Color.WHITE);
 
-        add(btn2);
+        mainPanel.add(btn2);
         btn2.setPreferredSize(new Dimension(52,72));
         btn2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn2.setBackground(Color.WHITE);
 
-        add(btn3);
+        mainPanel.add(btn3);
         btn3.setPreferredSize(new Dimension(52,72));
         btn3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn3.setBackground(Color.WHITE);
 
-        add(btn4);
+        mainPanel.add(btn4);
         btn4.setPreferredSize(new Dimension(52,72));
         btn4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn4.setBackground(Color.WHITE);
 
-        add(btn5);
+        mainPanel.add(btn5);
         btn5.setPreferredSize(new Dimension(52,72));
         btn5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn5.setBackground(Color.WHITE);
 
-        add(btn6);
+        mainPanel.add(btn6);
         btn6.setPreferredSize(new Dimension(52,72));
         btn6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn6.setBackground(Color.WHITE);
 
-        add(btn7);
+        mainPanel.add(btn7);
         btn7.setPreferredSize(new Dimension(52,72));
         btn7.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn7.setBackground(Color.WHITE);
 
-        add(btn8);
+        mainPanel.add(btn8);
         btn8.setPreferredSize(new Dimension(52,72));
         btn8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn8.setBackground(Color.WHITE);
 
-        add(btn9);
+        mainPanel.add(btn9);
         btn9.setPreferredSize(new Dimension(52,72));
         btn9.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn9.setBackground(Color.WHITE);
 
-        add(btn10);
+        mainPanel.add(btn10);
         btn10.setPreferredSize(new Dimension(52,72));
         btn10.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn10.setBackground(Color.WHITE);
 
-        add(btn11);
+        mainPanel.add(btn11);
         btn11.setPreferredSize(new Dimension(52,72));
         btn11.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn11.setBackground(Color.WHITE);
 
-        add(btn12);
+        mainPanel.add(btn12);
         btn12.setPreferredSize(new Dimension(52,72));
         btn12.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn12.setBackground(Color.WHITE);
 
-        add(btn13);
+        mainPanel.add(btn13);
         btn13.setPreferredSize(new Dimension(52,72));
         btn13.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn13.setBackground(Color.WHITE);
 
-        add(btn14);
+        mainPanel.add(btn14);
         btn14.setPreferredSize(new Dimension(52,72));
         btn14.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn14.setBackground(Color.WHITE);
 
-        add(btn15);
+        mainPanel.add(btn15);
         btn15.setPreferredSize(new Dimension(52,72));
         btn15.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn15.setBackground(Color.WHITE);
 
-        add(btn16);
+        mainPanel.add(btn16);
         btn16.setPreferredSize(new Dimension(52,72));
         btn16.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn16.setBackground(Color.WHITE);
 
-        add(btn17);
+        mainPanel.add(btn17);
         btn17.setPreferredSize(new Dimension(52,72));
         btn17.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn17.setBackground(Color.WHITE);
 
-        add(btn18);
+        mainPanel.add(btn18);
         btn18.setPreferredSize(new Dimension(52,72));
         btn18.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn18.setBackground(Color.WHITE);
 
-        add(btn19);
+        mainPanel.add(btn19);
         btn19.setPreferredSize(new Dimension(52,72));
         btn19.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn19.setBackground(Color.WHITE);
 
-        add(btn20);
+        mainPanel.add(btn20);
         btn20.setPreferredSize(new Dimension(52,72));
         btn20.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn20.setBackground(Color.WHITE);
 
-        add(btn21);
+        mainPanel.add(btn21);
         btn21.setPreferredSize(new Dimension(52,72));
         btn21.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn21.setBackground(Color.WHITE);
 
-        add(btn22);
+        mainPanel.add(btn22);
         btn22.setPreferredSize(new Dimension(52,72));
         btn22.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn22.setBackground(Color.WHITE);
 
-        add(btn23);
+        mainPanel.add(btn23);
         btn23.setPreferredSize(new Dimension(52,72));
         btn23.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn23.setBackground(Color.WHITE);
 
-        add(btn24);
+        mainPanel.add(btn24);
         btn24.setPreferredSize(new Dimension(52,72));
         btn24.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn24.setBackground(Color.WHITE);
@@ -374,6 +381,9 @@ public class GuiTest extends JPanel implements ActionListener{
             iconArray[j] = temp;
         }
         return iconArray;
+    }
+    public static void main(String[] args) {
+        BoardGUI guiTest = new BoardGUI();
     }
     }
 

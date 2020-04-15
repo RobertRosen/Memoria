@@ -1,12 +1,11 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Start extends JPanel {
+public class MenuGUI extends JFrame {
 
+    private JPanel mainPanel = new JPanel();
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
     private JPanel westPanel = new JPanel();
@@ -44,13 +43,16 @@ public class Start extends JPanel {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-    public Start() {
+    public MenuGUI() {
 
-        setPreferredSize(new Dimension(940, 430));
-        setBackground(Color.WHITE);
+        setSize(940, 430);
+        setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainPanel.setBackground(Color.WHITE);
 
-        add(westPanel);
-        westPanel.setPreferredSize(new Dimension(450,340));
+        add(mainPanel);
+        mainPanel.add(westPanel);
+        westPanel.setPreferredSize(new Dimension(450, 340));
         westPanel.setBackground(Color.WHITE);
         westPanel.add(ghost);
         westPanel.add(memoria);
@@ -101,7 +103,7 @@ public class Start extends JPanel {
         btnMulti.setBackground(Color.WHITE);
         panel.add(ghost5);
 
-        // btnSnigle.addActionListener(this);
+
         btnSnigle.addMouseListener(new MouseSingel());
         btnMulti.addMouseListener(new MouseMulti());
         btnOP.addMouseListener(new MouseOP());
@@ -120,76 +122,97 @@ public class Start extends JPanel {
         btnIS.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         panel2.add(ghost7);
 
-        add(score);
+        mainPanel.add(score);
 
     }
-    class MouseMulti implements MouseListener{
+
+    class MouseMulti implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            new Run();
+          new BoardGUI();
+          dispose();
         }
+
         public void mousePressed(MouseEvent e) {
         }
+
         public void mouseReleased(MouseEvent e) {
         }
+
         public void mouseEntered(MouseEvent e) {
             pointer2.setVisible(true);
         }
+
         public void mouseExited(MouseEvent e) {
             pointer2.setVisible(false);
         }
     }
-    class MouseSingel implements MouseListener{
+
+    class MouseSingel implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             // new Run();
         }
+
         public void mousePressed(MouseEvent e) {
         }
+
         public void mouseReleased(MouseEvent e) {
         }
+
         public void mouseEntered(MouseEvent e) {
             pointer.setVisible(true);
         }
+
         public void mouseExited(MouseEvent e) {
             pointer.setVisible(false);
         }
     }
-    class MouseOP implements MouseListener{
+
+    class MouseOP implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             //   new Run();
         }
+
         public void mousePressed(MouseEvent e) {
         }
+
         public void mouseReleased(MouseEvent e) {
         }
+
         public void mouseEntered(MouseEvent e) {
             pointer3.setVisible(true);
         }
+
         public void mouseExited(MouseEvent e) {
             pointer3.setVisible(false);
         }
     }
-    class MouseIS implements MouseListener{
+
+    class MouseIS implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             // new Run();
         }
+
         public void mousePressed(MouseEvent e) {
         }
+
         public void mouseReleased(MouseEvent e) {
         }
+
         public void mouseEntered(MouseEvent e) {
             pointer4.setVisible(true);
         }
+
         public void mouseExited(MouseEvent e) {
             pointer4.setVisible(false);
         }
     }
 
-   public static void main(String[] args) {
-        Start start = new Start();
+/*    public static void main(String[] args) {
+        MenuGUI start = new MenuGUI();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.add(start);
         frame.pack();
-    }
+    }*/
 }
