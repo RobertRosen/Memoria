@@ -81,7 +81,6 @@ public class BoardGUI extends JFrame implements ActionListener{
        // Mpanel.setBackground(Color.WHITE);
         label.setPreferredSize(new Dimension(250,55));
 
-
         mainPanel.add(btn1);
         btn1.setPreferredSize(new Dimension(110,150));
         btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -238,3 +237,6 @@ public class BoardGUI extends JFrame implements ActionListener{
         BoardGUI guiTest = new BoardGUI();
     }
     }
+
+
+
