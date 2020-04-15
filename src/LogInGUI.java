@@ -15,7 +15,7 @@ public class LogInGUI extends JFrame {
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
     private JButton btnlogin = new JButton("Enter the game");
 
-    public void setUpGUI()
+    public LogInGUI()
     {
         frame.setSize(400,300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -57,12 +57,13 @@ public class LogInGUI extends JFrame {
                 JOptionPane.showMessageDialog(null,"Welcome " + txtUser.getText());
 
                 Start start = new Start();
-                JFrame frame = new JFrame();
-                frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-                frame.setVisible(true);
-                frame.add(start);
-                frame.pack();
-                dispose();
+
+                JFrame secondframe = new JFrame();
+                secondframe.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+                secondframe.setVisible(true);
+                secondframe.add(start);
+                secondframe.pack();
+                frame.dispose();
             }else {
                 JOptionPane.showMessageDialog(null,"Invalid username");
             }
@@ -73,6 +74,6 @@ public class LogInGUI extends JFrame {
 
     public static void main(String[] args) {
         LogInGUI logInGUI = new LogInGUI();
-        logInGUI.setUpGUI();
+
     }
 }
