@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class Start extends JPanel implements ActionListener {
+public class Start extends JPanel {
 
     private JPanel panel = new JPanel();
     private JPanel panel2 = new JPanel();
@@ -44,7 +44,7 @@ public class Start extends JPanel implements ActionListener {
     private JLabel pointer3 = new JLabel(pi);
     private JLabel pointer4 = new JLabel(pi);
 
-     public Start() {
+    public Start() {
 
         setPreferredSize(new Dimension(940, 430));
         setBackground(Color.WHITE);
@@ -74,15 +74,15 @@ public class Start extends JPanel implements ActionListener {
         ghost6.setPreferredSize(new Dimension(19, 40));
         ghost7.setPreferredSize(new Dimension(26, 40));
 
-       // add(ghost);
+        // add(ghost);
         ghost.setPreferredSize(new Dimension(40, 40));
         //add(memoria);
         memoria.setPreferredSize(new Dimension(260, 40));
-       // add(mathLogo);
+        // add(mathLogo);
 
         //add(ghost3).setPreferredSize(new Dimension(300, 30));
 
-       // add(beat);
+        // add(beat);
         beat.setPreferredSize(new Dimension(450, 70));
 
         westPanel.add(panel).setPreferredSize(new Dimension(350, 130));
@@ -101,11 +101,11 @@ public class Start extends JPanel implements ActionListener {
         btnMulti.setBackground(Color.WHITE);
         panel.add(ghost5);
 
-        btnSnigle.addActionListener(this);
-        btnSnigle.addMouseListener(new Mouse());
-        btnMulti.addMouseListener(new Mouse());
-        btnOP.addActionListener(this);
-        btnIS.addActionListener(this);
+        // btnSnigle.addActionListener(this);
+        btnSnigle.addMouseListener(new MouseSingel());
+        btnMulti.addMouseListener(new MouseMulti());
+        btnOP.addMouseListener(new MouseOP());
+        btnIS.addMouseListener(new MouseIS());
 
 
         westPanel.add(panel2).setPreferredSize(new Dimension(350, 90));
@@ -123,81 +123,68 @@ public class Start extends JPanel implements ActionListener {
         add(score);
 
     }
-    class Mouse implements MouseListener{
-
-        @Override
+    class MouseMulti implements MouseListener{
         public void mouseClicked(MouseEvent e) {
             new Run();
         }
-
-        @Override
         public void mousePressed(MouseEvent e) {
-
         }
-
-        @Override
         public void mouseReleased(MouseEvent e) {
-
         }
-
-        @Override
         public void mouseEntered(MouseEvent e) {
-
-                pointer2.setVisible(true);
-
+            pointer2.setVisible(true);
         }
-
-        @Override
         public void mouseExited(MouseEvent e) {
-
             pointer2.setVisible(false);
-
         }
     }
-    public class SceneChange implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            pointer.setVisible(false);
-            pointer2.setVisible(true);
-            pointer3.setVisible(false);
-            pointer4.setVisible(false);
-            new Run();
-            /*ändra allt så du ärver JFrame istället för JPanel och sedan använd dig av metoden dispore() här så kommer
-              även start Framen att förvinna*/
-
+    class MouseSingel implements MouseListener{
+        public void mouseClicked(MouseEvent e) {
+            // new Run();
         }
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == btnSnigle) {
+        public void mousePressed(MouseEvent e) {
+        }
+        public void mouseReleased(MouseEvent e) {
+        }
+        public void mouseEntered(MouseEvent e) {
             pointer.setVisible(true);
-            pointer2.setVisible(false);
-            pointer3.setVisible(false);
-            pointer4.setVisible(false);
         }
-        if (e.getSource() == btnMulti) {
+        public void mouseExited(MouseEvent e) {
             pointer.setVisible(false);
-            pointer2.setVisible(true);
-            pointer3.setVisible(false);
-            pointer4.setVisible(false);
         }
-        if (e.getSource() == btnOP) {
-            pointer.setVisible(false);
-            pointer2.setVisible(false);
+    }
+    class MouseOP implements MouseListener{
+        public void mouseClicked(MouseEvent e) {
+            //   new Run();
+        }
+        public void mousePressed(MouseEvent e) {
+        }
+        public void mouseReleased(MouseEvent e) {
+        }
+        public void mouseEntered(MouseEvent e) {
             pointer3.setVisible(true);
-            pointer4.setVisible(false);
         }
-        if (e.getSource() == btnIS) {
-            pointer.setVisible(false);
-            pointer2.setVisible(false);
+        public void mouseExited(MouseEvent e) {
             pointer3.setVisible(false);
+        }
+    }
+    class MouseIS implements MouseListener{
+        public void mouseClicked(MouseEvent e) {
+            // new Run();
+        }
+        public void mousePressed(MouseEvent e) {
+        }
+        public void mouseReleased(MouseEvent e) {
+        }
+        public void mouseEntered(MouseEvent e) {
             pointer4.setVisible(true);
         }
-
+        public void mouseExited(MouseEvent e) {
+            pointer4.setVisible(false);
+        }
     }
 
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         Start start = new Start();
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
