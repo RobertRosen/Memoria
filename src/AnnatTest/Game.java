@@ -3,6 +3,9 @@ package AnnatTest;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+Länk till spelet: https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ */
 
 public class Game {
     public static void main(String[] args){

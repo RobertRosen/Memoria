@@ -2,6 +2,11 @@ package AnnatTest;
 
 import javax.swing.*;
 
+
+/*
+Länk till spelet: https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ */
+
 public class Card extends JButton {
 
     private String symbol;

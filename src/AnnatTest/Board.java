@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+/*
+Länk till spelet: https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ */
+
 public class Board extends JFrame {
     private List<Card> cards;
     private Card selectedCard;
