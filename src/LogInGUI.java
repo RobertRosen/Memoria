@@ -6,66 +6,62 @@ import java.awt.event.ActionListener;
 public class LogInGUI extends JFrame {
 
     private JFrame frame = new JFrame();
-    private JPanel panel = new JPanel();
-    private JLabel lblGame = new JLabel("Welcome to Memoria");
-    private JLabel lblUser = new JLabel("Username");
-    private JTextField txtUser = new JTextField();
-    private JLabel lblPassword = new JLabel("Password");
-    private JTextField txtPassword = new JTextField();
-    private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
-    private JButton btnlogin = new JButton("Enter the game");
 
-    public LogInGUI()
-    {
-        frame.setSize(400,300);
+    private JPanel pnlMain = new JPanel();
+
+    private JLabel lblGame = new JLabel("Welcome to Memoria");
+    private JLabel lblUsername = new JLabel("Username");
+    private JLabel lblPassword = new JLabel("Password");
+
+    private JTextField txtUsername = new JTextField();
+    private JTextField txtPassword = new JTextField();
+
+    private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
+
+    private JButton btnLogin = new JButton("Enter the game");
+
+    public LogInGUI() {
+        frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-        frame.add(panel);
+        frame.add(pnlMain);
 
         lblGame.setFont(myFont);
 
-        panel.setLayout(null);
+        pnlMain.setLayout(null);
 
-        lblGame.setBounds(80,20,300,50);
-        panel.add(lblGame);
+        lblGame.setBounds(80, 20, 300, 50);
+        lblUsername.setBounds(80, 20, 100, 100);
+        lblPassword.setBounds(80, 60, 100, 100);
+        txtUsername.setBounds(160, 60, 165, 25);
+        txtPassword.setBounds(160, 100, 165, 25);
+        btnLogin.setBounds(120, 150, 150, 40);
 
-        lblUser.setBounds(80,20,100,100);
-        panel.add(lblUser);
+        pnlMain.add(lblGame);
+        pnlMain.add(lblUsername);
+        pnlMain.add(txtUsername);
+        pnlMain.add(lblPassword);
+        pnlMain.add(txtPassword);
+        pnlMain.add(btnLogin);
 
-        txtUser.setBounds(160,60,165,25);
-        panel.add(txtUser);
-
-        lblPassword.setBounds(80,60,100,100);
-        panel.add(lblPassword);
-
-        txtPassword.setBounds(160,100,165,25);
-        panel.add(txtPassword);
-
-        btnlogin.setBounds(120,150,150,40);
-        panel.add(btnlogin);
-
-        btnlogin.addActionListener(new Listener());
-
+        btnLogin.addActionListener(new Listener());
     }
 
-    class Listener implements ActionListener {
+    private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            if (txtUser.getText().trim().length() <= 10 && txtUser.getText().trim().length() >= 3 ){
-                JOptionPane.showMessageDialog(null,"Welcome " + txtUser.getText());
+            if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
+                JOptionPane.showMessageDialog(null, "Welcome " + txtUsername.getText());
 
-                MenuGUI start = new MenuGUI();
+                new MenuGUI();
                 frame.dispose();
-            }else {
-                JOptionPane.showMessageDialog(null,"Invalid username");
+            } else {
+                JOptionPane.showMessageDialog(null, "Invalid username");
             }
-
         }
     }
 
-
     public static void main(String[] args) {
         LogInGUI logInGUI = new LogInGUI();
-
     }
 }

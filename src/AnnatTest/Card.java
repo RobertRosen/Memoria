@@ -22,11 +22,11 @@ public class Card extends JButton {
         this.symbol = symbol;
     }
 
-    public void setMatched(boolean matched){
+    public void setMatched(boolean matched) {
         this.matched = matched;
     }
 
-    public boolean getMatched(){
+    public boolean getMatched() {
         return this.matched;
     }
 }

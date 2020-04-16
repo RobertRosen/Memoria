@@ -75,16 +75,8 @@ public class MenuGUI extends JFrame {
         ghost5.setPreferredSize(new Dimension(30, 40));
         ghost6.setPreferredSize(new Dimension(19, 40));
         ghost7.setPreferredSize(new Dimension(26, 40));
-
-        // add(ghost);
         ghost.setPreferredSize(new Dimension(40, 40));
-        //add(memoria);
         memoria.setPreferredSize(new Dimension(260, 40));
-        // add(mathLogo);
-
-        //add(ghost3).setPreferredSize(new Dimension(300, 30));
-
-        // add(beat);
         beat.setPreferredSize(new Dimension(450, 70));
 
         westPanel.add(panel).setPreferredSize(new Dimension(350, 130));
@@ -103,17 +95,14 @@ public class MenuGUI extends JFrame {
         btnMulti.setBackground(Color.WHITE);
         panel.add(ghost5);
 
-
         btnSnigle.addMouseListener(new MouseSingel());
         btnMulti.addMouseListener(new MouseMulti());
         btnOP.addMouseListener(new MouseOP());
         btnIS.addMouseListener(new MouseIS());
 
-
         westPanel.add(panel2).setPreferredSize(new Dimension(350, 90));
         panel2.add(pointer3);
         panel2.setBackground(Color.WHITE);
-        //  panel2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         panel2.add(btnOP).setPreferredSize(new Dimension(75, 75));
         panel2.add(ghost6);
         panel2.add(pointer4);
@@ -123,13 +112,12 @@ public class MenuGUI extends JFrame {
         panel2.add(ghost7);
 
         mainPanel.add(score);
-
     }
 
-    class MouseMulti implements MouseListener {
+    private class MouseMulti implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-          new BoardGUI();
-          dispose();
+            new BoardGUI();
+            dispose();
         }
 
         public void mousePressed(MouseEvent e) {
@@ -147,9 +135,8 @@ public class MenuGUI extends JFrame {
         }
     }
 
-    class MouseSingel implements MouseListener {
+    private class MouseSingel implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            // new Run();
         }
 
         public void mousePressed(MouseEvent e) {
@@ -167,9 +154,8 @@ public class MenuGUI extends JFrame {
         }
     }
 
-    class MouseOP implements MouseListener {
+    private class MouseOP implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            //   new Run();
         }
 
         public void mousePressed(MouseEvent e) {
@@ -187,9 +173,8 @@ public class MenuGUI extends JFrame {
         }
     }
 
-    class MouseIS implements MouseListener {
+    private class MouseIS implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            // new Run();
         }
 
         public void mousePressed(MouseEvent e) {

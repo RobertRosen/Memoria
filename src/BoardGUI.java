@@ -2,9 +2,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Random;
 
-public class BoardGUI extends JFrame implements ActionListener{
+public class BoardGUI extends JFrame implements ActionListener {
+
 
     private JPanel mainPanel = new JPanel();
     private JPanel panel = new JPanel();
@@ -16,7 +16,7 @@ public class BoardGUI extends JFrame implements ActionListener{
     private JPanel infoPanel2 = new JPanel();
     private JPanel scorePanel = new JPanel();
 
-   // private JPanel panelBonus = new JPanel();
+    // private JPanel panelBonus = new JPanel();
 
     private ImageIcon card = new ImageIcon("images/math4.jpg");
     private ImageIcon iconPlus = new ImageIcon("images/plus.gif");
@@ -32,30 +32,30 @@ public class BoardGUI extends JFrame implements ActionListener{
     private ImageIcon red = new ImageIcon("images/blue.jpg");
     private ImageIcon mathLogo = new ImageIcon("images/mathLogo.JPG");
 
-    private JButton btn1= new JButton(card);
-    private JButton btn2= new JButton(card);
-    private JButton btn3= new JButton(card);
-    private JButton btn4= new JButton(card);
-    private JButton btn5= new JButton(card);
-    private JButton btn6= new JButton(card);
-    private JButton btn7= new JButton(card);
-    private JButton btn8= new JButton(card);
-    private JButton btn9= new JButton(card);
-    private JButton btn10= new JButton(card);
-    private JButton btn11= new JButton(card);
-    private JButton btn12= new JButton(card);
-    private JButton btn13= new JButton(card);
-    private JButton btn14= new JButton(card);
-    private JButton btn15= new JButton(card);
-    private JButton btn16= new JButton(card);
-    private JButton btn17= new JButton(card);
-    private JButton btn18= new JButton(card);
-    private JButton btn19= new JButton(card);
-    private JButton btn20= new JButton(card);
-    private JButton btn21= new JButton(card);
-    private JButton btn22= new JButton(card);
-    private JButton btn23= new JButton(card);
-    private JButton btn24= new JButton(card);
+    private JButton btn1 = new JButton(card);
+    private JButton btn2 = new JButton(card);
+    private JButton btn3 = new JButton(card);
+    private JButton btn4 = new JButton(card);
+    private JButton btn5 = new JButton(card);
+    private JButton btn6 = new JButton(card);
+    private JButton btn7 = new JButton(card);
+    private JButton btn8 = new JButton(card);
+    private JButton btn9 = new JButton(card);
+    private JButton btn10 = new JButton(card);
+    private JButton btn11 = new JButton(card);
+    private JButton btn12 = new JButton(card);
+    private JButton btn13 = new JButton(card);
+    private JButton btn14 = new JButton(card);
+    private JButton btn15 = new JButton(card);
+    private JButton btn16 = new JButton(card);
+    private JButton btn17 = new JButton(card);
+    private JButton btn18 = new JButton(card);
+    private JButton btn19 = new JButton(card);
+    private JButton btn20 = new JButton(card);
+    private JButton btn21 = new JButton(card);
+    private JButton btn22 = new JButton(card);
+    private JButton btn23 = new JButton(card);
+    private JButton btn24 = new JButton(card);
 
     private JButton panelBonus = new JButton(bonus);
     private JLabel logo1 = new JLabel(logo);
@@ -73,7 +73,8 @@ public class BoardGUI extends JFrame implements ActionListener{
     private JLabel ghost8 = new JLabel(red);
     private JLabel ghost9 = new JLabel(mathLogo);
     private JLabel ghost10 = new JLabel();
-    public BoardGUI(){
+
+    public BoardGUI() {
 
         setSize(1000, 500);
         setVisible(true);
@@ -85,147 +86,146 @@ public class BoardGUI extends JFrame implements ActionListener{
         mainPanel.add(label);
         mainPanel.add(ghost9);
         mainPanel.add(ghost10);
-        ghost9.setPreferredSize(new Dimension(135,35));
-        ghost10.setPreferredSize(new Dimension(265,35));
+        ghost9.setPreferredSize(new Dimension(135, 35));
+        ghost10.setPreferredSize(new Dimension(265, 35));
         //label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        ghost.setPreferredSize(new Dimension(340,20));
-        ghost2.setPreferredSize(new Dimension(340,20));
-        ghost3.setPreferredSize(new Dimension(125,20));
-        ghost4.setPreferredSize(new Dimension(125,20));
-        ghost5.setPreferredSize(new Dimension(120,18));
-        ghost6.setPreferredSize(new Dimension(120,18));
-        ghost7.setPreferredSize(new Dimension(125,20));
-        ghost8.setPreferredSize(new Dimension(125,20));
+        ghost.setPreferredSize(new Dimension(340, 20));
+        ghost2.setPreferredSize(new Dimension(340, 20));
+        ghost3.setPreferredSize(new Dimension(125, 20));
+        ghost4.setPreferredSize(new Dimension(125, 20));
+        ghost5.setPreferredSize(new Dimension(120, 18));
+        ghost6.setPreferredSize(new Dimension(120, 18));
+        ghost7.setPreferredSize(new Dimension(125, 20));
+        ghost8.setPreferredSize(new Dimension(125, 20));
 
         mainPanel.add(Mpanel);
-        Mpanel.setPreferredSize(new Dimension(670,386));
-       // Mpanel.setBackground(Color.WHITE);
-        label.setPreferredSize(new Dimension(250,55));
+        Mpanel.setPreferredSize(new Dimension(670, 386));
+        // Mpanel.setBackground(Color.WHITE);
+        label.setPreferredSize(new Dimension(250, 55));
 
-
+        //TODO - Ska kortas ner med en for-loop.
         mainPanel.add(btn1);
-        btn1.setPreferredSize(new Dimension(52,72));
+        btn1.setPreferredSize(new Dimension(52, 72));
         btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn1.setBackground(Color.WHITE);
 
         mainPanel.add(btn2);
-        btn2.setPreferredSize(new Dimension(52,72));
+        btn2.setPreferredSize(new Dimension(52, 72));
         btn2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn2.setBackground(Color.WHITE);
 
         mainPanel.add(btn3);
-        btn3.setPreferredSize(new Dimension(52,72));
+        btn3.setPreferredSize(new Dimension(52, 72));
         btn3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn3.setBackground(Color.WHITE);
 
         mainPanel.add(btn4);
-        btn4.setPreferredSize(new Dimension(52,72));
+        btn4.setPreferredSize(new Dimension(52, 72));
         btn4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn4.setBackground(Color.WHITE);
 
         mainPanel.add(btn5);
-        btn5.setPreferredSize(new Dimension(52,72));
+        btn5.setPreferredSize(new Dimension(52, 72));
         btn5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn5.setBackground(Color.WHITE);
 
         mainPanel.add(btn6);
-        btn6.setPreferredSize(new Dimension(52,72));
+        btn6.setPreferredSize(new Dimension(52, 72));
         btn6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn6.setBackground(Color.WHITE);
 
         mainPanel.add(btn7);
-        btn7.setPreferredSize(new Dimension(52,72));
+        btn7.setPreferredSize(new Dimension(52, 72));
         btn7.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn7.setBackground(Color.WHITE);
 
         mainPanel.add(btn8);
-        btn8.setPreferredSize(new Dimension(52,72));
+        btn8.setPreferredSize(new Dimension(52, 72));
         btn8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn8.setBackground(Color.WHITE);
 
         mainPanel.add(btn9);
-        btn9.setPreferredSize(new Dimension(52,72));
+        btn9.setPreferredSize(new Dimension(52, 72));
         btn9.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn9.setBackground(Color.WHITE);
 
         mainPanel.add(btn10);
-        btn10.setPreferredSize(new Dimension(52,72));
+        btn10.setPreferredSize(new Dimension(52, 72));
         btn10.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn10.setBackground(Color.WHITE);
 
         mainPanel.add(btn11);
-        btn11.setPreferredSize(new Dimension(52,72));
+        btn11.setPreferredSize(new Dimension(52, 72));
         btn11.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn11.setBackground(Color.WHITE);
 
         mainPanel.add(btn12);
-        btn12.setPreferredSize(new Dimension(52,72));
+        btn12.setPreferredSize(new Dimension(52, 72));
         btn12.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn12.setBackground(Color.WHITE);
 
         mainPanel.add(btn13);
-        btn13.setPreferredSize(new Dimension(52,72));
+        btn13.setPreferredSize(new Dimension(52, 72));
         btn13.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn13.setBackground(Color.WHITE);
 
         mainPanel.add(btn14);
-        btn14.setPreferredSize(new Dimension(52,72));
+        btn14.setPreferredSize(new Dimension(52, 72));
         btn14.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn14.setBackground(Color.WHITE);
 
         mainPanel.add(btn15);
-        btn15.setPreferredSize(new Dimension(52,72));
+        btn15.setPreferredSize(new Dimension(52, 72));
         btn15.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn15.setBackground(Color.WHITE);
 
         mainPanel.add(btn16);
-        btn16.setPreferredSize(new Dimension(52,72));
+        btn16.setPreferredSize(new Dimension(52, 72));
         btn16.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn16.setBackground(Color.WHITE);
 
         mainPanel.add(btn17);
-        btn17.setPreferredSize(new Dimension(52,72));
+        btn17.setPreferredSize(new Dimension(52, 72));
         btn17.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn17.setBackground(Color.WHITE);
 
         mainPanel.add(btn18);
-        btn18.setPreferredSize(new Dimension(52,72));
+        btn18.setPreferredSize(new Dimension(52, 72));
         btn18.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn18.setBackground(Color.WHITE);
 
         mainPanel.add(btn19);
-        btn19.setPreferredSize(new Dimension(52,72));
+        btn19.setPreferredSize(new Dimension(52, 72));
         btn19.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn19.setBackground(Color.WHITE);
 
         mainPanel.add(btn20);
-        btn20.setPreferredSize(new Dimension(52,72));
+        btn20.setPreferredSize(new Dimension(52, 72));
         btn20.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn20.setBackground(Color.WHITE);
 
         mainPanel.add(btn21);
-        btn21.setPreferredSize(new Dimension(52,72));
+        btn21.setPreferredSize(new Dimension(52, 72));
         btn21.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn21.setBackground(Color.WHITE);
 
         mainPanel.add(btn22);
-        btn22.setPreferredSize(new Dimension(52,72));
+        btn22.setPreferredSize(new Dimension(52, 72));
         btn22.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn22.setBackground(Color.WHITE);
 
         mainPanel.add(btn23);
-        btn23.setPreferredSize(new Dimension(52,72));
+        btn23.setPreferredSize(new Dimension(52, 72));
         btn23.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn23.setBackground(Color.WHITE);
 
         mainPanel.add(btn24);
-        btn24.setPreferredSize(new Dimension(52,72));
+        btn24.setPreferredSize(new Dimension(52, 72));
         btn24.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         btn24.setBackground(Color.WHITE);
 
 
-
-
+        //TODO - Ska kortas ner med en for-loop.
         btn1.addActionListener(this);
         btn2.addActionListener(this);
         btn3.addActionListener(this);
@@ -254,9 +254,10 @@ public class BoardGUI extends JFrame implements ActionListener{
         Mpanel.add(panel);
         //panel.setBorder(BorderFactory.createTitledBorder(""));
         panel.add(ghost);
-        panel.setPreferredSize(new Dimension(380,380));
+        panel.setPreferredSize(new Dimension(380, 380));
         panel.setBackground(Color.WHITE);
         //panel.add(label);
+        // TODO - Ska kortas ner med en for-loop.
         panel.add(btn1);
         panel.add(btn2);
         panel.add(btn3);
@@ -285,15 +286,15 @@ public class BoardGUI extends JFrame implements ActionListener{
 
         Mpanel.add(estPanel);
         estPanel.add(ghost3);
-        estPanel.setPreferredSize(new Dimension(126,380));
+        estPanel.setPreferredSize(new Dimension(126, 380));
         estPanel.setBackground(Color.WHITE);
 
-        estPanel.add(panelP1).setPreferredSize(new Dimension(126,100));
-        estPanel.add(panelP2).setPreferredSize(new Dimension(126,100));
-       // estPanel.setBorder(BorderFactory.createTitledBorder(""));
+        estPanel.add(panelP1).setPreferredSize(new Dimension(126, 100));
+        estPanel.add(panelP2).setPreferredSize(new Dimension(126, 100));
+        // estPanel.setBorder(BorderFactory.createTitledBorder(""));
         estPanel.add(ghost6);
-        estPanel.add(panelBonus).setPreferredSize(new Dimension(126,50));
-       // estPanel.add(logo1).setPreferredSize(new Dimension(126,100));
+        estPanel.add(panelBonus).setPreferredSize(new Dimension(126, 50));
+        // estPanel.add(logo1).setPreferredSize(new Dimension(126,100));
         panelP1.setBorder(BorderFactory.createTitledBorder("Player one score"));
         panelP1.setBackground(Color.WHITE);
         panelP2.setBorder(BorderFactory.createTitledBorder("Player two score"));
@@ -303,69 +304,70 @@ public class BoardGUI extends JFrame implements ActionListener{
 
         Mpanel.add(infoPanel, BorderLayout.EAST);
         Mpanel.setBackground(Color.WHITE);
-        infoPanel.setPreferredSize(new Dimension(126,380));
+        infoPanel.setPreferredSize(new Dimension(126, 380));
         infoPanel.add(ghost7);
         infoPanel.setBackground(Color.WHITE);
         infoPanel.add(infoPanel2);
         infoPanel.add(scorePanel);
-        infoPanel.add(logo1).setPreferredSize(new Dimension(126,96));
+        infoPanel.add(logo1).setPreferredSize(new Dimension(126, 96));
         infoPanel.add(ghost8);
-        infoPanel2.setPreferredSize(new Dimension(126,100));
-        scorePanel.setPreferredSize(new Dimension(126,100));
+        infoPanel2.setPreferredSize(new Dimension(126, 100));
+        scorePanel.setPreferredSize(new Dimension(126, 100));
         infoPanel2.setBorder(BorderFactory.createTitledBorder("Info"));
         infoPanel2.setBackground(Color.WHITE);
         scorePanel.setBorder(BorderFactory.createTitledBorder("Highscore"));
         scorePanel.setBackground(Color.WHITE);
 
-       // estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
-       // estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        // estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
+        // estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
         this.iconArray = randomArray();
 
     }
 
-        public void actionPerformed(ActionEvent e){
-            if (e.getSource() == btn1) {
-                Image temp = iconArray[0].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn1.setIcon(icon);
+    //TODO - Ska kortas ner med en for-loop.
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == btn1) {
+            Image temp = iconArray[0].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn1.setIcon(icon);
 
-            }
-            if (e.getSource() == btn2) {
-                Image temp = iconArray[1].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn2.setIcon(icon);
-
-            }
-            if (e.getSource() == btn3) {
-                Image temp = iconArray[2].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn3.setIcon(icon);
-            }
-            if (e.getSource() == btn4) {
-                Image temp = iconArray[3].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn4.setIcon(icon);
-            }
-            if (e.getSource() == btn5) {
-                Image temp = iconArray[4].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn5.setIcon(icon);
-            }
-            if (e.getSource() == btn6) {
-                Image temp = iconArray[5].getImage();
-                Image resizedImage = temp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH);
-                ImageIcon icon = new ImageIcon(resizedImage);
-                btn6.setIcon(icon);
-            }
         }
+        if (e.getSource() == btn2) {
+            Image temp = iconArray[1].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn2.setIcon(icon);
 
-    public ImageIcon[] randomArray () {
+        }
+        if (e.getSource() == btn3) {
+            Image temp = iconArray[2].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn3.setIcon(icon);
+        }
+        if (e.getSource() == btn4) {
+            Image temp = iconArray[3].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn4.setIcon(icon);
+        }
+        if (e.getSource() == btn5) {
+            Image temp = iconArray[4].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn5.setIcon(icon);
+        }
+        if (e.getSource() == btn6) {
+            Image temp = iconArray[5].getImage();
+            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon icon = new ImageIcon(resizedImage);
+            btn6.setIcon(icon);
+        }
+    }
+
+    private ImageIcon[] randomArray() {
         iconArray[0] = iconPlus;
         iconArray[1] = iconMinus;
         iconArray[2] = iconPlus2;
@@ -373,7 +375,7 @@ public class BoardGUI extends JFrame implements ActionListener{
         iconArray[4] = iconPi;
         iconArray[5] = iconPi2;
 
-
+//Källa
         for (int i = iconArray.length - 1; i > 0; i--) {
             int j = (int) Math.floor(Math.random() * (i + 1));
             ImageIcon temp = iconArray[i];
@@ -382,10 +384,11 @@ public class BoardGUI extends JFrame implements ActionListener{
         }
         return iconArray;
     }
+
     public static void main(String[] args) {
         BoardGUI guiTest = new BoardGUI();
     }
-    }
+}
 
 
 

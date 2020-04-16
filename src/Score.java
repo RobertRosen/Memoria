@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.*;
 
 public class Score extends JPanel {
@@ -31,20 +30,20 @@ public class Score extends JPanel {
     private JList onlineList = new JList();
     private JLabel ghost2 = new JLabel();
 
-    public Score(){
-        setPreferredSize(new Dimension(445,370));
+    public Score() {
+        setPreferredSize(new Dimension(445, 370));
         setBackground(Color.WHITE);
         add(ghost2);
-        ghost2.setPreferredSize(new Dimension(400,35));
-        blueLabel.setPreferredSize(new Dimension(198,15));
-        blueLabel2.setPreferredSize(new Dimension(198,15));
-        blueLabel3.setPreferredSize(new Dimension(198,15));
-        blueLabel4.setPreferredSize(new Dimension(198,15));
-        Score.setPreferredSize(new Dimension(180,30));
-        On.setPreferredSize(new Dimension(180,30));
-        Off.setPreferredSize(new Dimension(180,30));
+        ghost2.setPreferredSize(new Dimension(400, 35));
+        blueLabel.setPreferredSize(new Dimension(198, 15));
+        blueLabel2.setPreferredSize(new Dimension(198, 15));
+        blueLabel3.setPreferredSize(new Dimension(198, 15));
+        blueLabel4.setPreferredSize(new Dimension(198, 15));
+        Score.setPreferredSize(new Dimension(180, 30));
+        On.setPreferredSize(new Dimension(180, 30));
+        Off.setPreferredSize(new Dimension(180, 30));
 
-        back1.setPreferredSize(new Dimension(25,18));
+        back1.setPreferredSize(new Dimension(25, 18));
         back1.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         add(label);
         add(label2);
@@ -55,19 +54,19 @@ public class Score extends JPanel {
         ctrPanel.setBackground(Color.WHITE);
         wstPanel.setBackground(Color.WHITE);
         estPanel.setBackground(Color.WHITE);
-       // ctrPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        // ctrPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
-        ctrPanel.add(wstPanel).setPreferredSize(new Dimension(200,300));
-        ctrPanel.add(estPanel).setPreferredSize(new Dimension(200,300));
+        ctrPanel.add(wstPanel).setPreferredSize(new Dimension(200, 300));
+        ctrPanel.add(estPanel).setPreferredSize(new Dimension(200, 300));
         wstPanel.add(blueLabel);
         wstPanel.add(Score);
-        wstPanel.add(scoreList).setPreferredSize(new Dimension(200,180));
+        wstPanel.add(scoreList).setPreferredSize(new Dimension(200, 180));
         scoreList.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         wstPanel.add(blueLabel2);
 
         estPanel.add(blueLabel3);
         estPanel.add(On);
-        estPanel.add(onlineList).setPreferredSize(new Dimension(200,180));
+        estPanel.add(onlineList).setPreferredSize(new Dimension(200, 180));
         onlineList.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         estPanel.add(blueLabel4);
     }
