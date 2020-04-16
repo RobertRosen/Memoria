@@ -3,6 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Klassen LogInGUI är ett GUI för login.
+ * @version 1.0
+ * @author Joakim Tell och Yasir Kakar
+ */
 public class LogInGUI extends JFrame {
 
     private JFrame frame = new JFrame();
@@ -20,6 +25,9 @@ public class LogInGUI extends JFrame {
 
     private JButton btnLogin = new JButton("Enter the game");
 
+    /**
+     * Konstruktor som initierar LogInGUI
+     */
     public LogInGUI() {
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,6 +56,10 @@ public class LogInGUI extends JFrame {
         btnLogin.addActionListener(new Listener());
     }
 
+    /**
+     * Lyssnare som kontrollerar längd på usernamet.
+     * Skapar sedan MenuGUI om giltligt användarnamn skrivits in och dispose av LogInGUI.
+     */
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
@@ -60,7 +72,6 @@ public class LogInGUI extends JFrame {
             }
         }
     }
-
     public static void main(String[] args) {
         LogInGUI logInGUI = new LogInGUI();
     }
