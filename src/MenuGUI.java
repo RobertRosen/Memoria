@@ -3,118 +3,144 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * This class contains Memorias main menu
+ * @author Yasir Kakar
+ * @author Adel Sabanovic
+ * @version 1.0
+ * @since 2020-04-16
+ *
+ */
 public class MenuGUI extends JFrame {
 
-    private JPanel mainPanel = new JPanel();
-    private JPanel panel = new JPanel();
-    private JPanel panel2 = new JPanel();
-    private JPanel westPanel = new JPanel();
+    private JPanel pnlMain = new JPanel();
+    private JPanel pnlChoosePlayer = new JPanel();
+    private JPanel pnlSettings = new JPanel();
+    private JPanel pnlWest = new JPanel();
 
     private Score score = new Score();
 
-    private ImageIcon logo = new ImageIcon("images/mem3.JPG");
-    private ImageIcon mthLogo = new ImageIcon("images/mathLogo.JPG");
-    private ImageIcon beatLogo = new ImageIcon("images/beat2.JPG");
-    private ImageIcon single = new ImageIcon("images/single.JPG");
-    private ImageIcon multi = new ImageIcon("images/multi.JPG");
-    private ImageIcon gear = new ImageIcon("images/gear.jpg");
-    private ImageIcon option = new ImageIcon("images/QM2.JPG");
-    private ImageIcon pi = new ImageIcon("images/pi.JPG");
+    private ImageIcon iconLogo = new ImageIcon("images/mem3.JPG");
+    private ImageIcon iconMthLogo = new ImageIcon("images/mathLogo.JPG");
+    private ImageIcon iconBeatLogo = new ImageIcon("images/beat2.JPG");
+    private ImageIcon iconSingle = new ImageIcon("images/single.JPG");
+    private ImageIcon iconMulti = new ImageIcon("images/multi.JPG");
+    private ImageIcon iconGear = new ImageIcon("images/gear.jpg");
+    private ImageIcon iconOption = new ImageIcon("images/QM2.JPG");
+    private ImageIcon iconPi = new ImageIcon("images/pi.JPG");
 
-    private JButton btnOP = new JButton(gear);
-    private JButton btnIS = new JButton(option);
-    private JButton btnSnigle = new JButton(single);
-    private JButton btnMulti = new JButton(multi);
+    private JButton btnSettings = new JButton(iconGear);
+    private JButton btnHelp = new JButton(iconOption);
+    private JButton btnSinglePlayer = new JButton(iconSingle);
+    private JButton btnMultiPlayer = new JButton(iconMulti);
 
-    private JLabel memoria = new JLabel(logo);
-    private JLabel mathLogo = new JLabel(mthLogo);
-    private JLabel beat = new JLabel(beatLogo);
+    private JLabel lblMemoria = new JLabel(iconLogo);
+    private JLabel lblMathLogo = new JLabel(iconMthLogo);
+    private JLabel lblBeat = new JLabel(iconBeatLogo);
 
-    private JLabel ghost = new JLabel();
-    private JLabel ghost2 = new JLabel();
-    private JLabel ghost3 = new JLabel();
-    private JLabel ghost4 = new JLabel();
-    private JLabel ghost5 = new JLabel();
-    private JLabel ghost6 = new JLabel();
-    private JLabel ghost7 = new JLabel();
+    private JLabel lblGhost = new JLabel();
+    private JLabel lblGhost2 = new JLabel();
+    private JLabel lblGhost3 = new JLabel();
+    private JLabel lblGhost4 = new JLabel();
+    private JLabel lblGhost5 = new JLabel();
+    private JLabel lblGhost6 = new JLabel();
+    private JLabel lblGhost7 = new JLabel();
 
-    private JLabel pointer = new JLabel(pi);
-    private JLabel pointer2 = new JLabel(pi);
-    private JLabel pointer3 = new JLabel(pi);
-    private JLabel pointer4 = new JLabel(pi);
+    private JLabel lblPiSinglePlayer = new JLabel(iconPi);
+    private JLabel lblPiMultiPlayer = new JLabel(iconPi);
+    private JLabel lblPiSettings = new JLabel(iconPi);
+    private JLabel lblPiHelp = new JLabel(iconPi);
 
+
+    /**
+     * This method contains Memorias main menu GUI
+     * @author Yasir Kakar
+     * @author Adel Sabanovic
+     * @version 1.0
+     * @since 2020-04-16
+     */
+    //TODO ska kortas ner med en for-loop och hjälpmetoder
     public MenuGUI() {
 
         setSize(940, 430);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        mainPanel.setBackground(Color.WHITE);
+        pnlMain.setBackground(Color.WHITE);
 
-        add(mainPanel);
-        mainPanel.add(westPanel);
-        westPanel.setPreferredSize(new Dimension(450, 340));
-        westPanel.setBackground(Color.WHITE);
-        westPanel.add(ghost);
-        westPanel.add(memoria);
-        westPanel.add(mathLogo);
-        westPanel.add(ghost3);
-        westPanel.add(beat);
-        westPanel.add(panel);
-        westPanel.add(panel2);
+        add(pnlMain);
+        pnlMain.add(pnlWest);
+        pnlWest.setPreferredSize(new Dimension(450, 340));
+        pnlWest.setBackground(Color.WHITE);
+        pnlWest.add(lblGhost);
+        pnlWest.add(lblMemoria);
+        pnlWest.add(lblMathLogo);
+        pnlWest.add(lblGhost3);
+        pnlWest.add(lblBeat);
+        pnlWest.add(pnlChoosePlayer);
+        pnlWest.add(pnlSettings);
 
-        pointer.setPreferredSize(new Dimension(40, 40));
-        pointer.setVisible(false);
-        pointer2.setPreferredSize(new Dimension(40, 40));
-        pointer2.setVisible(false);
-        pointer3.setPreferredSize(new Dimension(40, 40));
-        pointer3.setVisible(false);
-        pointer4.setPreferredSize(new Dimension(40, 40));
-        pointer4.setVisible(false);
+        lblPiSinglePlayer.setPreferredSize(new Dimension(40, 40));
+        lblPiSinglePlayer.setVisible(false);
+        lblPiMultiPlayer.setPreferredSize(new Dimension(40, 40));
+        lblPiMultiPlayer.setVisible(false);
+        lblPiSettings.setPreferredSize(new Dimension(40, 40));
+        lblPiSettings.setVisible(false);
+        lblPiHelp.setPreferredSize(new Dimension(40, 40));
+        lblPiHelp.setVisible(false);
 
-        ghost4.setPreferredSize(new Dimension(30, 40));
-        ghost5.setPreferredSize(new Dimension(30, 40));
-        ghost6.setPreferredSize(new Dimension(19, 40));
-        ghost7.setPreferredSize(new Dimension(26, 40));
-        ghost.setPreferredSize(new Dimension(40, 40));
-        memoria.setPreferredSize(new Dimension(260, 40));
-        beat.setPreferredSize(new Dimension(450, 70));
+        lblGhost4.setPreferredSize(new Dimension(30, 40));
+        lblGhost5.setPreferredSize(new Dimension(30, 40));
+        lblGhost6.setPreferredSize(new Dimension(19, 40));
+        lblGhost7.setPreferredSize(new Dimension(26, 40));
+        lblGhost.setPreferredSize(new Dimension(40, 40));
+        lblMemoria.setPreferredSize(new Dimension(260, 40));
+        lblBeat.setPreferredSize(new Dimension(450, 70));
 
-        westPanel.add(panel).setPreferredSize(new Dimension(350, 130));
-        panel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        panel.setBackground(Color.WHITE);
-        panel.add(pointer);
-        panel.add(btnSnigle);
-        panel.add(ghost4);
-        btnSnigle.setBackground(Color.WHITE);
-        btnSnigle.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        panel.add(ghost2);
-        ghost2.setPreferredSize(new Dimension(300, 30));
-        panel.add(pointer2);
-        panel.add(btnMulti);
-        btnMulti.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        btnMulti.setBackground(Color.WHITE);
-        panel.add(ghost5);
+        pnlWest.add(pnlChoosePlayer).setPreferredSize(new Dimension(350, 130));
+        pnlChoosePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlChoosePlayer.setBackground(Color.WHITE);
+        pnlChoosePlayer.add(lblPiSinglePlayer);
+        pnlChoosePlayer.add(btnSinglePlayer);
+        pnlChoosePlayer.add(lblGhost4);
+        btnSinglePlayer.setBackground(Color.WHITE);
+        btnSinglePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlChoosePlayer.add(lblGhost2);
+        lblGhost2.setPreferredSize(new Dimension(300, 30));
+        pnlChoosePlayer.add(lblPiMultiPlayer);
+        pnlChoosePlayer.add(btnMultiPlayer);
+        btnMultiPlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        btnMultiPlayer.setBackground(Color.WHITE);
+        pnlChoosePlayer.add(lblGhost5);
 
-        btnSnigle.addMouseListener(new MouseSingel());
-        btnMulti.addMouseListener(new MouseMulti());
-        btnOP.addMouseListener(new MouseOP());
-        btnIS.addMouseListener(new MouseIS());
+        btnSinglePlayer.addMouseListener(new MouseSinglePlayer());
+        btnMultiPlayer.addMouseListener(new MouseMultiPlayer());
+        btnSettings.addMouseListener(new MouseSettings());
+        btnHelp.addMouseListener(new MouseHelp());
 
-        westPanel.add(panel2).setPreferredSize(new Dimension(350, 90));
-        panel2.add(pointer3);
-        panel2.setBackground(Color.WHITE);
-        panel2.add(btnOP).setPreferredSize(new Dimension(75, 75));
-        panel2.add(ghost6);
-        panel2.add(pointer4);
-        btnOP.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        panel2.add(btnIS).setPreferredSize(new Dimension(56, 75));
-        btnIS.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        panel2.add(ghost7);
+        pnlWest.add(pnlSettings).setPreferredSize(new Dimension(350, 90));
+        pnlSettings.add(lblPiSettings);
+        pnlSettings.setBackground(Color.WHITE);
+        pnlSettings.add(btnSettings).setPreferredSize(new Dimension(75, 75));
+        pnlSettings.add(lblGhost6);
+        pnlSettings.add(lblPiHelp);
+        btnSettings.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlSettings.add(btnHelp).setPreferredSize(new Dimension(56, 75));
+        btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlSettings.add(lblGhost7);
 
-        mainPanel.add(score);
+        pnlMain.add(score);
     }
 
-    private class MouseMulti implements MouseListener {
+
+    /**
+     * This class contains the listeners that starts Memorias Boards class
+     * @author Yasir Kakar
+     * @author Adel Sabanovic
+     * @version 1.0
+     * @since 2020-04-16
+     *
+     */
+    private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new BoardGUI();
             dispose();
@@ -127,15 +153,15 @@ public class MenuGUI extends JFrame {
         }
 
         public void mouseEntered(MouseEvent e) {
-            pointer2.setVisible(true);
+            lblPiMultiPlayer.setVisible(true);
         }
 
         public void mouseExited(MouseEvent e) {
-            pointer2.setVisible(false);
+            lblPiMultiPlayer.setVisible(false);
         }
     }
 
-    private class MouseSingel implements MouseListener {
+    private class MouseSinglePlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
         }
 
@@ -146,15 +172,15 @@ public class MenuGUI extends JFrame {
         }
 
         public void mouseEntered(MouseEvent e) {
-            pointer.setVisible(true);
+            lblPiSinglePlayer.setVisible(true);
         }
 
         public void mouseExited(MouseEvent e) {
-            pointer.setVisible(false);
+            lblPiSinglePlayer.setVisible(false);
         }
     }
 
-    private class MouseOP implements MouseListener {
+    private class MouseSettings implements MouseListener {
         public void mouseClicked(MouseEvent e) {
         }
 
@@ -165,15 +191,15 @@ public class MenuGUI extends JFrame {
         }
 
         public void mouseEntered(MouseEvent e) {
-            pointer3.setVisible(true);
+            lblPiSettings.setVisible(true);
         }
 
         public void mouseExited(MouseEvent e) {
-            pointer3.setVisible(false);
+            lblPiSettings.setVisible(false);
         }
     }
 
-    private class MouseIS implements MouseListener {
+    private class MouseHelp implements MouseListener {
         public void mouseClicked(MouseEvent e) {
         }
 
@@ -184,11 +210,11 @@ public class MenuGUI extends JFrame {
         }
 
         public void mouseEntered(MouseEvent e) {
-            pointer4.setVisible(true);
+            lblPiHelp.setVisible(true);
         }
 
         public void mouseExited(MouseEvent e) {
-            pointer4.setVisible(false);
+            lblPiHelp.setVisible(false);
         }
     }
 
