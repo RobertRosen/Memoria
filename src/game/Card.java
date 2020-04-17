@@ -19,6 +19,12 @@ public class Card extends JButton {
 
     private boolean matched = false;
 
+    public Card() {
+        setPreferredSize(new Dimension(52, 72));
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setBackground(Color.WHITE);
+    }
+
     public void revealSymbol() {
         imageShowing = new ImageIcon(pathSymbol);
         Image temp = imageShowing.getImage();

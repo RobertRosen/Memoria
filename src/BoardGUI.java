@@ -1,15 +1,24 @@
+import game.Card;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
+ * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
+ * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ *
  * This class contains the game board
  * @author Adel Sabanovic
  * @version 1.0
+ * @version 1.1 Robert
  * @since 2020-04-16
  */
-public class BoardGUI extends JFrame implements ActionListener {
+public class BoardGUI extends JFrame {
 
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
@@ -20,7 +29,6 @@ public class BoardGUI extends JFrame implements ActionListener {
     private JPanel pnlInfo = new JPanel();
     private JPanel pnlInfo2 = new JPanel();
     private JPanel pnlScore = new JPanel();
-
     // private JPanel panelBonus = new JPanel();
 
     private ImageIcon iconCard = new ImageIcon("images/math4.jpg");
@@ -36,31 +44,6 @@ public class BoardGUI extends JFrame implements ActionListener {
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
-
-    private JButton btn1 = new JButton(iconCard);
-    private JButton btn2 = new JButton(iconCard);
-    private JButton btn3 = new JButton(iconCard);
-    private JButton btn4 = new JButton(iconCard);
-    private JButton btn5 = new JButton(iconCard);
-    private JButton btn6 = new JButton(iconCard);
-    private JButton btn7 = new JButton(iconCard);
-    private JButton btn8 = new JButton(iconCard);
-    private JButton btn9 = new JButton(iconCard);
-    private JButton btn10 = new JButton(iconCard);
-    private JButton btn11 = new JButton(iconCard);
-    private JButton btn12 = new JButton(iconCard);
-    private JButton btn13 = new JButton(iconCard);
-    private JButton btn14 = new JButton(iconCard);
-    private JButton btn15 = new JButton(iconCard);
-    private JButton btn16 = new JButton(iconCard);
-    private JButton btn17 = new JButton(iconCard);
-    private JButton btn18 = new JButton(iconCard);
-    private JButton btn19 = new JButton(iconCard);
-    private JButton btn20 = new JButton(iconCard);
-    private JButton btn21 = new JButton(iconCard);
-    private JButton btn22 = new JButton(iconCard);
-    private JButton btn23 = new JButton(iconCard);
-    private JButton btn24 = new JButton(iconCard);
 
     private JButton btnBonus = new JButton(iconBonus);
     private JLabel lblEmptyLogo = new JLabel(iconEmptyLogo);
@@ -79,15 +62,18 @@ public class BoardGUI extends JFrame implements ActionListener {
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
 
-    public BoardGUI() {
+    // Grejer...
+    private Timer timer;
+    private java.util.List<Card> cards;
+    private Card selectedCard;
+    private Card[] pairOfCards = new Card[2];
 
+    public BoardGUI() {
         setSize(1000, 500);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         pnlMain.setBackground(Color.WHITE);
         add(pnlMain);
-
         pnlMain.add(lblMemoriaLogo);
         pnlMain.add(lblGhost9);
         pnlMain.add(lblGhost10);
@@ -102,198 +88,24 @@ public class BoardGUI extends JFrame implements ActionListener {
         lblGhost6.setPreferredSize(new Dimension(120, 18));
         lblGhost7.setPreferredSize(new Dimension(125, 20));
         lblGhost8.setPreferredSize(new Dimension(125, 20));
-
         pnlMain.add(pnlMain2);
         pnlMain2.setPreferredSize(new Dimension(670, 386));
         // Mpanel.setBackground(Color.WHITE);
         lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
-
-        //TODO - Ska kortas ner med en for-loop.
-        pnlMain.add(btn1);
-        btn1.setPreferredSize(new Dimension(52, 72));
-        btn1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn1.setBackground(Color.WHITE);
-
-        pnlMain.add(btn2);
-        btn2.setPreferredSize(new Dimension(52, 72));
-        btn2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn2.setBackground(Color.WHITE);
-
-        pnlMain.add(btn3);
-        btn3.setPreferredSize(new Dimension(52, 72));
-        btn3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn3.setBackground(Color.WHITE);
-
-        pnlMain.add(btn4);
-        btn4.setPreferredSize(new Dimension(52, 72));
-        btn4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn4.setBackground(Color.WHITE);
-
-        pnlMain.add(btn5);
-        btn5.setPreferredSize(new Dimension(52, 72));
-        btn5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn5.setBackground(Color.WHITE);
-
-        pnlMain.add(btn6);
-        btn6.setPreferredSize(new Dimension(52, 72));
-        btn6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn6.setBackground(Color.WHITE);
-
-        pnlMain.add(btn7);
-        btn7.setPreferredSize(new Dimension(52, 72));
-        btn7.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn7.setBackground(Color.WHITE);
-
-        pnlMain.add(btn8);
-        btn8.setPreferredSize(new Dimension(52, 72));
-        btn8.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn8.setBackground(Color.WHITE);
-
-        pnlMain.add(btn9);
-        btn9.setPreferredSize(new Dimension(52, 72));
-        btn9.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn9.setBackground(Color.WHITE);
-
-        pnlMain.add(btn10);
-        btn10.setPreferredSize(new Dimension(52, 72));
-        btn10.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn10.setBackground(Color.WHITE);
-
-        pnlMain.add(btn11);
-        btn11.setPreferredSize(new Dimension(52, 72));
-        btn11.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn11.setBackground(Color.WHITE);
-
-        pnlMain.add(btn12);
-        btn12.setPreferredSize(new Dimension(52, 72));
-        btn12.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn12.setBackground(Color.WHITE);
-
-        pnlMain.add(btn13);
-        btn13.setPreferredSize(new Dimension(52, 72));
-        btn13.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn13.setBackground(Color.WHITE);
-
-        pnlMain.add(btn14);
-        btn14.setPreferredSize(new Dimension(52, 72));
-        btn14.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn14.setBackground(Color.WHITE);
-
-        pnlMain.add(btn15);
-        btn15.setPreferredSize(new Dimension(52, 72));
-        btn15.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn15.setBackground(Color.WHITE);
-
-        pnlMain.add(btn16);
-        btn16.setPreferredSize(new Dimension(52, 72));
-        btn16.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn16.setBackground(Color.WHITE);
-
-        pnlMain.add(btn17);
-        btn17.setPreferredSize(new Dimension(52, 72));
-        btn17.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn17.setBackground(Color.WHITE);
-
-        pnlMain.add(btn18);
-        btn18.setPreferredSize(new Dimension(52, 72));
-        btn18.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn18.setBackground(Color.WHITE);
-
-        pnlMain.add(btn19);
-        btn19.setPreferredSize(new Dimension(52, 72));
-        btn19.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn19.setBackground(Color.WHITE);
-
-        pnlMain.add(btn20);
-        btn20.setPreferredSize(new Dimension(52, 72));
-        btn20.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn20.setBackground(Color.WHITE);
-
-        pnlMain.add(btn21);
-        btn21.setPreferredSize(new Dimension(52, 72));
-        btn21.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn21.setBackground(Color.WHITE);
-
-        pnlMain.add(btn22);
-        btn22.setPreferredSize(new Dimension(52, 72));
-        btn22.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn22.setBackground(Color.WHITE);
-
-        pnlMain.add(btn23);
-        btn23.setPreferredSize(new Dimension(52, 72));
-        btn23.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn23.setBackground(Color.WHITE);
-
-        pnlMain.add(btn24);
-        btn24.setPreferredSize(new Dimension(52, 72));
-        btn24.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        btn24.setBackground(Color.WHITE);
-
-
-        //TODO - Ska kortas ner med en for-loop.
-        btn1.addActionListener(this);
-        btn2.addActionListener(this);
-        btn3.addActionListener(this);
-        btn4.addActionListener(this);
-        btn5.addActionListener(this);
-        btn6.addActionListener(this);
-        btn7.addActionListener(this);
-        btn8.addActionListener(this);
-        btn9.addActionListener(this);
-        btn10.addActionListener(this);
-        btn11.addActionListener(this);
-        btn12.addActionListener(this);
-        btn13.addActionListener(this);
-        btn14.addActionListener(this);
-        btn15.addActionListener(this);
-        btn16.addActionListener(this);
-        btn17.addActionListener(this);
-        btn18.addActionListener(this);
-        btn19.addActionListener(this);
-        btn20.addActionListener(this);
-        btn21.addActionListener(this);
-        btn22.addActionListener(this);
-        btn23.addActionListener(this);
-        btn24.addActionListener(this);
-
         pnlMain2.add(pnlCards);
         //panel.setBorder(BorderFactory.createTitledBorder(""));
         pnlCards.add(lblGhost);
         pnlCards.setPreferredSize(new Dimension(380, 380));
         pnlCards.setBackground(Color.WHITE);
         //panel.add(label);
-        // TODO - Ska kortas ner med en for-loop.
-        pnlCards.add(btn1);
-        pnlCards.add(btn2);
-        pnlCards.add(btn3);
-        pnlCards.add(btn4);
-        pnlCards.add(btn5);
-        pnlCards.add(btn6);
-        pnlCards.add(btn7);
-        pnlCards.add(btn8);
-        pnlCards.add(btn9);
-        pnlCards.add(btn10);
-        pnlCards.add(btn11);
-        pnlCards.add(btn12);
-        pnlCards.add(btn13);
-        pnlCards.add(btn14);
-        pnlCards.add(btn15);
-        pnlCards.add(btn16);
-        pnlCards.add(btn17);
-        pnlCards.add(btn18);
-        pnlCards.add(btn19);
-        pnlCards.add(btn20);
-        pnlCards.add(btn21);
-        pnlCards.add(btn22);
-        pnlCards.add(btn23);
-        pnlCards.add(btn24);
-        pnlCards.add(lblGhost2);
 
+        doGuiStuff();
+
+        pnlCards.add(lblGhost2);
         pnlMain2.add(pnlCenter);
         pnlCenter.add(lblGhost3);
         pnlCenter.setPreferredSize(new Dimension(126, 380));
         pnlCenter.setBackground(Color.WHITE);
-
         pnlCenter.add(pnlPlayer1).setPreferredSize(new Dimension(126, 100));
         pnlCenter.add(pnlPlayer2).setPreferredSize(new Dimension(126, 100));
         // estPanel.setBorder(BorderFactory.createTitledBorder(""));
@@ -325,78 +137,117 @@ public class BoardGUI extends JFrame implements ActionListener {
 
         // estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
         // estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
-        this.iconArray = randomIconArray();
-
     }
 
-    //TODO - Ska kortas ner med en for-loop.
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == btn1) {
-            Image temp = iconArray[0].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn1.setIcon(icon);
+    // Sätter upp i konstruktorn.
+    private void doGuiStuff() {
+        java.util.List<Card> cardsList = new ArrayList<Card>();
+        java.util.List<String> cardSymbolPaths = new ArrayList<String>();
 
+        // Skapa jämna par av symboler. (fler symboler)
+        for (int i = 0; i < 4; i++) {
+            cardSymbolPaths.add("images/minus.gif");
+            cardSymbolPaths.add("images/plus.gif");
+            cardSymbolPaths.add("images/plus2.jpg");
+            cardSymbolPaths.add("images/minus2.jpg");
+            cardSymbolPaths.add("images/pi.jpg");
+            cardSymbolPaths.add("images/pi2.jpg");
         }
-        if (e.getSource() == btn2) {
-            Image temp = iconArray[1].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn2.setIcon(icon);
 
+        Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
+
+        // Skapa jämna par av symboler. (fler symboler)
+        for (String symbol : cardSymbolPaths) {
+            Card card = new Card();
+            card.setPathSymbol(symbol);
+            card.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent ae) {
+                    selectedCard = card;
+                    doTurn();
+                }
+            });
+            card.hideSymbol();
+            cardsList.add(card);
         }
-        if (e.getSource() == btn3) {
-            Image temp = iconArray[2].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn3.setIcon(icon);
+        cards = cardsList;
+
+        setupTimer();
+
+        for (Card card : cards) {
+            pnlMain.add(card);
+            pnlCards.add(card);
         }
-        if (e.getSource() == btn4) {
-            Image temp = iconArray[3].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn4.setIcon(icon);
+    }
+
+    // Timer setup
+    private void setupTimer() {
+        // Fördröjning på visning av kort på EDT.
+        timer = new Timer(750, new ActionListener() {
+            public void actionPerformed(ActionEvent ae) {
+                checkCards();
+            }
+        });
+        timer.setRepeats(false);
+    }
+
+    /**
+     * Vänder upp valt kort.
+     * TODO: Snygga till och eventuellt skapa en par-klass.
+     */
+    public void doTurn() {
+        if (pairOfCards[0] == null) {
+            pairOfCards[0] = selectedCard;
+            pairOfCards[0].revealSymbol();
         }
-        if (e.getSource() == btn5) {
-            Image temp = iconArray[4].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn5.setIcon(icon);
-        }
-        if (e.getSource() == btn6) {
-            Image temp = iconArray[5].getImage();
-            Image resizedImage = temp.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon icon = new ImageIcon(resizedImage);
-            btn6.setIcon(icon);
+
+        if ((pairOfCards[0] != null) && (pairOfCards[0] != selectedCard) && (pairOfCards[1] == null)) {
+            pairOfCards[1] = selectedCard;
+            pairOfCards[1].revealSymbol();
+            timer.start();
         }
     }
 
     /**
-     * Shuffles the player cards randomly on the player board
-     * https://stackoverflow.com/questions/47577638/create-a-memory-game-using-jbuttons
+     * Kontrollera om paret matchar.
+     * Visa matchning och ta korten ur spel, eller vänd tillbaks kort.
+     * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
      */
-
-    private ImageIcon[] randomIconArray() {
-        iconArray[0] = iconPlus;
-        iconArray[1] = iconMinus;
-        iconArray[2] = iconPlus2;
-        iconArray[3] = iconMinus2;
-        iconArray[4] = iconPi;
-        iconArray[5] = iconPi2;
-
-//Källa
-        for (int i = iconArray.length - 1; i > 0; i--) {
-            int j = (int) Math.floor(Math.random() * (i + 1));
-            ImageIcon temp = iconArray[i];
-            iconArray[i] = iconArray[j];
-            iconArray[j] = temp;
+    public void checkCards() {
+        if ((pairOfCards[0].getPathSymbol().substring(0,9).equals(pairOfCards[1].getPathSymbol().substring(0,9))) &&
+                !(pairOfCards[0].getPathSymbol().equals(pairOfCards[1].getPathSymbol()))) {
+            // Matcha paret.
+            pairOfCards[0].setEnabled(false); //disables the button
+            pairOfCards[1].setEnabled(false);
+            pairOfCards[0].setMatched(true); //flags the button as having been matched
+            pairOfCards[1].setMatched(true);
+            if (isGameWon()) {
+                JOptionPane.showMessageDialog(this, "You win!");
+                this.dispose();
+                new BoardGUI();
+            }
+        } else {
+            // Dölj paret
+            for (Card card : pairOfCards) {
+                card.hideSymbol();
+            }
         }
-        return iconArray;
+        Arrays.fill(pairOfCards, null);     // Töm paret av kort.
+    }
+
+    /**
+     *    Kontrollerar om spelet är slut.
+     */
+    private boolean isGameWon() {
+        for (Card card : this.cards) {
+            if (!card.getMatched()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
-        BoardGUI guiTest = new BoardGUI();
+        new BoardGUI();
     }
 }
 
