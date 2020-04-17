@@ -19,7 +19,6 @@ import java.util.Collections;
  * @since 2020-04-16
  */
 public class BoardGUI extends JFrame {
-
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
@@ -31,14 +30,6 @@ public class BoardGUI extends JFrame {
     private JPanel pnlScore = new JPanel();
     // private JPanel panelBonus = new JPanel();
 
-    private ImageIcon iconCard = new ImageIcon("images/math4.jpg");
-    private ImageIcon iconPlus = new ImageIcon("images/plus.gif");
-    private ImageIcon iconMinus = new ImageIcon("images/minus.gif");
-    private ImageIcon iconPlus2 = new ImageIcon("images/plus.gif");
-    private ImageIcon iconMinus2 = new ImageIcon("images/minus.gif");
-    private ImageIcon iconPi = new ImageIcon("");
-    private ImageIcon iconPi2 = new ImageIcon("");
-
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
     private ImageIcon iconEmptyLogo = new ImageIcon();
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
@@ -46,10 +37,8 @@ public class BoardGUI extends JFrame {
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
 
     private JButton btnBonus = new JButton(iconBonus);
+
     private JLabel lblEmptyLogo = new JLabel(iconEmptyLogo);
-
-    private ImageIcon[] iconArray = new ImageIcon[6];
-
     private JLabel lblMemoriaLogo = new JLabel(iconMemoriaLogo);
     private JLabel lblGhost = new JLabel(iconBlueStripe);
     private JLabel lblGhost2 = new JLabel(iconBlueStripe);
@@ -62,7 +51,7 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
 
-    // Grejer...
+    // Komponenter till spelet...
     private Timer timer;
     private java.util.List<Card> cards;
     private Card selectedCard;
@@ -99,7 +88,7 @@ public class BoardGUI extends JFrame {
         pnlCards.setBackground(Color.WHITE);
         //panel.add(label);
 
-        doGuiStuff();
+        setupTheGame();
 
         pnlCards.add(lblGhost2);
         pnlMain2.add(pnlCenter);
@@ -134,13 +123,12 @@ public class BoardGUI extends JFrame {
         pnlInfo2.setBackground(Color.WHITE);
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
         pnlScore.setBackground(Color.WHITE);
-
         // estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
         // estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
-    // Sätter upp i konstruktorn.
-    private void doGuiStuff() {
+    // Hjälper till att sätta upp spelet i konstruktorn.
+    private void setupTheGame() {
         java.util.List<Card> cardsList = new ArrayList<Card>();
         java.util.List<String> cardSymbolPaths = new ArrayList<String>();
 
@@ -179,9 +167,8 @@ public class BoardGUI extends JFrame {
         }
     }
 
-    // Timer setup
+    // Sätter upp en timer på händelsetråden.
     private void setupTimer() {
-        // Fördröjning på visning av kort på EDT.
         timer = new Timer(750, new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 checkCards();
@@ -235,7 +222,8 @@ public class BoardGUI extends JFrame {
     }
 
     /**
-     *    Kontrollerar om spelet är slut.
+     * Kontrollerar om spelet är slut.
+     * TODO: Lös det här snyggare.
      */
     private boolean isGameWon() {
         for (Card card : this.cards) {
@@ -250,6 +238,3 @@ public class BoardGUI extends JFrame {
         new BoardGUI();
     }
 }
-
-
-
