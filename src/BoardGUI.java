@@ -1,5 +1,3 @@
-import game.Card;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -132,18 +130,8 @@ public class BoardGUI extends JFrame {
         ArrayList<Card> cardsList = new ArrayList<Card>();
         ArrayList<String> cardSymbolPaths = new ArrayList<String>();
 
-        // Skapa jämna par av symboler. (fler symboler)
-        for (int i = 0; i < 4; i++) {
-            cardSymbolPaths.add("images/minus.gif");
-            cardSymbolPaths.add("images/plus.gif");
-            cardSymbolPaths.add("images/plus2.jpg");
-            cardSymbolPaths.add("images/minus2.jpg");
-            cardSymbolPaths.add("images/pi.jpg");
-            cardSymbolPaths.add("images/pi2.jpg");
-        }
-
+        cardSymbolPaths = addSymbols();   // Lägg bilder på korten.
         Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
-
         // Skapa jämna par av symboler. (fler symboler)
         for (String symbol : cardSymbolPaths) {
             Card card = new Card();
@@ -175,6 +163,23 @@ public class BoardGUI extends JFrame {
             }
         });
         timer.setRepeats(false);
+    }
+
+    // Lägger bilder/symboler på alla korten.
+    private ArrayList<String> addSymbols() {
+        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
+
+        // Skapa jämna par av symboler. (fler symboler)
+        for (int i = 0; i < 4; i++) {
+            cardSymbolPaths.add("images/minus.gif");
+            cardSymbolPaths.add("images/plus.gif");
+            cardSymbolPaths.add("images/plus2.jpg");
+            cardSymbolPaths.add("images/minus2.jpg");
+            cardSymbolPaths.add("images/pi.jpg");
+            cardSymbolPaths.add("images/pi2.jpg");
+        }
+
+        return cardSymbolPaths;
     }
 
     /**

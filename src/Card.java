@@ -1,5 +1,3 @@
-package game;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -28,7 +26,7 @@ public class Card extends JButton {
     public void revealSymbol() {
         imageShowing = new ImageIcon(pathSymbol);
         Image temp = imageShowing.getImage();
-        Image resizedImage = temp.getScaledInstance(getWidth(), getHeight(), java.awt.Image.SCALE_SMOOTH);
+        Image resizedImage = temp.getScaledInstance(getWidth(), getHeight(), Image.SCALE_SMOOTH);
         ImageIcon icon = new ImageIcon(resizedImage);
         setIcon(icon);
     }
