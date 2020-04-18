@@ -53,7 +53,7 @@ public class BoardGUI extends JFrame {
 
     // Komponenter till spelet...
     private Timer timer;
-    private java.util.List<Card> cards;
+    private ArrayList<Card> cards;
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
 
@@ -129,8 +129,8 @@ public class BoardGUI extends JFrame {
 
     // Hjälper till att sätta upp spelet i konstruktorn.
     private void setupTheGame() {
-        java.util.List<Card> cardsList = new ArrayList<Card>();
-        java.util.List<String> cardSymbolPaths = new ArrayList<String>();
+        ArrayList<Card> cardsList = new ArrayList<Card>();
+        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
 
         // Skapa jämna par av symboler. (fler symboler)
         for (int i = 0; i < 4; i++) {
@@ -226,8 +226,8 @@ public class BoardGUI extends JFrame {
      * TODO: Lös det här snyggare.
      */
     private boolean isGameWon() {
-        for (Card card : this.cards) {
-            if (!card.getMatched()) {
+        for (Card card : cards) {
+            if (!card.isMatched()) {
                 return false;
             }
         }

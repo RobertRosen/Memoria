@@ -122,7 +122,7 @@ public class Board extends JFrame {
     // Kontrollerar om spelet är slut.
     private boolean isGameWon() {
         for (Card card : this.cards) {
-            if (!card.getMatched()) {
+            if (!card.isMatched()) {
                 return false;
             }
         }

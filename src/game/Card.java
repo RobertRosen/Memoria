@@ -51,7 +51,7 @@ public class Card extends JButton {
         this.matched = matched;
     }
 
-    public boolean getMatched() {
+    public boolean isMatched() {
         return matched;
     }
 }
