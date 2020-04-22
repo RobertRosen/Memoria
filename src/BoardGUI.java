@@ -1,18 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
- *
+ * <p>
  * This class contains the game board
+ *
  * @author Adel Sabanovic
- * @version 1.0
  * @version 1.1 Robert
  * @since 2020-04-16
  */
@@ -49,23 +44,83 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
 
-    // Komponenter till spelet...
-    private Timer timer;
-    private ArrayList<Card> cards;
-    private Card selectedCard;
-    private Card[] pairOfCards = new Card[2];
-
     public BoardGUI() {
+        setupFrame();
+
+        setupComponentsSizes();
+        setupComponentsBackgroundColor();
+
+        addComponentsToMainPanel();
+
+        pnlMain2.add(pnlCards);
+
+        pnlCards.add(lblGhost);
+
+//        setupTheGame();                   Måste organiseras så att spelet sätts upp här...
+
+        pnlCards.add(lblGhost2);
+
+        pnlMain2.add(pnlCenter);
+
+        pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
+        pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
+
+        addComponentsToCenter();
+
+        pnlMain2.add(pnlInfo, BorderLayout.EAST);
+
+        addComponentsToInfo();
+
+        pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
+        pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
+
+        // Not in use
+//         Mpanel.setBackground(Color.WHITE);
+//         panel.setBorder(BorderFactory.createTitledBorder(""));
+//         panel.add(label);
+//         estPanel.setBorder(BorderFactory.createTitledBorder(""));
+//         estPanel.add(logo1).setPreferredSize(new Dimension(126,100));
+//         estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
+//         estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    }
+
+    private void setupFrame() {
         setSize(1000, 500);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pnlMain.setBackground(Color.WHITE);
         add(pnlMain);
+    }
+
+    private void addComponentsToMainPanel() {
         pnlMain.add(lblMemoriaLogo);
         pnlMain.add(lblGhost9);
         pnlMain.add(lblGhost10);
-        lblGhost9.setPreferredSize(new Dimension(135, 35));
-        lblGhost10.setPreferredSize(new Dimension(265, 35));
+        pnlMain.add(pnlMain2);
+    }
+
+    private void addComponentsToCenter() {
+        pnlCenter.add(lblGhost3);
+        pnlCenter.add(pnlPlayer1);
+        pnlCenter.add(pnlPlayer2);
+        pnlCenter.add(lblGhost6);
+        pnlCenter.add(btnBonus);
+        pnlCenter.add(lblGhost5);
+        pnlCenter.add(lblGhost4);
+    }
+
+    private void addComponentsToInfo() {
+        pnlInfo.add(lblGhost7);
+        pnlInfo.add(pnlInfo2);
+        pnlInfo.add(pnlScore);
+        pnlInfo.add(lblEmptyLogo);
+        pnlInfo.add(lblGhost8);
+    }
+
+    private void setupComponentsSizes() {
+        pnlMain2.setPreferredSize(new Dimension(670, 386));
+        lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
+        lblEmptyLogo.setPreferredSize(new Dimension(126, 96));
+        pnlCards.setPreferredSize(new Dimension(380, 380));
         //label.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         lblGhost.setPreferredSize(new Dimension(340, 20));
         lblGhost2.setPreferredSize(new Dimension(340, 20));
@@ -75,186 +130,34 @@ public class BoardGUI extends JFrame {
         lblGhost6.setPreferredSize(new Dimension(120, 18));
         lblGhost7.setPreferredSize(new Dimension(125, 20));
         lblGhost8.setPreferredSize(new Dimension(125, 20));
-        pnlMain.add(pnlMain2);
-        pnlMain2.setPreferredSize(new Dimension(670, 386));
-        // Mpanel.setBackground(Color.WHITE);
-        lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
-        pnlMain2.add(pnlCards);
-        //panel.setBorder(BorderFactory.createTitledBorder(""));
-        pnlCards.add(lblGhost);
-        pnlCards.setPreferredSize(new Dimension(380, 380));
-        pnlCards.setBackground(Color.WHITE);
-        //panel.add(label);
-
-        setupTheGame();
-
-        pnlCards.add(lblGhost2);
-        pnlMain2.add(pnlCenter);
-        pnlCenter.add(lblGhost3);
-        pnlCenter.setPreferredSize(new Dimension(126, 380));
-        pnlCenter.setBackground(Color.WHITE);
-        pnlCenter.add(pnlPlayer1).setPreferredSize(new Dimension(126, 100));
-        pnlCenter.add(pnlPlayer2).setPreferredSize(new Dimension(126, 100));
-        // estPanel.setBorder(BorderFactory.createTitledBorder(""));
-        pnlCenter.add(lblGhost6);
-        pnlCenter.add(btnBonus).setPreferredSize(new Dimension(126, 50));
-        // estPanel.add(logo1).setPreferredSize(new Dimension(126,100));
-        pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
-        pnlPlayer1.setBackground(Color.WHITE);
-        pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
-        pnlPlayer2.setBackground(Color.WHITE);
-        pnlCenter.add(lblGhost5);
-        pnlCenter.add(lblGhost4);
-
-        pnlMain2.add(pnlInfo, BorderLayout.EAST);
-        pnlMain2.setBackground(Color.WHITE);
-        pnlInfo.setPreferredSize(new Dimension(126, 380));
-        pnlInfo.add(lblGhost7);
-        pnlInfo.setBackground(Color.WHITE);
-        pnlInfo.add(pnlInfo2);
-        pnlInfo.add(pnlScore);
-        pnlInfo.add(lblEmptyLogo).setPreferredSize(new Dimension(126, 96));
-        pnlInfo.add(lblGhost8);
+        lblGhost9.setPreferredSize(new Dimension(135, 35));
+        lblGhost10.setPreferredSize(new Dimension(265, 35));
         pnlInfo2.setPreferredSize(new Dimension(126, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
-        pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
+        pnlCenter.setPreferredSize(new Dimension(126, 380));
+        pnlPlayer1.setPreferredSize(new Dimension(126, 100));
+        pnlPlayer2.setPreferredSize(new Dimension(126, 100));
+        pnlInfo.setPreferredSize(new Dimension(126, 380));
+        btnBonus.setPreferredSize(new Dimension(126, 50));
+    }
+
+    private void setupComponentsBackgroundColor() {
+        pnlMain.setBackground(Color.WHITE);
+        pnlCards.setBackground(Color.WHITE);
+        pnlCenter.setBackground(Color.WHITE);
+        pnlPlayer1.setBackground(Color.WHITE);
+        pnlPlayer2.setBackground(Color.WHITE);
+        pnlMain2.setBackground(Color.WHITE);
+        pnlInfo.setBackground(Color.WHITE);
         pnlInfo2.setBackground(Color.WHITE);
-        pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
         pnlScore.setBackground(Color.WHITE);
-        // estPanel.setBorder(BorderFactory.createTitledBorder("Score"));
-        // estPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
-    // Hjälper till att sätta upp spelet i konstruktorn.
-    private void setupTheGame() {
-        ArrayList<Card> cardsList = new ArrayList<Card>();
-        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
-
-        cardSymbolPaths = addSymbols();   // Lägg bilder på korten.
-        Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
-        // Skapa jämna par av symboler. (fler symboler)
-        for (String symbol : cardSymbolPaths) {
-            Card card = new Card();
-            card.setPathSymbol(symbol);
-            card.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent ae) {
-                    selectedCard = card;
-                    doTurn();
-                }
-            });
-            card.hideSymbol();
-            cardsList.add(card);
-        }
-        cards = cardsList;
-
-        setupTimer();
-
-        for (Card card : cards) {
-            pnlMain.add(card);
-            pnlCards.add(card);
-        }
+    public void setPnlMain(Card card) {
+        pnlMain.add(card);
     }
 
-    // Sätter upp en timer på händelsetråden.
-    private void setupTimer() {
-        timer = new Timer(750, new ActionListener() {
-            public void actionPerformed(ActionEvent ae) {
-                checkCards();
-            }
-        });
-        timer.setRepeats(false);
-    }
-
-    // Lägger bilder/symboler på alla korten.
-    private ArrayList<String> addSymbols() {
-        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
-
-        // Skapa jämna par av symboler. (fler symboler)
-        for (int i = 0; i < 4; i++) {
-            cardSymbolPaths.add("images/minus.gif");
-            cardSymbolPaths.add("images/plus.gif");
-            cardSymbolPaths.add("images/plus2.jpg");
-            cardSymbolPaths.add("images/minus2.jpg");
-            cardSymbolPaths.add("images/pi.jpg");
-            cardSymbolPaths.add("images/pi2.jpg");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-            cardSymbolPaths.add("images/");
-        }
-
-        return cardSymbolPaths;
-    }
-
-    /**
-     * Vänder upp valt kort.
-     * TODO: Snygga till och eventuellt skapa en par-klass.
-     */
-    public void doTurn() {
-        if (pairOfCards[0] == null) {
-            pairOfCards[0] = selectedCard;
-            pairOfCards[0].revealSymbol();
-        }
-
-        if ((pairOfCards[0] != null) && (pairOfCards[0] != selectedCard) && (pairOfCards[1] == null)) {
-            pairOfCards[1] = selectedCard;
-            pairOfCards[1].revealSymbol();
-            timer.start();
-        }
-    }
-
-    /**
-     * Kontrollera om paret matchar.
-     * Visa matchning och ta korten ur spel, eller vänd tillbaks kort.
-     * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
-     */
-    public void checkCards() {
-        if ((pairOfCards[0].getPathSymbol().substring(0,9).equals(pairOfCards[1].getPathSymbol().substring(0,9))) &&
-                !(pairOfCards[0].getPathSymbol().equals(pairOfCards[1].getPathSymbol()))) {
-            // Matcha paret.
-            pairOfCards[0].setEnabled(false); //disables the button
-            pairOfCards[1].setEnabled(false);
-            pairOfCards[0].setMatched(true); //flags the button as having been matched
-            pairOfCards[1].setMatched(true);
-            if (isGameWon()) {
-                JOptionPane.showMessageDialog(this, "You win!");
-                this.dispose();
-                new BoardGUI();
-            }
-        } else {
-            // Dölj paret
-            for (Card card : pairOfCards) {
-                card.hideSymbol();
-            }
-        }
-        Arrays.fill(pairOfCards, null);     // Töm paret av kort.
-    }
-
-    /**
-     * Kontrollerar om spelet är slut.
-     * TODO: Lös det här snyggare.
-     */
-    private boolean isGameWon() {
-        for (Card card : cards) {
-            if (!card.isMatched()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public static void main(String[] args) {
-        new BoardGUI();
+    public void setPnlCards(Card card) {
+        pnlMain.add(card);
     }
 }
