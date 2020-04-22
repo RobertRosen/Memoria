@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Score extends JPanel {
+public class ScoreGUI extends JPanel {
     private JPanel ctrPanel = new JPanel();
     private JPanel wstPanel = new JPanel();
     private JPanel estPanel = new JPanel();
@@ -30,7 +30,7 @@ public class Score extends JPanel {
     private JList onlineList = new JList();
     private JLabel ghost2 = new JLabel();
 
-    public Score() {
+    public ScoreGUI() {
         setPreferredSize(new Dimension(445, 370));
         setBackground(Color.WHITE);
         add(ghost2);
