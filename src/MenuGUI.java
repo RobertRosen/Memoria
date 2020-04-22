@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
  *
  */
 public class MenuGUI extends JFrame {
+    private GameController gameController;
 
     private JPanel pnlMain = new JPanel();
     private JPanel pnlChoosePlayer = new JPanel();
@@ -60,7 +61,8 @@ public class MenuGUI extends JFrame {
      * @since 2020-04-16
      */
     //TODO ska kortas ner med en for-loop och hjälpmetoder
-    public MenuGUI() {
+    public MenuGUI(GameController gameController) {
+        this.gameController = gameController;
 
         setSize(940, 430);
         setVisible(true);
@@ -142,7 +144,7 @@ public class MenuGUI extends JFrame {
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            new BoardGUI();
+            new BoardGUI(gameController);
             dispose();
         }
 

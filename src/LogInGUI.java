@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
  * @author Joakim Tell och Yasir Kakar
  */
 public class LogInGUI extends JFrame {
+    private GameController gameController;
 
     private JFrame frame = new JFrame();
 
@@ -28,7 +29,8 @@ public class LogInGUI extends JFrame {
     /**
      * Konstruktor som initierar LogInGUI
      */
-    public LogInGUI() {
+    public LogInGUI(GameController gameController) {
+        this.gameController = gameController;
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -65,14 +67,14 @@ public class LogInGUI extends JFrame {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
                 JOptionPane.showMessageDialog(null, "Welcome " + txtUsername.getText());
 
-                new MenuGUI();
+                new MenuGUI(gameController);
                 frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid username");
             }
         }
     }
-    public static void main(String[] args) {
-        LogInGUI logInGUI = new LogInGUI();
-    }
+//    public static void main(String[] args) {
+//        LogInGUI logInGUI = new LogInGUI();
+//    }
 }
