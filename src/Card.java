@@ -6,7 +6,7 @@ import java.awt.*;
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  *
  * Anpassningar till Memoria av: Robert Rosencrantz
- * TODO: Anpassa mer till Memoria och implementera. Dela upp mvc. Kanske inte ärva JButton?
+ * TODO: Dela upp mvc. Kanske inte ärva JButton?
  */
 public class Card extends JButton {
 

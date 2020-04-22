@@ -18,7 +18,7 @@ public class MenuGUI extends JFrame {
     private JPanel pnlSettings = new JPanel();
     private JPanel pnlWest = new JPanel();
 
-    private Score score = new Score();
+    private ScoreGUI scoreGUI = new ScoreGUI();
 
     private ImageIcon iconLogo = new ImageIcon("images/mem3.JPG");
     private ImageIcon iconMthLogo = new ImageIcon("images/mathLogo.JPG");
@@ -128,7 +128,7 @@ public class MenuGUI extends JFrame {
         btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlSettings.add(lblGhost7);
 
-        pnlMain.add(score);
+        pnlMain.add(scoreGUI);
     }
 
 
