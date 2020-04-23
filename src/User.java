@@ -4,9 +4,14 @@ public class User {
     private int totalPoints;
     private int gameScore;
 
+    public User() {
+
+    }
+
     public User(String userName, int totalPoints) {
         this.totalPoints = totalPoints;
         this.userName = userName;
+
     }
 
     public String getUserName() {
