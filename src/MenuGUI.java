@@ -144,7 +144,7 @@ public class MenuGUI extends JFrame {
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            new BoardGUI(gameController);
+            gameController.switchGUI();
             dispose();
         }
 

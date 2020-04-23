@@ -1,27 +1,15 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class GameController {
     private BoardGUI boardGUI;
 
-//    private Timer timer;
-//    private ArrayList<Card> cards;
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
 
     public GameController() {
-
         new LogInGUI(this);
-        //
-//        setupTheGame();
     }
-   // public GameController(){
-     //   boardGUI = new BoardGUI(this);
-    //}
 
     /**
      * Vänder upp valt kort.
@@ -79,6 +67,10 @@ public class GameController {
             }
         }
         return true;
+    }
+
+    public void switchGUI() {
+        boardGUI = new BoardGUI(this);
     }
 
     public static void main(String[] args) {
