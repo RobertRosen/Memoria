@@ -1,0 +1,9 @@
++ tecknet används när man räknar addition. talen kallas för termer och resultatet summa.
+- tecknet används när man räknar subbtraktion. talen kallas för termer och resultatet differens
+* tecknet används när man räknar multiplikation. talen kallas för faktorer och resultatet produkt.
+/ tecknet används när man räknar division. talet ovanför kallas för täljare och under är nämnaren. resultatet kvot.
+% betyder 100-del. förlängs 3/5 till 100-delar blir det 60/100. vilket är lika mycket som 60%. 
+
+
+
+
