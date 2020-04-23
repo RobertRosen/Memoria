@@ -14,10 +14,14 @@ public class GameController {
     private Card[] pairOfCards = new Card[2];
 
     public GameController() {
-      //  boardGUI = new BoardGUI(this);
+
         new LogInGUI(this);
+        //
 //        setupTheGame();
     }
+   // public GameController(){
+     //   boardGUI = new BoardGUI(this);
+    //}
 
     /**
      * Vänder upp valt kort.
