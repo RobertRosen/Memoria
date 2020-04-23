@@ -198,7 +198,9 @@ public class BoardGUI extends JFrame {
         return cardSymbolPaths;
     }
 
-    // Sätter upp en timer på händelsetråden.
+    /**
+     * Sätter upp en timer på händelsetråden.
+     */
     private void setupTimer() {
         timer = new Timer(750, new ActionListener() {
             public void actionPerformed(ActionEvent ae) {

@@ -69,11 +69,10 @@ public class GameController {
         return true;
     }
 
+    /**
+     * Go game view.
+     */
     public void switchGUI() {
         boardGUI = new BoardGUI(this);
-    }
-
-    public static void main(String[] args) {
-        new GameController();
     }
 }
