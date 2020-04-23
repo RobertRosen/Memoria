@@ -14,8 +14,8 @@ public class GameController {
     private Card[] pairOfCards = new Card[2];
 
     public GameController() {
-        boardGUI = new BoardGUI(this);
-
+      //  boardGUI = new BoardGUI(this);
+        new LogInGUI(this);
 //        setupTheGame();
     }
 
@@ -76,81 +76,6 @@ public class GameController {
         }
         return true;
     }
-
-//    // Hjälper till att sätta upp spelet i konstruktorn.
-//    private void setupTheGame() {
-//        ArrayList<Card> cardsList = new ArrayList<Card>();
-//        ArrayList<String> cardSymbolPaths;
-//
-//        cardSymbolPaths = addSymbols();         // Lägg bilder på korten.
-//        Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
-//        // Skapa jämna par av symboler.
-//        for (String symbol : cardSymbolPaths) {
-//            Card card = new Card();
-//            card.setPathSymbol(symbol);
-//            card.addActionListener(new ActionListener() {
-//                public void actionPerformed(ActionEvent ae) {
-//                    selectedCard = card;
-//                    doTurn();
-//                }
-//            });
-//            card.hideSymbol();
-//            cardsList.add(card);
-//        }
-//        cards = cardsList;
-//
-//        setupTimer();
-//
-//        for (Card card : cards) {
-////            pnlMain.add(card);
-////            pnlCards.add(card);
-////            boardGUI.setPnlMain(card);
-////            boardGUI.setPnlCards(card);
-//        }
-//    }
-
-//    // Sätter upp en timer på händelsetråden.
-//    private void setupTimer() {
-//        timer = new Timer(750, new ActionListener() {
-//            public void actionPerformed(ActionEvent ae) {
-//                checkCards();
-//            }
-//        });
-//        timer.setRepeats(false);
-//    }
-
-//    // Lägger bilder/symboler på alla korten.
-//    private ArrayList<String> addSymbols() {
-//        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
-//
-//        cardSymbolPaths.add("images/minus.gif");
-//        cardSymbolPaths.add("images/plus.gif");
-//        cardSymbolPaths.add("images/plus2.jpg");
-//        cardSymbolPaths.add("images/minus2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//        cardSymbolPaths.add("images/pi.jpg");
-//        cardSymbolPaths.add("images/pi2.jpg");
-//
-//        return cardSymbolPaths;
-//    }
-
 
     public static void main(String[] args) {
         new GameController();
