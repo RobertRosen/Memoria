@@ -33,6 +33,8 @@ public class GameController {
      * Kontrollera om paret matchar.
      * Visa matchning och ta korten ur spel, eller vänd tillbaks kort.
      * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
+     * TODO: Ta bort andra vilkoret i if-satsen
+     * TODO: Vad ska hända efter isGamewon?
      */
     public void checkCards() {
         if ((pairOfCards[0].getPathSymbol().substring(0, 9).equals(pairOfCards[1].getPathSymbol().substring(0, 9))) &&

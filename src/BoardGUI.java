@@ -143,6 +143,7 @@ public class BoardGUI extends JFrame {
         cards = new ArrayList<Card>();
         ArrayList<String> cardSymbolPaths;
 
+        // Lägga 24 cards i arrayen
         cardSymbolPaths = addSymbols();         // Lägg bilder på korten.
         Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
         for (String symbol : cardSymbolPaths) { // Skapa jämna par av symboler.
@@ -159,6 +160,7 @@ public class BoardGUI extends JFrame {
 
         setupTimer();
 
+        // Lägga ut alla kort på panelen initialt med baksida upp
         for (Card card : cards) {
             pnlCardsLayout.add(card);
         }
