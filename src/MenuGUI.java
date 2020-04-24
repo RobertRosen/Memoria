@@ -134,7 +134,7 @@ public class MenuGUI extends JFrame {
 
         pnlMain.add(scoreGUI);
     }
-    static class TwoPlayer extends JFrame implements ActionListener{
+    class TwoPlayer extends JFrame implements ActionListener{
         private JPanel pnlMain = new JPanel();
 
         private JLabel lblGame = new JLabel("Spelare 2");
@@ -174,7 +174,7 @@ public class MenuGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
                 JOptionPane.showMessageDialog(null, "Välkommen " + txtUsername.getText());
-
+                gameController.switchGUI();
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
@@ -195,8 +195,6 @@ public class MenuGUI extends JFrame {
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new TwoPlayer();
-
-            gameController.switchGUI();
 
             dispose();
         }
@@ -276,7 +274,7 @@ public class MenuGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-       // MenuGUI start = new MenuGUI();
+       //MenuGUI start = new MenuGUI();
         //TwoPlayer twoPlayer = new TwoPlayer();
 
     }
