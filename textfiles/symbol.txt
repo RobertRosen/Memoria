@@ -3,3 +3,9 @@ minus
 gånger
 delat
 procent
+pi
+dm
+cm
+al
+al2
+al3
