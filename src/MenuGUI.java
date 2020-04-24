@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -132,6 +134,54 @@ public class MenuGUI extends JFrame {
 
         pnlMain.add(scoreGUI);
     }
+    static class TwoPlayer extends JFrame implements ActionListener{
+        private JPanel pnlMain = new JPanel();
+
+        private JLabel lblGame = new JLabel("Spelare 2");
+        private JLabel lblUsername = new JLabel("Användarnamn");
+
+        private JTextField txtUsername = new JTextField();
+
+        private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
+
+        private JButton btnLogin = new JButton("Starta spel");
+
+        public TwoPlayer(){
+                setSize(400, 300);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setVisible(true);
+                setLocationRelativeTo(null);
+                add(pnlMain);
+
+                lblGame.setFont(myFont);
+
+                pnlMain.setLayout(null);
+
+                lblGame.setBounds(120, 10, 300, 50);
+                lblUsername.setBounds(60, 20, 100, 100);
+                txtUsername.setBounds(160, 60, 165, 25);
+                btnLogin.setBounds(120, 150, 150, 40);
+
+                pnlMain.add(lblGame);
+                pnlMain.add(lblUsername);
+                pnlMain.add(txtUsername);
+                pnlMain.add(btnLogin);
+
+                btnLogin.addActionListener(this);
+            }
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
+                JOptionPane.showMessageDialog(null, "Välkommen " + txtUsername.getText());
+
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
+            }
+        }
+    }
+
 
 
     /**
@@ -144,7 +194,10 @@ public class MenuGUI extends JFrame {
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
+            new TwoPlayer();
+
             gameController.switchGUI();
+
             dispose();
         }
 
@@ -184,6 +237,8 @@ public class MenuGUI extends JFrame {
 
     private class MouseSettings implements MouseListener {
         public void mouseClicked(MouseEvent e) {
+            new SettingsGUI();
+
         }
 
         public void mousePressed(MouseEvent e) {
@@ -220,12 +275,9 @@ public class MenuGUI extends JFrame {
         }
     }
 
-/*    public static void main(String[] args) {
-        MenuGUI start = new MenuGUI();
-        JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.add(start);
-        frame.pack();
-    }*/
+    public static void main(String[] args) {
+       // MenuGUI start = new MenuGUI();
+        //TwoPlayer twoPlayer = new TwoPlayer();
+
+    }
 }
