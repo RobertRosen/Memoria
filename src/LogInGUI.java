@@ -17,6 +17,8 @@ public class LogInGUI extends JFrame {
 
     private JLabel lblGame = new JLabel("Welcome to Memoria");
     private JLabel lblUsername = new JLabel("Username");
+
+
     private JLabel lblPassword = new JLabel("Password");
 
     private JTextField txtUsername = new JTextField();
@@ -68,13 +70,19 @@ public class LogInGUI extends JFrame {
                 JOptionPane.showMessageDialog(null, "Welcome " + txtUsername.getText());
 
                 new MenuGUI(gameController);
+                gameController.createUser();
                 frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid username");
             }
         }
     }
-//    public static void main(String[] args) {
+
+    public JTextField getTxtUsername() {
+        return txtUsername;
+    }
+
+    //    public static void main(String[] args) {
 //        LogInGUI logInGUI = new LogInGUI();
 //    }
 }

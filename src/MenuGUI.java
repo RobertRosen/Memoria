@@ -180,6 +180,10 @@ public class MenuGUI extends JFrame {
                 JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
             }
         }
+
+        public JTextField getTxtUsername() {
+            return txtUsername;
+        }
     }
 
 
@@ -272,6 +276,8 @@ public class MenuGUI extends JFrame {
             lblPiHelp.setVisible(false);
         }
     }
+
+
 
     public static void main(String[] args) {
        //MenuGUI start = new MenuGUI();

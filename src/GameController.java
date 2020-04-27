@@ -3,12 +3,16 @@ import java.util.Arrays;
 
 public class GameController {
     private BoardGUI boardGUI;
+    private LogInGUI logInGUI;
+    private MenuGUI menuGUI;
+    private MenuGUI.TwoPlayer twoPlayer;
+    private User[] multiPlayer = new User[2];
 
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
 
     public GameController() {
-        new LogInGUI(this);
+        logInGUI = new LogInGUI(this);
     }
 
     /**
@@ -75,6 +79,19 @@ public class GameController {
      * Go game view.
      */
     public void switchGUI() {
+        createUser();
         boardGUI = new BoardGUI(this);
+        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
+        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
+
+    }
+
+    public void createUser() {
+        if (multiPlayer[0] == null) {
+            multiPlayer[0] = new User(logInGUI.getTxtUsername().getText());
+        }
+        else {
+            multiPlayer[1] = new User(twoPlayer.getTxtUsername().getText());
+        }
     }
 }
