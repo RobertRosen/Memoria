@@ -48,6 +48,12 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
 
+    private int score1 = 0;
+    private int score2 = 0;
+
+    private JLabel lblScore = new JLabel(String.valueOf(score1));
+    private JLabel lblScore2 = new JLabel(String.valueOf(score2));
+
     GameController gameController;
     public BoardGUI(GameController gameController) {
         this.gameController = gameController;
@@ -88,6 +94,8 @@ public class BoardGUI extends JFrame {
         pnlInfo.add(pnlScore);
         pnlInfo.add(lblEmptyLogo);
         pnlInfo.add(lblGhost8);
+        pnlPlayer1.add(lblScore);
+        pnlPlayer2.add(lblScore2);
     }
 
     private void setupComponentsSizes() {
@@ -220,7 +228,15 @@ public class BoardGUI extends JFrame {
         return cards;
     }
 
+    public void setScore1(int score1) { this.score1 = score1; }
+
+    public void setScore2(int score2) { this.score2 = score2; }
+
+    public JPanel getPnlPlayer1() { return pnlPlayer1; }
+
+    public JPanel getPnlPlayer2() { return pnlPlayer2; }
+
 //    public static void main(String[] args) {
-//        new BoardGUI();
-//    }
+  //      new BoardGUI();
+   // }
 }

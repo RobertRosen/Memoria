@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 
 public class GameController {
@@ -7,8 +8,16 @@ public class GameController {
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
 
+    private boolean turnPlayer1 = true;
+    private String namePlayer1 = "Player1";
+    private String namePlayer2 = "Player2";
+
+    private int score;
+    private int score2;
+
     public GameController() {
         new LogInGUI(this);
+        switchPlayerTurns();
     }
 
     /**
@@ -56,6 +65,41 @@ public class GameController {
             }
         }
         Arrays.fill(pairOfCards, null);     // Töm paret av kort.
+    }
+
+    public void switchPlayerTurns(){
+        String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);
+
+        if (firstSymbol.equals(secondSymbol)){
+            incrementScore();
+        }
+
+        else {
+           highlightedPanel();
+        }
+    }
+
+    public void incrementScore(){
+        if (turnPlayer1){
+            boardGUI.setScore1(score += 10);
+        }
+        if (!turnPlayer1){
+            boardGUI.setScore2(score2 += 10);
+        }
+    }
+
+    public void highlightedPanel(){
+        if (turnPlayer1){
+            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createLineBorder(Color.GREEN));
+            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createLineBorder(Color.RED));
+            turnPlayer1 = false;
+        }
+        if (!turnPlayer1){
+            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createLineBorder(Color.RED));
+            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createLineBorder(Color.GREEN));
+            turnPlayer1 = true;
+        }
     }
 
     /**
