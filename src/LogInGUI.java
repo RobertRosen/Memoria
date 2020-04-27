@@ -19,6 +19,7 @@ public class LogInGUI extends JFrame {
     private JLabel lblUsername = new JLabel("Username");
     private JLabel lblPassword = new JLabel("Password");
 
+
     private JTextField txtUsername = new JTextField();
     private JTextField txtPassword = new JTextField();
 
@@ -74,6 +75,10 @@ public class LogInGUI extends JFrame {
             }
         }
     }
+    public JTextField getTxtUsername() { return txtUsername; }
+
+    public void setTxtUsername(JTextField txtUsername) { this.txtUsername = txtUsername; }
+
 //    public static void main(String[] args) {
 //        LogInGUI logInGUI = new LogInGUI();
 //    }

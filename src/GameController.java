@@ -1,9 +1,12 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.util.Arrays;
 
 public class GameController {
     private BoardGUI boardGUI;
+    private LogInGUI logInGUI;
+    private MenuGUI.TwoPlayer twoPlayer;
 
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
@@ -17,7 +20,8 @@ public class GameController {
 
     public GameController() {
         new LogInGUI(this);
-        switchPlayerTurns();
+       // switchPlayerTurns();
+        //nameOnPanel();
     }
 
     /**
@@ -100,6 +104,11 @@ public class GameController {
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createLineBorder(Color.GREEN));
             turnPlayer1 = true;
         }
+    }
+
+    public void nameOnPanel(){
+        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder((Border) logInGUI.getTxtUsername()));
+        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder((Border) twoPlayer.getTxtUsername()));
     }
 
     /**

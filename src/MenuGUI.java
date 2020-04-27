@@ -140,6 +140,8 @@ public class MenuGUI extends JFrame {
         private JLabel lblGame = new JLabel("Spelare 2");
         private JLabel lblUsername = new JLabel("Användarnamn");
 
+        public JTextField getTxtUsername() { return txtUsername; }
+
         private JTextField txtUsername = new JTextField();
 
         private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);

@@ -47,12 +47,18 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost8 = new JLabel(iconBlueStripe);
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
+    private JLabel lblGhost11 = new JLabel();
+    private JLabel lblGhost12 = new JLabel();
 
     private int score1 = 0;
     private int score2 = 0;
 
     private JLabel lblScore = new JLabel(String.valueOf(score1));
     private JLabel lblScore2 = new JLabel(String.valueOf(score2));
+    private JPanel pnlPlayer1Color = new JPanel();
+    private JPanel pnlPlayer1Color2 = new JPanel();
+    private JPanel pnlPlayer2Color = new JPanel();
+    private JPanel pnlPlayer2Color2 = new JPanel();
 
     GameController gameController;
     public BoardGUI(GameController gameController) {
@@ -94,8 +100,14 @@ public class BoardGUI extends JFrame {
         pnlInfo.add(pnlScore);
         pnlInfo.add(lblEmptyLogo);
         pnlInfo.add(lblGhost8);
+        pnlPlayer1.add(lblGhost11);
+        pnlPlayer1.add(pnlPlayer1Color);
         pnlPlayer1.add(lblScore);
+        pnlPlayer1.add(pnlPlayer1Color2);
+        pnlPlayer2.add(lblGhost12);
+        pnlPlayer2.add(pnlPlayer2Color);
         pnlPlayer2.add(lblScore2);
+        pnlPlayer2.add(pnlPlayer2Color2);
     }
 
     private void setupComponentsSizes() {
@@ -114,6 +126,8 @@ public class BoardGUI extends JFrame {
         lblGhost8.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
         lblGhost10.setPreferredSize(new Dimension(265, 35));
+        lblGhost11.setPreferredSize(new Dimension(10,5));
+        lblGhost12.setPreferredSize(new Dimension(10,5));
         pnlInfo2.setPreferredSize(new Dimension(126, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlCenter.setPreferredSize(new Dimension(126, 380));
@@ -121,6 +135,10 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
         pnlInfo.setPreferredSize(new Dimension(126, 380));
         btnBonus.setPreferredSize(new Dimension(126, 50));
+        pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
+        pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
+        pnlPlayer1Color2.setPreferredSize(new Dimension(100,10));
+        pnlPlayer2Color2.setPreferredSize(new Dimension(100,10));
     }
 
     private void setupComponents() {
@@ -136,7 +154,15 @@ public class BoardGUI extends JFrame {
         pnlScore.setBackground(Color.WHITE);
 
         pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
+        pnlPlayer1Color.setBackground(Color.GREEN);
+        pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer1Color2.setBackground(Color.GREEN);
+        pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
+        pnlPlayer2Color.setBackground(Color.RED);
+        pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer2Color2.setBackground(Color.RED);
+        pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
     }
@@ -180,10 +206,10 @@ public class BoardGUI extends JFrame {
     private ArrayList<String> addSymbols() {
         ArrayList<String> cardSymbolPaths = new ArrayList<String>();
 
-        cardSymbolPaths.add("images/minus.gif");
-        cardSymbolPaths.add("images/plus.gif");
-        cardSymbolPaths.add("images/plus2.jpg");
-        cardSymbolPaths.add("images/minus2.jpg");
+        cardSymbolPaths.add("images/minus.png");
+        cardSymbolPaths.add("images/plus.png");
+        cardSymbolPaths.add("images/plus2.png");
+        cardSymbolPaths.add("images/minus2.png");
         cardSymbolPaths.add("images/pi.jpg");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/Algebra1.png");
