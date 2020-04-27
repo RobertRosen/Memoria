@@ -256,6 +256,7 @@ public class MenuGUI extends JFrame {
 
     private class MouseHelp implements MouseListener {
         public void mouseClicked(MouseEvent e) {
+            new HelpGUI();
         }
 
         public void mousePressed(MouseEvent e) {
