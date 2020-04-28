@@ -1,12 +1,10 @@
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.Serializable;
-
+import java.io.FileNotFoundException;       
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
-public class InfoPanel implements Serializable {
+public class InfoPanel {
 
     private HashMap<String,String> infoMap = new HashMap();
     private ArrayList<String> arrayList = new ArrayList<>();

@@ -5,12 +5,15 @@ import java.awt.event.ActionListener;
 
 /**
  * Klassen LogInGUI är ett GUI för login.
- * @version 1.0
+ *
  * @author Joakim Tell och Yasir Kakar
+ * @version 1.0
  */
 public class LogInGUI extends JFrame {
     private GameController gameController;
     private ImageIcon välkommenLogo = new ImageIcon("images/välkommen.PNG");
+
+    private int player = 1;
 
     private JFrame frame = new JFrame();
 
@@ -61,13 +64,14 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
-                JOptionPane.showMessageDialog(null, "Välkommen " + txtUsername.getText());
+                JOptionPane.showMessageDialog(null, "Välkommen spelare1: "
+                        + txtUsername.getText());
 
                 new MenuGUI(gameController);
                 gameController.createUser();
                 frame.dispose();
             } else {
-                JOptionPane.showMessageDialog(null,"Ogiltigt användarnamn");
+                JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
             }
         }
     }
@@ -79,4 +83,5 @@ public class LogInGUI extends JFrame {
     //    public static void main(String[] args) {
 //        LogInGUI logInGUI = new LogInGUI();
 //    }
+
 }

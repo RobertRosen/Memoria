@@ -5,7 +5,6 @@ public class GameController {
     private BoardGUI boardGUI;
     private LogInGUI logInGUI;
     private MenuGUI menuGUI;
-    private MenuGUI.TwoPlayer twoPlayer;
     private User[] multiPlayer = new User[2];
 
     private Card selectedCard;
@@ -13,6 +12,7 @@ public class GameController {
 
     public GameController() {
         logInGUI = new LogInGUI(this);
+
     }
 
     /**
@@ -91,7 +91,7 @@ public class GameController {
             multiPlayer[0] = new User(logInGUI.getTxtUsername().getText());
         }
         else {
-            multiPlayer[1] = new User(twoPlayer.getTxtUsername().getText());
+            multiPlayer[1] = new User("Eva");
         }
     }
 }
