@@ -3,6 +3,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Klassen HelpGUI innehåller allt som finns med i Memorias hjälpcenter
+ * @version 1.0
+ * @author Yasir Kakar
+ */
 public class HelpGUI extends JFrame {
 
     private CardLayout card = new CardLayout();
@@ -26,17 +31,7 @@ public class HelpGUI extends JFrame {
         panel5.setLayout(null);
         panel6.setLayout(null);
 
-        for (int i = 0; i < btnNext.length; i++){
-            btnNext[i] = new JButton("Nästa");
-            btnNext[i].setBounds(150,350,100,40);
-            btnNext[i].addActionListener(new NextListener());
-        }
-
-        for (int i = 0; i < btnOK.length; i++){
-            btnOK[i] = new JButton("OK");
-            btnOK[i].setBounds(300,350,100,40);
-            btnOK[i].addActionListener(new OKListener());
-        }
+        createButtons();
 
         panel1.add(btnNext[0]);
         panel2.add(btnNext[1]);
@@ -75,6 +70,23 @@ public class HelpGUI extends JFrame {
         card.show(container, "1");
 
     }
+    //skapar knapparna "Nästa" och "OK" som finns i GUIT
+    public void createButtons(){
+
+        for (int i = 0; i < btnNext.length; i++){
+            btnNext[i] = new JButton("Nästa");
+            btnNext[i].setBounds(150,350,100,40);
+            btnNext[i].addActionListener(new NextListener());
+        }
+
+        for (int i = 0; i < btnOK.length; i++){
+            btnOK[i] = new JButton("OK");
+            btnOK[i].setBounds(300,350,100,40);
+            btnOK[i].addActionListener(new OKListener());
+        }
+    }
+
+    //Inre klasserna nedan är de olika panelerna som visas när spelaren klickar på frågetecknet i MenuGUIT
     class Panel1 extends JPanel {
         private ImageIcon hjälp1Bild = new ImageIcon("images/hjälp1.PNG");
 
@@ -155,6 +167,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+    //i denna klassen så finns funktionen för knappen "Nästa"
     class NextListener implements ActionListener{
 
         @Override
@@ -181,6 +194,7 @@ public class HelpGUI extends JFrame {
             }
         }
     }
+
     class OKListener implements ActionListener{
 
         @Override

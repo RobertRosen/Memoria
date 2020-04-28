@@ -69,6 +69,7 @@ public class MenuGUI extends JFrame {
         setSize(940, 430);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         pnlMain.setBackground(Color.WHITE);
 
         add(pnlMain);

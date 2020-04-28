@@ -7,17 +7,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+
+/**
+ * Klassen MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
+ * @version 1.0
+ * @author Yasir Kakar
+ */
 public class MusicController{
     private static Clip clip;
-
 
     public static class PlayListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            playMusic("music/Rune.wav");//filepath to the chosen song
+            playMusic("music/TakeMeBack.wav");//Filväg till valda låt
         }
-        public void playMusic(String filename){//this metod starts the music
+
+        //Denna metod startar musiken som ska spelas upp i bakgrunden i en loop tills spelaren stänger
+        //av antingen spelet eller musiken via inställningarna
+        public void playMusic(String filename){
             try {
                 File file = new File(filename);
                 AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);

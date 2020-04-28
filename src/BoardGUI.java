@@ -56,6 +56,7 @@ public class BoardGUI extends JFrame {
         setupComponents();
         addComponents();
         setupTheGame();
+        setLocationRelativeTo(null);
     }
 
     private void setupFrame() {

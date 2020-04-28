@@ -2,6 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/**
+ * Klassen SettingGUI är en klass som innehåller Memorias inställningar
+ * @version 1.0
+ * @author Yasir Kakar
+ */
 
 public class SettingsGUI extends JFrame {
     private JFrame frame = new JFrame();
@@ -53,7 +58,7 @@ public class SettingsGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            dispose();
+            frame.dispose();
         }
     }
 
