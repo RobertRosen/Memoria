@@ -20,8 +20,7 @@ public class GameController {
 
     public GameController() {
         new LogInGUI(this);
-       // switchPlayerTurns();
-        //nameOnPanel();
+        nameOnPanel();
     }
 
     /**
@@ -62,8 +61,10 @@ public class GameController {
                 boardGUI.dispose();
                 boardGUI = new BoardGUI(this);
             }
+            incrementScore();
         } else {
             // Dölj paret
+            highlightedPanel();
             for (Card card : pairOfCards) {
                 card.hideSymbol();
             }
@@ -85,30 +86,29 @@ public class GameController {
     }
 
     public void incrementScore(){
-        if (turnPlayer1){
-            boardGUI.setScore1(score += 10);
+
+           if (turnPlayer1){boardGUI.setLblScore(score += 10);}
+            if (!turnPlayer1){
+            boardGUI.setLblScore2(score2 += 10);}
         }
-        if (!turnPlayer1){
-            boardGUI.setScore2(score2 += 10);
-        }
-    }
+
 
     public void highlightedPanel(){
         if (turnPlayer1){
-            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createLineBorder(Color.GREEN));
-            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createLineBorder(Color.RED));
+            boardGUI.getPnlPlayer1Color().setBackground(Color.GREEN);
+            boardGUI.getPnlPlayer1Color2().setBackground(Color.GREEN);
             turnPlayer1 = false;
         }
-        if (!turnPlayer1){
-            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createLineBorder(Color.RED));
-            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createLineBorder(Color.GREEN));
+        else {
+            boardGUI.getPnlPlayer2Color().setBackground(Color.RED);
+            boardGUI.getPnlPlayer2Color2().setBackground(Color.RED);
             turnPlayer1 = true;
         }
     }
 
     public void nameOnPanel(){
-        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder((Border) logInGUI.getTxtUsername()));
-        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder((Border) twoPlayer.getTxtUsername()));
+        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(( logInGUI.getTxtUsername())));
+      //  boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder((Border) twoPlayer.getTxtUsername()));
     }
 
     /**

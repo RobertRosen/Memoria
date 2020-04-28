@@ -75,7 +75,7 @@ public class LogInGUI extends JFrame {
             }
         }
     }
-    public JTextField getTxtUsername() { return txtUsername; }
+    public String getTxtUsername() { return String.valueOf(txtUsername); }
 
     public void setTxtUsername(JTextField txtUsername) { this.txtUsername = txtUsername; }
 

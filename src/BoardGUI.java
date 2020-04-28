@@ -16,6 +16,9 @@ import java.util.Collections;
  * @since 2020-04-16
  */
 public class BoardGUI extends JFrame {
+    private int score1 = 0;
+    private int score2 = 0;
+
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
@@ -27,6 +30,13 @@ public class BoardGUI extends JFrame {
     private JPanel pnlScore = new JPanel();
     private JPanel pnlCardsLayout = new JPanel();
 
+
+
+    private JPanel pnlPlayer1Color = new JPanel();
+    private JPanel pnlPlayer1Color2 = new JPanel();
+    private JPanel pnlPlayer2Color = new JPanel();
+    private JPanel pnlPlayer2Color2 = new JPanel();
+
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
     private ImageIcon iconEmptyLogo = new ImageIcon();
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
@@ -37,6 +47,8 @@ public class BoardGUI extends JFrame {
 
     private JLabel lblEmptyLogo = new JLabel(iconEmptyLogo);
     private JLabel lblMemoriaLogo = new JLabel(iconMemoriaLogo);
+    private JLabel lblScore = new JLabel("0");
+    private JLabel lblScore2 = new JLabel("0");
     private JLabel lblGhost = new JLabel(iconBlueStripe);
     private JLabel lblGhost2 = new JLabel(iconBlueStripe);
     private JLabel lblGhost3 = new JLabel(iconBlueStripe);
@@ -50,15 +62,7 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost11 = new JLabel();
     private JLabel lblGhost12 = new JLabel();
 
-    private int score1 = 0;
-    private int score2 = 0;
 
-    private JLabel lblScore = new JLabel(String.valueOf(score1));
-    private JLabel lblScore2 = new JLabel(String.valueOf(score2));
-    private JPanel pnlPlayer1Color = new JPanel();
-    private JPanel pnlPlayer1Color2 = new JPanel();
-    private JPanel pnlPlayer2Color = new JPanel();
-    private JPanel pnlPlayer2Color2 = new JPanel();
 
     GameController gameController;
     public BoardGUI(GameController gameController) {
@@ -262,6 +266,17 @@ public class BoardGUI extends JFrame {
 
     public JPanel getPnlPlayer2() { return pnlPlayer2; }
 
+    public JPanel getPnlPlayer1Color() { return pnlPlayer1Color; }
+
+    public JPanel getPnlPlayer1Color2() { return pnlPlayer1Color2; }
+
+    public JPanel getPnlPlayer2Color() { return pnlPlayer2Color; }
+
+    public JPanel getPnlPlayer2Color2() { return pnlPlayer2Color2; }
+
+    public void setLblScore(int score) { lblScore.setText(String.valueOf(score)); }
+
+    public void setLblScore2(int score2) { lblScore2.setText(String.valueOf(score2)); }
 //    public static void main(String[] args) {
   //      new BoardGUI();
    // }
