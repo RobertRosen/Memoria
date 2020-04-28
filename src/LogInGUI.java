@@ -42,7 +42,7 @@ public class LogInGUI extends JFrame {
         pnlMain.setLayout(null);
 
         lblGame.setBounds(40, 20, 300, 50);
-        lblUsername.setBounds(80, 60, 100, 100);
+        lblUsername.setBounds(50, 60, 100, 100);
         txtUsername.setBounds(160, 100, 165, 25);
         btnLogin.setBounds(120, 150, 150, 40);
 

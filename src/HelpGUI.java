@@ -3,18 +3,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class HelpGUI extends JFrame implements ActionListener {
+public class HelpGUI extends JFrame {
 
-    public CardLayout card = new CardLayout();
-    public JPanel container = new JPanel();
-    public JPanel panel1 = new JPanel();
-    public JPanel panel2 = new JPanel();
-    public JPanel panel3 = new JPanel();
-    public JPanel panel4 = new JPanel();
-    public JPanel panel5 = new JPanel();
-    public JPanel panel6 = new JPanel();
+    private CardLayout card = new CardLayout();
+    private JPanel container = new JPanel();
+    private JPanel panel1 = new JPanel();
+    private JPanel panel2 = new JPanel();
+    private JPanel panel3 = new JPanel();
+    private JPanel panel4 = new JPanel();
+    private JPanel panel5 = new JPanel();
+    private JPanel panel6 = new JPanel();
 
-    public JButton btn[] = new JButton[6];
+    private JButton btnNext[] = new JButton[6];
+    private JButton btnOK[] = new JButton[6];
 
     public HelpGUI(){
         container.setLayout(card);
@@ -25,18 +26,31 @@ public class HelpGUI extends JFrame implements ActionListener {
         panel5.setLayout(null);
         panel6.setLayout(null);
 
-        for (int i = 0; i <btn.length; i++){
-            btn[i] = new JButton("Nästa");
-            btn[i].setBounds(200,350,100,40);
-            btn[i].addActionListener(this);
+        for (int i = 0; i < btnNext.length; i++){
+            btnNext[i] = new JButton("Nästa");
+            btnNext[i].setBounds(150,350,100,40);
+            btnNext[i].addActionListener(new NextListener());
         }
 
-        panel1.add(btn[0]);
-        panel2.add(btn[1]);
-        panel3.add(btn[2]);
-        panel4.add(btn[3]);
-        panel5.add(btn[4]);
-        panel6.add(btn[5]);
+        for (int i = 0; i < btnOK.length; i++){
+            btnOK[i] = new JButton("OK");
+            btnOK[i].setBounds(300,350,100,40);
+            btnOK[i].addActionListener(new OKListener());
+        }
+
+        panel1.add(btnNext[0]);
+        panel2.add(btnNext[1]);
+        panel3.add(btnNext[2]);
+        panel4.add(btnNext[3]);
+        panel5.add(btnNext[4]);
+        panel6.add(btnNext[5]);
+
+        panel1.add(btnOK[0]);
+        panel2.add(btnOK[1]);
+        panel3.add(btnOK[2]);
+        panel4.add(btnOK[3]);
+        panel5.add(btnOK[4]);
+        panel6.add(btnOK[5]);
 
         panel1.add(new Panel1());
         panel2.add(new Panel2());
@@ -141,6 +155,39 @@ public class HelpGUI extends JFrame implements ActionListener {
             setBackground(Color.WHITE);
         }
     }
+    class NextListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < btnNext.length; i++){
+                if (e.getSource() == btnNext[0]){
+                    card.show(container, "" + 3);
+                }
+                if (e.getSource() == btnNext[1]){
+                    card.show(container, "" + 4);
+                }
+                if (e.getSource() == btnNext[2]){
+                    card.show(container, "" + 5);
+                }
+                if (e.getSource() == btnNext[3]){
+                    card.show(container, "" + 6);
+                }
+                if (e.getSource() == btnNext[4]){
+                    card.show(container, "" + 7);
+                }
+                if (e.getSource() == btnNext[5]){
+                    card.show(container, "" + 2);
+                }
+            }
+        }
+    }
+    class OKListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            dispose();
+        }
+    }
 
     public static void main(String[] args) {
         HelpGUI c = new HelpGUI();
@@ -148,27 +195,4 @@ public class HelpGUI extends JFrame implements ActionListener {
     }
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        for (int i = 0; i < btn.length; i++){
-            if (e.getSource() == btn[0]){
-                card.show(container, "" + 3);
-            }
-            if (e.getSource() == btn[1]){
-                card.show(container, "" + 4);
-            }
-            if (e.getSource() == btn[2]){
-                card.show(container, "" + 5);
-            }
-            if (e.getSource() == btn[3]){
-                card.show(container, "" + 6);
-            }
-            if (e.getSource() == btn[4]){
-                card.show(container, "" + 7);
-            }
-            if (e.getSource() == btn[5]){
-                card.show(container, "" + 2);
-            }
-        }
-    }
 }
