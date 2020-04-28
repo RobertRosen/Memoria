@@ -9,6 +9,7 @@ public class GameController {
 
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
+    private String player2;
 
     public GameController() {
         logInGUI = new LogInGUI(this);
@@ -90,8 +91,9 @@ public class GameController {
         if (multiPlayer[0] == null) {
             multiPlayer[0] = new User(logInGUI.getTxtUsername().getText());
         }
-        else {
-            multiPlayer[1] = new User("Eva");
+        else if(multiPlayer != null) {
+            player2 = JOptionPane.showInputDialog("Ange spelare 2's namn");
+            multiPlayer[1] = new User(player2);
         }
     }
 }
