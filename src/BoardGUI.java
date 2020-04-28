@@ -151,7 +151,7 @@ public class BoardGUI extends JFrame {
         pnlCardsLayout.setBackground(Color.WHITE);
         pnlCenter.setBackground(Color.WHITE);
         pnlPlayer1.setBackground(Color.WHITE);
-        pnlPlayer2.setBackground(Color.WHITE);
+        pnlPlayer2.setBackground(Color.GRAY);
         pnlMain2.setBackground(Color.WHITE);
         pnlInfo.setBackground(Color.WHITE);
         pnlInfo2.setBackground(Color.WHITE);
@@ -258,21 +258,25 @@ public class BoardGUI extends JFrame {
         return cards;
     }
 
-    public void setScore1(int score1) { this.score1 = score1; }
+    public void highlightPlayer1() {
+        pnlPlayer1.setBackground(Color.WHITE);
+        pnlPlayer1Color.setBackground(Color.GREEN);
+        pnlPlayer1Color2.setBackground(Color.GREEN);
 
-    public void setScore2(int score2) { this.score2 = score2; }
+        pnlPlayer2.setBackground(Color.GRAY);
+        pnlPlayer2Color.setBackground(Color.RED);
+        pnlPlayer2Color2.setBackground(Color.RED);
+    }
 
-    public JPanel getPnlPlayer1() { return pnlPlayer1; }
+    public void highlightPlayer2() {
+        pnlPlayer1.setBackground(Color.GRAY);
+        pnlPlayer1Color.setBackground(Color.RED);
+        pnlPlayer1Color2.setBackground(Color.RED);
 
-    public JPanel getPnlPlayer2() { return pnlPlayer2; }
-
-    public JPanel getPnlPlayer1Color() { return pnlPlayer1Color; }
-
-    public JPanel getPnlPlayer1Color2() { return pnlPlayer1Color2; }
-
-    public JPanel getPnlPlayer2Color() { return pnlPlayer2Color; }
-
-    public JPanel getPnlPlayer2Color2() { return pnlPlayer2Color2; }
+        pnlPlayer2.setBackground(Color.WHITE);
+        pnlPlayer2Color.setBackground(Color.GREEN);
+        pnlPlayer2Color2.setBackground(Color.GREEN);
+    }
 
     public void setLblScore(int score) { lblScore.setText(String.valueOf(score)); }
 
