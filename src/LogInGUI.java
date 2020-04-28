@@ -17,7 +17,7 @@ public class LogInGUI extends JFrame {
     private JPanel pnlMain = new JPanel();
 
     private JLabel lblGame = new JLabel(välkommenLogo);
-    private JLabel lblUsername = new JLabel("Username");
+    private JLabel lblUsername = new JLabel("Användarnamn");
 
     private JTextField txtUsername = new JTextField();
 

@@ -5,16 +5,16 @@ import java.awt.event.ActionListener;
 
 public class HelpGUI extends JFrame implements ActionListener {
 
-    public static CardLayout card = new CardLayout();
-    public static JPanel container = new JPanel();
-    public static JPanel panel1 = new JPanel();
-    public static JPanel panel2 = new JPanel();
-    public static JPanel panel3 = new JPanel();
-    public static JPanel panel4 = new JPanel();
-    public static JPanel panel5 = new JPanel();
-    public static JPanel panel6 = new JPanel();
+    public CardLayout card = new CardLayout();
+    public JPanel container = new JPanel();
+    public JPanel panel1 = new JPanel();
+    public JPanel panel2 = new JPanel();
+    public JPanel panel3 = new JPanel();
+    public JPanel panel4 = new JPanel();
+    public JPanel panel5 = new JPanel();
+    public JPanel panel6 = new JPanel();
 
-    public static JButton btn[] = new JButton[6];
+    public JButton btn[] = new JButton[6];
 
     public HelpGUI(){
         container.setLayout(card);
