@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 /**
  * Klassen LogInGUI är ett GUI för login.
- *
  * @author Joakim Tell och Yasir Kakar
  * @version 1.0
  */

@@ -4,8 +4,16 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * The class infopanel reads 2 textfiles and first puts them in two arraylist and then a hashmap.
+ * @author Joakim Tell och Robert Rozencrantz
+ * @version 1.0
+ */
 public class InfoPanel {
 
+    /**
+     * Variables
+     */
     private HashMap<String,String> infoMap = new HashMap();
     private ArrayList<String> arrayList = new ArrayList<>();
     private ArrayList<String> arrayList2 = new ArrayList<>();
@@ -14,10 +22,12 @@ public class InfoPanel {
 
 
     /**
-     * @param textFile takes a string and reads the textilepath.
+     * Constructor
+     * @param infoPanelFile reads the infopanelfile
+     * @param symbolfile reads the symbolfile
      */
-    public InfoPanel(String textFile, String symbolfile) {
-        file = new File(textFile);
+    public InfoPanel(String infoPanelFile, String symbolfile) {
+        file = new File(infoPanelFile);
         file2 = new File(symbolfile);
         readTextFile();
         readTextFile2();
@@ -25,7 +35,7 @@ public class InfoPanel {
     }
 
     /**
-     * reads the word from the txt file and puts it in a HashMap.
+     * reads the the first infoPanel.txt file and puts it in an arraylist
      */
     private void readTextFile() {
         Scanner input = null;
@@ -46,7 +56,7 @@ public class InfoPanel {
     }
 
     /**
-     * reads the word from the txt file and puts it in a HashMap.
+     * reads the the first symbol.txt file and puts it in an arraylist
      */
     private void readTextFile2() {
         Scanner input = null;
