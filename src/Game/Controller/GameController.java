@@ -1,5 +1,6 @@
 package Game.Controller;
 
+import Game.InfoText;
 import Game.Model.Card;
 import Game.Model.User;
 import Game.View.BoardGUI;
@@ -14,6 +15,7 @@ public class GameController {
     private LogInGUI logInGUI;
     private MenuGUI menuGUI;
     private User[] multiPlayer = new User[2];
+    private InfoText infoText;
 
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
@@ -65,6 +67,7 @@ public class GameController {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true); //flags the button as having been matched
             pairOfCards[1].setMatched(true);
+            //KALLA PÅ METOD SOM VISAR INFO TEXT.
             if (isGameWon()) {
                 JOptionPane.showMessageDialog(boardGUI, "You win!");
                 boardGUI.dispose();
@@ -135,5 +138,9 @@ public class GameController {
             boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
         }
+    }
+
+    public Card[] getPairOfCards() {
+        return pairOfCards;
     }
 }
