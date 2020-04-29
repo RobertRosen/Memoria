@@ -11,6 +11,13 @@ public class GameController {
     private Card[] pairOfCards = new Card[2];
     private String player2;
 
+    private boolean turnPlayer1 = true;
+    private String namePlayer1 = "Player1";
+    private String namePlayer2 = "Player2";
+
+    private int score;
+    private int score2;
+
     public GameController() {
         logInGUI = new LogInGUI(this, "Player One ");
     }
@@ -41,8 +48,10 @@ public class GameController {
      * TODO: Vad ska hända efter isGamewon?
      */
     public void checkCards() {
-        if ((pairOfCards[0].getPathSymbol().substring(0, 9).equals(pairOfCards[1].getPathSymbol().substring(0, 9))) &&
-                !(pairOfCards[0].getPathSymbol().equals(pairOfCards[1].getPathSymbol()))) {
+        String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);
+
+        if (firstSymbol.equals(secondSymbol)) {
             // Matcha paret.
             pairOfCards[0].setEnabled(false); //disables the button
             pairOfCards[1].setEnabled(false);
@@ -53,13 +62,33 @@ public class GameController {
                 boardGUI.dispose();
                 boardGUI = new BoardGUI(this);
             }
+            incrementScore();
         } else {
             // Dölj paret
             for (Card card : pairOfCards) {
                 card.hideSymbol();
             }
+            switchPlayers();
         }
         Arrays.fill(pairOfCards, null);     // Töm paret av kort.
+    }
+
+    public void incrementScore(){
+        if (turnPlayer1) {
+            boardGUI.setLblScore(score += 10);
+        } else {
+            boardGUI.setLblScore2(score2 += 10);
+        }
+    }
+
+    public void switchPlayers(){
+        if (turnPlayer1){
+            boardGUI.highlightPlayer2();
+            turnPlayer1 = false;
+        } else {
+            boardGUI.highlightPlayer1();
+            turnPlayer1 = true;
+        }
     }
 
     /**

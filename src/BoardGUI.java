@@ -16,6 +16,9 @@ import java.util.Collections;
  * @since 2020-04-16
  */
 public class BoardGUI extends JFrame {
+    private int score1 = 0;
+    private int score2 = 0;
+
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
@@ -27,6 +30,13 @@ public class BoardGUI extends JFrame {
     private JPanel pnlScore = new JPanel();
     private JPanel pnlCardsLayout = new JPanel();
 
+
+
+    private JPanel pnlPlayer1Color = new JPanel();
+    private JPanel pnlPlayer1Color2 = new JPanel();
+    private JPanel pnlPlayer2Color = new JPanel();
+    private JPanel pnlPlayer2Color2 = new JPanel();
+
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
     private ImageIcon iconEmptyLogo = new ImageIcon();
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
@@ -37,6 +47,8 @@ public class BoardGUI extends JFrame {
 
     private JLabel lblEmptyLogo = new JLabel(iconEmptyLogo);
     private JLabel lblMemoriaLogo = new JLabel(iconMemoriaLogo);
+    private JLabel lblScore = new JLabel("0");
+    private JLabel lblScore2 = new JLabel("0");
     private JLabel lblGhost = new JLabel(iconBlueStripe);
     private JLabel lblGhost2 = new JLabel(iconBlueStripe);
     private JLabel lblGhost3 = new JLabel(iconBlueStripe);
@@ -47,6 +59,10 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost8 = new JLabel(iconBlueStripe);
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
+    private JLabel lblGhost11 = new JLabel();
+    private JLabel lblGhost12 = new JLabel();
+
+
 
     GameController gameController;
     public BoardGUI(GameController gameController) {
@@ -89,6 +105,14 @@ public class BoardGUI extends JFrame {
         pnlInfo.add(pnlScore);
         pnlInfo.add(lblEmptyLogo);
         pnlInfo.add(lblGhost8);
+        pnlPlayer1.add(lblGhost11);
+        pnlPlayer1.add(pnlPlayer1Color);
+        pnlPlayer1.add(lblScore);
+        pnlPlayer1.add(pnlPlayer1Color2);
+        pnlPlayer2.add(lblGhost12);
+        pnlPlayer2.add(pnlPlayer2Color);
+        pnlPlayer2.add(lblScore2);
+        pnlPlayer2.add(pnlPlayer2Color2);
     }
 
     private void setupComponentsSizes() {
@@ -107,6 +131,8 @@ public class BoardGUI extends JFrame {
         lblGhost8.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
         lblGhost10.setPreferredSize(new Dimension(265, 35));
+        lblGhost11.setPreferredSize(new Dimension(10,5));
+        lblGhost12.setPreferredSize(new Dimension(10,5));
         pnlInfo2.setPreferredSize(new Dimension(126, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlCenter.setPreferredSize(new Dimension(126, 380));
@@ -114,6 +140,10 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
         pnlInfo.setPreferredSize(new Dimension(126, 380));
         btnBonus.setPreferredSize(new Dimension(126, 50));
+        pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
+        pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
+        pnlPlayer1Color2.setPreferredSize(new Dimension(100,10));
+        pnlPlayer2Color2.setPreferredSize(new Dimension(100,10));
     }
 
     private void setupComponents() {
@@ -122,14 +152,22 @@ public class BoardGUI extends JFrame {
         pnlCardsLayout.setBackground(Color.WHITE);
         pnlCenter.setBackground(Color.WHITE);
         pnlPlayer1.setBackground(Color.WHITE);
-        pnlPlayer2.setBackground(Color.WHITE);
+        pnlPlayer2.setBackground(Color.GRAY);
         pnlMain2.setBackground(Color.WHITE);
         pnlInfo.setBackground(Color.WHITE);
         pnlInfo2.setBackground(Color.WHITE);
         pnlScore.setBackground(Color.WHITE);
 
         pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
+        pnlPlayer1Color.setBackground(Color.GREEN);
+        pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer1Color2.setBackground(Color.GREEN);
+        pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
+        pnlPlayer2Color.setBackground(Color.RED);
+        pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer2Color2.setBackground(Color.RED);
+        pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
     }
@@ -173,10 +211,10 @@ public class BoardGUI extends JFrame {
     private ArrayList<String> addSymbols() {
         ArrayList<String> cardSymbolPaths = new ArrayList<String>();
 
-        cardSymbolPaths.add("images/minus.gif");
-        cardSymbolPaths.add("images/plus.gif");
-        cardSymbolPaths.add("images/plus2.jpg");
-        cardSymbolPaths.add("images/minus2.jpg");
+        cardSymbolPaths.add("images/minus.png");
+        cardSymbolPaths.add("images/plus.png");
+        cardSymbolPaths.add("images/plus2.png");
+        cardSymbolPaths.add("images/minus2.png");
         cardSymbolPaths.add("images/pi.jpg");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/Algebra1.png");
@@ -221,13 +259,6 @@ public class BoardGUI extends JFrame {
         return cards;
     }
 
-    public void setPnlPlayer1(JPanel pnlPlayer1) {
-        this.pnlPlayer1 = pnlPlayer1;
-    }
-
-    public void setPnlPlayer2(JPanel pnlPlayer2) {
-        this.pnlPlayer2 = pnlPlayer2;
-    }
 
     public JPanel getPnlPlayer1() {
         return pnlPlayer1;
@@ -236,6 +267,30 @@ public class BoardGUI extends JFrame {
     public JPanel getPnlPlayer2() {
         return pnlPlayer2;
     }
+
+    public void highlightPlayer1() {
+        pnlPlayer1.setBackground(Color.WHITE);
+        pnlPlayer1Color.setBackground(Color.GREEN);
+        pnlPlayer1Color2.setBackground(Color.GREEN);
+
+        pnlPlayer2.setBackground(Color.GRAY);
+        pnlPlayer2Color.setBackground(Color.RED);
+        pnlPlayer2Color2.setBackground(Color.RED);
+    }
+
+    public void highlightPlayer2() {
+        pnlPlayer1.setBackground(Color.GRAY);
+        pnlPlayer1Color.setBackground(Color.RED);
+        pnlPlayer1Color2.setBackground(Color.RED);
+
+        pnlPlayer2.setBackground(Color.WHITE);
+        pnlPlayer2Color.setBackground(Color.GREEN);
+        pnlPlayer2Color2.setBackground(Color.GREEN);
+    }
+
+    public void setLblScore(int score) { lblScore.setText(String.valueOf(score)); }
+
+    public void setLblScore2(int score2) { lblScore2.setText(String.valueOf(score2)); }
 
     //    public static void main(String[] args) {
 //        new BoardGUI();
