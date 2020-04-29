@@ -12,8 +12,7 @@ public class GameController {
     private String player2;
 
     public GameController() {
-        logInGUI = new LogInGUI(this);
-
+        logInGUI = new LogInGUI(this, "Player One ");
     }
 
     /**
@@ -76,24 +75,42 @@ public class GameController {
         return true;
     }
 
+    LogInGUI logInPlayer2;
     /**
      * Go game view.
      */
     public void switchGUI() {
-        createUser();
-        boardGUI = new BoardGUI(this);
-        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
-        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
+        logInPlayer2 = new LogInGUI(this, "Player Two");
 
+//        boardGUI = new BoardGUI(this);
+
+//        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
+//        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
     }
+
+//    public void loginPlayer() {
+//        String name = logInGUI.getTxtUsername().getText();
+//        multiPlayer[0] = new User(name);
+//        JOptionPane.showMessageDialog(null, "Välkommen spelare1: " + name);
+//        new MenuGUI(this);
+//    }
 
     public void createUser() {
         if (multiPlayer[0] == null) {
-            multiPlayer[0] = new User(logInGUI.getTxtUsername().getText());
+            String name = logInGUI.getTxtUsername().getText();
+            multiPlayer[0] = new User(name);
+            JOptionPane.showMessageDialog(null, "Välkommen spelare1: " + name);
+            new MenuGUI(this);
         }
-        else if(multiPlayer != null) {
-            player2 = JOptionPane.showInputDialog("Ange spelare 2's namn");
-            multiPlayer[1] = new User(player2);
+        else {
+            String name = logInPlayer2.getTxtUsername().getText();
+            multiPlayer[1] = new User(name);
+            JOptionPane.showMessageDialog(null, "Välkommen spelare 2: " + name);
+            boardGUI = new BoardGUI(this);
+            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
+            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
+//            player2 = JOptionPane.showInputDialog("Ange spelare 2's namn");
+//            multiPlayer[1] = new User(player2);
         }
     }
 }
