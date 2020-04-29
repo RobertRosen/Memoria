@@ -221,7 +221,23 @@ public class BoardGUI extends JFrame {
         return cards;
     }
 
-//    public static void main(String[] args) {
+    public void setPnlPlayer1(JPanel pnlPlayer1) {
+        this.pnlPlayer1 = pnlPlayer1;
+    }
+
+    public void setPnlPlayer2(JPanel pnlPlayer2) {
+        this.pnlPlayer2 = pnlPlayer2;
+    }
+
+    public JPanel getPnlPlayer1() {
+        return pnlPlayer1;
+    }
+
+    public JPanel getPnlPlayer2() {
+        return pnlPlayer2;
+    }
+
+    //    public static void main(String[] args) {
 //        new BoardGUI();
 //    }
 }

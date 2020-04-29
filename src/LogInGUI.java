@@ -5,18 +5,18 @@ import java.awt.event.ActionListener;
 
 /**
  * Klassen LogInGUI är ett GUI för login.
- * @version 1.0
  * @author Joakim Tell och Yasir Kakar
+ * @version 1.0
  */
 public class LogInGUI extends JFrame {
     private GameController gameController;
-    private ImageIcon välkommenLogo = new ImageIcon("images/välkommen.PNG");
+    private ImageIcon welcomeLogo = new ImageIcon("images/välkommen.PNG");
 
     private JFrame frame = new JFrame();
 
     private JPanel pnlMain = new JPanel();
 
-    private JLabel lblGame = new JLabel(välkommenLogo);
+    private JLabel lblGame = new JLabel(welcomeLogo);
     private JLabel lblUsername = new JLabel("Användarnamn");
 
     private JTextField txtUsername = new JTextField();
@@ -28,7 +28,7 @@ public class LogInGUI extends JFrame {
     /**
      * Konstruktor som initierar LogInGUI
      */
-    public LogInGUI(GameController gameController) {
+    public LogInGUI(GameController gameController, String name) {
         this.gameController = gameController;
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -46,6 +46,8 @@ public class LogInGUI extends JFrame {
         txtUsername.setBounds(160, 100, 165, 25);
         btnLogin.setBounds(120, 150, 150, 40);
 
+        lblUsername.setText(name);
+
         pnlMain.add(lblGame);
         pnlMain.add(lblUsername);
         pnlMain.add(txtUsername);
@@ -61,16 +63,20 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
-                JOptionPane.showMessageDialog(null, "Välkommen " + txtUsername.getText());
-
-                new MenuGUI(gameController);
+                gameController.createUser();
                 frame.dispose();
             } else {
-                JOptionPane.showMessageDialog(null,"Ogiltigt användarnamn");
+                JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
             }
         }
     }
-//    public static void main(String[] args) {
+
+    public JTextField getTxtUsername() {
+        return txtUsername;
+    }
+
+    //    public static void main(String[] args) {
 //        LogInGUI logInGUI = new LogInGUI();
 //    }
+
 }

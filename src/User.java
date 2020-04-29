@@ -8,10 +8,13 @@ public class User {
 
     }
 
+    public User(String userName) {
+        this.userName = userName;
+    }
+
     public User(String userName, int totalPoints) {
         this.totalPoints = totalPoints;
         this.userName = userName;
-
     }
 
     public String getUserName() {
