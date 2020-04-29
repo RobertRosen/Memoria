@@ -1,7 +1,9 @@
+package Game.View;
+
+import Game.Controller.GameController;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -228,7 +230,7 @@ public class MenuGUI extends JFrame {
 
 
     public static void main(String[] args) {
-       //MenuGUI start = new MenuGUI();
+       //Game.Game.Model.View.MenuGUI start = new Game.Game.Model.View.MenuGUI();
         //TwoPlayer twoPlayer = new TwoPlayer();
 
     }

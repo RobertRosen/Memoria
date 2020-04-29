@@ -1,3 +1,4 @@
+package Game.Controller;
 
 import javax.sound.sampled.Clip;
 
@@ -9,7 +10,7 @@ import java.io.File;
 
 
 /**
- * Klassen MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
+ * Klassen Game.Game.Model.Controller.MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
  * @version 1.0
  * @author Yasir Kakar
  */

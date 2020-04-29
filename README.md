@@ -1,5 +1,5 @@
 För att testa Memoria:
-1.Starta mainmetoden i LogInGUI.
+1.Starta mainmetoden i GamenGUI.
 2.Logga in med ett användarnamn inom ramen av 3-10 bokstäver.
 3.Tryck på multiplayer för att komma in i spelet.
 

@@ -1,10 +1,12 @@
+package Game.View;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Klassen HelpGUI innehåller allt som finns med i Memorias hjälpcenter
+ * Klassen Game.Game.Model.View.HelpGUI innehåller allt som finns med i Memorias hjälpcenter
  * @version 1.0
  * @author Yasir Kakar
  */

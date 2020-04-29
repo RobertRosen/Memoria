@@ -1,3 +1,7 @@
+package Game.View;
+
+import Game.Controller.MusicController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -63,6 +67,6 @@ public class SettingsGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        //SettingsGUI settingsGUI = new SettingsGUI();
+        //Game.Game.Model.View.SettingsGUI settingsGUI = new Game.Game.Model.View.SettingsGUI();
     }
 }

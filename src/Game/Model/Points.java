@@ -1,3 +1,6 @@
+package Game.Model;
+
+import Game.Game;
 
 public class Points {
 
@@ -40,7 +43,7 @@ public class Points {
 
 
 
-    //räknar score för playerOne som sedan ska visas i BoardGUI
+    //räknar score för playerOne som sedan ska visas i Game.Game.Model.View.BoardGUI
     public void scorePlayerOne(int newPointsPlayerOne) {
 
         pointsPlayerOne = pointsPlayerOne + newPointsPlayerOne;
@@ -48,7 +51,7 @@ public class Points {
     }
 
 
-    //räknar score för playerTwo som sedan ska visas i BoardGUI
+    //räknar score för playerTwo som sedan ska visas i Game.Game.Model.View.BoardGUI
     public void scorePlayerTwo(int newPointsPlayerTwo) {
 
         pointsPlayerTwo = pointsPlayerTwo + newPointsPlayerTwo;

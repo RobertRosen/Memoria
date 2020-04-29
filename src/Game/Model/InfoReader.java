@@ -1,3 +1,5 @@
+package Game.Model;
+
 import java.io.File;
 import java.io.FileNotFoundException;       
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.Scanner;
  * @author Joakim Tell och Robert Rozencrantz
  * @version 1.0
  */
-public class InfoPanel {
+public class InfoReader {
 
     /**
      * Variables
@@ -26,7 +28,7 @@ public class InfoPanel {
      * @param infoPanelFile reads the infopanelfile
      * @param symbolfile reads the symbolfile
      */
-    public InfoPanel(String infoPanelFile, String symbolfile) {
+    public InfoReader(String infoPanelFile, String symbolfile) {
         file = new File(infoPanelFile);
         file2 = new File(symbolfile);
         readTextFile();
@@ -89,6 +91,6 @@ public class InfoPanel {
     }
 
     public static void main(String[] args) {
-        new InfoPanel("textfiles/infopanel.txt","textfiles/symbol.txt").printline();
+        new InfoReader("textfiles/infopanel.txt","textfiles/symbol.txt").printline();
     }
 }

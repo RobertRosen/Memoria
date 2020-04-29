@@ -1,3 +1,8 @@
+package Game.View;
+
+import Game.Controller.GameController;
+import Game.Model.Card;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -302,6 +307,6 @@ public class BoardGUI extends JFrame {
     public void setLblScore2(int score2) { lblScore2.setText(String.valueOf(score2)); }
 
     //    public static void main(String[] args) {
-//        new BoardGUI();
+//        new Game.Game.Model.View.BoardGUI();
 //    }
 }

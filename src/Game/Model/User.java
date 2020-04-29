@@ -1,3 +1,7 @@
+package Game.Model;
+
+import Game.Game;
+
 public class User {
 
     private String userName;

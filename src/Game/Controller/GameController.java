@@ -1,3 +1,11 @@
+package Game.Controller;
+
+import Game.Model.Card;
+import Game.Model.User;
+import Game.View.BoardGUI;
+import Game.View.LogInGUI;
+import Game.View.MenuGUI;
+
 import javax.swing.*;
 import java.util.Arrays;
 
