@@ -134,59 +134,6 @@ public class MenuGUI extends JFrame {
 
         pnlMain.add(scoreGUI);
     }
-    /*class TwoPlayer extends JFrame implements ActionListener{
-        private JPanel pnlMain = new JPanel();
-
-        private JLabel lblGame = new JLabel("Spelare 2");
-        private JLabel lblUsername = new JLabel("Användarnamn");
-
-        private JTextField txtUsername = new JTextField();
-
-        private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
-
-        private JButton btnLogin = new JButton("Starta spel");
-
-        public TwoPlayer(){
-                setSize(400, 300);
-                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                setVisible(true);
-                setLocationRelativeTo(null);
-                add(pnlMain);
-
-                lblGame.setFont(myFont);
-
-                pnlMain.setLayout(null);
-
-                lblGame.setBounds(120, 10, 300, 50);
-                lblUsername.setBounds(60, 20, 100, 100);
-                txtUsername.setBounds(160, 60, 165, 25);
-                btnLogin.setBounds(120, 150, 150, 40);
-
-                pnlMain.add(lblGame);
-                pnlMain.add(lblUsername);
-                pnlMain.add(txtUsername);
-                pnlMain.add(btnLogin);
-
-                btnLogin.addActionListener(this);
-            }
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
-                JOptionPane.showMessageDialog(null, "Välkommen " + txtUsername.getText());
-                gameController.switchGUI();
-                dispose();
-            } else {
-                JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
-            }
-        }*/
-/*
-        public JTextField getTxtUsername() {
-            return txtUsername;
-        }
-    }*/
-
-
 
     /**
      * This class contains the listeners that starts Memorias Boards class

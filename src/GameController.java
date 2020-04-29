@@ -81,19 +81,7 @@ public class GameController {
      */
     public void switchGUI() {
         logInPlayer2 = new LogInGUI(this, "Player Two");
-
-//        boardGUI = new BoardGUI(this);
-
-//        boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
-//        boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
     }
-
-//    public void loginPlayer() {
-//        String name = logInGUI.getTxtUsername().getText();
-//        multiPlayer[0] = new User(name);
-//        JOptionPane.showMessageDialog(null, "Välkommen spelare1: " + name);
-//        new MenuGUI(this);
-//    }
 
     public void createUser() {
         if (multiPlayer[0] == null) {
@@ -109,8 +97,6 @@ public class GameController {
             boardGUI = new BoardGUI(this);
             boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
-//            player2 = JOptionPane.showInputDialog("Ange spelare 2's namn");
-//            multiPlayer[1] = new User(player2);
         }
     }
 }

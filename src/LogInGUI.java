@@ -13,8 +13,6 @@ public class LogInGUI extends JFrame {
     private GameController gameController;
     private ImageIcon welcomeLogo = new ImageIcon("images/välkommen.PNG");
 
-//    private int player = 1;
-
     private JFrame frame = new JFrame();
 
     private JPanel pnlMain = new JPanel();
@@ -66,10 +64,6 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
-//                JOptionPane.showMessageDialog(null, "Välkommen spelare1: "
-//                        + txtUsername.getText());
-
-//                new MenuGUI(gameController);
                 gameController.createUser();
                 frame.dispose();
             } else {
