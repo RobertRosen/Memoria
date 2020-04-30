@@ -94,7 +94,9 @@ public class InfoReader {
         new InfoReader("textfiles/infopanel.txt","textfiles/symbol.txt").printline();
     }
 
-
+    public HashMap<String, String> getInfoMap() {
+        return infoMap;
+    }
     /*
     När AL och AL matchas i boardgui behövs en metod som kollar vilka det är som matchats (AL & AL).
     Då behöver AL matchas med (AL i symbol.txt) och därefter hämta ut rätt info och visa det i infopanelen i boardgui.

@@ -23,6 +23,8 @@ public class GameController {
     private String player2;
 
     private boolean turnPlayer1 = true;
+    private String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
+    private String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);
 
     private int score;
     private int score2;
@@ -58,8 +60,8 @@ public class GameController {
      * TODO: Vad ska hända efter isGamewon?
      */
     public void checkCards() {
-        String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
-        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);
+       /* String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);*/
 
         if (firstSymbol.equals(secondSymbol)) {
             // Matcha paret.
@@ -141,16 +143,26 @@ public class GameController {
     }
 
     public void showInfoOnPanel() {
-          /*
+        /*
     När AL och AL matchas i boardgui behövs en metod som kollar vilka det är som matchats (AL & AL).
     Då behöver AL matchas med (AL i symbol.txt) och därefter hämta ut rätt info och visa det i infopanelen i boardgui.
     Använda metoden igen när kort matchas eller kalla på en metod?
-
      */
-        if(matched) {
-
-
+        if(firstSymbol.equals(secondSymbol)) {
+            /*
+            Loopa igenom och hitta rätt key till rätt par.
+             */
+            System.out.println(infoReader.getInfoMap().get("Al"));
         }
+            System.out.println(infoReader.getInfoMap().get("Al"));
+
+
+
+    }
+
+    public static void main(String[] args) {
+        GameController gameController = new GameController();
+        gameController.showInfoOnPanel();
     }
 
     public Card[] getPairOfCards() {
