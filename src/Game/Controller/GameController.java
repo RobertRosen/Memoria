@@ -1,7 +1,7 @@
 package Game.Controller;
 
-import Game.InfoText;
 import Game.Model.Card;
+import Game.Model.InfoReader;
 import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
@@ -15,21 +15,21 @@ public class GameController {
     private LogInGUI logInGUI;
     private MenuGUI menuGUI;
     private User[] multiPlayer = new User[2];
-    private InfoText infoText;
+
+    private InfoReader infoReader;
 
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
     private String player2;
 
     private boolean turnPlayer1 = true;
-    private String namePlayer1 = "Player1";
-    private String namePlayer2 = "Player2";
 
     private int score;
     private int score2;
 
     public GameController() {
         logInGUI = new LogInGUI(this, "Player One ");
+        infoReader = new InfoReader("textfiles/infopanel.txt","textfiles/symbol.txt");
     }
 
     /**
@@ -137,6 +137,19 @@ public class GameController {
             boardGUI = new BoardGUI(this);
             boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
+        }
+    }
+
+    public void showInfoOnPanel() {
+          /*
+    När AL och AL matchas i boardgui behövs en metod som kollar vilka det är som matchats (AL & AL).
+    Då behöver AL matchas med (AL i symbol.txt) och därefter hämta ut rätt info och visa det i infopanelen i boardgui.
+    Använda metoden igen när kort matchas eller kalla på en metod?
+
+     */
+        if(matched) {
+
+
         }
     }
 
