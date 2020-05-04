@@ -22,7 +22,7 @@ public class Card extends JButton {
      * Initiate and construct a card.
      */
     public Card() {
-        setPreferredSize(new Dimension(52, 72));
+        setPreferredSize((new Dimension(50, 68)));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setBackground(Color.WHITE);
     }
@@ -55,8 +55,15 @@ public class Card extends JButton {
      * Turn card symbol down.
      */
     public void hideSymbol() {
-        imageShowing = new ImageIcon("images/math4.jpg");
-        setIcon(imageShowing);
+        //imageShowing = new ImageIcon("images/math4.jpg");
+        //imageShowing = new ImageIcon("images/Back.png");
+        //imageShowing = new ImageIcon("images/BackDark.png");
+        //imageShowing = new ImageIcon("images/BackGreen.png");
+        imageShowing = new ImageIcon("images/BackMan.png");
+        Image imageToScale = imageShowing.getImage();
+        Image scaledImage = imageToScale.getScaledInstance(50, 68, Image.SCALE_SMOOTH);
+        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+        setIcon(scaledImageIcon);
     }
 
     // Setters och getters

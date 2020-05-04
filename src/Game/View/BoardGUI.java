@@ -169,12 +169,8 @@ public class BoardGUI extends JFrame {
         pnlPlayer1Color2.setBackground(Color.GREEN);
         pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
-        //pnlPlayer2Color.setBackground(Color.RED);
-        pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        //pnlPlayer2Color2.setBackground(Color.RED);
-        pnlPlayer2Color.setVisible(false);
-        pnlPlayer2Color2.setVisible(false);
-        pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer2Color.setBackground(Color.WHITE);
+        pnlPlayer2Color2.setBackground(Color.WHITE);
         pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
         lblScore.setText("0");
@@ -278,30 +274,29 @@ public class BoardGUI extends JFrame {
     }
 
     public void highlightPlayer1() {
-        //pnlPlayer1.setBackground(Color.WHITE);
         pnlPlayer1Color.setBackground(Color.GREEN);
         pnlPlayer1Color2.setBackground(Color.GREEN);
         pnlPlayer1Color2.setVisible(true);
         pnlPlayer1Color.setVisible(true);
-        pnlPlayer2Color2.setVisible(false);
-        pnlPlayer2Color.setVisible(false);
-       // pnlPlayer2.setBackground(Color.GRAY);
-       // pnlPlayer2Color.setBackground(Color.RED);
-       // pnlPlayer2Color2.setBackground(Color.RED);
+        pnlPlayer2Color2.setBackground(Color.WHITE);
+        pnlPlayer2Color.setBackground(Color.WHITE);
+        pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     public void highlightPlayer2() {
-        //pnlPlayer1.setBackground(Color.GRAY);
-       // pnlPlayer1Color.setBackground(Color.RED);
-       // pnlPlayer1Color2.setBackground(Color.RED);
-
-       // pnlPlayer2.setBackground(Color.WHITE);
         pnlPlayer2Color.setBackground(Color.GREEN);
         pnlPlayer2Color2.setBackground(Color.GREEN);
         pnlPlayer2Color2.setVisible(true);
         pnlPlayer2Color.setVisible(true);
-        pnlPlayer1Color2.setVisible(false);
-        pnlPlayer1Color.setVisible(false);
+        pnlPlayer1Color2.setBackground(Color.WHITE);
+        pnlPlayer1Color.setBackground(Color.WHITE);
+        pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     public void setLblScore(int score) {
