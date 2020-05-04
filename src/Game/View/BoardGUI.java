@@ -308,6 +308,6 @@ public class BoardGUI extends JFrame {
     }
 
     //    public static void main(String[] args) {
-//        new Game.Game.Model.View.BoardGUI();
+//        new Game.Controller.Game.Model.View.BoardGUI();
 //    }
 }

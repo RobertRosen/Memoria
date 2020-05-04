@@ -1,4 +1,4 @@
-package Game;
+package Game.Controller;
 
 import Game.Controller.GameController;
 

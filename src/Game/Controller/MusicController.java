@@ -10,7 +10,7 @@ import java.io.File;
 
 
 /**
- * Klassen Game.Game.Model.Controller.MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
+ * Klassen Game.Controller.Game.Model.Controller.MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
  * @version 1.0
  * @author Yasir Kakar
  */

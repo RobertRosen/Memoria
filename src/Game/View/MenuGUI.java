@@ -230,7 +230,7 @@ public class MenuGUI extends JFrame {
 
 
     public static void main(String[] args) {
-       //Game.Game.Model.View.MenuGUI start = new Game.Game.Model.View.MenuGUI();
+       //Game.Controller.Game.Model.View.MenuGUI start = new Game.Controller.Game.Model.View.MenuGUI();
         //TwoPlayer twoPlayer = new TwoPlayer();
 
     }

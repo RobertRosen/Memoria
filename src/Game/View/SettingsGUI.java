@@ -67,6 +67,6 @@ public class SettingsGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        //Game.Game.Model.View.SettingsGUI settingsGUI = new Game.Game.Model.View.SettingsGUI();
+        //Game.Controller.Game.Model.View.SettingsGUI settingsGUI = new Game.Controller.Game.Model.View.SettingsGUI();
     }
 }

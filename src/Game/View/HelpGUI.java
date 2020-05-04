@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Klassen Game.Game.Model.View.HelpGUI innehåller allt som finns med i Memorias hjälpcenter
+ * Klassen Game.Controller.Game.Model.View.HelpGUI innehåller allt som finns med i Memorias hjälpcenter
  * @version 1.0
  * @author Yasir Kakar
  */
