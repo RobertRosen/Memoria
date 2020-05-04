@@ -84,13 +84,9 @@ public class InfoReader {
         }
     }
 
-    public void printline() {
-        for(String line : arrayList2) {
-            System.out.println(infoMap.get(line));
-        }
-    }
+    public HashMap<String, String> getInfoMap() {
+        return infoMap;
 
-    public static void main(String[] args) {
-        new InfoReader("textfiles/infopanel.txt","textfiles/symbol.txt").printline();
+
     }
 }

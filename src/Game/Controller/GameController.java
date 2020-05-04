@@ -1,6 +1,7 @@
 package Game.Controller;
 
 import Game.Model.Card;
+import Game.Model.InfoReader;
 import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
@@ -15,19 +16,19 @@ public class GameController {
     private MenuGUI menuGUI;
     private User[] multiPlayer = new User[2];
 
+    private InfoReader infoReader;
+
     private Card selectedCard;
     private Card[] pairOfCards = new Card[2];
-    private String player2;
 
     private boolean turnPlayer1 = true;
-    private String namePlayer1 = "Player1";
-    private String namePlayer2 = "Player2";
 
     private int score;
     private int score2;
 
     public GameController() {
         logInGUI = new LogInGUI(this, "Player One ");
+        infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
     }
 
     /**
@@ -55,8 +56,8 @@ public class GameController {
      * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
      */
     public void checkCards() {
-        String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
-        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0,9);
+        String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
         if (firstSymbol.equals(secondSymbol)) {
             // Matcha paret.
@@ -112,7 +113,7 @@ public class GameController {
         Arrays.fill(pairOfCards, null);     // Töm paret av kort.
     }
 
-    public void incrementScore(){
+    public void incrementScore() {
         if (turnPlayer1) {
             boardGUI.setLblScore(score += 10);
         } else {
@@ -120,8 +121,8 @@ public class GameController {
         }
     }
 
-    public void switchPlayers(){
-        if (turnPlayer1){
+    public void switchPlayers() {
+        if (turnPlayer1) {
             boardGUI.highlightPlayer2();
             turnPlayer1 = false;
         } else {
@@ -154,6 +155,7 @@ public class GameController {
 
 
     LogInGUI logInPlayer2;
+
     /**
      * Go game view.
      */
@@ -167,8 +169,7 @@ public class GameController {
             multiPlayer[0] = new User(name);
             JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
             new MenuGUI(this);
-        }
-        else {
+        } else {
             String name = logInPlayer2.getTxtUsername().getText();
             multiPlayer[1] = new User(name);
             JOptionPane.showMessageDialog(null, "Välkommen spelare 2: " + name);
@@ -178,5 +179,10 @@ public class GameController {
         }
     }
 
+    public void showInfoOnPanel() {
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
+        System.out.println(infoReader.getInfoMap().get(secondSymbol));
+
+    }
 }

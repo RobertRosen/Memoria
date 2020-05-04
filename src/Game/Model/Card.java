@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Baseras på memoryspel hämtat från stackexchange 20.04.14.
+ * Baseras på memoryspel hämtat frn stackexchange 20.04.14.
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  *
  * Anpassningar till Memoria av: Robert Rosencrantz
