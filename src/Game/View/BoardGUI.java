@@ -177,6 +177,8 @@ public class BoardGUI extends JFrame {
         pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
+        lblScore.setText("0");
+        lblScore2.setText("0");
     }
 
 
@@ -302,9 +304,13 @@ public class BoardGUI extends JFrame {
         pnlPlayer1Color.setVisible(false);
     }
 
-    public void setLblScore(int score) { lblScore.setText(String.valueOf(score)); }
+    public void setLblScore(int score) {
+        lblScore.setText(String.valueOf(score));
+    }
 
-    public void setLblScore2(int score2) { lblScore2.setText(String.valueOf(score2)); }
+    public void setLblScore2(int score2) {
+        lblScore2.setText(String.valueOf(score2));
+    }
 
     //    public static void main(String[] args) {
 //        new Game.Game.Model.View.BoardGUI();

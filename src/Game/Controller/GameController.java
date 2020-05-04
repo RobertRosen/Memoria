@@ -51,9 +51,8 @@ public class GameController {
     /**
      * Kontrollera om paret matchar.
      * Visa matchning och ta korten ur spel, eller vänd tillbaks kort.
+     * Vid spelavslut visas vinnaren.
      * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
-     * TODO: Ta bort andra vilkoret i if-satsen
-     * TODO: Vad ska hända efter isGamewon?
      */
     public void checkCards() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0,9);
@@ -65,12 +64,44 @@ public class GameController {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true); //flags the button as having been matched
             pairOfCards[1].setMatched(true);
-            if (isGameWon()) {
-                JOptionPane.showMessageDialog(boardGUI, "You win!");
-                boardGUI.dispose();
-                boardGUI = new BoardGUI(this);
+
+            if (test()) { //OBS! ÄNDRA TILL isGameWon()
+
+                if (score > score2) {
+                    int reply = JOptionPane.showConfirmDialog(null, "Grattis " + multiPlayer[0].getUserName() +
+                            ", du vann!" + "\n" + "Vill ni spela igen?", "Spelet slut", JOptionPane.YES_NO_OPTION);
+
+                    if(reply == JOptionPane.YES_OPTION) {
+                        boardGUI.dispose();
+                        turnPlayer1 = true;
+                        score = -10; //kompenserar för andra skeenden i koden
+                        score2 = 0;
+                        boardGUI = new BoardGUI(this);
+                        boardGUI.revalidate();
+                    } else {
+                        System.exit(0);
+                    }
+                }
+
+                else if (score2 > score) {
+                    int reply = JOptionPane.showConfirmDialog(null, "Grattis " + multiPlayer[1].getUserName() +
+                            ", du vann!" + "\n" + "Vill ni spela igen?", "Spelet slut", JOptionPane.YES_NO_OPTION);
+
+                    if(reply == JOptionPane.YES_OPTION) {
+                        boardGUI.dispose();
+                        turnPlayer1 = true;
+                        score = -10; //kompenserar för andra skeenden i koden
+                        score2 = 0;
+                        boardGUI = new BoardGUI(this);
+                        boardGUI.revalidate();
+                    } else {
+                        System.exit(0);
+                    }
+                }
             }
+
             incrementScore();
+
         } else {
             // Dölj paret
             for (Card card : pairOfCards) {
@@ -112,6 +143,16 @@ public class GameController {
         return true;
     }
 
+    //ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
+    public boolean test() {
+
+            if (score == 20 || score2 == 20) {
+                return false;
+            }
+        return true;
+    }
+
+
     LogInGUI logInPlayer2;
     /**
      * Go game view.
@@ -124,7 +165,7 @@ public class GameController {
         if (multiPlayer[0] == null) {
             String name = logInGUI.getTxtUsername().getText();
             multiPlayer[0] = new User(name);
-            JOptionPane.showMessageDialog(null, "Välkommen spelare1: " + name);
+            JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
             new MenuGUI(this);
         }
         else {
@@ -136,4 +177,6 @@ public class GameController {
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
         }
     }
+
+
 }
