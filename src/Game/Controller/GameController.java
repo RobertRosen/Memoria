@@ -10,30 +10,40 @@ import Game.View.MenuGUI;
 import javax.swing.*;
 import java.util.Arrays;
 
+/**
+ * Controls interaction with model and view, between different views and handles game logic.
+ * TODO: Separat klass för växling mellan gui:s?
+ */
 public class GameController {
+
     private BoardGUI boardGUI;
     private LogInGUI logInGUI;
     private MenuGUI menuGUI;
-    private User[] multiPlayer = new User[2];
 
     private InfoReader infoReader;
 
     private Card selectedCard;
-    private Card[] pairOfCards = new Card[2];
 
-    private boolean turnPlayer1 = true;
+    private Card[] pairOfCards = new Card[2];   // To handle the two cards for each round of pairings.
+    private User[] multiPlayer = new User[2];   // Keeps information of logged in users.
+
+    private boolean turnPlayer1 = true;         // Track which players turn it is.
 
     private int score;
     private int score2;
 
+
+    /**
+     * Construct the controller and initialize a login view.
+     */
     public GameController() {
         logInGUI = new LogInGUI(this, "Player One ");
         infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
     }
 
     /**
-     * Vänder upp valt kort.
-     * TODO: Snygga till och eventuellt skapa en par-klass.
+     * Check if chosen card is first or second in a round.
+     * Turn chosen card and delay if it is second card.
      */
     public void doTurn(Card card) {
         selectedCard = card;
@@ -50,20 +60,17 @@ public class GameController {
     }
 
     /**
-     * Kontrollera om paret matchar.
-     * Visa matchning och ta korten ur spel, eller vänd tillbaks kort.
-     * Vid spelavslut visas vinnaren.
-     * TODO: Snygga till och eventuellt par-klass. Snygga till villkoren.
+     * Check for matching cards and acts accordingly.
      */
     public void checkCards() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
         if (firstSymbol.equals(secondSymbol)) {
-            // Matcha paret.
-            pairOfCards[0].setEnabled(false); //disables the button
+            // Disable buttons and flag as matched.
+            pairOfCards[0].setEnabled(false);
             pairOfCards[1].setEnabled(false);
-            pairOfCards[0].setMatched(true); //flags the button as having been matched
+            pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
 
             if (test()) { //OBS! ÄNDRA TILL isGameWon()
@@ -110,9 +117,12 @@ public class GameController {
             }
             switchPlayers();
         }
-        Arrays.fill(pairOfCards, null);     // Töm paret av kort.
+        Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
     }
 
+    /**
+     *Updated score in the view.
+     */
     public void incrementScore() {
         if (turnPlayer1) {
             boardGUI.setLblScore(score += 10);
@@ -121,6 +131,10 @@ public class GameController {
         }
     }
 
+    /**
+     * To indicate in the view which player's round it is.
+     * And turn all cards, symbol down.
+     */
     public void switchPlayers() {
         if (turnPlayer1) {
             boardGUI.highlightPlayer2();
@@ -132,8 +146,7 @@ public class GameController {
     }
 
     /**
-     * Kontrollerar om spelet är slut.
-     * TODO: Lös det här snyggare.
+     * Returns true when all cards are ultimately out of play.
      */
     private boolean isGameWon() {
         for (Card card : boardGUI.getCards()) {
@@ -144,7 +157,7 @@ public class GameController {
         return true;
     }
 
-    //ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
+    //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
     public boolean test() {
 
             if (score == 20 || score2 == 20) {
@@ -163,6 +176,11 @@ public class GameController {
         logInPlayer2 = new LogInGUI(this, "Player Two");
     }
 
+    /**
+     * Create a player from login windows.
+     * Go to menu after first player.
+     * Go to game after second player and set names at view.
+     */
     public void createUser() {
         if (multiPlayer[0] == null) {
             String name = logInGUI.getTxtUsername().getText();
