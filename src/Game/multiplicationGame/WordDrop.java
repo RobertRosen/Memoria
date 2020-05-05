@@ -15,18 +15,21 @@ public class WordDrop extends JTextField implements Runnable {
 
     private int yPosition = 0;                                                       // Origin of the word appearing
 
+    private String solved;
+
     private boolean alive = false;
     private int xPosition = new Random().nextInt(800);                  // Words appear random to this number
 
     /**
      * Constructs and initialize this thread.
      * @param wordsrain The thread where this word drop thread will be initiated.
-     * @param word Word from list in GUI.
+     *
      */
-    public WordDrop(GUI gui, WordsRain wordsrain, String word) {
+    public WordDrop(GUI gui, WordsRain wordsrain, String problem, String solved) {
         this.gui = gui;
         this.wordsRain = wordsrain;
-        setText(word);                                      // Set this threads word from construction in wordsrain.
+        setText(problem);                                      // Set this threads word from construction in wordsrain.
+        this.solved = solved;
         initialize();
     }
 
@@ -54,11 +57,19 @@ public class WordDrop extends JTextField implements Runnable {
     }
 
     private void matchingWord() {
-        if (gui.getTextFieldWordTyped().equals(getText())) {
+        if (gui.getTextFieldWordTyped().equals(solved)) {
             alive = false;
             setToMatched();
             wordsRain.incrementPoints();
-            gui.setTextFieldWordTyped("");                           // Reset typing area after a matching word.
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    gui.setTextFieldWordTyped("");                           // Reset typing area after a matching word.
+                    setText(getText() + "=" + solved);
+                    setSize(20*getText().length(), 30);
+                }
+            });
+            wordsRain.incrementNbrOfSolved();
         }
     }
 

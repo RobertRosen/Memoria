@@ -1,33 +1,43 @@
 package Game.multiplicationGame;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Reads a text file, and returns a list of words from getListWords-method.
  */
 public class WordScanner {
 
-    private ArrayList<String> listWords = new ArrayList<>();
-    private File file;
+    private int SIZE = 50;
 
-    public WordScanner() throws FileNotFoundException {
-        file = new File("textFiles/the_best_words.txt");                    // Create file from a text file
-        readWords();
-    }
+    private Random random;
 
-    private void readWords() throws FileNotFoundException {
-        Scanner input = new Scanner(file);                                                      // Create input from file
-        while (input.hasNext()) {
-            listWords.add(input.next());                            // Add Words from input as strings to a list
+    private ArrayList<String> problems;
+    private ArrayList<String> solved;
+
+    public WordScanner() {
+        random = new Random();
+
+        problems = new ArrayList<>();
+        solved = new ArrayList<>();
+
+        for (int i = 0; i < SIZE; i++) {
+            int number1 = random.nextInt(10);
+            int number2 = random.nextInt(10);
+            int answer = (number1 * number2);
+            String problem = number1 + "*" + number2;
+            String ansString = "" + answer;
+
+            problems.add(problem);
+            solved.add(ansString);
         }
-        input.close();
-        Collections.shuffle(listWords);                                         // Randomise the list order of words
     }
 
-    public ArrayList<String> getListWords() {
-        return listWords;
+    public ArrayList<String> getProblems() {
+        return problems;
+    }
+
+    public ArrayList<String> getSolved() {
+        return solved;
     }
 }

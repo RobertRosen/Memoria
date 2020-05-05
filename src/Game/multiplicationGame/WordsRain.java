@@ -1,5 +1,6 @@
 package Game.multiplicationGame;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,13 +18,21 @@ public class WordsRain implements Runnable {
     private ArrayList<WordDrop> fallingWordsList;                                       // Stores word drop threads.
     private int                 points = 0;                                                  // Store current score.
 
+    private final int NBR_OF_PROBLEMS_IN_BUFFER = 5;
+
+    private int nbrOfSolved = 0;
+
+    public static void main(String[] args) throws FileNotFoundException {
+        new WordsRain();
+    }
+
     /**
      * Construct and initialize a thread with this class' tasks.
      */
-    public WordsRain() throws FileNotFoundException {
+    public WordsRain() {
         gui = new GUI();
         random = new Random();
-        fallingWordsList = new ArrayList<>();
+        fallingWordsList = new ArrayList<WordDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupWordsList();                                                             // Setup list of word threads.
 
@@ -45,7 +54,7 @@ public class WordsRain implements Runnable {
     private void dropWords() throws InterruptedException {
         int delayWord;
         int i = 0;
-        while(gameRunning) {
+        while(gameRunning && (i < NBR_OF_PROBLEMS_IN_BUFFER)) {
             delayWord = random.nextInt(5000) + 1000;
             fallingWordsList.get(i).setAlive(true);                                // Start a new word drop thread.
 
@@ -53,6 +62,10 @@ public class WordsRain implements Runnable {
             i++;
 
             Thread.sleep(delayWord);                                     // Delay next word to random intreval.
+        }
+
+        if (nbrOfSolved == NBR_OF_PROBLEMS_IN_BUFFER) {
+            gui.setTextFieldWordTyped("                WINNER!   YOU GOT ALL!                  ");
         }
     }
 
@@ -78,12 +91,25 @@ public class WordsRain implements Runnable {
     /**
      * Setup list of word threads.
      */
-    private void setupWordsList() throws FileNotFoundException {
-        ArrayList<String> wordBuffer = new WordScanner().getListWords();           // Create a list of string words.
+    private void setupWordsList() {
+        WordScanner scanner = new WordScanner();
+        ArrayList<String> problemsBuffer = scanner.getProblems();           // Create a list of string words.
+        ArrayList<String> solvedBuffer = scanner.getSolved();           // Create a list of string words.
 
-        for (int i = 0; i < wordBuffer.size(); i++) {               // Fill upp the falling words list with threads.
-            String word = wordBuffer.remove(0);
-            fallingWordsList.add(new WordDrop(gui,this, word));
+        System.out.println(problemsBuffer.size());
+        System.out.println(solvedBuffer.size());
+
+        for (int i = 0; i < NBR_OF_PROBLEMS_IN_BUFFER; i++) {               // Fill upp the falling words list with threads.
+            String problem = problemsBuffer.remove(0);
+            String solved = solvedBuffer.remove(0);
+
+            System.out.println(i + ". Problem: " + problem + "    Answer: " + solved + "     Buffer size: " + problemsBuffer.size());
+
+            fallingWordsList.add(new WordDrop(gui,this, problem, solved));
         }
+    }
+
+    public void incrementNbrOfSolved() {
+        nbrOfSolved++;
     }
 }
