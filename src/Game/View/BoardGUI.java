@@ -248,7 +248,7 @@ public class BoardGUI extends JFrame {
      * Sätter upp en timer på händelsetråden.
      */
     private void setupTimer() {
-        timer = new Timer(750, new ActionListener() {
+        timer = new Timer(1500, new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 gameController.checkCards();
             }

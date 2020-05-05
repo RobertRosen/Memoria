@@ -11,14 +11,15 @@ import javax.swing.*;
 import java.util.Arrays;
 
 /**
+ * @author
  * Controls interaction with model and view, between different views and handles game logic.
+ * @version 1.0
  * TODO: Separat klass för växling mellan gui:s?
  */
 public class GameController {
-
     private BoardGUI boardGUI;
     private LogInGUI logInGUI;
-    private MenuGUI menuGUI;
+    private LogInGUI logInPlayer2;
 
     private InfoReader infoReader;
 
@@ -28,10 +29,8 @@ public class GameController {
     private User[] multiPlayer = new User[2];   // Keeps information of logged in users.
 
     private boolean turnPlayer1 = true;         // Track which players turn it is.
-
     private int score;
     private int score2;
-
 
     /**
      * Construct the controller and initialize a login view.
@@ -47,6 +46,7 @@ public class GameController {
      */
     public void doTurn(Card card) {
         selectedCard = card;
+
         if (pairOfCards[0] == null) {
             pairOfCards[0] = selectedCard;
             pairOfCards[0].revealSymbol();
@@ -72,44 +72,16 @@ public class GameController {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
+            showInfoOnPanel();
 
             if (test()) { //OBS! ÄNDRA TILL isGameWon()
-
                 if (score > score2) {
-                    int reply = JOptionPane.showConfirmDialog(null, "Grattis " + multiPlayer[0].getUserName() +
-                            ", du vann!" + "\n" + "Vill ni spela igen?", "Spelet slut", JOptionPane.YES_NO_OPTION);
-
-                    if(reply == JOptionPane.YES_OPTION) {
-                        boardGUI.dispose();
-                        turnPlayer1 = true;
-                        score = -10; //kompenserar för andra skeenden i koden
-                        score2 = 0;
-                        boardGUI = new BoardGUI(this);
-                        boardGUI.revalidate();
-                    } else {
-                        System.exit(0);
-                    }
-                }
-
-                else if (score2 > score) {
-                    int reply = JOptionPane.showConfirmDialog(null, "Grattis " + multiPlayer[1].getUserName() +
-                            ", du vann!" + "\n" + "Vill ni spela igen?", "Spelet slut", JOptionPane.YES_NO_OPTION);
-
-                    if(reply == JOptionPane.YES_OPTION) {
-                        boardGUI.dispose();
-                        turnPlayer1 = true;
-                        score = -10; //kompenserar för andra skeenden i koden
-                        score2 = 0;
-                        boardGUI = new BoardGUI(this);
-                        boardGUI.revalidate();
-                    } else {
-                        System.exit(0);
-                    }
+                   checkWin(multiPlayer[0].getUserName());
+                } else if (score2 > score) {
+                    checkWin(multiPlayer[1].getUserName());
                 }
             }
-
             incrementScore();
-
         } else {
             // Dölj paret
             for (Card card : pairOfCards) {
@@ -120,10 +92,27 @@ public class GameController {
         Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
     }
 
+    private void checkWin(String name) {
+        int reply = JOptionPane.showConfirmDialog(null,
+                "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
+                "Spelet slut", JOptionPane.YES_NO_OPTION);
+
+        if(reply == JOptionPane.YES_OPTION) {
+            boardGUI.dispose();
+            turnPlayer1 = true;
+            score = -10; //kompenserar för andra skeenden i koden
+            score2 = 0;
+            boardGUI = new BoardGUI(this);
+            boardGUI.revalidate();
+        } else {
+            System.exit(0);
+        }
+    }
+
     /**
-     *Updated score in the view.
+     * Updated score in the view.
      */
-    public void incrementScore() {
+    private void incrementScore() {
         if (turnPlayer1) {
             boardGUI.setLblScore(score += 10);
         } else {
@@ -135,7 +124,7 @@ public class GameController {
      * To indicate in the view which player's round it is.
      * And turn all cards, symbol down.
      */
-    public void switchPlayers() {
+    private void switchPlayers() {
         if (turnPlayer1) {
             boardGUI.highlightPlayer2();
             turnPlayer1 = false;
@@ -159,15 +148,11 @@ public class GameController {
 
     //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
     public boolean test() {
-
-            if (score == 20 || score2 == 20) {
+            if ((score == 20) || (score2 == 20)) {
                 return false;
             }
         return true;
     }
-
-
-    LogInGUI logInPlayer2;
 
     /**
      * Go game view.
@@ -197,10 +182,9 @@ public class GameController {
         }
     }
 
-    public void showInfoOnPanel() {
+    private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
         System.out.println(infoReader.getInfoMap().get(secondSymbol));
-
     }
 }
