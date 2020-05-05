@@ -123,7 +123,7 @@ public class Controller {
         if (turnPlayer1) {
             boardGUI.setLblScore(scorePlayer1 += pointsToAdd);
         } else {
-            boardGUI.setLblScore2(score2Player2 += pointsToAdd);
+            boardGUI.setLblScore2(scorePlayer2 += pointsToAdd);
         }
     }
 

@@ -1,6 +1,6 @@
 package Game.multiplicationGame;
 
-import Game.Controller.GameController;
+import Game.Controller.Controller;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,7 +11,7 @@ import java.util.Random;
  * @version 0.0
  */
 public class Rain implements Runnable {
-    private GameController gameController;
+    private Controller controller;
     private JokerGUI jokerGui;
 
     private Random random;
@@ -24,8 +24,8 @@ public class Rain implements Runnable {
     /**
      * Construct and initialize a thread with this class' tasks.
      */
-    public Rain(GameController gameController) {
-        this.gameController = gameController;
+    public Rain(Controller controller) {
+        this.controller = controller;
         jokerGui = new JokerGUI();
         random = new Random();
         fallingDropsList = new ArrayList<Drop>(NBR_OF_PROBLEMS_IN_BUFFER);
@@ -73,14 +73,14 @@ public class Rain implements Runnable {
         }
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
-        gameController.addJokerPoints();
+        controller.addJokerPoints();
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         jokerGui.dispose();
-        gameController.showBoardGUI();
+        controller.showBoardGUI();
     }
 
     /**
