@@ -6,6 +6,7 @@ import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
 import Game.View.MenuGUI;
+import Game.multiplicationGame.Rain;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -20,6 +21,7 @@ public class Controller {
     private BoardGUI boardGUI;
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
+    private Rain rain;
 
     private InfoReader infoReader;
 
@@ -72,18 +74,23 @@ public class Controller {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
-            showInfoOnPanel();
 
-            if (test()) { //OBS! ÄNDRA TILL isGameWon()
+            if(secondSymbol.equals("images/Jo")) {
+                rain = new Rain(this);
+                boardGUI.setVisible(false);
+            } else {
+                incrementScore(10);
+                showInfoOnPanel();
+            }
+
+            if (isGameWon()) { //OBS! ÄNDRA TILL isGameWon()
                 if (scorePlayer1 > scorePlayer2) {
                    checkWin(multiPlayer[0].getUserName());
                 } else if (scorePlayer2 > scorePlayer1) {
                     checkWin(multiPlayer[1].getUserName());
                 }
             }
-            incrementScore();
         } else {
-            // Dölj paret
             for (Card card : pairOfCards) {
                 card.hideSymbol();
             }
@@ -112,12 +119,20 @@ public class Controller {
     /**
      * Updated score in the view.
      */
-    private void incrementScore() {
+    private void incrementScore(int pointsToAdd) {
         if (turnPlayer1) {
-            boardGUI.setLblScore(scorePlayer1 += 10);
+            boardGUI.setLblScore(scorePlayer1 += pointsToAdd);
         } else {
-            boardGUI.setLblScore2(scorePlayer2 += 10);
+            boardGUI.setLblScore2(score2Player2 += pointsToAdd);
         }
+    }
+
+    /**
+     * Update score from joker round.
+     */
+    public void addJokerPoints() {
+        int jokerPoints = rain.getPoints();
+        incrementScore(jokerPoints);
     }
 
     /**
@@ -155,14 +170,14 @@ public class Controller {
     }
 
     /**
-     * Go game view.
+     * Open login view for second player to sign in.
      */
     public void switchGUI() {
         logInPlayer2 = new LogInGUI(this, "Player Two");
     }
 
     /**
-     * Create a player from login windows.
+     * Create a player from login window.
      * Go to menu after first player.
      * Go to game after second player and set names at view.
      */
@@ -186,5 +201,9 @@ public class Controller {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
         System.out.println(infoReader.getInfoMap().get(secondSymbol));
+    }
+
+    public void showBoardGUI() {
+        boardGUI.setVisible(true);
     }
 }
