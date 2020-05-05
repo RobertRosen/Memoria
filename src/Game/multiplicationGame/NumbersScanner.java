@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Reads a text file, and returns a list of words from getListWords-method.
  */
-public class WordScanner {
+public class NumbersScanner {
 
     private int SIZE = 50;
 
@@ -15,7 +15,7 @@ public class WordScanner {
     private ArrayList<String> problems;
     private ArrayList<String> solved;
 
-    public WordScanner() {
+    public NumbersScanner() {
         random = new Random();
 
         problems = new ArrayList<>();
