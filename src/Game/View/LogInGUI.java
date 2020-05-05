@@ -1,6 +1,6 @@
 package Game.View;
 
-import Game.Controller.GameController;
+import Game.Controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
  * @version 1.0
  */
 public class LogInGUI extends JFrame {
-    private GameController gameController;
+    private Controller controller;
     private ImageIcon welcomeLogo = new ImageIcon("images/välkommen.PNG");
 
     private JFrame frame = new JFrame();
@@ -33,8 +33,8 @@ public class LogInGUI extends JFrame {
     /**
      * Konstruktor som initierar Game.Controller.Game.Model.View.LogInGUI
      */
-    public LogInGUI(GameController gameController, String name) {
-        this.gameController = gameController;
+    public LogInGUI(Controller controller, String name) {
+        this.controller = controller;
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -68,7 +68,7 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
-                gameController.createUser();
+                controller.createUser();
                 frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");

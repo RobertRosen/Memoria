@@ -16,9 +16,9 @@ import java.util.Arrays;
  * @version 1.0
  * TODO: Separat klass för växling mellan gui:s?
  */
-public class GameController {
+public class Controller {
     private BoardGUI boardGUI;
-    private LogInGUI logInGUI;
+    private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
 
     private InfoReader infoReader;
@@ -29,14 +29,14 @@ public class GameController {
     private User[] multiPlayer = new User[2];   // Keeps information of logged in users.
 
     private boolean turnPlayer1 = true;         // Track which players turn it is.
-    private int score;
-    private int score2;
+    private int scorePlayer1;
+    private int scorePlayer2;
 
     /**
      * Construct the controller and initialize a login view.
      */
-    public GameController() {
-        logInGUI = new LogInGUI(this, "Player One ");
+    public Controller() {
+        logInPlayer1 = new LogInGUI(this, "Player One ");
         infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
     }
 
@@ -75,9 +75,9 @@ public class GameController {
             showInfoOnPanel();
 
             if (test()) { //OBS! ÄNDRA TILL isGameWon()
-                if (score > score2) {
+                if (scorePlayer1 > scorePlayer2) {
                    checkWin(multiPlayer[0].getUserName());
-                } else if (score2 > score) {
+                } else if (scorePlayer2 > scorePlayer1) {
                     checkWin(multiPlayer[1].getUserName());
                 }
             }
@@ -100,8 +100,8 @@ public class GameController {
         if(reply == JOptionPane.YES_OPTION) {
             boardGUI.dispose();
             turnPlayer1 = true;
-            score = -10; //kompenserar för andra skeenden i koden
-            score2 = 0;
+            scorePlayer1 = -10; //kompenserar för andra skeenden i koden
+            scorePlayer2 = 0;
             boardGUI = new BoardGUI(this);
             boardGUI.revalidate();
         } else {
@@ -114,9 +114,9 @@ public class GameController {
      */
     private void incrementScore() {
         if (turnPlayer1) {
-            boardGUI.setLblScore(score += 10);
+            boardGUI.setLblScore(scorePlayer1 += 10);
         } else {
-            boardGUI.setLblScore2(score2 += 10);
+            boardGUI.setLblScore2(scorePlayer2 += 10);
         }
     }
 
@@ -148,7 +148,7 @@ public class GameController {
 
     //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
     public boolean test() {
-            if ((score == 20) || (score2 == 20)) {
+            if ((scorePlayer1 == 20) || (scorePlayer2 == 20)) {
                 return false;
             }
         return true;
@@ -168,7 +168,7 @@ public class GameController {
      */
     public void createUser() {
         if (multiPlayer[0] == null) {
-            String name = logInGUI.getTxtUsername().getText();
+            String name = logInPlayer1.getTxtUsername().getText();
             multiPlayer[0] = new User(name);
             JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
             new MenuGUI(this);

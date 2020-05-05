@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
- * Klassen SettingGUI är en klass som innehåller Memorias inställningar
+ * This class contains all the code for the Setting interface
  * @version 1.0
  * @author Yasir Kakar
  */
@@ -28,6 +28,11 @@ public class SettingsGUI extends JFrame {
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
+    /**
+     * This constructor contains the functions for the settingsGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     public SettingsGUI(){
         frame.setSize(400, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -42,22 +47,56 @@ public class SettingsGUI extends JFrame {
         lblSettings.setFont(myFont);
         lblMusic.setFont(myFont);
 
+        addContents();
+        addListeners();
+        setBoundsForContents();
+    }
+
+    /**
+     * This method sets size and location for the buttons and labels in the SettingsGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void setBoundsForContents(){
         lblSettings.setBounds(40, 10, 300, 50);
         lblMusic.setBounds(40,60,100,25);
         btnOn.setBounds(100, 60, 80,25);
         btnOff.setBounds(200,60,80,25);
         btnOk.setBounds(150,100,80,25);
 
+    }
+
+    /**
+     * This method the buttons and labels in the SettingsGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addContents(){
+
         pnlMain.add(lblSettings);
         pnlMain.add(lblMusic);
         pnlMain.add(btnOn);
         pnlMain.add(btnOff);
         pnlMain.add(btnOk);
+    }
+
+    /**
+     * This method adds listeners to the buttons in the SettingsGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addListeners(){
 
         btnOk.addActionListener(new OkListener());
         btnOn.addActionListener(new MusicController.PlayListener());
         btnOff.addActionListener(new MusicController.StopListener());
     }
+
+    /**
+     * This class contains the functions for the "OK" button in the SettingsGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     private class OkListener implements ActionListener {
 
         @Override
@@ -67,6 +106,6 @@ public class SettingsGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        //Game.Controller.Game.Model.View.SettingsGUI settingsGUI = new Game.Controller.Game.Model.View.SettingsGUI();
+        //SettingsGUI settingsGUI = new SettingsGUI();
     }
 }

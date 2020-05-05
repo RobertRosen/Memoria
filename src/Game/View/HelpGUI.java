@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Klassen Game.Controller.Game.Model.View.HelpGUI innehåller allt som finns med i Memorias hjälpcenter
+ * This class contains everything concerning the HelpGUI
  * @version 1.0
  * @author Yasir Kakar
  */
@@ -24,8 +24,35 @@ public class HelpGUI extends JFrame {
     private JButton btnNext[] = new JButton[6];
     private JButton btnOK[] = new JButton[6];
 
+    /**
+     * This constructor brings all the methods together for the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     public HelpGUI(){
+
+        setSize(550,435);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        add(container);
+
         container.setLayout(card);
+        card.show(container, "1");
+
+        setLayouts();
+        createButtons();
+        addButtons();
+        addInnerClasses();
+        addPanels();
+    }
+
+    /**
+     * This method lets the developers to place the panels anywhere necessary in the Frame
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private  void setLayouts(){
         panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
@@ -33,8 +60,43 @@ public class HelpGUI extends JFrame {
         panel5.setLayout(null);
         panel6.setLayout(null);
 
-        createButtons();
+    }
 
+    /**
+     * This method adds the constructors of the innerclasses to the panels shown in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addInnerClasses(){
+        panel1.add(new Panel1());
+        panel2.add(new Panel2());
+        panel3.add(new Panel3());
+        panel4.add(new Panel4());
+        panel5.add(new Panel5());
+        panel6.add(new Panel6());
+    }
+
+    /**
+     * This method adds the Panels in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addPanels(){
+        container.add(panel1, "2");
+        container.add(panel2, "3");
+        container.add(panel3, "4");
+        container.add(panel4, "5");
+        container.add(panel5, "6");
+        container.add(panel6, "7");
+
+    }
+
+    /**
+     * This method adds the buttons in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addButtons(){
         panel1.add(btnNext[0]);
         panel2.add(btnNext[1]);
         panel3.add(btnNext[2]);
@@ -48,32 +110,14 @@ public class HelpGUI extends JFrame {
         panel4.add(btnOK[3]);
         panel5.add(btnOK[4]);
         panel6.add(btnOK[5]);
-
-        panel1.add(new Panel1());
-        panel2.add(new Panel2());
-        panel3.add(new Panel3());
-        panel4.add(new Panel4());
-        panel5.add(new Panel5());
-        panel6.add(new Panel6());
-
-        setSize(550,435);
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
-        add(container);
-
-        container.add(panel1, "2");
-        container.add(panel2, "3");
-        container.add(panel3, "4");
-        container.add(panel4, "5");
-        container.add(panel5, "6");
-        container.add(panel6, "7");
-
-        card.show(container, "1");
-
     }
-    //skapar knapparna "Nästa" och "OK" som finns i GUIT
-    public void createButtons(){
+
+    /**
+     * This method creates the buttons in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void createButtons(){
 
         for (int i = 0; i < btnNext.length; i++){
             btnNext[i] = new JButton("Nästa");
@@ -88,8 +132,12 @@ public class HelpGUI extends JFrame {
         }
     }
 
-    //Inre klasserna nedan är de olika panelerna som visas när spelaren klickar på frågetecknet i MenuGUIT
-    class Panel1 extends JPanel {
+    /**
+     * Each panelclass below contains the images that are presented in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private class Panel1 extends JPanel {
         private ImageIcon hjälp1Bild = new ImageIcon("images/hjälp1.PNG");
 
         private JLabel lblbild = new JLabel(hjälp1Bild);
@@ -102,7 +150,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    class Panel2 extends JPanel {
+    private class Panel2 extends JPanel {
         private ImageIcon hjälp2Bild = new ImageIcon("images/hjälp2.PNG");
 
         private JLabel lblbild = new JLabel(hjälp2Bild);
@@ -116,7 +164,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    class Panel3 extends JPanel {
+    private class Panel3 extends JPanel {
         private ImageIcon hjälp3Bild = new ImageIcon("images/hjälp3.PNG");
 
         private JLabel lblbild = new JLabel(hjälp3Bild);
@@ -130,7 +178,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    class Panel4 extends JPanel {
+    private class Panel4 extends JPanel {
         private ImageIcon hjälp4Bild = new ImageIcon("images/hjälp4.PNG");
 
         private JLabel lblbild = new JLabel(hjälp4Bild);
@@ -143,7 +191,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    class Panel5 extends JPanel {
+    private class Panel5 extends JPanel {
         private ImageIcon hjälp5Bild = new ImageIcon("images/hjälp5.PNG");
 
         private JLabel lblbild = new JLabel(hjälp5Bild);
@@ -156,7 +204,7 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    class Panel6 extends JPanel {
+    private class Panel6 extends JPanel {
         private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
@@ -169,8 +217,13 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
-    //i denna klassen så finns funktionen för knappen "Nästa"
-    class NextListener implements ActionListener{
+
+    /**
+     * This class contains the functions for the "Next" button in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private class NextListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -197,6 +250,11 @@ public class HelpGUI extends JFrame {
         }
     }
 
+    /**
+     * This class contains the functions for the "OK" button in the HelpGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     class OKListener implements ActionListener{
 
         @Override
@@ -206,7 +264,7 @@ public class HelpGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        HelpGUI c = new HelpGUI();
+        //HelpGUI helpGUI = new HelpGUI();
 
     }
 

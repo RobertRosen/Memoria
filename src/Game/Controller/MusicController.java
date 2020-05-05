@@ -10,23 +10,31 @@ import java.io.File;
 
 
 /**
- * MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
+ * This class contains all the code for the music functions in the SettingsGUI
  * @version 1.0
  * @author Yasir Kakar
  */
 public class MusicController{
     private static Clip clip;
 
-
+    /**
+     * This class lets the user to start och stop the chosen song
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     public static class PlayListener implements ActionListener{
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            playMusic("music/TakeMeBack.wav");//Filväg till valda låt
+
+            playMusic("music/TakeMeBack.wav");//Filepath for the chosen background song
         }
 
-        //Denna metod startar musiken som ska spelas upp i bakgrunden i en loop tills spelaren stänger
-        //av antingen spelet eller musiken via inställningarna
+        /**
+         * This method plays the music chosen for the background music in a loop
+         * @version 1.0
+         * @author Yasir Kakar
+         */
         public void playMusic(String filename){
             try {
                 File file = new File(filename);
@@ -41,7 +49,12 @@ public class MusicController{
         }
     }
 
-
+    /**
+     * This class allows the user to turn off the music either through
+     * the settingsGUI or by closing the program
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     public static class StopListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {//stops the music

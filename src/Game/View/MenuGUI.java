@@ -1,6 +1,6 @@
 package Game.View;
 
-import Game.Controller.GameController;
+import Game.Controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,7 @@ import java.awt.event.MouseListener;
  *
  */
 public class MenuGUI extends JFrame {
-    private GameController gameController;
+    private Controller controller;
 
     private JPanel pnlMain = new JPanel();
     private JPanel pnlChoosePlayer = new JPanel();
@@ -65,8 +65,8 @@ public class MenuGUI extends JFrame {
      * @since 2020-04-16
      */
     //TODO ska kortas ner med en for-loop och hjälpmetoder
-    public MenuGUI(GameController gameController) {
-        this.gameController = gameController;
+    public MenuGUI(Controller controller) {
+        this.controller = controller;
 
         setSize(940, 430);
         setVisible(true);
@@ -76,32 +76,8 @@ public class MenuGUI extends JFrame {
 
         add(pnlMain);
         pnlMain.add(pnlWest);
-        pnlWest.setPreferredSize(new Dimension(450, 340));
-        pnlWest.setBackground(Color.WHITE);
-        pnlWest.add(lblGhost);
-        pnlWest.add(lblMemoria);
-        pnlWest.add(lblMathLogo);
-        pnlWest.add(lblGhost3);
-        pnlWest.add(lblBeat);
-        pnlWest.add(pnlChoosePlayer);
-        pnlWest.add(pnlSettings);
 
-        lblPiSinglePlayer.setPreferredSize(new Dimension(40, 40));
-        lblPiSinglePlayer.setVisible(false);
-        lblPiMultiPlayer.setPreferredSize(new Dimension(40, 40));
-        lblPiMultiPlayer.setVisible(false);
-        lblPiSettings.setPreferredSize(new Dimension(40, 40));
-        lblPiSettings.setVisible(false);
-        lblPiHelp.setPreferredSize(new Dimension(40, 40));
-        lblPiHelp.setVisible(false);
-
-        lblGhost4.setPreferredSize(new Dimension(30, 40));
-        lblGhost5.setPreferredSize(new Dimension(30, 40));
-        lblGhost6.setPreferredSize(new Dimension(19, 40));
-        lblGhost7.setPreferredSize(new Dimension(26, 40));
-        lblGhost.setPreferredSize(new Dimension(40, 40));
-        lblMemoria.setPreferredSize(new Dimension(260, 40));
-        lblBeat.setPreferredSize(new Dimension(450, 70));
+        panelWestContents();
 
         pnlWest.add(pnlChoosePlayer).setPreferredSize(new Dimension(350, 130));
         pnlChoosePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
@@ -112,17 +88,11 @@ public class MenuGUI extends JFrame {
         btnSinglePlayer.setBackground(Color.WHITE);
         btnSinglePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlChoosePlayer.add(lblGhost2);
-        lblGhost2.setPreferredSize(new Dimension(300, 30));
         pnlChoosePlayer.add(lblPiMultiPlayer);
         pnlChoosePlayer.add(btnMultiPlayer);
         btnMultiPlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         btnMultiPlayer.setBackground(Color.WHITE);
         pnlChoosePlayer.add(lblGhost5);
-
-        btnSinglePlayer.addMouseListener(new MouseSinglePlayer());
-        btnMultiPlayer.addMouseListener(new MouseMultiPlayer());
-        btnSettings.addMouseListener(new MouseSettings());
-        btnHelp.addMouseListener(new MouseHelp());
 
         pnlWest.add(pnlSettings).setPreferredSize(new Dimension(350, 90));
         pnlSettings.add(lblPiSettings);
@@ -136,19 +106,86 @@ public class MenuGUI extends JFrame {
         pnlSettings.add(lblGhost7);
 
         pnlMain.add(scoreGUI);
+
+        setPiSizes();
+        setGhoastSizes();
+        addListeners();
     }
 
     /**
-     * This class contains the listeners that starts Memorias Boards class
-     * @author Yasir Kakar
-     * @author Adel Sabanovic
+     * This method contains the contents of the west panel in the MenuGUI
      * @version 1.0
-     * @since 2020-04-16
-     *
+     * @author Adel Sabanovic
+     */
+    private void panelWestContents(){
+        pnlWest.setPreferredSize(new Dimension(450, 340));
+        pnlWest.setBackground(Color.WHITE);
+        pnlWest.add(lblGhost);
+        pnlWest.add(lblMemoria);
+        pnlWest.add(lblMathLogo);
+        pnlWest.add(lblGhost3);
+        pnlWest.add(lblBeat);
+        pnlWest.add(pnlChoosePlayer);
+        pnlWest.add(pnlSettings);
+    }
+
+    /**
+     * This method sets the sizes and the visibility for the PI symbols the
+     * gets visible when the user is hovering over the buttons in the MenuGUI
+     * @version 1.0
+     * @author Adel Sabanovic
+     */
+    private void setPiSizes(){
+
+        lblPiSinglePlayer.setPreferredSize(new Dimension(40, 40));
+        lblPiSinglePlayer.setVisible(false);
+        lblPiMultiPlayer.setPreferredSize(new Dimension(40, 40));
+        lblPiMultiPlayer.setVisible(false);
+        lblPiSettings.setPreferredSize(new Dimension(40, 40));
+        lblPiSettings.setVisible(false);
+        lblPiHelp.setPreferredSize(new Dimension(40, 40));
+        lblPiHelp.setVisible(false);
+    }
+
+    /**
+     * This method sets the sizes for the empty labels in MenuGUI
+     * @version 1.0
+     * @author Adel Sabanovic
+     */
+    private void setGhoastSizes(){
+
+        lblGhost2.setPreferredSize(new Dimension(300, 30));
+        lblGhost4.setPreferredSize(new Dimension(30, 40));
+        lblGhost5.setPreferredSize(new Dimension(30, 40));
+        lblGhost6.setPreferredSize(new Dimension(19, 40));
+        lblGhost7.setPreferredSize(new Dimension(26, 40));
+        lblGhost.setPreferredSize(new Dimension(40, 40));
+        lblMemoria.setPreferredSize(new Dimension(260, 40));
+        lblBeat.setPreferredSize(new Dimension(450, 70));
+    }
+
+    /**
+     * This method contains all the listeners in the MenuGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
+    private void addListeners(){
+
+        btnSinglePlayer.addMouseListener(new MouseSinglePlayer());
+        btnMultiPlayer.addMouseListener(new MouseMultiPlayer());
+        btnSettings.addMouseListener(new MouseSettings());
+        btnHelp.addMouseListener(new MouseHelp());
+    }
+
+
+    /**
+     * This class contains the functions for the multi-player in the MenuGUI
+     * @version 1.0
+     * @author Yasir Kakar
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            gameController.switchGUI();
+            controller.switchGUI();
             dispose();
         }
 
@@ -167,6 +204,11 @@ public class MenuGUI extends JFrame {
         }
     }
 
+    /**
+     * This class contains the functions for the single-player button in the MenuGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     private class MouseSinglePlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
         }
@@ -186,6 +228,11 @@ public class MenuGUI extends JFrame {
         }
     }
 
+    /**
+     * This class contains the functions for the settings button in the MenuGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     private class MouseSettings implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new SettingsGUI();
@@ -207,6 +254,11 @@ public class MenuGUI extends JFrame {
         }
     }
 
+    /**
+     * This class contains the functions for the help button in the MenuGUI
+     * @version 1.0
+     * @author Yasir Kakar
+     */
     private class MouseHelp implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new HelpGUI();

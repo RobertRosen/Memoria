@@ -1,6 +1,6 @@
 package Game.View;
 
-import Game.Controller.GameController;
+import Game.Controller.Controller;
 import Game.Model.Card;
 
 import javax.swing.*;
@@ -69,9 +69,9 @@ public class BoardGUI extends JFrame {
 
 
 
-    GameController gameController;
-    public BoardGUI(GameController gameController) {
-        this.gameController = gameController;
+    Controller controller;
+    public BoardGUI(Controller controller) {
+        this.controller = controller;
         setupFrame();
         setupComponentsSizes();
         setupComponents();
@@ -195,7 +195,7 @@ public class BoardGUI extends JFrame {
             card.setPathSymbol(symbol);
             card.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent ae) {
-                    gameController.doTurn(card);
+                    controller.doTurn(card);
                 }
             });
             card.hideSymbol();
@@ -250,7 +250,7 @@ public class BoardGUI extends JFrame {
     private void setupTimer() {
         timer = new Timer(1500, new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                gameController.checkCards();
+                controller.checkCards();
             }
         });
         timer.setRepeats(false);
