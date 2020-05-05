@@ -10,12 +10,13 @@ import java.io.File;
 
 
 /**
- * Klassen Game.Controller.Game.Model.Controller.MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
+ * MusicController är en klass som innehåller logiken för musiken i SettingsGUIt
  * @version 1.0
  * @author Yasir Kakar
  */
 public class MusicController{
     private static Clip clip;
+
 
     public static class PlayListener implements ActionListener{
 
@@ -35,10 +36,12 @@ public class MusicController{
                 clip.start();
                 clip.loop(clip.LOOP_CONTINUOUSLY);
             }catch (Exception e){
-
+                e.printStackTrace();
             }
         }
     }
+
+
     public static class StopListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {//stops the music
