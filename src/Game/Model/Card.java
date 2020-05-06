@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * The card class represents a card in the memory game.
  *
- * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
+ * @author Robert Rosencrantz, Adel Sabanovic
  * TODO: Kanske inte ärva JButton?
  */
 public class Card extends JButton {
