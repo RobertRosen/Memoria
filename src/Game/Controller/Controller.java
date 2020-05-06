@@ -103,6 +103,11 @@ public class Controller {
         Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
     }
 
+    /**
+     * Shows a panel of who won the game and asks if they want to play again.
+     * if yes a new boardGUI will appear.
+     * @param name of who won
+     */
     private void checkWin(String name) {
         int reply = JOptionPane.showConfirmDialog(null,
                 "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
@@ -201,6 +206,11 @@ public class Controller {
         }
     }
 
+    /**
+     * Method that matches secondsymbol with the infoHashmap.
+     * Prints out a information about the pair that has been matched.
+     * Will be implemented in a panel later.
+     */
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
