@@ -4,19 +4,16 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Baseras på memoryspel hämtat frn stackexchange 20.04.14.
- * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ * The card class represents a card in the memory game.
  *
- * Anpassningar till Memoria av: Robert Rosencrantz
+ * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
  * TODO: Kanske inte ärva JButton?
  */
 public class Card extends JButton {
 
-    private String pathSymbol;
-
-    private ImageIcon imageShowing;     //The visible front side of the card.
-
-    private boolean matched = false;
+    private String pathSymbol;          // Location of image.
+    private ImageIcon imageShowing;     // The visible front side of the card.
+    private boolean matched = false;    // True if this card is matched with another card.
 
     /**
      * Initiate and construct a card.
@@ -55,6 +52,7 @@ public class Card extends JButton {
      * Turn card symbol down.
      */
     public void hideSymbol() {
+        // TODO: Possibly make back side image optional in the game.
         //imageShowing = new ImageIcon("images/math4.jpg");
         //imageShowing = new ImageIcon("images/Back.png");
         //imageShowing = new ImageIcon("images/BackDark.png");
@@ -66,7 +64,6 @@ public class Card extends JButton {
         setIcon(scaledImageIcon);
     }
 
-    // Setters och getters
     public String getPathSymbol() {
         return pathSymbol;
     }

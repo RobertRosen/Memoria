@@ -12,8 +12,12 @@ import javax.swing.*;
 import java.util.Arrays;
 
 /**
- * @author
  * Controls interaction with model and view, between different views and handles game logic.
+ *
+ * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
+ * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+ *
+ * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
  * @version 1.0
  * TODO: Separat klass för växling mellan gui:s?
  */
