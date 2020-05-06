@@ -3,7 +3,10 @@ package Game.multiplicationGame;
 import java.util.*;
 
 /**
- * Reads a text file, and returns a list of words from getListWords-method.
+ * Creates two lists of text strings. This simulates some pairs of
+ * multiplication problems with solved answers on corresponding positions in the lists.
+ * @author Robert Rosencrantz
+ * @version 0.0
  */
 public class NumbersScanner {
 
@@ -15,6 +18,10 @@ public class NumbersScanner {
     private ArrayList<String> solved;
 
     public NumbersScanner() {
+        createLists();
+    }
+
+    private void createLists() {
         random = new Random();
 
         problems = new ArrayList<>();

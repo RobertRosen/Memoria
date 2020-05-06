@@ -98,20 +98,11 @@ public class JokerGUI extends JFrame {
      * Updates the GUI on the EDT
      * @param drop Drop (implements JTextField) to add on GUI.
      */
-    public void setPnlGame(Drop drop) {
+    public void addDropToGamePanel(CardDrop drop) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 pnlGame.add(drop);
-            }
-        });
-    }
-
-    public void setTextFieldUserTyping(String answer) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                textFieldUserTyping.setText(answer);
             }
         });
     }
@@ -125,7 +116,28 @@ public class JokerGUI extends JFrame {
         });
     }
 
+    public void setTextFieldUserTyping(String answer) {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                textFieldUserTyping.setText(answer);
+            }
+        });
+    }
+
     public String getTextFieldUserTyping() {
         return textFieldUserTyping.getText();
+    }
+
+    public void addPointsText() {
+        JLabel lblFinalPoints = new JLabel(textFieldPoints.getText());
+        lblFinalPoints.setHorizontalAlignment(SwingConstants.CENTER);
+        lblFinalPoints.setVerticalAlignment(SwingConstants.CENTER);
+        lblFinalPoints.setSize(1000, 500);
+        lblFinalPoints.setFont(new Font("monospaced", Font.BOLD, 290));           // Enlarge font size
+        lblFinalPoints.setForeground(Color.GREEN);
+        pnlGame.add(lblFinalPoints);
+        revalidate();
+        repaint();
     }
 }

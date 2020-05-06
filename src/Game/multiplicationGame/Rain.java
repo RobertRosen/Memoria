@@ -16,7 +16,7 @@ public class Rain implements Runnable {
 
     private Random random;
 
-    private ArrayList<Drop> fallingDropsList;                                 // Stores drop threads.
+    private ArrayList<CardDrop> fallingDropsList;                                 // Stores drop threads.
     private boolean gameRunning = true;                                        // Set to false to stop thread.
     private int points = 0;                                                   // Store current score.
     private final int NBR_OF_PROBLEMS_IN_BUFFER = 10;
@@ -28,7 +28,7 @@ public class Rain implements Runnable {
         this.controller = controller;
         jokerGui = new JokerGUI();
         random = new Random();
-        fallingDropsList = new ArrayList<Drop>(NBR_OF_PROBLEMS_IN_BUFFER);
+        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupDropList();                                                             // Setup list of drop threads.
 
@@ -44,21 +44,24 @@ public class Rain implements Runnable {
         }
     }
 
+    private int problemsDropped = 0;
     /**
      * Release a drop on the rain panel in a random interval.
      * Keep dropping as long as the game is going.
      */
     private void drop() throws InterruptedException {
         int delayDrop;
-        int problemsDropped = 0;
+
 
         while(gameRunning && (problemsDropped < NBR_OF_PROBLEMS_IN_BUFFER)) {
             delayDrop = random.nextInt(2000) + 1000;
-            Thread.sleep(delayDrop);                                        // Delay next drop to random interval.
+            Thread.sleep(delayDrop);                                           // Delay next drop to random interval.
 
-            fallingDropsList.get(problemsDropped).setAlive(true);                  // Start a new drop thread.
+            fallingDropsList.get(problemsDropped).setAlive(true);                         // Start a new drop thread.
 
-            jokerGui.setPnlGame(fallingDropsList.get(problemsDropped));        // Put the new drop on rain thread.
+
+            jokerGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
+
             problemsDropped++;
         }
     }
@@ -68,17 +71,17 @@ public class Rain implements Runnable {
      * Update score from joker game to main memory game and closes joker GUI.
      */
     public void gameOver() {
-        for (Drop drop : fallingDropsList) {
+        for (CardDrop drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
-        controller.addJokerPoints();
         try {
-            Thread.sleep(2000);
+            Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        controller.addJokerPoints();
         jokerGui.dispose();
         controller.showBoardGUI();
     }
@@ -89,6 +92,7 @@ public class Rain implements Runnable {
     public void incrementPoints() {
         points += 2;
         jokerGui.setTextFieldPoints(points);
+
     }
 
     /**
@@ -103,7 +107,7 @@ public class Rain implements Runnable {
             String problem = problemsBuffer.remove(0);
             String solved = solvedBuffer.remove(0);
 
-            fallingDropsList.add(new Drop(jokerGui,this, problem, solved));
+            fallingDropsList.add(new CardDrop(jokerGui,this, problem, solved));
         }
     }
 
@@ -124,13 +128,13 @@ public class Rain implements Runnable {
     }
 
     // TEST-MAIN-METOD för multiplikationsspelet.
-//    public static void main(String[] args) throws FileNotFoundException {
+//    public static void main(String[] args) {
 //        new Rain();
 //    }
 //    public Rain() {
 //        jokerGui = new JokerGUI();
 //        random = new Random();
-//        fallingDropsList = new ArrayList<Drop>(NBR_OF_PROBLEMS_IN_BUFFER);
+//        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
 //
 //        setupDropList();
 //
