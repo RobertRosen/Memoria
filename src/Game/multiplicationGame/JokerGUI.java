@@ -129,6 +129,9 @@ public class JokerGUI extends JFrame {
         return textFieldUserTyping.getText();
     }
 
+    /**
+     * Show final points in large numbers after game ends.
+     */
     public void addPointsText() {
         JLabel lblFinalPoints = new JLabel(textFieldPoints.getText());
         lblFinalPoints.setHorizontalAlignment(SwingConstants.CENTER);
@@ -138,6 +141,5 @@ public class JokerGUI extends JFrame {
         lblFinalPoints.setForeground(Color.GREEN);
         pnlGame.add(lblFinalPoints);
         revalidate();
-        repaint();
     }
 }

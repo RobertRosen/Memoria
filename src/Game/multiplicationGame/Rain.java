@@ -19,6 +19,7 @@ public class Rain implements Runnable {
     private ArrayList<CardDrop> fallingDropsList;                                 // Stores drop threads.
     private boolean gameRunning = true;                                        // Set to false to stop thread.
     private int points = 0;                                                   // Store current score.
+    private int matches = 0;
     private final int NBR_OF_PROBLEMS_IN_BUFFER = 10;
 
     /**
@@ -44,25 +45,25 @@ public class Rain implements Runnable {
         }
     }
 
-    private int problemsDropped = 0;
     /**
      * Release a drop on the rain panel in a random interval.
      * Keep dropping as long as the game is going.
      */
     private void drop() throws InterruptedException {
         int delayDrop;
-
+        int problemsDropped = 0;
 
         while(gameRunning && (problemsDropped < NBR_OF_PROBLEMS_IN_BUFFER)) {
             delayDrop = random.nextInt(2000) + 1000;
             Thread.sleep(delayDrop);                                           // Delay next drop to random interval.
 
-            fallingDropsList.get(problemsDropped).setAlive(true);                         // Start a new drop thread.
+            if (!fallingDropsList.isEmpty()) {
+                fallingDropsList.get(problemsDropped).setAlive(true);                         // Start a new drop thread.
 
+                jokerGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
 
-            jokerGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
-
-            problemsDropped++;
+                problemsDropped++;
+            }
         }
     }
 
@@ -76,12 +77,12 @@ public class Rain implements Runnable {
         }
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
+        controller.addJokerPoints();
         try {
             Thread.sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        controller.addJokerPoints();
         jokerGui.dispose();
         controller.showBoardGUI();
     }
@@ -92,7 +93,10 @@ public class Rain implements Runnable {
     public void incrementPoints() {
         points += 2;
         jokerGui.setTextFieldPoints(points);
+    }
 
+    public void incrementMatches() {
+        matches++;
     }
 
     /**
@@ -116,7 +120,7 @@ public class Rain implements Runnable {
      * @return true if all problems was answered correctly.
      */
     public boolean gotAllProblemsRight() {
-        return (points/2) == NBR_OF_PROBLEMS_IN_BUFFER;
+        return matches == NBR_OF_PROBLEMS_IN_BUFFER;
     }
 
     /**

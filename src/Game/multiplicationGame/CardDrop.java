@@ -49,9 +49,6 @@ public class CardDrop extends Card implements Runnable {
         return true;
     }
 
-    /**
-     * Setup initial settings of this text field.
-     */
     private void initialize() {
         setupDrop(Color.BLACK, Color.WHITE, problem);
     }
@@ -89,13 +86,14 @@ public class CardDrop extends Card implements Runnable {
 
             setupDrop(Color.BLACK, Color.WHITE, problem);
             matchingWord();
-            gameOver();
+            loosing();
+            winning();
         }
     }
 
     /**
      * Check if the drop is matching user input.
-     * Todo: Syncronisering. Så att inte flera kort matchar
+     * Todo: Syncronisering. Så att inte flera kort matchar.
      */
     private void matchingWord() throws InterruptedException {
 
@@ -110,20 +108,27 @@ public class CardDrop extends Card implements Runnable {
             Thread.sleep(2500);
             setVisible(false);
 
-            if (rain.gotAllProblemsRight()) {
-                updateViewToWinning();
-                rain.gameOver();                                                    // Stop rain.
-            }
+            rain.incrementMatches();    // Synchronizes points updates
+        }
+    }
+
+    /**
+     * Game over when the user get all answers right.
+     */
+    private void winning() {
+        if (rain.gotAllProblemsRight()) {
+            updateViewToWinning();
+            rain.gameOver();                                                    // Stop rain.
         }
     }
 
     /**
      * Game over when drop reaches bottom of panel.
      */
-    private void gameOver() {
+    private void loosing() {
         if (yPosition > 409) {
-            jokerGui.addPointsText();
-            rain.gameOver();                                                                // Stop rain.
+            updateViewToLoosing();
+            rain.gameOver();
         }
     }
 
@@ -139,7 +144,6 @@ public class CardDrop extends Card implements Runnable {
     }
 
     private void updateViewToMatchedDrop() throws InterruptedException {
-
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -160,6 +164,17 @@ public class CardDrop extends Card implements Runnable {
             public void run() {
                 jokerGui.setTextFieldUserTyping(
                         "                WINNER!   YOU GOT ALL!                  ");
+                jokerGui.addPointsText();
+            }
+        });
+    }
+
+    private void updateViewToLoosing() {
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                jokerGui.setTextFieldUserTyping(
+                        "                Bra jobbat! Bättre lycka nästa gång!  ");
                 jokerGui.addPointsText();
             }
         });
