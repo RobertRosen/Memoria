@@ -1,8 +1,8 @@
-+ tecknet används när man räknar addition. talen kallas för termer och resultatet summa.
-- tecknet används när man räknar subbtraktion. talen kallas för termer och resultatet differens
-* tecknet används när man räknar multiplikation. talen kallas för faktorer och resultatet produkt.
-/ tecknet används när man räknar division. talet ovanför kallas för täljare och under är nämnaren. resultatet kvot.
-% betyder 100-del. förlängs 3/5 till 100-delar blir det 60/100. vilket är lika mycket som 60%. 
++ tecknet används när man räknar addition. Talen kallas för termer och resultatet summa.
+- tecknet används när man räknar subbtraktion. Talen kallas för termer och resultatet differens
+* tecknet används när man räknar multiplikation. Talen kallas för faktorer och resultatet produkt.
+/ tecknet används när man räknar division. Talet ovanför kallas för täljare och under är nämnaren. resultatet kvot.
+% betyder 100-del. Förlängs 3/5 till 100-delar blir det 60/100. Vilket är lika mycket som 60%.
 π representerar ett tal som är ungefär 3.14. Används vid beräkning av cirklars area och omkrets.
 1 decimeter är en tiondel av en meter. 30 decimeter är alltså 3 meter.
 centi betyder hundradel. Det går alltså 100 centimeter på 1 meter.
