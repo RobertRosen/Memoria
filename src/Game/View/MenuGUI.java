@@ -52,9 +52,13 @@ public class MenuGUI extends JFrame {
     private JLabel lblGhost7 = new JLabel();
 
     private JLabel lblPiSinglePlayer = new JLabel(iconPi);
+    private JLabel lblGhostSinglePlayer = new JLabel();
     private JLabel lblPiMultiPlayer = new JLabel(iconPi);
+    private JLabel lblGhostMultiPlayer = new JLabel();
     private JLabel lblPiSettings = new JLabel(iconPi);
+    private JLabel lblGhostSettings = new JLabel();
     private JLabel lblPiHelp = new JLabel(iconPi);
+    private JLabel lblGhostHelp = new JLabel();
 
 
     /**
@@ -83,12 +87,14 @@ public class MenuGUI extends JFrame {
         pnlChoosePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlChoosePlayer.setBackground(Color.WHITE);
         pnlChoosePlayer.add(lblPiSinglePlayer);
+        pnlChoosePlayer.add(lblGhostSinglePlayer);
         pnlChoosePlayer.add(btnSinglePlayer);
         pnlChoosePlayer.add(lblGhost4);
         btnSinglePlayer.setBackground(Color.WHITE);
         btnSinglePlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlChoosePlayer.add(lblGhost2);
         pnlChoosePlayer.add(lblPiMultiPlayer);
+        pnlChoosePlayer.add(lblGhostMultiPlayer);
         pnlChoosePlayer.add(btnMultiPlayer);
         btnMultiPlayer.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         btnMultiPlayer.setBackground(Color.WHITE);
@@ -96,10 +102,12 @@ public class MenuGUI extends JFrame {
 
         pnlWest.add(pnlSettings).setPreferredSize(new Dimension(350, 90));
         pnlSettings.add(lblPiSettings);
+        pnlSettings.add(lblGhostSettings);
         pnlSettings.setBackground(Color.WHITE);
         pnlSettings.add(btnSettings).setPreferredSize(new Dimension(75, 75));
         pnlSettings.add(lblGhost6);
         pnlSettings.add(lblPiHelp);
+        pnlSettings.add(lblGhostHelp);
         btnSettings.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlSettings.add(btnHelp).setPreferredSize(new Dimension(56, 75));
         btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
@@ -108,7 +116,7 @@ public class MenuGUI extends JFrame {
         pnlMain.add(scoreGUI);
 
         setPiSizes();
-        setGhoastSizes();
+        setGhostSizes();
         addListeners();
     }
 
@@ -139,12 +147,16 @@ public class MenuGUI extends JFrame {
 
         lblPiSinglePlayer.setPreferredSize(new Dimension(40, 40));
         lblPiSinglePlayer.setVisible(false);
+        lblGhostSinglePlayer.setPreferredSize(new Dimension(40, 40));
         lblPiMultiPlayer.setPreferredSize(new Dimension(40, 40));
         lblPiMultiPlayer.setVisible(false);
+        lblGhostMultiPlayer.setPreferredSize(new Dimension(40, 40));
         lblPiSettings.setPreferredSize(new Dimension(40, 40));
         lblPiSettings.setVisible(false);
-        lblPiHelp.setPreferredSize(new Dimension(40, 40));
+        lblGhostSettings.setPreferredSize(new Dimension(40, 40));
+        lblPiHelp.setPreferredSize(new Dimension(33, 40));
         lblPiHelp.setVisible(false);
+        lblGhostHelp.setPreferredSize(new Dimension(33, 40));
     }
 
     /**
@@ -152,12 +164,12 @@ public class MenuGUI extends JFrame {
      * @version 1.0
      * @author Adel Sabanovic
      */
-    private void setGhoastSizes(){
+    private void setGhostSizes(){
 
         lblGhost2.setPreferredSize(new Dimension(300, 30));
         lblGhost4.setPreferredSize(new Dimension(30, 40));
         lblGhost5.setPreferredSize(new Dimension(30, 40));
-        lblGhost6.setPreferredSize(new Dimension(19, 40));
+        lblGhost6.setPreferredSize(new Dimension(15, 40));
         lblGhost7.setPreferredSize(new Dimension(26, 40));
         lblGhost.setPreferredSize(new Dimension(40, 40));
         lblMemoria.setPreferredSize(new Dimension(260, 40));
@@ -197,10 +209,12 @@ public class MenuGUI extends JFrame {
 
         public void mouseEntered(MouseEvent e) {
             lblPiMultiPlayer.setVisible(true);
+            lblGhostMultiPlayer.setVisible(false);
         }
 
         public void mouseExited(MouseEvent e) {
             lblPiMultiPlayer.setVisible(false);
+            lblGhostMultiPlayer.setVisible(true);
         }
     }
 
@@ -221,10 +235,12 @@ public class MenuGUI extends JFrame {
 
         public void mouseEntered(MouseEvent e) {
             lblPiSinglePlayer.setVisible(true);
+            lblGhostSinglePlayer.setVisible(false);
         }
 
         public void mouseExited(MouseEvent e) {
             lblPiSinglePlayer.setVisible(false);
+            lblGhostSinglePlayer.setVisible(true);
         }
     }
 
@@ -247,10 +263,12 @@ public class MenuGUI extends JFrame {
 
         public void mouseEntered(MouseEvent e) {
             lblPiSettings.setVisible(true);
+            lblGhostSettings.setVisible(false);
         }
 
         public void mouseExited(MouseEvent e) {
             lblPiSettings.setVisible(false);
+            lblGhostSettings.setVisible(true);
         }
     }
 
@@ -272,10 +290,12 @@ public class MenuGUI extends JFrame {
 
         public void mouseEntered(MouseEvent e) {
             lblPiHelp.setVisible(true);
+            lblGhostHelp.setVisible(false);
         }
 
         public void mouseExited(MouseEvent e) {
             lblPiHelp.setVisible(false);
+            lblGhostHelp.setVisible(true);
         }
     }
 
