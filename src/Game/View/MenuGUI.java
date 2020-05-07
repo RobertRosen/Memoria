@@ -181,7 +181,7 @@ public class MenuGUI extends JFrame {
     /**
      * This class contains the functions for the multi-player in the MenuGUI
      * @version 1.0
-     * @author Yasir Kakar
+     * @author Yasir Kakar, Adel Sabanovic
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
