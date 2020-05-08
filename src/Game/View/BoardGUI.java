@@ -81,7 +81,7 @@ public class BoardGUI extends JFrame {
     }
 
     private void setupFrame() {
-        setSize(1000, 500);
+        setSize(900, 550);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(pnlMain);
@@ -121,17 +121,17 @@ public class BoardGUI extends JFrame {
     }
 
     private void setupComponentsSizes() {
-        pnlMain2.setPreferredSize(new Dimension(670, 386));
+        pnlMain2.setPreferredSize(new Dimension(700, 550));
         lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
-        lblEmptyLogo.setPreferredSize(new Dimension(126, 96));
-        pnlCards.setPreferredSize(new Dimension(380, 380));
-        pnlCardsLayout.setPreferredSize(new Dimension(380, 305));
-        lblGhost.setPreferredSize(new Dimension(340, 20));
-        lblGhost2.setPreferredSize(new Dimension(340, 20));
+        lblEmptyLogo.setPreferredSize(new Dimension(126, 130));
+        pnlCards.setPreferredSize(new Dimension(400, 450));
+        pnlCardsLayout.setPreferredSize(new Dimension(400, 340));
+        lblGhost.setPreferredSize(new Dimension(390, 20));
+        lblGhost2.setPreferredSize(new Dimension(390, 20));
         lblGhost3.setPreferredSize(new Dimension(125, 20));
         lblGhost4.setPreferredSize(new Dimension(125, 20));
-        lblGhost5.setPreferredSize(new Dimension(120, 18));
-        lblGhost6.setPreferredSize(new Dimension(120, 18));
+        lblGhost5.setPreferredSize(new Dimension(120, 60));
+        lblGhost6.setPreferredSize(new Dimension(120, 10));
         lblGhost7.setPreferredSize(new Dimension(125, 20));
         lblGhost8.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
@@ -140,10 +140,10 @@ public class BoardGUI extends JFrame {
         lblGhost12.setPreferredSize(new Dimension(10,5));
         pnlInfo2.setPreferredSize(new Dimension(126, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
-        pnlCenter.setPreferredSize(new Dimension(126, 380));
+        pnlCenter.setPreferredSize(new Dimension(126, 450));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
-        pnlInfo.setPreferredSize(new Dimension(126, 380));
+        pnlInfo.setPreferredSize(new Dimension(126, 450));
         btnBonus.setPreferredSize(new Dimension(126, 50));
         pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
         pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
