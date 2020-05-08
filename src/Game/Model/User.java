@@ -1,5 +1,8 @@
 package Game.Model;
 
+/**
+ * TODO- kommentera Klassen.
+ */
 public class User {
 
     private String userName;

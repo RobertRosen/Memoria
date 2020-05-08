@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 /**
  * This class contains all the code for the Setting interface
- * @version 1.0
+ * @version 3.0
  * @author Yasir Kakar
  */
 
@@ -30,7 +30,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This constructor contains the functions for the settingsGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     public SettingsGUI(){
@@ -54,7 +54,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This method sets size and location for the buttons and labels in the SettingsGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void setBoundsForContents(){
@@ -68,7 +68,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This method the buttons and labels in the SettingsGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addContents(){
@@ -82,7 +82,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This method adds listeners to the buttons in the SettingsGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addListeners(){
@@ -94,7 +94,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This class contains the functions for the "OK" button in the SettingsGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class OkListener implements ActionListener {

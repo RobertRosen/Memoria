@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
  * This class contains Memorias main menu
  * @author Yasir Kakar
  * @author Adel Sabanovic
- * @version 1.0
+ * @version 3.0
  * @since 2020-04-16
  *
  */
@@ -65,7 +65,7 @@ public class MenuGUI extends JFrame {
      * This method contains Memorias main menu GUI
      * @author Yasir Kakar
      * @author Adel Sabanovic
-     * @version 1.0
+     * @version 3.0
      * @since 2020-04-16
      */
     //TODO ska kortas ner med en for-loop och hjälpmetoder
@@ -122,7 +122,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method contains the contents of the west panel in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Adel Sabanovic
      */
     private void panelWestContents(){
@@ -140,7 +140,7 @@ public class MenuGUI extends JFrame {
     /**
      * This method sets the sizes and the visibility for the PI symbols the
      * gets visible when the user is hovering over the buttons in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Adel Sabanovic
      */
     private void setPiSizes(){
@@ -161,7 +161,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method sets the sizes for the empty labels in MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Adel Sabanovic
      */
     private void setGhostSizes(){
@@ -178,7 +178,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method contains all the listeners in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addListeners(){
@@ -192,7 +192,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the multi-player in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar, Adel Sabanovic
      */
     private class MouseMultiPlayer implements MouseListener {
@@ -220,7 +220,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the single-player button in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class MouseSinglePlayer implements MouseListener {
@@ -246,7 +246,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the settings button in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class MouseSettings implements MouseListener {
@@ -274,7 +274,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the help button in the MenuGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class MouseHelp implements MouseListener {

@@ -9,7 +9,7 @@ import java.util.Random;
 /**
  * Represents a multiplication problem to drop down a component.
  * @author Robert Rosencrantz
- * @version 0.0
+ * @version 3.0
  */
 public class CardDrop extends Card implements Runnable {
     private Rain rain;

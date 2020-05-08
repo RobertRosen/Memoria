@@ -9,7 +9,7 @@ import java.util.Scanner;
 /**
  * The class infopanel reads 2 textfiles and first puts them in two arraylist and then a hashmap.
  * @author Joakim Tell och Robert Rozencrantz
- * @version 1.0
+ * @version 3.0
  */
 public class InfoReader {
 

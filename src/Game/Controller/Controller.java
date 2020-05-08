@@ -18,7 +18,7 @@ import java.util.Arrays;
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  *
  * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
- * @version 1.0
+ * @version 3.0
  * TODO: Separat klass för växling mellan gui:s?
  */
 public class Controller {

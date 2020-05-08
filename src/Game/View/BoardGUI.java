@@ -17,8 +17,9 @@ import java.util.Collections;
  * This class contains the game board
  *
  * @author Adel Sabanovic
- * @version 1.1 Robert
+ * @version 3.0
  * @since 2020-04-16
+ * TODO- Kommentera klassen på engelska.
  */
 public class BoardGUI extends JFrame {
     private int score1 = 0;

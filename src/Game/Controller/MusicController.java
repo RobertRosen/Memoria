@@ -11,7 +11,7 @@ import java.io.File;
 
 /**
  * This class contains all the code for the music functions in the SettingsGUI
- * @version 1.0
+ * @version 3.0
  * @author Yasir Kakar
  */
 public class MusicController{
@@ -19,7 +19,7 @@ public class MusicController{
 
     /**
      * This class lets the user to start och stop the chosen song
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     public static class PlayListener implements ActionListener{
@@ -32,7 +32,7 @@ public class MusicController{
 
         /**
          * This method plays the music chosen for the background music in a loop
-         * @version 1.0
+         * @version 3.0
          * @author Yasir Kakar
          */
         public void playMusic(String filename){
@@ -52,7 +52,7 @@ public class MusicController{
     /**
      * This class allows the user to turn off the music either through
      * the settingsGUI or by closing the program
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     public static class StopListener implements ActionListener{

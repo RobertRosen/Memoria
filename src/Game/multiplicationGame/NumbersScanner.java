@@ -6,7 +6,7 @@ import java.util.*;
  * Creates two lists of text strings. This simulates some pairs of
  * multiplication problems with solved answers on corresponding positions in the lists.
  * @author Robert Rosencrantz
- * @version 0.0
+ * @version 3.0
  */
 public class NumbersScanner {
 

@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * Contains the main parts of the GUI, where rain and drops are painted.
  * @author Robert Rosencrantz
- * @version 0.0
+ * @version 3.0
  */
 public class JokerGUI extends JFrame {
 

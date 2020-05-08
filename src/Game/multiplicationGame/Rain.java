@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * The task to add new multiplication drops to the GUI. Problems are raining down the screen.
  * @author Robert Rosencrantz
- * @version 0.0
+ * @version 3.0
  */
 public class Rain implements Runnable {
     private Controller controller;

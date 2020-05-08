@@ -2,7 +2,9 @@ package Game.Model;
 
 public class Points {
 
-
+    /**
+     * TODO kolla över om den ska användas.
+     */
     private String playerOne;
     private String playerTwo;
 

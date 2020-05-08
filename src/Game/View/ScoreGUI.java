@@ -3,6 +3,12 @@ package Game.View;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * TODO Kommentera Score-GUI om den ska användas.
+ * @author Adel Sabanovic
+ * @version 3.0
+ */
+
 public class ScoreGUI extends JPanel {
     private JPanel ctrPanel = new JPanel();
     private JPanel wstPanel = new JPanel();

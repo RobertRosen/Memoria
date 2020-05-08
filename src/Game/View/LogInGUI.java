@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * Klassen Game.Controller.Game.Model.View.LogInGUI är ett GUI för login.
+ * Klassen LogInGUI är ett GUI för login. TODO-kommentera hela klassen på engelska
  * @author Joakim Tell och Yasir Kakar
- * @version 1.0
+ * @version 3.0
  */
 public class LogInGUI extends JFrame {
     private Controller controller;
@@ -31,7 +31,7 @@ public class LogInGUI extends JFrame {
     private JButton btnLogin = new JButton("Gå vidare");
 
     /**
-     * Konstruktor som initierar Game.Controller.Game.Model.View.LogInGUI
+     * Konstruktor som initierar LogInGUI
      */
     public LogInGUI(Controller controller, String name) {
         this.controller = controller;
@@ -63,7 +63,7 @@ public class LogInGUI extends JFrame {
 
     /**
      * Lyssnare som kontrollerar längd på usernamet.
-     * Skapar sedan Game.Controller.Game.Model.View.MenuGUI om giltligt användarnamn skrivits in och dispose av Game.Controller.Game.Model.View.LogInGUI.
+     * Skapar sedan MenuGUI om giltligt användarnamn skrivits in och dispose av LogInGUI.
      */
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
@@ -79,9 +79,5 @@ public class LogInGUI extends JFrame {
     public JTextField getTxtUsername() {
         return txtUsername;
     }
-
-    //    public static void main(String[] args) {
-//        Game.Controller.Game.Model.View.LogInGUI logInGUI = new Game.Controller.Game.Model.View.LogInGUI();
-//    }
 
 }

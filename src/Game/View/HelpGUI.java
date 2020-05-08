@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 /**
  * This class contains everything concerning the HelpGUI
- * @version 1.0
+ * @version 3.0
  * @author Yasir Kakar
  */
 public class HelpGUI extends JFrame {
@@ -26,7 +26,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This constructor brings all the methods together for the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     public HelpGUI(){
@@ -49,7 +49,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method lets the developers to place the panels anywhere necessary in the Frame
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private  void setLayouts(){
@@ -64,7 +64,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the constructors of the innerclasses to the panels shown in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addInnerClasses(){
@@ -78,7 +78,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the Panels in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addPanels(){
@@ -93,7 +93,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the buttons in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void addButtons(){
@@ -114,7 +114,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method creates the buttons in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private void createButtons(){
@@ -134,7 +134,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * Each panelclass below contains the images that are presented in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class Panel1 extends JPanel {
@@ -220,7 +220,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This class contains the functions for the "Next" button in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     private class NextListener implements ActionListener{
@@ -252,7 +252,7 @@ public class HelpGUI extends JFrame {
 
     /**
      * This class contains the functions for the "OK" button in the HelpGUI
-     * @version 1.0
+     * @version 3.0
      * @author Yasir Kakar
      */
     class OKListener implements ActionListener{
