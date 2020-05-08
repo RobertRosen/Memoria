@@ -25,18 +25,15 @@ public class Controller {
     private BoardGUI boardGUI;
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
+
     private Rain rain;
-
     private InfoReader infoReader;
-
     private Card selectedCard;
 
     private Card[] pairOfCards = new Card[2];   // To handle the two cards for each round of pairings.
     private User[] multiPlayer = new User[2];   // Keeps information of logged in users.
 
     private boolean turnPlayer1 = true;         // Track which players turn it is.
-    private int scorePlayer1;
-    private int scorePlayer2;
 
     /**
      * Construct the controller and initialize a login view.
@@ -88,11 +85,7 @@ public class Controller {
             }
 
             if (isGameWon()) { //OBS! ÄNDRA TILL isGameWon()
-                if (scorePlayer1 > scorePlayer2) {
-                   checkWin(multiPlayer[0].getUserName());
-                } else if (scorePlayer2 > scorePlayer1) {
-                    checkWin(multiPlayer[1].getUserName());
-                }
+                updatePoints();
             }
         } else {
             for (Card card : pairOfCards) {
@@ -101,6 +94,24 @@ public class Controller {
             switchPlayers();
         }
         Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
+    }
+
+    private void updatePoints() {
+        int score1 = multiPlayer[0].getGameScore();
+        int score2 = multiPlayer[1].getGameScore();
+        int score1total = multiPlayer[0].getTotalPoints();
+        int score2total = multiPlayer[1].getTotalPoints();
+        if (score1 > score2) {
+            checkWin(multiPlayer[0].getUserName());
+        } else if (score2 > score1) {
+            checkWin(multiPlayer[1].getUserName());
+        }
+        score1total += score1;
+        score2total += score2;
+        multiPlayer[0].setTotalPoints(score1total);
+        multiPlayer[1].setTotalPoints(score2total);
+        multiPlayer[0].setGameScore(0);
+        multiPlayer[1].setGameScore(0);
     }
 
     /**
@@ -116,8 +127,6 @@ public class Controller {
         if(reply == JOptionPane.YES_OPTION) {
             boardGUI.dispose();
             turnPlayer1 = true;
-            scorePlayer1 = -10; //kompenserar för andra skeenden i koden
-            scorePlayer2 = 0;
             boardGUI = new BoardGUI(this);
             boardGUI.revalidate();
         } else {
@@ -130,10 +139,18 @@ public class Controller {
      */
     private void incrementScore(int pointsToAdd) {
         if (turnPlayer1) {
-            boardGUI.setLblScore(scorePlayer1 += pointsToAdd);
+            int score1 = updateUserPoints(0, pointsToAdd);
+            boardGUI.setLblScore(score1);
         } else {
-            boardGUI.setLblScore2(scorePlayer2 += pointsToAdd);
+            int score2 = updateUserPoints(1,pointsToAdd);
+            boardGUI.setLblScore2(score2);
         }
+    }
+
+    private int updateUserPoints(int player, int pointsToAdd) {
+        int score = multiPlayer[player].getGameScore() + pointsToAdd;
+        multiPlayer[player].setGameScore(score);
+        return multiPlayer[player].getGameScore();
     }
 
     /**
@@ -169,14 +186,10 @@ public class Controller {
         }
         return true;
     }
-
     //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
-    public boolean test() {
-            if ((scorePlayer1 == 20) || (scorePlayer2 == 20)) {
-                return false;
-            }
-        return true;
-    }
+//    public boolean test() {
+//        return (multiPlayer[0].getGameScore() == 20) || (multiPlayer[1].getGameScore() == 20);
+//    }
 
     /**
      * Open login view for second player to sign in.
