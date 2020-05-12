@@ -5,10 +5,7 @@ import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.*;
 
 /**
  * Klassen LogInGUI är ett GUI för login. TODO-kommentera hela klassen på engelska
@@ -60,9 +57,13 @@ public class LogInGUI extends JFrame {
         pnlMain.add(txtUsername);
         pnlMain.add(btnLogin);
 
+        listeners();
+    }
+
+    private void listeners(){
+        txtUsername.addKeyListener(new LimitUsername());
         btnLogin.addActionListener(new Listener());
         txtUsername.addFocusListener(new Focus());
-
 
     }
 
@@ -81,6 +82,31 @@ public class LogInGUI extends JFrame {
         @Override
         public void focusLost(FocusEvent e) {
 
+        }
+    }
+
+    private class LimitUsername implements KeyListener {
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if ((txtUsername.getText().length() > 10) || (txtUsername.getText().length() < 3)){
+                txtUsername.setForeground(Color.RED);
+                btnLogin.setEnabled(false);
+            }
+            else {
+                txtUsername.setForeground(Color.GREEN);
+                btnLogin.setEnabled(true);
+            }
         }
     }
 
