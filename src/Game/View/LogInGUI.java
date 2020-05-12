@@ -63,8 +63,6 @@ public class LogInGUI extends JFrame {
         btnLogin.addActionListener(new Listener());
         txtUsername.addFocusListener(new Focus());
 
-        //Starts the background music
-      //  new MusicController.PlayListener().playMusic("music/TakeMeBack.wav");
 
     }
 
