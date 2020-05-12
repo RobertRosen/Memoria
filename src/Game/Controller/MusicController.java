@@ -22,13 +22,9 @@ public class MusicController{
      * @version 3.0
      * @author Yasir Kakar
      */
-    public static class PlayListener implements ActionListener{
 
-        @Override
-        public void actionPerformed(ActionEvent e) {
 
-            playMusic("music/TakeMeBack.wav");//Filepath for the chosen background song
-        }
+
 
         /**
          * This method plays the music chosen for the background music in a loop
@@ -47,7 +43,7 @@ public class MusicController{
                 e.printStackTrace();
             }
         }
-    }
+
 
     /**
      * This class allows the user to turn off the music either through
@@ -55,11 +51,8 @@ public class MusicController{
      * @version 3.0
      * @author Yasir Kakar
      */
-    public static class StopListener implements ActionListener{
-        @Override
-        public void actionPerformed(ActionEvent e) {//stops the music
-            clip.stop();
-        }
-    }
+     public void stopMusic() {
+         clip.stop();
+     }
 
 }

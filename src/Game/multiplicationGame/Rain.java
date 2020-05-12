@@ -1,6 +1,7 @@
 package Game.multiplicationGame;
 
 import Game.Controller.Controller;
+import Game.Controller.MusicController;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,6 +12,7 @@ import java.util.Random;
  * @version 3.0
  */
 public class Rain implements Runnable {
+    private MusicController musicController = new MusicController();
     private Controller controller;
     private JokerGUI jokerGui;
 
@@ -85,6 +87,8 @@ public class Rain implements Runnable {
         }
         jokerGui.dispose();
         controller.showBoardGUI();
+        musicController.stopMusic();
+        musicController.playMusic("music/TakeMeBack.wav");
     }
 
     /**

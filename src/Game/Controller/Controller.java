@@ -22,6 +22,7 @@ import java.util.Arrays;
  * TODO: Separat klass för växling mellan gui:s?
  */
 public class Controller {
+    private MusicController musicController = new MusicController();
     private BoardGUI boardGUI;
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
@@ -41,6 +42,7 @@ public class Controller {
     public Controller() {
         logInPlayer1 = new LogInGUI(this, "Player One ");
         infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
+        musicController.playMusic("music/TakeMeBack.wav");
     }
 
     /**
@@ -79,6 +81,8 @@ public class Controller {
             if(secondSymbol.equals("images/Jo")) {
                 rain = new Rain(this);
                 boardGUI.setVisible(false);
+                musicController.stopMusic();
+                musicController.playMusic("music/Stress.wav");
             } else {
                 incrementScore(10);
                 showInfoOnPanel();

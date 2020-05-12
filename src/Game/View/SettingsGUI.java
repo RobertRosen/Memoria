@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
  */
 
 public class SettingsGUI extends JFrame {
+    private MusicController musicController = new MusicController();
     private JFrame frame = new JFrame();
 
     private JPanel pnlMain = new JPanel();
@@ -88,8 +89,8 @@ public class SettingsGUI extends JFrame {
     private void addListeners(){
 
         btnOk.addActionListener(new OkListener());
-        btnOn.addActionListener(new MusicController.PlayListener());
-        btnOff.addActionListener(new MusicController.StopListener());
+        btnOn.addActionListener(new PlayMusic());
+        btnOff.addActionListener(new StopMusic());
     }
 
     /**
@@ -102,6 +103,21 @@ public class SettingsGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             frame.dispose();
+        }
+    }
+    private class PlayMusic implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            musicController.playMusic("music/TakeMeBack.wav");
+        }
+    }
+
+    private class StopMusic implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            musicController.stopMusic();
         }
     }
 
