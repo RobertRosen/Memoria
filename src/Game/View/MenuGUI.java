@@ -23,8 +23,6 @@ public class MenuGUI extends JFrame {
     private JPanel pnlSettings = new JPanel();
     private JPanel pnlWest = new JPanel();
 
-    private ScoreGUI scoreGUI = new ScoreGUI();
-
     private ImageIcon iconLogo = new ImageIcon("images/mem3.JPG");
     private ImageIcon iconMthLogo = new ImageIcon("images/mathLogo.JPG");
     private ImageIcon iconBeatLogo = new ImageIcon("images/beat2.JPG");

@@ -128,6 +128,8 @@ public class Controller {
             boardGUI.dispose();
             turnPlayer1 = true;
             boardGUI = new BoardGUI(this);
+            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
+            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
             boardGUI.revalidate();
         } else {
             System.exit(0);
