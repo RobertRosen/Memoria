@@ -1,11 +1,14 @@
 package Game.View;
 
 import Game.Controller.Controller;
+import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 /**
  * Klassen LogInGUI är ett GUI för login. TODO-kommentera hela klassen på engelska
@@ -23,8 +26,7 @@ public class LogInGUI extends JFrame {
     private JLabel lblGame = new JLabel(welcomeLogo);
     private JLabel lblUsername = new JLabel("Användarnamn");
 
-
-    private JTextField txtUsername = new JTextField();
+    private JTextField txtUsername = new JTextField("Användarnamn 3-10 tecken");
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
@@ -59,6 +61,29 @@ public class LogInGUI extends JFrame {
         pnlMain.add(btnLogin);
 
         btnLogin.addActionListener(new Listener());
+        txtUsername.addFocusListener(new Focus());
+
+        //Starts the background music
+        new MusicController.PlayListener().playMusic("music/TakeMeBack.wav");
+
+    }
+
+    /**
+     * This class makes the username hint disappear
+     * @version 3.0
+     * @author Yasir Kakar
+     */
+    private class Focus implements FocusListener{
+
+        @Override
+        public void focusGained(FocusEvent e) {
+            txtUsername.setText(null);
+        }
+
+        @Override
+        public void focusLost(FocusEvent e) {
+
+        }
     }
 
     /**
