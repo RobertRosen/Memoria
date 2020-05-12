@@ -22,55 +22,49 @@ import java.util.Collections;
  * TODO- Kommentera klassen på engelska.
  */
 public class BoardGUI extends JFrame {
-    private int score1 = 0;
-    private int score2 = 0;
 
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
-    private JPanel pnlCenter = new JPanel();
+    private JPanel pnlEast = new JPanel();
     private JPanel pnlPlayer1 = new JPanel();
     private JPanel pnlPlayer2 = new JPanel();
-    private JPanel pnlInfo = new JPanel();
-    private JPanel pnlInfo2 = new JPanel();
     private JPanel pnlScore = new JPanel();
     private JPanel pnlCardsLayout = new JPanel();
-
-
-
     private JPanel pnlPlayer1Color = new JPanel();
     private JPanel pnlPlayer1Color2 = new JPanel();
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
+    private JList lstInfo = new JList();
+
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
-    private ImageIcon iconEmptyLogo = new ImageIcon();
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
 
     private JButton btnBonus = new JButton(iconBonus);
 
-    private JLabel lblEmptyLogo = new JLabel(iconEmptyLogo);
+    private JLabel lblEmptyLogo = new JLabel();
+    private JLabel lblEmptyLogo2 = new JLabel();
     private JLabel lblMemoriaLogo = new JLabel(iconMemoriaLogo);
     private JLabel lblScore = new JLabel("0");
     private JLabel lblScore2 = new JLabel("0");
-    private JLabel lblGhost = new JLabel(iconBlueStripe);
-    private JLabel lblGhost2 = new JLabel(iconBlueStripe);
-    private JLabel lblGhost3 = new JLabel(iconBlueStripe);
-    private JLabel lblGhost4 = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe2 = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe3 = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe4 = new JLabel(iconBlueStripe);
     private JLabel lblGhost5 = new JLabel();
     private JLabel lblGhost6 = new JLabel();
-    private JLabel lblGhost7 = new JLabel(iconBlueStripe);
-    private JLabel lblGhost8 = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe5 = new JLabel(iconBlueStripe);
+    private JLabel lblBlueStripe6 = new JLabel(iconBlueStripe);
     private JLabel lblGhost9 = new JLabel(iconMathLogo);
     private JLabel lblGhost10 = new JLabel();
     private JLabel lblGhost11 = new JLabel();
     private JLabel lblGhost12 = new JLabel();
 
-
-
     Controller controller;
+
     public BoardGUI(Controller controller) {
         this.controller = controller;
         setupFrame();
@@ -93,24 +87,23 @@ public class BoardGUI extends JFrame {
         pnlMain.add(lblGhost9);
         pnlMain.add(lblGhost10);
         pnlMain.add(pnlMain2);
-        pnlCenter.add(lblGhost3);
-        pnlCenter.add(pnlPlayer1);
-        pnlCenter.add(pnlPlayer2);
-        pnlCenter.add(lblGhost6);
-        pnlCenter.add(btnBonus);
-        pnlCenter.add(lblGhost5);
-        pnlCenter.add(lblGhost4);
+        pnlEast.add(lblBlueStripe3);
+        pnlEast.add(lblBlueStripe4);
+        pnlEast.add(pnlPlayer1);
+        pnlEast.add(pnlPlayer2);
+        pnlEast.add(lstInfo);
+        pnlEast.add(lblGhost6);
+        pnlEast.add(lblEmptyLogo);
+        pnlEast.add(btnBonus);
+        pnlEast.add(lblEmptyLogo2);
+        pnlEast.add(lblGhost5);
+        pnlEast.add(lblBlueStripe5);
+        pnlEast.add(lblBlueStripe6);
         pnlMain2.add(pnlCards);
-        pnlMain2.add(pnlCenter);
-        pnlCards.add(lblGhost);
+        pnlMain2.add(pnlEast);
+        pnlCards.add(lblBlueStripe);
         pnlCards.add(pnlCardsLayout);
-        pnlCards.add(lblGhost2);
-        pnlMain2.add(pnlInfo, BorderLayout.EAST);
-        pnlInfo.add(lblGhost7);
-        pnlInfo.add(pnlInfo2);
-        pnlInfo.add(pnlScore);
-        pnlInfo.add(lblEmptyLogo);
-        pnlInfo.add(lblGhost8);
+        pnlCards.add(lblBlueStripe2);
         pnlPlayer1.add(lblGhost11);
         pnlPlayer1.add(pnlPlayer1Color);
         pnlPlayer1.add(lblScore);
@@ -124,27 +117,27 @@ public class BoardGUI extends JFrame {
     private void setupComponentsSizes() {
         pnlMain2.setPreferredSize(new Dimension(700, 550));
         lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
-        lblEmptyLogo.setPreferredSize(new Dimension(126, 130));
+        lblEmptyLogo.setPreferredSize(new Dimension(50, 50));
+        lblEmptyLogo2.setPreferredSize(new Dimension(50, 50));
         pnlCards.setPreferredSize(new Dimension(400, 450));
         pnlCardsLayout.setPreferredSize(new Dimension(400, 340));
-        lblGhost.setPreferredSize(new Dimension(390, 20));
-        lblGhost2.setPreferredSize(new Dimension(390, 20));
-        lblGhost3.setPreferredSize(new Dimension(125, 20));
-        lblGhost4.setPreferredSize(new Dimension(125, 20));
-        lblGhost5.setPreferredSize(new Dimension(120, 60));
-        lblGhost6.setPreferredSize(new Dimension(120, 10));
-        lblGhost7.setPreferredSize(new Dimension(125, 20));
-        lblGhost8.setPreferredSize(new Dimension(125, 20));
+        lblBlueStripe.setPreferredSize(new Dimension(390, 20));
+        lblBlueStripe2.setPreferredSize(new Dimension(390, 20));
+        lblBlueStripe3.setPreferredSize(new Dimension(125, 20));
+        lblBlueStripe4.setPreferredSize(new Dimension(125, 20));
+        lblGhost5.setPreferredSize(new Dimension(240, 34));
+        lblGhost6.setPreferredSize(new Dimension(240, 35));
+        lblBlueStripe5.setPreferredSize(new Dimension(125, 20));
+        lblBlueStripe6.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
         lblGhost10.setPreferredSize(new Dimension(265, 35));
         lblGhost11.setPreferredSize(new Dimension(10,5));
         lblGhost12.setPreferredSize(new Dimension(10,5));
-        pnlInfo2.setPreferredSize(new Dimension(126, 100));
+        lstInfo.setPreferredSize(new Dimension(257, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
-        pnlCenter.setPreferredSize(new Dimension(126, 450));
+        pnlEast.setPreferredSize(new Dimension(265, 448));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
-        pnlInfo.setPreferredSize(new Dimension(126, 450));
         btnBonus.setPreferredSize(new Dimension(126, 50));
         pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
         pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
@@ -156,14 +149,12 @@ public class BoardGUI extends JFrame {
         pnlMain.setBackground(Color.WHITE);
         pnlCards.setBackground(Color.WHITE);
         pnlCardsLayout.setBackground(Color.WHITE);
-        pnlCenter.setBackground(Color.WHITE);
+        pnlEast.setBackground(Color.WHITE);
         pnlPlayer1.setBackground(Color.WHITE);
         pnlPlayer2.setBackground(Color.WHITE);
         pnlMain2.setBackground(Color.WHITE);
-        pnlInfo.setBackground(Color.WHITE);
-        pnlInfo2.setBackground(Color.WHITE);
+        lstInfo.setBackground(Color.WHITE);
         pnlScore.setBackground(Color.WHITE);
-
         pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
         pnlPlayer1Color.setBackground(Color.GREEN);
         pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -172,12 +163,11 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
         pnlPlayer2Color.setBackground(Color.WHITE);
         pnlPlayer2Color2.setBackground(Color.WHITE);
-        pnlInfo2.setBorder(BorderFactory.createTitledBorder("Info"));
+        lstInfo.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
         lblScore.setText("0");
         lblScore2.setText("0");
     }
-
 
     // TODO: Skapa en CardDeck-klass för nedanstående metoder?
     private Timer timer;
