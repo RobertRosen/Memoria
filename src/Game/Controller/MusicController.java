@@ -32,17 +32,31 @@ public class MusicController{
          * @author Yasir Kakar
          */
         public void playMusic(String filename){
-            try {
-                File file = new File(filename);
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-                clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-                clip.loop(clip.LOOP_CONTINUOUSLY);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
+        try {
+            File file = new File(filename);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+            clip.loop(clip.LOOP_CONTINUOUSLY);
+        }catch (Exception e){
+            e.printStackTrace();
         }
+    }
+
+    public void click(String filename){
+        try {
+            File file = new File(filename);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 
     /**

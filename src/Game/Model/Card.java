@@ -1,5 +1,7 @@
 package Game.Model;
 
+import Game.Controller.MusicController;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -10,7 +12,7 @@ import java.awt.*;
  * TODO: Kanske inte ärva JButton?
  */
 public class Card extends JButton {
-
+    private MusicController musicController = new MusicController();
     private String pathSymbol;          // Location of image.
     private ImageIcon imageShowing;     // The visible front side of the card.
     private boolean matched = false;    // True if this card is matched with another card.
@@ -29,7 +31,7 @@ public class Card extends JButton {
      */
     public void revealSymbol() {
         imageShowing = new ImageIcon(pathSymbol);
-
+        //musicController.click("music/CardClick.wav");
         double imageWidth   = imageShowing.getIconWidth();
         double imageHeight  = imageShowing.getIconHeight();
         double cardHeight   = getHeight();

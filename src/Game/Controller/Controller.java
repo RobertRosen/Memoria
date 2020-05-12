@@ -77,6 +77,7 @@ public class Controller {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
+            //musicController.click("music/Point.wav");
 
             if(secondSymbol.equals("images/Jo")) {
                 rain = new Rain(this);
