@@ -72,7 +72,7 @@ public class MenuGUI extends JFrame {
     public MenuGUI(Controller controller) {
         this.controller = controller;
 
-        setSize(940, 430);
+        setSize(500, 400);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -113,7 +113,6 @@ public class MenuGUI extends JFrame {
         btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlSettings.add(lblGhost7);
 
-        pnlMain.add(scoreGUI);
 
         setPiSizes();
         setGhostSizes();
