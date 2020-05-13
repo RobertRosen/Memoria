@@ -23,7 +23,7 @@ public class LogInGUI extends JFrame {
     private JLabel lblGame = new JLabel(welcomeLogo);
     private JLabel lblUsername = new JLabel("Användarnamn");
 
-    private JTextField txtUsername = new JTextField("Användarnamn 3-10 tecken");
+    private JTextField txtUsername = new JTextField("Användarnamn (3-10 tecken)");
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
