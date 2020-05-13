@@ -33,7 +33,6 @@ public class HelpGUI extends JFrame {
 
         setSize(700,700);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         add(container);
 
@@ -45,6 +44,7 @@ public class HelpGUI extends JFrame {
         addButtons();
         addInnerClasses();
         addPanels();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**

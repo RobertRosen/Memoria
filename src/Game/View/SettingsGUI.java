@@ -35,7 +35,6 @@ public class SettingsGUI extends JFrame {
      */
     public SettingsGUI(){
         frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
         frame.add(pnlMain);
@@ -50,6 +49,7 @@ public class SettingsGUI extends JFrame {
         addContents();
         addListeners();
         setBoundsForContents();
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /**
