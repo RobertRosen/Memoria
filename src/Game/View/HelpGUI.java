@@ -22,6 +22,7 @@ public class HelpGUI extends JFrame {
     private JPanel panel6 = new JPanel();
 
     private JButton btnNext[] = new JButton[6];
+    private JButton btnBack[] = new JButton[6];
     private JButton btnOK[] = new JButton[6];
 
     /**
@@ -104,6 +105,13 @@ public class HelpGUI extends JFrame {
         panel5.add(btnNext[4]);
         panel6.add(btnNext[5]);
 
+        panel1.add(btnBack[0]);
+        panel2.add(btnBack[1]);
+        panel3.add(btnBack[2]);
+        panel4.add(btnBack[3]);
+        panel5.add(btnBack[4]);
+        panel6.add(btnBack[5]);
+
         panel1.add(btnOK[0]);
         panel2.add(btnOK[1]);
         panel3.add(btnOK[2]);
@@ -121,8 +129,14 @@ public class HelpGUI extends JFrame {
 
         for (int i = 0; i < btnNext.length; i++){
             btnNext[i] = new JButton("Nästa");
-            btnNext[i].setBounds(150,600,100,40);
+            btnNext[i].setBounds(550,600,100,40);
             btnNext[i].addActionListener(new NextListener());
+        }
+
+        for (int i = 0; i < btnBack.length; i++){
+            btnBack[i] = new JButton("Tillbaka");
+            btnBack[i].setBounds(50,600,100,40);
+            btnBack[i].addActionListener(new BackListener());
         }
 
         for (int i = 0; i < btnOK.length; i++){
@@ -245,6 +259,32 @@ public class HelpGUI extends JFrame {
                 }
                 if (e.getSource() == btnNext[5]){
                     card.show(container, "" + 2);
+                }
+            }
+        }
+    }
+    private class BackListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < btnBack.length; i++){
+                if (e.getSource() == btnBack[0]){
+                    card.show(container, "" + 7);
+                }
+                if (e.getSource() == btnBack[1]){
+                    card.show(container, "" + 2);
+                }
+                if (e.getSource() == btnBack[2]){
+                    card.show(container, "" + 3);
+                }
+                if (e.getSource() == btnBack[3]){
+                    card.show(container, "" + 4);
+                }
+                if (e.getSource() == btnBack[4]){
+                    card.show(container, "" + 5);
+                }
+                if (e.getSource() == btnBack[5]){
+                    card.show(container, "" + 6);
                 }
             }
         }

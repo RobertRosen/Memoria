@@ -17,15 +17,6 @@ import java.io.File;
 public class MusicController{
     private static Clip clip;
 
-    /**
-     * This class lets the user to start och stop the chosen song
-     * @version 3.0
-     * @author Yasir Kakar
-     */
-
-
-
-
         /**
          * This method plays the music chosen for the background music in a loop
          * @version 3.0
