@@ -15,6 +15,7 @@ import java.awt.event.*;
 public class LogInGUI extends JFrame {
     private Controller controller;
     private ImageIcon welcomeLogo = new ImageIcon("images/välkommen.PNG");
+    private ImageIcon imgbtn = new ImageIcon("images/GåVidare.PNG");
 
     private JFrame frame = new JFrame();
 
@@ -27,7 +28,7 @@ public class LogInGUI extends JFrame {
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
-    private JButton btnLogin = new JButton("Gå vidare");
+    private JButton btnLogin = new JButton(imgbtn);
 
     /**
      * Konstruktor som initierar LogInGUI
@@ -47,7 +48,7 @@ public class LogInGUI extends JFrame {
 
         lblGame.setBounds(40, 20, 300, 50);
         lblUsername.setBounds(50, 60, 100, 100);
-        txtUsername.setBounds(160, 100, 165, 25);
+        txtUsername.setBounds(120, 100, 165, 25);
         btnLogin.setBounds(120, 150, 150, 40);
 
         lblUsername.setText(name);

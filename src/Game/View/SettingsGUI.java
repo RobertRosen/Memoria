@@ -19,13 +19,18 @@ public class SettingsGUI extends JFrame {
     private JPanel pnlMain = new JPanel();
 
     private ImageIcon inställningarLogo = new ImageIcon("images/inställningar.PNG");
+    private ImageIcon musikLogo = new ImageIcon("images/Musik.PNG");
+    private ImageIcon påLogo = new ImageIcon("images/PÅ.PNG");
+    private ImageIcon avLogo = new ImageIcon("images/AV.PNG");
+    private ImageIcon okLogo = new ImageIcon("images/OK.PNG");
 
-    private JButton btnOn = new JButton("PÅ");
-    private JButton btnOff = new JButton("AV");
-    private JButton btnOk = new JButton("OK");
+
+    private JButton btnOn = new JButton(påLogo);
+    private JButton btnOff = new JButton(avLogo);
+    private JButton btnOk = new JButton(okLogo);
 
     private JLabel lblSettings = new JLabel(inställningarLogo);
-    private JLabel lblMusic = new JLabel("Musik");
+    private JLabel lblMusic = new JLabel(musikLogo);
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
@@ -60,10 +65,10 @@ public class SettingsGUI extends JFrame {
      */
     private void setBoundsForContents(){
         lblSettings.setBounds(40, 10, 300, 50);
-        lblMusic.setBounds(40,60,100,25);
-        btnOn.setBounds(100, 60, 80,25);
-        btnOff.setBounds(200,60,80,25);
-        btnOk.setBounds(150,100,80,25);
+        lblMusic.setBounds(25,60,130,40);
+        btnOn.setBounds(150, 67, 75,25);
+        btnOff.setBounds(250,66,80,27);
+        btnOk.setBounds(150,150,75,30);
 
     }
 
@@ -122,6 +127,6 @@ public class SettingsGUI extends JFrame {
     }
 
     public static void main(String[] args) {
-        //SettingsGUI settingsGUI = new SettingsGUI();
+        SettingsGUI settingsGUI = new SettingsGUI();
     }
 }
