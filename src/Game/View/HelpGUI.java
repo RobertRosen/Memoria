@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 /**
  * This class contains everything concerning the HelpGUI
  * @version 3.0
- * @author Yasir Kakar
+ * @author Yasir Kakar, Adel Sabanovic
  */
 public class HelpGUI extends JFrame {
 
@@ -21,9 +23,10 @@ public class HelpGUI extends JFrame {
     private JPanel panel5 = new JPanel();
     private JPanel panel6 = new JPanel();
 
-    private ImageIcon next = new ImageIcon("images/btnFwd.png");
-    private ImageIcon back = new ImageIcon("images/btnBack.png");
-    private ImageIcon ok = new ImageIcon("images/btnOk.png");
+    private ImageIcon next = new ImageIcon("images/fwdButton.png");
+    private ImageIcon back = new ImageIcon("images/backButton.png");
+    private ImageIcon ok = new ImageIcon("images/okButton.png");
+
 
     private JButton btnNext[] = new JButton[6];
     private JButton btnBack[] = new JButton[6];
@@ -99,7 +102,7 @@ public class HelpGUI extends JFrame {
     /**
      * This method adds the buttons in the HelpGUI
      * @version 3.0
-     * @author Yasir Kakar
+     * @author Yasir Kakar, Adel Sabanovic
      */
     private void addButtons(){
         panel1.add(btnNext[0]);
@@ -127,7 +130,7 @@ public class HelpGUI extends JFrame {
     /**
      * This method creates the buttons in the HelpGUI
      * @version 3.0
-     * @author Yasir Kakar
+     * @author Yasir Kakar, Adel Sabanovic
      */
     private void createButtons(){
 
@@ -271,6 +274,12 @@ public class HelpGUI extends JFrame {
         }
     }
 
+    /**
+     * A class that contains functions for the "Back" button
+     * @version 4.0
+     * @author Adel Sabanovic
+     */
+
     private class BackListener implements ActionListener{
 
         @Override
@@ -297,8 +306,6 @@ public class HelpGUI extends JFrame {
             }
         }
     }
-
-
 
     /**
      * This class contains the functions for the "OK" button in the HelpGUI
