@@ -83,7 +83,7 @@ public class Controller {
                 rain = new Rain(this);
                 boardGUI.setVisible(false);
                 musicController.stopMusic();
-                musicController.playMusic("music/Stress.wav");
+                musicController.playMusic("music/JokerRound.wav");
             } else {
                 incrementScore(10);
                 showInfoOnPanel();
@@ -233,7 +233,7 @@ public class Controller {
      */
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
-
+        boardGUI.getInfoTextModel().clear();
         boardGUI.getInfoTextModel().addElement(infoReader.getInfoMap().get(secondSymbol));
 
     }
