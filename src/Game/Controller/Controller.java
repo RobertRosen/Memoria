@@ -233,9 +233,9 @@ public class Controller {
      */
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
-        boardGUI.getInfoTextModel().clear();
-        boardGUI.getInfoTextModel().addElement(infoReader.getInfoMap().get(secondSymbol));
-
+        String newString = infoReader.getInfoMap().get(secondSymbol).replaceAll("!","\n");
+        boardGUI.getTxtInfoArea().setText("");
+        boardGUI.getTxtInfoArea().setText(newString);
     }
 
     public void showBoardGUI() {

@@ -36,8 +36,7 @@ public class BoardGUI extends JFrame {
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
-    private DefaultListModel infoTextModel = new DefaultListModel();
-    private JList lstInfo = new JList(infoTextModel);
+    private JTextArea txtInfoArea = new JTextArea();
 
 
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
@@ -93,7 +92,7 @@ public class BoardGUI extends JFrame {
         pnlEast.add(lblBlueStripe4);
         pnlEast.add(pnlPlayer1);
         pnlEast.add(pnlPlayer2);
-        pnlEast.add(lstInfo);
+        pnlEast.add(txtInfoArea);
         pnlEast.add(lblGhost6);
         pnlEast.add(lblEmptyLogo);
         pnlEast.add(btnBonus);
@@ -135,7 +134,7 @@ public class BoardGUI extends JFrame {
         lblGhost10.setPreferredSize(new Dimension(265, 35));
         lblGhost11.setPreferredSize(new Dimension(10,5));
         lblGhost12.setPreferredSize(new Dimension(10,5));
-        lstInfo.setPreferredSize(new Dimension(257, 100));
+        txtInfoArea.setPreferredSize(new Dimension(257, 100));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlEast.setPreferredSize(new Dimension(265, 448));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
@@ -155,7 +154,7 @@ public class BoardGUI extends JFrame {
         pnlPlayer1.setBackground(Color.WHITE);
         pnlPlayer2.setBackground(Color.WHITE);
         pnlMain2.setBackground(Color.WHITE);
-        lstInfo.setBackground(Color.WHITE);
+        txtInfoArea.setBackground(Color.WHITE);
         pnlScore.setBackground(Color.WHITE);
         pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
         pnlPlayer1Color.setBackground(Color.GREEN);
@@ -165,7 +164,7 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.setBorder(BorderFactory.createTitledBorder("Player two score"));
         pnlPlayer2Color.setBackground(Color.WHITE);
         pnlPlayer2Color2.setBackground(Color.WHITE);
-        lstInfo.setBorder(BorderFactory.createTitledBorder("Info"));
+        txtInfoArea.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
         lblScore.setText("0");
         lblScore2.setText("0");
@@ -300,8 +299,8 @@ public class BoardGUI extends JFrame {
         lblScore2.setText(String.valueOf(score2));
     }
 
-    public DefaultListModel getInfoTextModel() {
-        return infoTextModel;
+    public JTextArea getTxtInfoArea() {
+        return txtInfoArea;
     }
 
     //    public static void main(String[] args) {
