@@ -43,7 +43,8 @@ public class BoardGUI extends JFrame {
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
 
-    private JButton btnBonus = new JButton(iconBonus);
+    private JButton btnSettings = new JButton(iconBonus);
+    private JButton btnInstructions = new JButton(iconBonus);
 
     private JLabel lblEmptyLogo = new JLabel();
     private JLabel lblEmptyLogo2 = new JLabel();

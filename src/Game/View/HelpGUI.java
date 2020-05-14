@@ -21,7 +21,12 @@ public class HelpGUI extends JFrame {
     private JPanel panel5 = new JPanel();
     private JPanel panel6 = new JPanel();
 
+    private ImageIcon next = new ImageIcon("images/btnFwd.png");
+    private ImageIcon back = new ImageIcon("images/btnBack.png");
+    private ImageIcon ok = new ImageIcon("images/btnOk.png");
+
     private JButton btnNext[] = new JButton[6];
+    private JButton btnBack[] = new JButton[6];
     private JButton btnOK[] = new JButton[6];
 
     /**
@@ -104,6 +109,13 @@ public class HelpGUI extends JFrame {
         panel5.add(btnNext[4]);
         panel6.add(btnNext[5]);
 
+        panel1.add(btnBack[0]);
+        panel2.add(btnBack[1]);
+        panel3.add(btnBack[2]);
+        panel4.add(btnBack[3]);
+        panel5.add(btnBack[4]);
+        panel6.add(btnBack[5]);
+
         panel1.add(btnOK[0]);
         panel2.add(btnOK[1]);
         panel3.add(btnOK[2]);
@@ -120,14 +132,23 @@ public class HelpGUI extends JFrame {
     private void createButtons(){
 
         for (int i = 0; i < btnNext.length; i++){
-            btnNext[i] = new JButton("Nästa");
-            btnNext[i].setBounds(150,600,100,40);
+            btnNext[i] = new JButton(next);
+            btnNext[i].setBounds(530,580,60,46);
+            btnNext[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnNext[i].addActionListener(new NextListener());
         }
 
+        for (int i = 0; i < btnBack.length; i++){
+            btnBack[i] = new JButton(back);
+            btnBack[i].setBounds(100,580,56,47);
+            btnBack[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
+            btnBack[i].addActionListener(new BackListener());
+        }
+
         for (int i = 0; i < btnOK.length; i++){
-            btnOK[i] = new JButton("OK");
-            btnOK[i].setBounds(300,600,100,40);
+            btnOK[i] = new JButton(ok);
+            btnOK[i].setBounds(320,580,56,46);
+            btnOK[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnOK[i].addActionListener(new OKListener());
         }
     }
@@ -159,7 +180,7 @@ public class HelpGUI extends JFrame {
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
-            lblbild.setBounds(0,0,550,350);
+            lblbild.setBounds(0,0,550,300);
             add(lblbild);
             setBackground(Color.WHITE);
         }
@@ -173,7 +194,7 @@ public class HelpGUI extends JFrame {
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
-            lblbild.setBounds(0,0,550,350);
+            lblbild.setBounds(0,0,550,300);
             add(lblbild);
             setBackground(Color.WHITE);
         }
@@ -249,6 +270,35 @@ public class HelpGUI extends JFrame {
             }
         }
     }
+
+    private class BackListener implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            for (int i = 0; i < btnBack.length; i++){
+                if (e.getSource() == btnBack[0]){
+                    card.show(container, "" + 7);
+                }
+                if (e.getSource() == btnBack[1]){
+                    card.show(container, "" + 2);
+                }
+                if (e.getSource() == btnBack[2]){
+                    card.show(container, "" + 3);
+                }
+                if (e.getSource() == btnBack[3]){
+                    card.show(container, "" + 4);
+                }
+                if (e.getSource() == btnBack[4]){
+                    card.show(container, "" + 5);
+                }
+                if (e.getSource() == btnBack[5]){
+                    card.show(container, "" + 6);
+                }
+            }
+        }
+    }
+
+
 
     /**
      * This class contains the functions for the "OK" button in the HelpGUI
