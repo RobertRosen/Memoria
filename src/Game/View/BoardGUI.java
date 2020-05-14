@@ -36,7 +36,9 @@ public class BoardGUI extends JFrame {
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
-    private JList lstInfo = new JList();
+    private DefaultListModel infoTextModel = new DefaultListModel();
+    private JList lstInfo = new JList(infoTextModel);
+
 
     private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
@@ -296,6 +298,10 @@ public class BoardGUI extends JFrame {
 
     public void setLblScore2(int score2) {
         lblScore2.setText(String.valueOf(score2));
+    }
+
+    public DefaultListModel getInfoTextModel() {
+        return infoTextModel;
     }
 
     //    public static void main(String[] args) {

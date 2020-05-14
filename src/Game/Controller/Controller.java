@@ -234,7 +234,8 @@ public class Controller {
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
 
-        System.out.println(infoReader.getInfoMap().get(secondSymbol));
+        boardGUI.getInfoTextModel().addElement(infoReader.getInfoMap().get(secondSymbol));
+
     }
 
     public void showBoardGUI() {
