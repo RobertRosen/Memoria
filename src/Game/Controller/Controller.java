@@ -89,7 +89,7 @@ public class Controller {
                 showInfoOnPanel();
             }
 
-            if (test()) { //OBS! ÄNDRA TILL isGameWon()
+            if (isGameWon()) {
                 updatePoints();
             }
         } else {
@@ -204,7 +204,7 @@ public class Controller {
         }
         return true;
     }
-    //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
+    //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
     public boolean test() {
         return (multiPlayer[0].getGameScore() == 10) || (multiPlayer[1].getGameScore() == 10);
     }
