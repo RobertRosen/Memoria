@@ -102,7 +102,7 @@ public class MenuGUI extends JFrame {
         pnlSettings.add(lblPiSettings);
         pnlSettings.add(lblGhostSettings);
         pnlSettings.setBackground(Color.WHITE);
-        pnlSettings.add(btnSettings).setPreferredSize(new Dimension(75, 75));
+        pnlSettings.add(btnSettings).setPreferredSize(new Dimension(75, 60));
         pnlSettings.add(lblGhost6);
         pnlSettings.add(lblPiHelp);
         pnlSettings.add(lblGhostHelp);
