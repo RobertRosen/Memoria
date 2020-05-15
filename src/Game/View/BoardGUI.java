@@ -36,6 +36,8 @@ public class BoardGUI extends JFrame {
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
+    private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
+
     private JTextArea txtInfoArea = new JTextArea();
 
 
@@ -155,6 +157,7 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.setBackground(Color.WHITE);
         pnlMain2.setBackground(Color.WHITE);
         txtInfoArea.setBackground(Color.WHITE);
+        txtInfoArea.setFont(myFont);
         pnlScore.setBackground(Color.WHITE);
         pnlPlayer1.setBorder(BorderFactory.createTitledBorder("Player one score"));
         pnlPlayer1Color.setBackground(Color.GREEN);

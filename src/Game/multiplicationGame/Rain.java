@@ -77,6 +77,9 @@ public class Rain implements Runnable {
         for (CardDrop drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
+        musicController.stopMusic();
+        musicController.playMusic("music/GameOver.wav");
+        musicController.stopMusic();
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
         controller.addJokerPoints();
@@ -87,8 +90,8 @@ public class Rain implements Runnable {
         }
         jokerGui.dispose();
         controller.showBoardGUI();
-        musicController.stopMusic();
-        musicController.playMusic("music/TakeMeBack.wav");
+        //musicController.stopMusic();
+       // musicController.playMusic("music/TakeMeBack.wav");
     }
 
     /**
