@@ -160,8 +160,8 @@ public class BoardGUI extends JFrame {
         lblPi.setPreferredSize(new Dimension(50,46));
         lblPi2.setPreferredSize(new Dimension(50,46));
         txtInfoArea.setPreferredSize(new Dimension(257, 120));
-        btnSettings.setPreferredSize(new Dimension(54, 75));
-        btnInstructions.setPreferredSize(new Dimension(54, 75));
+        btnSettings.setPreferredSize(new Dimension(48, 51));
+        btnInstructions.setPreferredSize(new Dimension(38, 65));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlEast.setPreferredSize(new Dimension(265, 448));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
