@@ -43,8 +43,8 @@ public class BoardGUI extends JFrame {
     private JTextArea txtInfoArea = new JTextArea();
 
 
-    private ImageIcon iconHelp = new ImageIcon("images/QM2.jpg");
-    private ImageIcon iconInstructions = new ImageIcon("images/gear.jpg");
+    private ImageIcon iconHelp = new ImageIcon("images/questionMark1.jpg");
+    private ImageIcon iconInstructions = new ImageIcon("images/gear1.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");

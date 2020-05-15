@@ -109,6 +109,7 @@ public class MenuGUI extends JFrame {
         btnSettings.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlSettings.add(btnHelp).setPreferredSize(new Dimension(90, 70));
         btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        btnHelp.setBackground(Color.WHITE);
         pnlSettings.add(lblGhost7);
 
 
