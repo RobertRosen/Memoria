@@ -79,7 +79,6 @@ public class Rain implements Runnable {
         }
         musicController.stopMusic();
         musicController.playMusic("music/GameOver.wav");
-        musicController.stopMusic();
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
         controller.addJokerPoints();
@@ -89,6 +88,7 @@ public class Rain implements Runnable {
             e.printStackTrace();
         }
         jokerGui.dispose();
+        musicController.stopMusic();
         controller.showBoardGUI();
         //musicController.stopMusic();
        // musicController.playMusic("music/TakeMeBack.wav");

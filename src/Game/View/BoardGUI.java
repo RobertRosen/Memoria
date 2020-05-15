@@ -84,8 +84,8 @@ public class BoardGUI extends JFrame {
         setupComponentsSizes();
         setupComponents();
         addComponents();
-        setupTheGame();
         setLocationRelativeTo(null);
+        setupTheGame();
         addListeners();
     }
 
