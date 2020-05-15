@@ -28,8 +28,8 @@ public class MenuGUI extends JFrame {
     private ImageIcon iconBeatLogo = new ImageIcon("images/beat2.JPG");
     private ImageIcon iconSingle = new ImageIcon("images/single.JPG");
     private ImageIcon iconMulti = new ImageIcon("images/multi.JPG");
-    private ImageIcon iconGear = new ImageIcon("images/gear.jpg");
-    private ImageIcon iconOption = new ImageIcon("images/QM2.JPG");
+    private ImageIcon iconGear = new ImageIcon("images/gear1.jpg");
+    private ImageIcon iconOption = new ImageIcon("images/QMark4.jpg");
     private ImageIcon iconPi = new ImageIcon("images/pi.JPG");
 
     private JButton btnSettings = new JButton(iconGear);
@@ -102,12 +102,12 @@ public class MenuGUI extends JFrame {
         pnlSettings.add(lblPiSettings);
         pnlSettings.add(lblGhostSettings);
         pnlSettings.setBackground(Color.WHITE);
-        pnlSettings.add(btnSettings).setPreferredSize(new Dimension(75, 75));
+        pnlSettings.add(btnSettings).setPreferredSize(new Dimension(85, 90)); //75, 60
         pnlSettings.add(lblGhost6);
         pnlSettings.add(lblPiHelp);
         pnlSettings.add(lblGhostHelp);
         btnSettings.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-        pnlSettings.add(btnHelp).setPreferredSize(new Dimension(56, 75));
+        pnlSettings.add(btnHelp).setPreferredSize(new Dimension(90, 70));
         btnHelp.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlSettings.add(lblGhost7);
 

@@ -89,7 +89,7 @@ public class Controller {
                 showInfoOnPanel();
             }
 
-            if (isGameWon()) { //OBS! ÄNDRA TILL isGameWon()
+            if (isGameWon()) {
                 updatePoints();
             }
         } else {
@@ -121,23 +121,34 @@ public class Controller {
 
     /**
      * Shows a panel of who won the game and asks if they want to play again.
-     * if yes a new boardGUI will appear.
+     * if yes a new boardGUI will appear, if no a new menuGUI will appear, if cancel the game will shut down.
      * @param name of who won
      */
-    private void checkWin(String name) {
-        int reply = JOptionPane.showConfirmDialog(null,
-                "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
-                "Spelet slut", JOptionPane.YES_NO_OPTION);
+    private void checkWin (String name) {
 
-        if(reply == JOptionPane.YES_OPTION) {
+        Object[] options = {"Avsluta", "Nej", "Ja"};
+        int reply = JOptionPane.showOptionDialog(null,
+                "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
+                "Spelomgång slut",
+                JOptionPane.YES_NO_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+
+       options[0] = JOptionPane.YES_OPTION;
+       options[1] = JOptionPane.NO_OPTION;
+       options[2] = JOptionPane.CANCEL_OPTION;
+
+        if(reply == JOptionPane.CANCEL_OPTION) {
             boardGUI.dispose();
             turnPlayer1 = true;
             boardGUI = new BoardGUI(this);
             boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
             boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
             boardGUI.revalidate();
-        } else {
+        } else if (reply == JOptionPane.YES_OPTION) {
             System.exit(0);
+        } else if (reply == JOptionPane.NO_OPTION) {
+            boardGUI.setVisible(false);
+            new MenuGUI(this);
         }
     }
 
@@ -193,10 +204,10 @@ public class Controller {
         }
         return true;
     }
-    //TEST ska ej vara kvar, bara för att vinnna spelet snabbare vid 20 p
-//    public boolean test() {
-//        return (multiPlayer[0].getGameScore() == 20) || (multiPlayer[1].getGameScore() == 20);
-//    }
+    //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
+    public boolean test() {
+        return (multiPlayer[0].getGameScore() == 10) || (multiPlayer[1].getGameScore() == 10);
+    }
 
     /**
      * Open login view for second player to sign in.
