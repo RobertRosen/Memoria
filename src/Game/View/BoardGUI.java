@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -41,12 +43,17 @@ public class BoardGUI extends JFrame {
     private JTextArea txtInfoArea = new JTextArea();
 
 
-    private ImageIcon iconBonus = new ImageIcon("images/bonus.jpg");
+    private ImageIcon iconHelp = new ImageIcon("images/QM2.jpg");
+    private ImageIcon iconInstructions = new ImageIcon("images/gear.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
+    private ImageIcon iconPi = new ImageIcon("images/pi.jpg");
+    private ImageIcon iconBack = new ImageIcon("images/back.jpg");
 
-    private JButton btnBonus = new JButton(iconBonus);
+    private JButton btnSettings = new JButton(iconInstructions);
+    private JButton btnInstructions = new JButton(iconHelp);
+    private JButton btnBack = new JButton(iconBack);
 
     private JLabel lblEmptyLogo = new JLabel();
     private JLabel lblEmptyLogo2 = new JLabel();
@@ -65,6 +72,9 @@ public class BoardGUI extends JFrame {
     private JLabel lblGhost10 = new JLabel();
     private JLabel lblGhost11 = new JLabel();
     private JLabel lblGhost12 = new JLabel();
+    private JLabel lblGhost13 = new JLabel();
+    private JLabel lblPi = new JLabel(iconPi);
+    private JLabel lblPi2 = new JLabel(iconPi);
 
     Controller controller;
 
@@ -76,6 +86,7 @@ public class BoardGUI extends JFrame {
         addComponents();
         setupTheGame();
         setLocationRelativeTo(null);
+        addListeners();
     }
 
     private void setupFrame() {
@@ -86,6 +97,7 @@ public class BoardGUI extends JFrame {
     }
 
     private void addComponents() {
+        pnlMain.add(btnBack);
         pnlMain.add(lblMemoriaLogo);
         pnlMain.add(lblGhost9);
         pnlMain.add(lblGhost10);
@@ -96,10 +108,17 @@ public class BoardGUI extends JFrame {
         pnlEast.add(pnlPlayer2);
         pnlEast.add(txtInfoArea);
         pnlEast.add(lblGhost6);
+        //pnlEast.add(lblGhost5);
+        pnlEast.add(lblPi);
+        lblPi.setVisible(false);
         pnlEast.add(lblEmptyLogo);
-        pnlEast.add(btnBonus);
+        pnlEast.add(btnSettings);
+        btnSettings.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        pnlEast.add(lblPi2);
+        lblPi2.setVisible(false);
         pnlEast.add(lblEmptyLogo2);
-        pnlEast.add(lblGhost5);
+        pnlEast.add(btnInstructions);
+        btnInstructions.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlEast.add(lblBlueStripe5);
         pnlEast.add(lblBlueStripe6);
         pnlMain2.add(pnlCards);
@@ -119,6 +138,7 @@ public class BoardGUI extends JFrame {
 
     private void setupComponentsSizes() {
         pnlMain2.setPreferredSize(new Dimension(700, 550));
+        btnBack.setPreferredSize(new Dimension(25, 20));
         lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
         lblEmptyLogo.setPreferredSize(new Dimension(50, 50));
         lblEmptyLogo2.setPreferredSize(new Dimension(50, 50));
@@ -128,20 +148,24 @@ public class BoardGUI extends JFrame {
         lblBlueStripe2.setPreferredSize(new Dimension(390, 20));
         lblBlueStripe3.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe4.setPreferredSize(new Dimension(125, 20));
-        lblGhost5.setPreferredSize(new Dimension(240, 34));
-        lblGhost6.setPreferredSize(new Dimension(240, 35));
+        //lblGhost5.setPreferredSize(new Dimension(240, 22));
+        lblGhost6.setPreferredSize(new Dimension(240, 28));
         lblBlueStripe5.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe6.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
         lblGhost10.setPreferredSize(new Dimension(265, 35));
         lblGhost11.setPreferredSize(new Dimension(10,5));
         lblGhost12.setPreferredSize(new Dimension(10,5));
-        txtInfoArea.setPreferredSize(new Dimension(257, 100));
+        lblGhost13.setPreferredSize(new Dimension(50,46));
+        lblPi.setPreferredSize(new Dimension(50,46));
+        lblPi2.setPreferredSize(new Dimension(50,46));
+        txtInfoArea.setPreferredSize(new Dimension(257, 120));
+        btnSettings.setPreferredSize(new Dimension(54, 75));
+        btnInstructions.setPreferredSize(new Dimension(54, 75));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlEast.setPreferredSize(new Dimension(265, 448));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
-        btnBonus.setPreferredSize(new Dimension(126, 50));
         pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
         pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
         pnlPlayer1Color2.setPreferredSize(new Dimension(100,10));
@@ -169,8 +193,15 @@ public class BoardGUI extends JFrame {
         pnlPlayer2Color2.setBackground(Color.WHITE);
         txtInfoArea.setBorder(BorderFactory.createTitledBorder("Info"));
         pnlScore.setBorder(BorderFactory.createTitledBorder("Highscore"));
+        btnBack.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         lblScore.setText("0");
         lblScore2.setText("0");
+    }
+
+    private void addListeners(){
+        btnSettings.addMouseListener(new MouseSettings());
+        btnInstructions.addMouseListener(new MouseHelp());
+        btnBack.addActionListener(new ActionListener());
     }
 
     // TODO: Skapa en CardDeck-klass för nedanstående metoder?
@@ -259,7 +290,6 @@ public class BoardGUI extends JFrame {
         return cards;
     }
 
-
     public JPanel getPnlPlayer1() {
         return pnlPlayer1;
     }
@@ -292,6 +322,62 @@ public class BoardGUI extends JFrame {
         pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.WHITE));
         pnlPlayer2Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+    }
+
+    private class MouseSettings implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            new SettingsGUI();
+
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            lblPi.setVisible(true);
+            lblEmptyLogo.setVisible(false);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            lblPi.setVisible(false);
+            lblEmptyLogo.setVisible(true);
+        }
+    }
+
+    private class MouseHelp implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+            new HelpGUI();
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            lblPi2.setVisible(true);
+            lblEmptyLogo2.setVisible(false);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            lblPi2.setVisible(false);
+            lblEmptyLogo2.setVisible(true);
+        }
+    }
+
+    public class ActionListener implements java.awt.event.ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource()==btnBack){
+                new MenuGUI(controller);
+                dispose();
+            }
+        }
     }
 
     public void setLblScore(int score) {
