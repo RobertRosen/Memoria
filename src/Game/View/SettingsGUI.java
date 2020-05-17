@@ -12,7 +12,7 @@ import java.awt.event.MouseListener;
 /**
  * This class contains all the code for the Setting interface
  * @version 3.0
- * @author Yasir Kakar
+ * @author Yasir Kakar, Adel Sabanovic
  */
 
 public class SettingsGUI extends JFrame {
@@ -21,11 +21,12 @@ public class SettingsGUI extends JFrame {
 
     private JPanel pnlMain = new JPanel();
 
-    private ImageIcon inställningarLogo = new ImageIcon("images/inställningar.PNG");
-    private ImageIcon musikLogo = new ImageIcon("images/Musik.PNG");
-    private ImageIcon påLogo = new ImageIcon("images/PÅ.PNG");
-    private ImageIcon avLogo = new ImageIcon("images/AV.PNG");
-    private ImageIcon okLogo = new ImageIcon("images/OK.PNG");
+    private ImageIcon inställningarLogo = new ImageIcon("images/settings.PNG");
+    private ImageIcon musikLogo = new ImageIcon("images/music.PNG");
+    private ImageIcon påLogo = new ImageIcon("images/on.PNG");
+    private ImageIcon avLogo = new ImageIcon("images/Off.PNG");
+    private ImageIcon okLogo = new ImageIcon("images/ok.PNG");
+    private ImageIcon piLogo = new ImageIcon("images/pi.jpg");
 
 
     private JButton btnOn = new JButton(påLogo);
@@ -34,6 +35,9 @@ public class SettingsGUI extends JFrame {
 
     private JLabel lblSettings = new JLabel(inställningarLogo);
     private JLabel lblMusic = new JLabel(musikLogo);
+    private JLabel lblPiOn = new JLabel(piLogo);
+    private JLabel lblPiOff= new JLabel(piLogo);
+    private JLabel lblPi3Ok = new JLabel(piLogo);
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
@@ -54,6 +58,13 @@ public class SettingsGUI extends JFrame {
 
         lblSettings.setFont(myFont);
         lblMusic.setFont(myFont);
+        lblPiOn.setVisible(false);
+        lblPiOff.setVisible(false);
+        lblPi3Ok.setVisible(false);
+
+        btnOk.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        btnOff.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        btnOn.setBorder(BorderFactory.createLineBorder(Color.WHITE));
 
         addContents();
         addListeners();
@@ -67,11 +78,14 @@ public class SettingsGUI extends JFrame {
      * @author Yasir Kakar
      */
     private void setBoundsForContents(){
-        lblSettings.setBounds(40, 10, 300, 50);
-        lblMusic.setBounds(25,60,130,40);
-        btnOn.setBounds(150, 67, 75,25);
-        btnOff.setBounds(250,66,80,27);
-        btnOk.setBounds(150,150,75,30);
+        lblSettings.setBounds(40, 10, 300, 60);
+        lblMusic.setBounds(10,97,130,40);
+        btnOn.setBounds(240, 100, 60,25);
+        lblPiOn.setBounds(200,90,33,40);
+        btnOff.setBounds(240,150,71,24);
+        lblPiOff.setBounds(200,140,33,40);
+        btnOk.setBounds(150,200,59,38);
+        lblPi3Ok.setBounds(110,200,33,40);
 
     }
 
@@ -85,8 +99,11 @@ public class SettingsGUI extends JFrame {
         pnlMain.add(lblSettings);
         pnlMain.add(lblMusic);
         pnlMain.add(btnOn);
+        pnlMain.add(lblPiOn);
         pnlMain.add(btnOff);
+        pnlMain.add(lblPiOff);
         pnlMain.add(btnOk);
+        pnlMain.add(lblPi3Ok);
     }
 
     /**
@@ -99,7 +116,71 @@ public class SettingsGUI extends JFrame {
         btnOk.addActionListener(new OkListener());
         btnOn.addActionListener(new PlayMusic());
         btnOff.addActionListener(new StopMusic());
+        btnOn.addMouseListener(new MouseOn());
+        btnOff.addMouseListener(new MouseOff());
+        btnOk.addMouseListener(new MouseOk());
     }
+
+    private class MouseOn implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            lblPiOn.setVisible(true);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            lblPiOn.setVisible(false);
+        }
+    }
+
+    private class MouseOff implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            lblPiOff.setVisible(true);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            lblPiOff.setVisible(false);
+        }
+    }
+
+    private class MouseOk implements MouseListener {
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseEntered(MouseEvent e) {
+            lblPi3Ok.setVisible(true);
+        }
+
+        public void mouseExited(MouseEvent e) {
+            lblPi3Ok.setVisible(false);
+        }
+    }
+
 
     /**
      * This class contains the functions for the "OK" button in the SettingsGUI
