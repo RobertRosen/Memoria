@@ -83,7 +83,7 @@ public class Rain implements Runnable {
         fallingDropsList.clear();                                     // To not keep getting points after game over.
         controller.addJokerPoints();
         try {
-            Thread.sleep(4000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
