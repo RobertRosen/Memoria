@@ -273,32 +273,6 @@ public class HelpGUI extends JFrame {
             }
         }
     }
-    private class BackListener implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < btnBack.length; i++){
-                if (e.getSource() == btnBack[0]){
-                    card.show(container, "" + 7);
-                }
-                if (e.getSource() == btnBack[1]){
-                    card.show(container, "" + 2);
-                }
-                if (e.getSource() == btnBack[2]){
-                    card.show(container, "" + 3);
-                }
-                if (e.getSource() == btnBack[3]){
-                    card.show(container, "" + 4);
-                }
-                if (e.getSource() == btnBack[4]){
-                    card.show(container, "" + 5);
-                }
-                if (e.getSource() == btnBack[5]){
-                    card.show(container, "" + 6);
-                }
-            }
-        }
-    }
 
     /**
      * A class that contains functions for the "Back" button
