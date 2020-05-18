@@ -126,6 +126,9 @@ public class Controller {
      * @param name of who won
      */
     private void checkWin (String name) {
+        musicController.stopMusic();
+        clickController.click("music/Win.wav");
+        clickController.stop();
 
         Object[] options = {"Avsluta", "Nej", "Ja"};
         int reply = JOptionPane.showOptionDialog(null,
