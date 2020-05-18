@@ -38,10 +38,9 @@ public class BoardGUI extends JFrame {
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
-    private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 16);
+    private Font myFont = new Font("SansSerif", Font.ROMAN_BASELINE | Font.PLAIN, 14);
 
     private JTextArea txtInfoArea = new JTextArea();
-
 
     private ImageIcon iconHelp = new ImageIcon("images/questionMark1.jpg");
     private ImageIcon iconInstructions = new ImageIcon("images/gear1.jpg");
@@ -149,7 +148,7 @@ public class BoardGUI extends JFrame {
         lblBlueStripe3.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe4.setPreferredSize(new Dimension(125, 20));
         //lblGhost5.setPreferredSize(new Dimension(240, 22));
-        lblGhost6.setPreferredSize(new Dimension(240, 28));
+        lblGhost6.setPreferredSize(new Dimension(240, 37));
         lblBlueStripe5.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe6.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
