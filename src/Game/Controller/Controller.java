@@ -125,11 +125,11 @@ public class Controller {
         multiPlayer[1].setGameScore(0);
     }
 
-
     /**
      * Shows a panel of who won the game and asks if they want to play again.
      * if yes a new boardGUI will appear, if no a new menuGUI will appear, if cancel the game will shut down.
      * @param name of who won
+     * @param messageWin message depending on result
      */
     private void checkWin (String name, String messageWin) {
         Object[] options = {"Avsluta", "Nej", "Ja"};
