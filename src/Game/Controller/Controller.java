@@ -115,7 +115,7 @@ public class Controller {
             checkWin(multiPlayer[1].getUserName(), messageWin);
         } else {
            String messageWin = "Poängställningen blev lika!";
-           checkWin(null, messageWin);
+           checkWin("", messageWin);
         }
         score1total += score1;
         score2total += score2;
