@@ -299,6 +299,9 @@ public class MenuGUI extends JFrame {
         }
     }
 
+    /**
+     * If X on frame i pressed asks the user if the want to close the program.
+     */
     public void testClose() {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
