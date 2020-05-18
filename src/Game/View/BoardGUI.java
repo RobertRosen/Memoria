@@ -43,8 +43,8 @@ public class BoardGUI extends JFrame {
     private JTextArea txtInfoArea = new JTextArea();
 
 
-    private ImageIcon iconHelp = new ImageIcon("images/QM2.jpg");
-    private ImageIcon iconInstructions = new ImageIcon("images/gear.jpg");
+    private ImageIcon iconHelp = new ImageIcon("images/questionMark1.jpg");
+    private ImageIcon iconInstructions = new ImageIcon("images/gear1.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
@@ -160,8 +160,8 @@ public class BoardGUI extends JFrame {
         lblPi.setPreferredSize(new Dimension(50,46));
         lblPi2.setPreferredSize(new Dimension(50,46));
         txtInfoArea.setPreferredSize(new Dimension(257, 120));
-        btnSettings.setPreferredSize(new Dimension(54, 75));
-        btnInstructions.setPreferredSize(new Dimension(54, 75));
+        btnSettings.setPreferredSize(new Dimension(48, 51));
+        btnInstructions.setPreferredSize(new Dimension(38, 65));
         pnlScore.setPreferredSize(new Dimension(126, 100));
         pnlEast.setPreferredSize(new Dimension(265, 448));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
