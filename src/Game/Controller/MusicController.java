@@ -35,21 +35,6 @@ public class MusicController{
         }
     }
 
-    public void click(String filename){
-        try {
-            File file = new File(filename);
-            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-            clip = AudioSystem.getClip();
-            clip.open(audioInputStream);
-            clip.start();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-
-
-
     /**
      * This class allows the user to turn off the music either through
      * the settingsGUI or by closing the program

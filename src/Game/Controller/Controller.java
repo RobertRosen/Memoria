@@ -22,6 +22,7 @@ import java.util.Arrays;
  * TODO: Separat klass för växling mellan gui:s?
  */
 public class Controller {
+    private ClickController clickController = new ClickController();
     private MusicController musicController = new MusicController();
     private BoardGUI boardGUI;
     private LogInGUI logInPlayer1;
@@ -77,7 +78,7 @@ public class Controller {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
-            //musicController.click("music/Point.wav");
+            clickController.click("music/Point.wav");
 
             if(secondSymbol.equals("images/Jo")) {
                 rain = new Rain(this);

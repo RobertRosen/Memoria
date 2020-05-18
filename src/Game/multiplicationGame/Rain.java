@@ -1,5 +1,6 @@
 package Game.multiplicationGame;
 
+import Game.Controller.ClickController;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
 
@@ -13,6 +14,7 @@ import java.util.Random;
  */
 public class Rain implements Runnable {
     private MusicController musicController = new MusicController();
+    private ClickController clickController = new ClickController();
     private Controller controller;
     private JokerGUI jokerGui;
 
@@ -77,8 +79,9 @@ public class Rain implements Runnable {
         for (CardDrop drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
+
+        clickController.click("music/GameOver.wav");
         musicController.stopMusic();
-        musicController.playMusic("music/GameOver.wav");
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
         controller.addJokerPoints();
@@ -90,8 +93,7 @@ public class Rain implements Runnable {
         jokerGui.dispose();
         musicController.stopMusic();
         controller.showBoardGUI();
-        //musicController.stopMusic();
-       // musicController.playMusic("music/TakeMeBack.wav");
+        musicController.playMusic("music/TakeMeBack.wav");
     }
 
     /**
@@ -100,6 +102,7 @@ public class Rain implements Runnable {
     public void incrementPoints() {
         points += 2;
         jokerGui.setTextFieldPoints(points);
+        clickController.click("music/Point.wav");
     }
 
     public void incrementMatches() {
