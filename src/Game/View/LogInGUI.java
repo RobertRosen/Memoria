@@ -22,7 +22,7 @@ public class LogInGUI extends JFrame {
     private JPanel pnlMain = new JPanel();
 
     private JLabel lblGame = new JLabel(welcomeLogo);
-    private JLabel lblUsername = new JLabel("Användarnamn");
+    private JLabel lblUsername = new JLabel();
 
     private JTextField txtUsername = new JTextField("Användarnamn (3-10 tecken)");
 
@@ -53,6 +53,8 @@ public class LogInGUI extends JFrame {
 
         lblUsername.setText(name);
 
+        txtUsername.setForeground(Color.GRAY);
+
         pnlMain.add(lblGame);
         pnlMain.add(lblUsername);
         pnlMain.add(txtUsername);
@@ -78,6 +80,7 @@ public class LogInGUI extends JFrame {
         @Override
         public void focusGained(FocusEvent e) {
             txtUsername.setText(null);
+            txtUsername.setForeground(Color.BLACK);
         }
 
         @Override
