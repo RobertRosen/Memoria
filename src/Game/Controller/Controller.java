@@ -108,9 +108,14 @@ public class Controller {
         int score1total = multiPlayer[0].getTotalPoints();
         int score2total = multiPlayer[1].getTotalPoints();
         if (score1 > score2) {
-            checkWin(multiPlayer[0].getUserName());
+            String messageWin = "Grattis";
+            checkWin(multiPlayer[0].getUserName(), messageWin);
         } else if (score2 > score1) {
-            checkWin(multiPlayer[1].getUserName());
+            String messageWin = "Grattis";
+            checkWin(multiPlayer[1].getUserName(), messageWin);
+        } else {
+           String messageWin = "Poängställningen blev lika!";
+           checkWin(null, messageWin);
         }
         score1total += score1;
         score2total += score2;
@@ -120,17 +125,16 @@ public class Controller {
         multiPlayer[1].setGameScore(0);
     }
 
+
     /**
      * Shows a panel of who won the game and asks if they want to play again.
      * if yes a new boardGUI will appear, if no a new menuGUI will appear, if cancel the game will shut down.
      * @param name of who won
      */
-    private void checkWin (String name) {
-
+    private void checkWin (String name, String messageWin) {
         Object[] options = {"Avsluta", "Nej", "Ja"};
-        int reply = JOptionPane.showOptionDialog(null,
-                "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
-                "Spelomgång slut",
+        int reply = JOptionPane.showOptionDialog(null, messageWin + " " + name
+                        + "\n" + "Vill ni spela igen?" , "Spelomgång slut",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
 
