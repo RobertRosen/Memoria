@@ -23,7 +23,7 @@ public class Card extends JButton {
      * Initiate and construct a card.
      */
     public Card() {
-        setPreferredSize((new Dimension(60, 78)));
+        setPreferredSize((new Dimension(67, 89)));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setBackground(Color.WHITE);
     }
@@ -63,7 +63,7 @@ public class Card extends JButton {
         //imageShowing = new ImageIcon("images/BackGreen.png");
         imageShowing = new ImageIcon("images/BackMan.png");
         Image imageToScale = imageShowing.getImage();
-        Image scaledImage = imageToScale.getScaledInstance(60, 68, Image.SCALE_SMOOTH);
+        Image scaledImage = imageToScale.getScaledInstance(65, 83, Image.SCALE_SMOOTH);
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
         setIcon(scaledImageIcon);
     }
