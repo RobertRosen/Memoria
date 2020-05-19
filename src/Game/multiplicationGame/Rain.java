@@ -80,7 +80,6 @@ public class Rain implements Runnable {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
 
-        clickController.click("music/GameOver.wav");
         musicController.stopMusic();
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
