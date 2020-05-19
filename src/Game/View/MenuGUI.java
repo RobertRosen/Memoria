@@ -309,7 +309,7 @@ public class MenuGUI extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 int x = JOptionPane.showConfirmDialog(null,
-                        "do you really want to close Memoria?");
+                        "Do you really want to close Memoria?");
                 if(x==JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
                 } else {
