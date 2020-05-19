@@ -24,6 +24,7 @@ public class LogInGUI extends JFrame {
     ImageIcon piLogo = new ImageIcon("images/pi.jpg");
 
     private JLabel lblGame = new JLabel(welcomeLogo);
+
     private JLabel lblUsername = new JLabel("Användarnamn");
     private JLabel lblPi = new JLabel(piLogo);
 
@@ -59,6 +60,8 @@ public class LogInGUI extends JFrame {
 
         lblUsername.setText(name);
 
+        txtUsername.setForeground(Color.GRAY);
+
         pnlMain.add(lblGame);
         pnlMain.add(lblUsername);
         pnlMain.add(txtUsername);
@@ -88,6 +91,7 @@ public class LogInGUI extends JFrame {
         @Override
         public void focusGained(FocusEvent e) {
             txtUsername.setText(null);
+            txtUsername.setForeground(Color.BLACK);
         }
 
         @Override

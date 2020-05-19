@@ -71,6 +71,7 @@ public class Controller {
     public void checkCards() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
+        final int POINTS_PER_MATCH = 10;
 
         if (firstSymbol.equals(secondSymbol)) {
             // Disable buttons and flag as matched.
@@ -86,7 +87,7 @@ public class Controller {
                 musicController.stopMusic();
                 musicController.playMusic("music/JokerRound.wav");
             } else {
-                incrementScore(10);
+               incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
             }
 
@@ -108,9 +109,14 @@ public class Controller {
         int score1total = multiPlayer[0].getTotalPoints();
         int score2total = multiPlayer[1].getTotalPoints();
         if (score1 > score2) {
-            checkWin(multiPlayer[0].getUserName());
+            String messageWin = "Grattis";
+            checkWin(multiPlayer[0].getUserName(), messageWin);
         } else if (score2 > score1) {
-            checkWin(multiPlayer[1].getUserName());
+            String messageWin = "Grattis";
+            checkWin(multiPlayer[1].getUserName(), messageWin);
+        } else {
+           String messageWin = "Poängställningen blev lika!";
+           checkWin("", messageWin);
         }
         score1total += score1;
         score2total += score2;
@@ -124,13 +130,12 @@ public class Controller {
      * Shows a panel of who won the game and asks if they want to play again.
      * if yes a new boardGUI will appear, if no a new menuGUI will appear, if cancel the game will shut down.
      * @param name of who won
+     * @param messageWin message depending on result
      */
-    private void checkWin (String name) {
-
+    private void checkWin (String name, String messageWin) {
         Object[] options = {"Avsluta", "Nej", "Ja"};
-        int reply = JOptionPane.showOptionDialog(null,
-                "Grattis " + name + ", du vann!" + "\n" + "Vill ni spela igen?",
-                "Spelomgång slut",
+        int reply = JOptionPane.showOptionDialog(null, messageWin + " " + name
+                        + "\n" + "Vill ni spela igen?" , "Spelomgång slut",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
 
