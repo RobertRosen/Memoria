@@ -71,6 +71,7 @@ public class Controller {
     public void checkCards() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
+        final int POINTS_PER_MATCH = 10;
 
         if (firstSymbol.equals(secondSymbol)) {
             // Disable buttons and flag as matched.
@@ -86,7 +87,7 @@ public class Controller {
                 musicController.stopMusic();
                 musicController.playMusic("music/JokerRound.wav");
             } else {
-                incrementScore(10);
+               incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
             }
 
