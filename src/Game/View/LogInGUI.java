@@ -1,14 +1,13 @@
 package Game.View;
 
 import Game.Controller.Controller;
-import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Klassen LogInGUI är ett GUI för login. TODO-kommentera hela klassen på engelska
+ * LOGinGUI
  * @author Joakim Tell, Yasir Kakar, Adel Sabanovic
  * @version 3.0
  */
