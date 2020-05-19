@@ -119,6 +119,7 @@ public class CardDrop extends Card implements Runnable {
      */
     private void winning() {
         if (rain.gotAllProblemsRight()) {
+            clickController.click("music/JokerWin.wav");
             updateViewToWinning();
             rain.gameOver();                                                    // Stop rain.
         }
@@ -129,9 +130,9 @@ public class CardDrop extends Card implements Runnable {
      */
     private void loosing() {
         if (yPosition > 409) {
+            clickController.click("music/GameOver.wav");
             updateViewToLoosing();
             rain.gameOver();
-            clickController.click("music/GameOver.wav");
         }
     }
 
