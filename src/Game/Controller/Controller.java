@@ -90,11 +90,6 @@ public class Controller {
             } else {
                 incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
-
-            }
-
-            if (isGameWon()) {
-                updatePoints();
             }
         } else {
             for (Card card : pairOfCards) {
@@ -187,6 +182,9 @@ public class Controller {
     public void addJokerPoints() {
         int jokerPoints = rain.getPoints();
         incrementScore(jokerPoints);
+        if(isGameWon()) {
+            updatePoints();
+        }
     }
 
     /**
