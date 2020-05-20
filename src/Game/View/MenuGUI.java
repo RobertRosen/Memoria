@@ -1,6 +1,7 @@
 package Game.View;
 
 import Game.Controller.Controller;
+import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,6 +17,7 @@ import java.awt.event.MouseListener;
  *
  */
 public class MenuGUI extends JFrame {
+    private MusicController musicController = new MusicController();
     private Controller controller;
 
     private JPanel pnlMain = new JPanel();

@@ -1,6 +1,7 @@
 package Game.View;
 
 import Game.Controller.Controller;
+import Game.Controller.MusicController;
 import Game.Model.Card;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ import java.util.Collections;
  * TODO- Kommentera klassen på engelska.
  */
 public class BoardGUI extends JFrame {
-
+    MusicController musicController = new MusicController();
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
@@ -80,6 +81,8 @@ public class BoardGUI extends JFrame {
 
     public BoardGUI(Controller controller) {
         this.controller = controller;
+        musicController.stopMusic();
+        musicController.playMusic("music/GameMusic.wav");
         setupFrame();
         setupComponentsSizes();
         setupComponents();

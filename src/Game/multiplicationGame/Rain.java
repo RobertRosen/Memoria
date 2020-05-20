@@ -92,7 +92,7 @@ public class Rain implements Runnable {
         jokerGui.dispose();
         musicController.stopMusic();
         controller.showBoardGUI();
-        musicController.playMusic("music/TakeMeBack.wav");
+        musicController.playMusic("music/GameMusic.wav");
     }
 
     /**
