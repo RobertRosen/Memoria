@@ -11,16 +11,21 @@ import java.io.File;
  * @author Yasir Kakar
  */
 public class ClickController {
-    public static void click(String filename){
-        Clip clip;
-    try {
-        File file = new File(filename);
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-        clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
-        clip.start();
-    }catch (Exception e){
-        e.printStackTrace();
+    private Clip clip;
+
+    public  void click(String filename){
+
+        try {
+            File file = new File(filename);
+            AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+            clip = AudioSystem.getClip();
+            clip.open(audioInputStream);
+            clip.start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
-}
+    public void stop(){
+        clip.stop();
+    }
 }

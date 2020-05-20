@@ -43,7 +43,7 @@ public class Controller {
     public Controller() {
         logInPlayer1 = new LogInGUI(this, "Player One ");
         infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
-        musicController.playMusic("music/TakeMeBack.wav");
+        musicController.playMusic("music/MenuMusic.wav");
     }
 
     /**
@@ -93,6 +93,7 @@ public class Controller {
 
             if (isGameWon()) {
                 updatePoints();
+
             }
         } else {
             for (Card card : pairOfCards) {
@@ -133,6 +134,9 @@ public class Controller {
      * @param messageWin message depending on result
      */
     private void checkWin (String name, String messageWin) {
+        musicController.stopMusic();
+        clickController.click("music/JokerWin.wav");
+
         Object[] options = {"Avsluta", "Nej", "Ja"};
         int reply = JOptionPane.showOptionDialog(null, messageWin + " " + name
                         + "\n" + "Vill ni spela igen?" , "Spelomgång slut",
@@ -155,6 +159,7 @@ public class Controller {
         } else if (reply == JOptionPane.NO_OPTION) {
             boardGUI.setVisible(false);
             new MenuGUI(this);
+            musicController.playMusic("music/MenuMusic.wav");
         }
     }
 
