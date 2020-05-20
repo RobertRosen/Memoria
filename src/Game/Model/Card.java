@@ -1,8 +1,6 @@
 package Game.Model;
 
 import Game.Controller.ClickController;
-import Game.Controller.Controller;
-import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,9 +21,10 @@ public class Card extends JButton {
      * Initiate and construct a card.
      */
     public Card() {
-        setPreferredSize((new Dimension(60, 78)));
+        setPreferredSize((new Dimension(67, 89)));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setBackground(Color.WHITE);
+        setFocusPainted(false);
     }
 
     /**
@@ -63,7 +62,7 @@ public class Card extends JButton {
         //imageShowing = new ImageIcon("images/BackGreen.png");
         imageShowing = new ImageIcon("images/BackMan.png");
         Image imageToScale = imageShowing.getImage();
-        Image scaledImage = imageToScale.getScaledInstance(60, 68, Image.SCALE_SMOOTH);
+        Image scaledImage = imageToScale.getScaledInstance(65, 83, Image.SCALE_SMOOTH);
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
         setIcon(scaledImageIcon);
     }
@@ -73,12 +72,13 @@ public class Card extends JButton {
     }
 
     public void setPathSymbol(String pathSymbol) {
+
         this.pathSymbol = pathSymbol;
     }
 
     public void setMatched(boolean matched) {
-        this.matched = matched;
-    }
+        this.setBackground(new Color(215,215,215));
+        this.matched = matched; }
 
     public boolean isMatched() {
         return matched;

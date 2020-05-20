@@ -9,6 +9,7 @@ import Game.View.MenuGUI;
 import Game.multiplicationGame.Rain;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 
 /**
@@ -217,7 +218,7 @@ public class Controller {
     }
     //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
     public boolean test() {
-        return (multiPlayer[0].getGameScore() == 10) || (multiPlayer[1].getGameScore() == 10);
+        return (multiPlayer[0].getGameScore() == 0) || (multiPlayer[1].getGameScore() == 0);
     }
 
     /**
