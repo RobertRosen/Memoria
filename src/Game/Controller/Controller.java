@@ -82,6 +82,7 @@ public class Controller {
             clickController.click("music/Point.wav");
 
             if (secondSymbol.equals("images/Jo")) {
+                //waitToMatch
                 rain = new Rain(this);
                 boardGUI.setVisible(false);
                 musicController.stopMusic();
@@ -90,6 +91,8 @@ public class Controller {
             } else {
                 incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
+            } if(isGameWon()) {
+                updatePoints();
             }
         } else {
             for (Card card : pairOfCards) {
