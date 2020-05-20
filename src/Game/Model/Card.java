@@ -24,6 +24,7 @@ public class Card extends JButton {
         setPreferredSize((new Dimension(67, 89)));
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
         setBackground(Color.WHITE);
+        setFocusPainted(false);
     }
 
     /**
@@ -75,7 +76,9 @@ public class Card extends JButton {
         this.pathSymbol = pathSymbol;
     }
 
-    public void setMatched(boolean matched) {this.setBackground(new Color(215,215,215)); this.matched = matched; }
+    public void setMatched(boolean matched) {
+        this.setBackground(new Color(215,215,215));
+        this.matched = matched; }
 
     public boolean isMatched() {
         return matched;

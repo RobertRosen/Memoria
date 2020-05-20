@@ -253,7 +253,7 @@ public class BoardGUI extends JFrame {
         cardSymbolPaths.add("images/plus.png");
         cardSymbolPaths.add("images/plus2.png");
         cardSymbolPaths.add("images/minus2.png");
-        cardSymbolPaths.add("images/pi.jpg");
+        cardSymbolPaths.add("images/pi3.jpg");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/Algebra1.png");
         cardSymbolPaths.add("images/Algebra2.png");
