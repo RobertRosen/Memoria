@@ -4,6 +4,8 @@ import Game.Model.Card;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.Random;
 
 /**
@@ -97,8 +99,10 @@ public class CardDrop extends Card implements Runnable {
      */
     private void matchingWord() throws InterruptedException {
 
-        if (jokerGui.getTextFieldUserTyping().equals(solved)) {
-            jokerGui.setTextFieldUserTyping("");                 // Reset typing area after a matching word.
+//        if (jokerGui.getTextFieldUserTyping().equals(solved)) {
+        if (jokerGui.getAnswerTyped().equals(solved)) {
+//            jokerGui.setTextFieldUserTyping("");                 // Reset typing area after a matching word.
+            jokerGui.setLabelTyping("");                 // Reset typing area after a matching word.
 
             updateViewToMatchedDrop();
 
