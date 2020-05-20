@@ -9,6 +9,7 @@ import Game.View.MenuGUI;
 import Game.multiplicationGame.Rain;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 
 /**

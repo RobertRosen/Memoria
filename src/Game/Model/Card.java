@@ -1,8 +1,6 @@
 package Game.Model;
 
 import Game.Controller.ClickController;
-import Game.Controller.Controller;
-import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
@@ -73,12 +71,11 @@ public class Card extends JButton {
     }
 
     public void setPathSymbol(String pathSymbol) {
+
         this.pathSymbol = pathSymbol;
     }
 
-    public void setMatched(boolean matched) {
-        this.matched = matched;
-    }
+    public void setMatched(boolean matched) {this.setBackground(new Color(215,215,215)); this.matched = matched; }
 
     public boolean isMatched() {
         return matched;
