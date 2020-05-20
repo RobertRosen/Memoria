@@ -13,7 +13,7 @@ import java.util.Arrays;
 
 /**
  * Controls interaction with model and view, between different views and handles game logic.
- *
+ * <p>
  * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  *
@@ -81,14 +81,16 @@ public class Controller {
             pairOfCards[1].setMatched(true);
             clickController.click("music/Point.wav");
 
-            if(secondSymbol.equals("images/Jo")) {
+            if (secondSymbol.equals("images/Jo")) {
                 rain = new Rain(this);
                 boardGUI.setVisible(false);
                 musicController.stopMusic();
                 musicController.playMusic("music/JokerRound.wav");
+
             } else {
-               incrementScore(POINTS_PER_MATCH);
+                incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
+
             }
 
             if (isGameWon()) {
@@ -103,6 +105,7 @@ public class Controller {
         Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
     }
 
+    //Byt namnet till whoIsWinner?
     private void updatePoints() {
         int score1 = multiPlayer[0].getGameScore();
         int score2 = multiPlayer[1].getGameScore();
@@ -115,8 +118,8 @@ public class Controller {
             String messageWin = "Grattis";
             checkWin(multiPlayer[1].getUserName(), messageWin);
         } else {
-           String messageWin = "Poängställningen blev lika!";
-           checkWin("", messageWin);
+            String messageWin = "Poängställningen blev lika!";
+            checkWin("", messageWin);
         }
         score1total += score1;
         score2total += score2;
@@ -129,21 +132,22 @@ public class Controller {
     /**
      * Shows a panel of who won the game and asks if they want to play again.
      * if yes a new boardGUI will appear, if no a new menuGUI will appear, if cancel the game will shut down.
-     * @param name of who won
+     *
+     * @param name       of who won
      * @param messageWin message depending on result
      */
-    private void checkWin (String name, String messageWin) {
+    private void checkWin(String name, String messageWin) {
         Object[] options = {"Avsluta", "Nej", "Ja"};
         int reply = JOptionPane.showOptionDialog(null, messageWin + " " + name
-                        + "\n" + "Vill ni spela igen?" , "Spelomgång slut",
+                        + "\n" + "Vill ni spela igen?", "Spelomgång slut",
                 JOptionPane.YES_NO_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
 
-       options[0] = JOptionPane.YES_OPTION;
-       options[1] = JOptionPane.NO_OPTION;
-       options[2] = JOptionPane.CANCEL_OPTION;
+        options[0] = JOptionPane.YES_OPTION;
+        options[1] = JOptionPane.NO_OPTION;
+        options[2] = JOptionPane.CANCEL_OPTION;
 
-        if(reply == JOptionPane.CANCEL_OPTION) {
+        if (reply == JOptionPane.CANCEL_OPTION) {
             boardGUI.dispose();
             turnPlayer1 = true;
             boardGUI = new BoardGUI(this);
@@ -166,7 +170,7 @@ public class Controller {
             int score1 = updateUserPoints(0, pointsToAdd);
             boardGUI.setLblScore(score1);
         } else {
-            int score2 = updateUserPoints(1,pointsToAdd);
+            int score2 = updateUserPoints(1, pointsToAdd);
             boardGUI.setLblScore2(score2);
         }
     }
@@ -210,6 +214,7 @@ public class Controller {
         }
         return true;
     }
+
     //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
     public boolean test() {
         return (multiPlayer[0].getGameScore() == 10) || (multiPlayer[1].getGameScore() == 10);
@@ -250,7 +255,7 @@ public class Controller {
      */
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
-        String newString = infoReader.getInfoMap().get(secondSymbol).replaceAll("!","\n");
+        String newString = infoReader.getInfoMap().get(secondSymbol).replaceAll("!", "\n");
         boardGUI.getTxtInfoArea().setText("");
         boardGUI.getTxtInfoArea().setText(newString);
     }
