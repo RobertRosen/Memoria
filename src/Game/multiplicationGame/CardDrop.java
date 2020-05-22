@@ -5,8 +5,6 @@ import Game.Model.Card;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.Random;
 
 /**
@@ -38,7 +36,8 @@ public class CardDrop extends Card implements Runnable {
         this.rain = wordsrain;
         this.problem = problem;
         this.solved = solved;
-        hideSymbol();   // Method in super.
+        hideSymbol(65,64);   // Method in super.
+        setFocusable(false);
         initialize();
     }
 
@@ -61,7 +60,10 @@ public class CardDrop extends Card implements Runnable {
         setText(message);
         setFont(new Font("monospaced", Font.BOLD, 15));
         setSize((new Dimension(60, 88)));
-        setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(Color.BLACK),
+                BorderFactory.createRaisedBevelBorder()
+                ));
         setHorizontalTextPosition(JButton.CENTER);
         setVerticalTextPosition(JButton.BOTTOM);
         setForeground(colorF);
@@ -100,10 +102,7 @@ public class CardDrop extends Card implements Runnable {
      * Todo: Syncronisering. Så att inte flera kort matchar.
      */
     private void matchingWord() throws InterruptedException {
-
-//        if (jokerGui.getTextFieldUserTyping().equals(solved)) {
         if (jokerGui.getAnswerTyped().equals(solved)) {
-//            jokerGui.setTextFieldUserTyping("");                 // Reset typing area after a matching word.
             jokerGui.setLabelTyping("");                 // Reset typing area after a matching word.
 
             updateViewToMatchedDrop();
@@ -151,7 +150,7 @@ public class CardDrop extends Card implements Runnable {
         }
     }
 
-    private void updateViewToMatchedDrop() throws InterruptedException {
+    private void updateViewToMatchedDrop() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -160,8 +159,7 @@ public class CardDrop extends Card implements Runnable {
                 Image scaledImage = imageToScale.getScaledInstance(40, 58, Image.SCALE_SMOOTH);
                 ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
                 setIcon(scaledImageIcon);
-
-                setupDrop(Color.GREEN, Color.BLACK, (problem + "=" + solved));
+                setupDrop(Color.WHITE, Color.BLACK, (problem + "=" + solved));
             }
         });
     }
@@ -170,8 +168,6 @@ public class CardDrop extends Card implements Runnable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                jokerGui.setTextFieldUserTyping(
-                        "                WINNER!   YOU GOT ALL!                  ");
                 jokerGui.addPointsText();
             }
         });
@@ -181,8 +177,6 @@ public class CardDrop extends Card implements Runnable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                jokerGui.setTextFieldUserTyping(
-                        "                Bra jobbat! Bättre lycka nästa gång!  ");
                 jokerGui.addPointsText();
             }
         });

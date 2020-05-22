@@ -98,7 +98,7 @@ public class Controller {
             }
         } else {
             for (Card card : pairOfCards) {
-                card.hideSymbol();
+                card.hideSymbol(65, 83);
             }
             switchPlayers();
         }

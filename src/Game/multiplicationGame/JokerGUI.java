@@ -17,30 +17,27 @@ public class JokerGUI extends JFrame {
     private JPanel pnlGame;
     private JTextField textFieldUserTyping;
     private JTextField textFieldPoints;
-
-    private JLabel labelAnswer;
     private JLabel labelTyping;
+
+    private JLabel lblTwoPoints;
 
     /**
      * Construct and initialize the GUI.
      */
     public JokerGUI() {
-        labelAnswer = new JLabel("Answer: ");
         labelTyping = new JLabel("") {
             @Override
             public boolean isValidateRoot() {
                 return true;
             }
         };
-        labelAnswer.setFont(new Font("monospaced", Font.BOLD, 44));
-        labelTyping.setFont(new Font("monospaced", Font.BOLD, 44));
-        labelAnswer.setBackground(Color.WHITE);
+        labelTyping.setFont(new Font("monospaced", Font.BOLD, 90));
         labelTyping.setBackground(Color.WHITE);
-
 
         setupGamePanel();
         setupTypePanel();
         setupMainPanel();
+        addTwoPointsText();
 
         setupFrame();
     }
@@ -73,10 +70,7 @@ public class JokerGUI extends JFrame {
         pnlTyping = new JPanel(new BorderLayout());
         pnlTyping.setBackground(Color.WHITE);
 
-        ImageIcon imageShowing = new ImageIcon("images/mem2.jpg");
-//        Image imageToScale = imageShowing.getImage();
-//        Image scaledImage = imageToScale.getScaledInstance(500, 100, Image.SCALE_SMOOTH);
-//        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+        ImageIcon imageShowing = new ImageIcon("images/svar_memoria.png");
         JLabel lblLogo = new JLabel(imageShowing);
 
         lblLogo.setBackground(Color.WHITE);
@@ -85,10 +79,8 @@ public class JokerGUI extends JFrame {
         setupTextFieldPoints();
 
         pnlTyping.add(lblLogo, BorderLayout.WEST);
-//        pnlTyping.add(textFieldUserTyping, BorderLayout.CENTER);
         JPanel pnlCenterTyping = new JPanel(new BorderLayout());
         pnlCenterTyping.setBackground(Color.WHITE);
-        pnlCenterTyping.add(labelAnswer, BorderLayout.WEST);
         pnlCenterTyping.add(labelTyping, BorderLayout.CENTER);
         pnlTyping.add(pnlCenterTyping, BorderLayout.CENTER);
         pnlTyping.add(textFieldPoints, BorderLayout.EAST);
@@ -99,19 +91,18 @@ public class JokerGUI extends JFrame {
         pnlGame.setBackground(Color.WHITE);
         pnlGame.setLayout(new BorderLayout());
 
-        ImageIcon imageShowing = new ImageIcon("images/joker_get_answers.png");
-        Image imageToScale = imageShowing.getImage();
-        Image scaledImage = imageToScale.getScaledInstance(1000, 100, Image.SCALE_SMOOTH);
-        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
-
-        JLabel lblGameChallenge = new JLabel(scaledImageIcon);
-
-        lblGameChallenge.setLocation(0,139);
-        lblGameChallenge.setSize(1000, 200);
-        lblGameChallenge.setFont(new Font("monospaced", Font.BOLD, 45));         // Enlarge font size
-        lblGameChallenge.setForeground(Color.BLUE);
-
-        pnlGame.add(lblGameChallenge, BorderLayout.SOUTH);
+//        ImageIcon imageShowing = new ImageIcon("images/joker_get_answers.png");
+//        Image imageToScale = imageShowing.getImage();
+//        Image scaledImage = imageToScale.getScaledInstance(1000, 100, Image.SCALE_SMOOTH);
+//        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+//        JLabel lblGameChallenge = new JLabel(scaledImageIcon);
+//
+//        lblGameChallenge.setLocation(0,139);
+//        lblGameChallenge.setSize(1000, 200);
+//        lblGameChallenge.setFont(new Font("monospaced", Font.BOLD, 45));         // Enlarge font size
+//        lblGameChallenge.setForeground(Color.BLUE);
+//
+//        pnlGame.add(lblGameChallenge, BorderLayout.SOUTH);
     }
 
     private void setupTextFieldUserTyped() {
@@ -128,6 +119,8 @@ public class JokerGUI extends JFrame {
         textFieldPoints.setFont(new Font("monospaced", Font.BOLD, 80));
         textFieldPoints.setBackground(Color.WHITE);
         textFieldPoints.setForeground(Color.BLACK);
+        textFieldPoints.setEditable(false);
+        textFieldPoints.setFocusable(false);
         textFieldPoints.setOpaque(true);
         textFieldPoints.setBorder(null);
     }
@@ -150,34 +143,54 @@ public class JokerGUI extends JFrame {
             @Override
             public void run() {
                 textFieldPoints.setText(points + "p");
+                addTwoPointsThread();
             }
         });
     }
 
-    public void setTextFieldUserTyping(String answer) {
-        SwingUtilities.invokeLater(new Runnable() {
+    private void addTwoPointsThread() {
+        new Thread(){
             @Override
             public void run() {
-                textFieldUserTyping.setText(answer);
+                lblTwoPoints.setVisible(true);
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                lblTwoPoints.setVisible(false);
             }
-        });
-    }
-
-    public String getTextFieldUserTyping() {
-        return textFieldUserTyping.getText();
+        }.start();
     }
 
     /**
      * Show final points in large numbers after game ends.
      */
     public void addPointsText() {
-        JLabel lblFinalPoints = new JLabel(textFieldPoints.getText());
+        JLabel lblFinalPoints = new JLabel("GRATTIS: " + textFieldPoints.getText());
         lblFinalPoints.setHorizontalAlignment(SwingConstants.CENTER);
         lblFinalPoints.setVerticalAlignment(SwingConstants.CENTER);
         lblFinalPoints.setSize(1000, 500);
-        lblFinalPoints.setFont(new Font("monospaced", Font.BOLD, 290));           // Enlarge font size
-        lblFinalPoints.setForeground(Color.BLUE);
+        lblFinalPoints.setFont(new Font("monospaced", Font.BOLD, 100));           // Enlarge font size
+        lblFinalPoints.setForeground(Color.BLACK);
+
         pnlGame.add(lblFinalPoints);
+        revalidate();
+    }
+
+    private void addTwoPointsText() {
+        lblTwoPoints = new JLabel(new ImageIcon("images/plus_two_points.png")){
+            @Override
+            public boolean isValidateRoot() {
+                return true;
+            }
+        };
+        lblTwoPoints.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTwoPoints.setVerticalAlignment(SwingConstants.CENTER);
+        lblTwoPoints.setSize(1000, 500);
+        lblTwoPoints.setVisible(false);
+
+        pnlGame.add(lblTwoPoints);
         revalidate();
     }
 
@@ -188,17 +201,12 @@ public class JokerGUI extends JFrame {
 
     private String answerTyped = "";
 
-    public String getLabelTyping() {
-        return labelTyping.getText();
-    }
-
     public String getAnswerTyped() {
         return answerTyped;
     }
 
     public void setLabelTyping(String answer) {
         answerTyped = answer;
-//        labelTyping.setText(answerTyped);
     }
 
     private class TypeListener implements KeyListener {
@@ -209,6 +217,7 @@ public class JokerGUI extends JFrame {
 
         @Override
         public void keyPressed(KeyEvent e) {
+
             char c = e.getKeyChar();
 
             if (answerTyped.length() == 1) {
