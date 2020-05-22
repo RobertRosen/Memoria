@@ -1,6 +1,7 @@
 package Game.View;
 
 import Game.Controller.Controller;
+import Game.Controller.MusicController;
 import Game.Model.Card;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ import java.util.Collections;
  * TODO- Kommentera klassen på engelska.
  */
 public class BoardGUI extends JFrame {
-
+    MusicController musicController = new MusicController();
     private JPanel pnlMain = new JPanel();
     private JPanel pnlCards = new JPanel();
     private JPanel pnlMain2 = new JPanel();
@@ -38,15 +39,21 @@ public class BoardGUI extends JFrame {
     private JPanel pnlPlayer2Color = new JPanel();
     private JPanel pnlPlayer2Color2 = new JPanel();
 
-    private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 16);
+    private Font myFont = new Font("SansSerif", Font.ROMAN_BASELINE | Font.PLAIN, 15);
 
     private JTextArea txtInfoArea = new JTextArea();
-
 
     private ImageIcon iconHelp = new ImageIcon("images/questionMark1.jpg");
     private ImageIcon iconInstructions = new ImageIcon("images/gear1.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
-    private ImageIcon iconBlueStripe = new ImageIcon("images/blue.jpg");
+    //private ImageIcon iconBlueStripe = new ImageIcon("images/blue1.jpg");
+    private ImageIcon iconBlueStripe = new ImageIcon("images/blue5.jpg");
+    //private ImageIcon iconBlueStripe = new ImageIcon("images/blue3.jpg");
+    //private ImageIcon iconBlueStripe = new ImageIcon("images/black.jpg");
+    //private ImageIcon iconBlueStripe = new ImageIcon("images/red.jpg");
+    //private ImageIcon iconBlueStripe = new ImageIcon("images/red3.jpg");
+    //private ImageIcon iconBlueStripe2 = new ImageIcon("images/red4.jpg");
+    private ImageIcon iconBlueStripe2 = new ImageIcon("images/blue4.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
     private ImageIcon iconPi = new ImageIcon("images/pi.jpg");
     private ImageIcon iconBack = new ImageIcon("images/back.jpg");
@@ -80,6 +87,8 @@ public class BoardGUI extends JFrame {
 
     public BoardGUI(Controller controller) {
         this.controller = controller;
+        musicController.stopMusic();
+        musicController.playMusic("music/GameMusic.wav");
         setupFrame();
         setupComponentsSizes();
         setupComponents();
@@ -90,7 +99,7 @@ public class BoardGUI extends JFrame {
     }
 
     private void setupFrame() {
-        setSize(900, 550);
+        setSize(900, 590);
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(pnlMain);
@@ -137,19 +146,19 @@ public class BoardGUI extends JFrame {
     }
 
     private void setupComponentsSizes() {
-        pnlMain2.setPreferredSize(new Dimension(700, 550));
+        pnlMain2.setPreferredSize(new Dimension(850, 500));
         btnBack.setPreferredSize(new Dimension(25, 20));
         lblMemoriaLogo.setPreferredSize(new Dimension(250, 55));
         lblEmptyLogo.setPreferredSize(new Dimension(50, 50));
         lblEmptyLogo2.setPreferredSize(new Dimension(50, 50));
-        pnlCards.setPreferredSize(new Dimension(400, 450));
-        pnlCardsLayout.setPreferredSize(new Dimension(400, 340));
-        lblBlueStripe.setPreferredSize(new Dimension(390, 20));
-        lblBlueStripe2.setPreferredSize(new Dimension(390, 20));
+        pnlCards.setPreferredSize(new Dimension(470, 488));
+        pnlCardsLayout.setPreferredSize(new Dimension(500, 386));
+        lblBlueStripe.setPreferredSize(new Dimension(430, 20));
+        lblBlueStripe2.setPreferredSize(new Dimension(430, 20));
         lblBlueStripe3.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe4.setPreferredSize(new Dimension(125, 20));
         //lblGhost5.setPreferredSize(new Dimension(240, 22));
-        lblGhost6.setPreferredSize(new Dimension(240, 28));
+        lblGhost6.setPreferredSize(new Dimension(240, 65));
         lblBlueStripe5.setPreferredSize(new Dimension(125, 20));
         lblBlueStripe6.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
@@ -159,11 +168,11 @@ public class BoardGUI extends JFrame {
         lblGhost13.setPreferredSize(new Dimension(50,46));
         lblPi.setPreferredSize(new Dimension(50,46));
         lblPi2.setPreferredSize(new Dimension(50,46));
-        txtInfoArea.setPreferredSize(new Dimension(257, 120));
+        txtInfoArea.setPreferredSize(new Dimension(257, 140));
         btnSettings.setPreferredSize(new Dimension(48, 51));
         btnInstructions.setPreferredSize(new Dimension(38, 65));
         pnlScore.setPreferredSize(new Dimension(126, 100));
-        pnlEast.setPreferredSize(new Dimension(265, 448));
+        pnlEast.setPreferredSize(new Dimension(265, 488));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
         pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
@@ -247,7 +256,7 @@ public class BoardGUI extends JFrame {
         cardSymbolPaths.add("images/plus.png");
         cardSymbolPaths.add("images/plus2.png");
         cardSymbolPaths.add("images/minus2.png");
-        cardSymbolPaths.add("images/pi.jpg");
+        cardSymbolPaths.add("images/pi3.jpg");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/Algebra1.png");
         cardSymbolPaths.add("images/Algebra2.png");

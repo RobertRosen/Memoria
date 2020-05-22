@@ -9,6 +9,7 @@ import Game.View.MenuGUI;
 import Game.multiplicationGame.Rain;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Arrays;
 
 /**
@@ -43,7 +44,7 @@ public class Controller {
     public Controller() {
         logInPlayer1 = new LogInGUI(this, "Player One ");
         infoReader = new InfoReader("textfiles/infopanel.txt", "textfiles/symbol.txt");
-        musicController.playMusic("music/TakeMeBack.wav");
+        musicController.playMusic("music/MenuMusic.wav");
     }
 
     /**
@@ -93,6 +94,7 @@ public class Controller {
 
             if (isGameWon()) {
                 updatePoints();
+
             }
         } else {
             for (Card card : pairOfCards) {
@@ -133,6 +135,9 @@ public class Controller {
      * @param messageWin message depending on result
      */
     private void checkWin (String name, String messageWin) {
+        musicController.stopMusic();
+        clickController.click("music/JokerWin.wav");
+
         Object[] options = {"Avsluta", "Nej", "Ja"};
         int reply = JOptionPane.showOptionDialog(null, messageWin + " " + name
                         + "\n" + "Vill ni spela igen?" , "Spelomgång slut",
@@ -155,6 +160,7 @@ public class Controller {
         } else if (reply == JOptionPane.NO_OPTION) {
             boardGUI.setVisible(false);
             new MenuGUI(this);
+            musicController.playMusic("music/MenuMusic.wav");
         }
     }
 
@@ -212,7 +218,7 @@ public class Controller {
     }
     //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
     public boolean test() {
-        return (multiPlayer[0].getGameScore() == 10) || (multiPlayer[1].getGameScore() == 10);
+        return (multiPlayer[0].getGameScore() == 0) || (multiPlayer[1].getGameScore() == 0);
     }
 
     /**

@@ -1,5 +1,6 @@
 package Game.multiplicationGame;
 
+import Game.Controller.ClickController;
 import Game.Model.Card;
 
 import javax.swing.*;
@@ -16,6 +17,7 @@ import java.util.Random;
 public class CardDrop extends Card implements Runnable {
     private Rain rain;
     private JokerGUI jokerGui;
+    private ClickController clickController = new ClickController();
 
     private boolean alive = false;
     private int xPosition = new Random().nextInt(800);                // Problem appear random to this number
@@ -121,6 +123,7 @@ public class CardDrop extends Card implements Runnable {
      */
     private void winning() {
         if (rain.gotAllProblemsRight()) {
+            clickController.click("music/JokerWin.wav");
             updateViewToWinning();
             rain.gameOver();                                                    // Stop rain.
         }
@@ -131,6 +134,7 @@ public class CardDrop extends Card implements Runnable {
      */
     private void loosing() {
         if (yPosition > 409) {
+            clickController.click("music/GameOver.wav");
             updateViewToLoosing();
             rain.gameOver();
         }
