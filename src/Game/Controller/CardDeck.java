@@ -89,7 +89,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Algebra1.PNG");
         cardSymbolPaths.add("images/ALgebra3.PNG");
         cardSymbolPaths.add("images/Bråk.PNG");
-        cardSymbolPaths.add("images/Division.PNG");
+        cardSymbolPaths.add("images/DIvision.PNG");
         cardSymbolPaths.add("images/minus.png");
         cardSymbolPaths.add("images/Multiplikation.png");
         cardSymbolPaths.add("images/pi.jpg");
@@ -136,7 +136,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Algebra2.PNG");
         cardSymbolPaths.add("images/ALgebra4.PNG");
         cardSymbolPaths.add("images/Bråk2.PNG");
-        cardSymbolPaths.add("images/Division2.PNG");
+        cardSymbolPaths.add("images/DIvision2.PNG");
         cardSymbolPaths.add("images/minus2.png");
         cardSymbolPaths.add("images/Multiplikation2.PNG");
         cardSymbolPaths.add("images/pi2.jpg");

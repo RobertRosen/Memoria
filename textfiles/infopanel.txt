@@ -9,6 +9,6 @@ Det går 100 centimeter på 1 meter.
 80/X=4 är detsamma som X=80/4! X=20
 För att X ska kunna stå själv! Subtraheras 25 från båda sidor av likhetstecknet! X+25-25=39-25. X=14.
 För att X ska kunna stå själv! Adderas 5 till båda sidor av likhetstecknet! X-5+5=-3+5. X=-2.
-
-
+Centi betyder hundradel.
+Deci betyder tiondel.
 
