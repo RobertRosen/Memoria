@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Robert Rosencrantz
  * @version 3.0
  */
-public class Rain implements Runnable {
+public class DropCardsThread implements Runnable {
     private MusicController musicController = new MusicController();
     private ClickController clickController = new ClickController();
     private Controller controller;
@@ -29,7 +29,7 @@ public class Rain implements Runnable {
     /**
      * Construct and initialize a thread with this class' tasks.
      */
-    public Rain(Controller controller) {
+    public DropCardsThread(Controller controller) {
         this.controller = controller;
         jokerGui = new JokerGUI();
         random = new Random();
@@ -79,20 +79,18 @@ public class Rain implements Runnable {
         for (CardDrop drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
-
         musicController.stopMusic();
         gameRunning = false;                                                              // Stops this game thread.
         fallingDropsList.clear();                                     // To not keep getting points after game over.
-        controller.addJokerPoints();
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         jokerGui.dispose();
-        musicController.stopMusic();
         controller.showBoardGUI();
-        musicController.playMusic("music/GameMusic.wav");
+        controller.addJokerPoints();
+        musicController.playMusic("music/GameMusic.wav"); // TODO titta över Yasir!
     }
 
     /**
@@ -143,9 +141,9 @@ public class Rain implements Runnable {
 
     // TEST-MAIN-METOD för multiplikationsspelet.
     public static void main(String[] args) {
-        new Rain();
+        new DropCardsThread();
     }
-    public Rain() {
+    public DropCardsThread() {
         jokerGui = new JokerGUI();
         random = new Random();
         fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);

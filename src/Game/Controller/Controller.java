@@ -6,10 +6,9 @@ import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
 import Game.View.MenuGUI;
-import Game.multiplicationGame.Rain;
+import Game.multiplicationGame.DropCardsThread;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Arrays;
 
 /**
@@ -29,7 +28,7 @@ public class Controller {
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
 
-    private Rain rain;
+    private DropCardsThread dropCardsThread;
     private InfoReader infoReader;
     private Card selectedCard;
 
@@ -83,8 +82,7 @@ public class Controller {
             clickController.click("music/Point.wav");
 
             if (secondSymbol.equals("images/Jo")) {
-                //waitToMatch
-                rain = new Rain(this);
+                dropCardsThread = new DropCardsThread(this);
                 boardGUI.setVisible(false);
                 musicController.stopMusic();
                 musicController.playMusic("music/JokerRound.wav");
@@ -92,9 +90,9 @@ public class Controller {
             } else {
                 incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
-            } if(isGameWon()) {
-                updatePoints();
-
+                if(isGameWon()) {
+                    updatePoints();
+                }
             }
         } else {
             for (Card card : pairOfCards) {
@@ -189,7 +187,7 @@ public class Controller {
      * Update score from joker round.
      */
     public void addJokerPoints() {
-        int jokerPoints = rain.getPoints();
+        int jokerPoints = dropCardsThread.getPoints();
         incrementScore(jokerPoints);
         if(isGameWon()) {
             updatePoints();

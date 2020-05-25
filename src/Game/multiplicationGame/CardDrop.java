@@ -13,7 +13,7 @@ import java.util.Random;
  * @version 3.0
  */
 public class CardDrop extends Card implements Runnable {
-    private Rain rain;
+    private DropCardsThread dropCardsThread;
     private JokerGUI jokerGui;
     private ClickController clickController = new ClickController();
 
@@ -31,9 +31,9 @@ public class CardDrop extends Card implements Runnable {
      * @param problem the question to answer.
      * @param solved the answer to the problem.
      */
-    public CardDrop(JokerGUI jokerGui, Rain wordsrain, String problem, String solved) {
+    public CardDrop(JokerGUI jokerGui, DropCardsThread wordsrain, String problem, String solved) {
         this.jokerGui = jokerGui;
-        this.rain = wordsrain;
+        this.dropCardsThread = wordsrain;
         this.problem = problem;
         this.solved = solved;
         hideSymbol(65,64);   // Method in super.
@@ -108,12 +108,12 @@ public class CardDrop extends Card implements Runnable {
             updateViewToMatchedDrop();
 
             alive = false;
-            rain.incrementPoints();
+            dropCardsThread.incrementPoints();
 
             Thread.sleep(2500);
             setVisible(false);
 
-            rain.incrementMatches();    // Synchronizes points updates
+            dropCardsThread.incrementMatches();    // Synchronizes points updates
         }
     }
 
@@ -121,10 +121,10 @@ public class CardDrop extends Card implements Runnable {
      * Game over when the user get all answers right.
      */
     private void winning() {
-        if (rain.gotAllProblemsRight()) {
+        if (dropCardsThread.gotAllProblemsRight()) {
             clickController.click("music/JokerWin.wav");
             updateViewToWinning();
-            rain.gameOver();                                                    // Stop rain.
+            dropCardsThread.gameOver();                                                    // Stop rain.
         }
     }
 
@@ -135,7 +135,7 @@ public class CardDrop extends Card implements Runnable {
         if (yPosition > 409) {
             clickController.click("music/GameOver.wav");
             updateViewToLoosing();
-            rain.gameOver();
+            dropCardsThread.gameOver();
         }
     }
 
