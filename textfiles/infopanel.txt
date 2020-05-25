@@ -9,6 +9,25 @@ Det går 100 centimeter på 1 meter.
 80/X=4 är detsamma som X=80/4! X=20
 För att X ska kunna stå själv! Subtraheras 25 från båda sidor av likhetstecknet! X+25-25=39-25. X=14.
 För att X ska kunna stå själv! Adderas 5 till båda sidor av likhetstecknet! X-5+5=-3+5. X=-2.
-Centi betyder hundradel.
-Deci betyder tiondel.
-
+Centi är ett prefix som betyder hundradel! Används tillsammans med enheter! Exempelvis centimeter och centiliter
+Deci är ett prefix som betyder tiondel! Används tillsammans med enheter! Exempelvis decimeter och deciliter.
+Cylindern är en tredimensionell geometrisk figur med cirkel som bas.
+Deka är ett prefix som betyder tio! Används tillsammans med enheter! Exempelvis dekagram.
+Ett begrepp som användes ofta förr! Betyder tolv.
+Hekto är ett prefix som betyder hundra! Används tillsammans med enheter! Exempelvis hektogram.
+Kilo är ett prefix som betyder tusen! Används tillsammans med enheter! Exempelvis kilogram.
+Klot är en tredimensionell geometrisk figur! En cirkel i tre dimensioner.
+Likbent triangel är en tvådimensionell geometrisk figur! Där minst två sidor är lika långa.
+Medelvärde används för att räkna ut ett genomsnittligt värde! Exempelvis medeltemperatur och medelålder.
+Milli är ett prefix som betyder tusendel! Används tillsammans med enheter! Exempelvis millimeter och milliliter.
+Origo är den punkt där x-axeln och y-axeln skär i varandra.
+Parallellogram är en tvådimensionell geometrisk figur! Där motstående sidor är parallella.
+Radien är avståndet från cirkelns kant till dess mitt! Används bland annat vid beräkning av cirkelns area.
+För att räkna ut rektanglens area multiplicerar man basen med höjden.
+Rätvinklig triangel är en tvådimensionell geometrisk figur! Där en vinkel är 90 grader.
+En rät vinkel är exakt 90°! Markeras med en rät vinkelbåge för tydlighetens skull.
+För att räkna ut triangelns area multiplicerar man basen med höjden och delar sedan det med 2.
+En trubbig vinkel är större än 90°.
+Typvärdet är det vanligast förekommade värdet.
+Udda tal är inte jämnt delbara med 2.
+En spetsig vinkel är mindre än 90°.

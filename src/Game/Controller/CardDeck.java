@@ -64,7 +64,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Centimeter.png");
         cardSymbolPaths.add("images/Cylinder.png");
         cardSymbolPaths.add("images/Deci.png");
-        cardSymbolPaths.add("images/Deka.png");
+        cardSymbolPaths.add("images/DEka.png");
         cardSymbolPaths.add("images/Diameter.png");
         cardSymbolPaths.add("images/Dussin.png");
         cardSymbolPaths.add("images/Hekto.png");
@@ -72,17 +72,16 @@ public class CardDeck {
         cardSymbolPaths.add("images/Klot.png");
         cardSymbolPaths.add("images/Likbenttriangel.png");
         cardSymbolPaths.add("images/Medelvärde.png");
-        cardSymbolPaths.add("images/Median.png");
         cardSymbolPaths.add("images/Milli.png");
         cardSymbolPaths.add("images/Origo.png");
         cardSymbolPaths.add("images/Parallelogram.png");
         cardSymbolPaths.add("images/Radie.png");
-        cardSymbolPaths.add("images/RektangelsArea.png");
-        cardSymbolPaths.add("images/RätVinkel.png");
+        cardSymbolPaths.add("images/RektangelnsArea.png");
+        cardSymbolPaths.add("images/RÄtVinkel.png");
         cardSymbolPaths.add("images/SpetsigVinkel.png");
         cardSymbolPaths.add("images/Tjog.png");
         cardSymbolPaths.add("images/TriangelnsArea.png");
-        cardSymbolPaths.add("images/TrubbigVinkel.png");
+        cardSymbolPaths.add("images/TRubbigVinkel.png");
         cardSymbolPaths.add("images/Typvärde.png");
         cardSymbolPaths.add("images/UddaTal.png");
         cardSymbolPaths.add("images/Agebra5.PNG");
@@ -111,7 +110,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Centimeter2.png");
         cardSymbolPaths.add("images/Cylinder2.png");
         cardSymbolPaths.add("images/Deci2.png");
-        cardSymbolPaths.add("images/Deka2.png");
+        cardSymbolPaths.add("images/DEka2.png");
         cardSymbolPaths.add("images/Diameter2.png");
         cardSymbolPaths.add("images/Dussin2.png");
         cardSymbolPaths.add("images/Hekto2.png");
@@ -119,7 +118,6 @@ public class CardDeck {
         cardSymbolPaths.add("images/Klot2.png");
         cardSymbolPaths.add("images/Likbenttriangel2.png");
         cardSymbolPaths.add("images/Medelvärde2.png");
-        cardSymbolPaths.add("images/Median2.png");
         cardSymbolPaths.add("images/Milli2.png");
         cardSymbolPaths.add("images/Origo2.png");
         cardSymbolPaths.add("images/Parallellogram2.png");
@@ -129,7 +127,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/SpetsigVinkel2.png");
         cardSymbolPaths.add("images/Tjog2.png");
         cardSymbolPaths.add("images/TriangelnsArea2.png");
-        cardSymbolPaths.add("images/TrubbigVinkel2.png");
+        cardSymbolPaths.add("images/TRubbigVinkel2.png");
         cardSymbolPaths.add("images/Typvärde2.png");
         cardSymbolPaths.add("images/UddaTal2.png");
         cardSymbolPaths.add("images/Agebra6.PNG");
