@@ -382,7 +382,8 @@ public class BoardGUI extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             if (e.getSource()==btnBack){
-                new MenuGUI(controller);
+                controller.showMenuGUI();
+                musicController.stopMusic();
                 dispose();
             }
         }

@@ -9,7 +9,6 @@ import Game.View.MenuGUI;
 import Game.multiplicationGame.Rain;
 
 import javax.swing.*;
-import java.awt.*;
 import java.util.Arrays;
 
 /**
@@ -28,6 +27,7 @@ public class Controller {
     private BoardGUI boardGUI;
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
+    private MenuGUI menuGUI;
 
     private Rain rain;
     private InfoReader infoReader;
@@ -161,7 +161,7 @@ public class Controller {
             System.exit(0);
         } else if (reply == JOptionPane.NO_OPTION) {
             boardGUI.setVisible(false);
-            new MenuGUI(this);
+            menuGUI = new MenuGUI(this);
             musicController.playMusic("music/MenuMusic.wav");
         }
     }
@@ -244,7 +244,7 @@ public class Controller {
             String name = logInPlayer1.getTxtUsername().getText();
             multiPlayer[0] = new User(name);
             JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
-            new MenuGUI(this);
+            menuGUI = new MenuGUI(this);
         } else {
             String name = logInPlayer2.getTxtUsername().getText();
             multiPlayer[1] = new User(name);
@@ -269,5 +269,9 @@ public class Controller {
 
     public void showBoardGUI() {
         boardGUI.setVisible(true);
+    }
+
+    public void showMenuGUI() {
+        menuGUI.setVisible(true);
     }
 }
