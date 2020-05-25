@@ -7,6 +7,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * This class contains Memorias main menu
@@ -74,7 +76,7 @@ public class MenuGUI extends JFrame {
 
         setSize(500, 400);
         setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        testClose();
         setLocationRelativeTo(null);
         pnlMain.setBackground(Color.WHITE);
 
@@ -299,11 +301,23 @@ public class MenuGUI extends JFrame {
         }
     }
 
+    /**
+     * If X on frame i pressed asks the user if the want to close the program.
+     */
+    public void testClose() {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-
-    public static void main(String[] args) {
-       //Game.Controller.Game.Model.View.MenuGUI start = new Game.Controller.Game.Model.View.MenuGUI();
-        //TwoPlayer twoPlayer = new TwoPlayer();
-
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int x = JOptionPane.showConfirmDialog(null,
+                        "Do you really want to close Memoria?");
+                if(x==JOptionPane.YES_OPTION) {
+                    e.getWindow().dispose();
+                } else {
+                    System.out.println("We are happy you are back :)");
+                }
+            }
+        });
     }
 }

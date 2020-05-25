@@ -6,10 +6,7 @@ import Game.Model.Card;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -96,6 +93,7 @@ public class BoardGUI extends JFrame {
         setLocationRelativeTo(null);
         setupTheGame();
         addListeners();
+        testClose();
     }
 
     private void setupFrame() {
@@ -388,6 +386,26 @@ public class BoardGUI extends JFrame {
                 dispose();
             }
         }
+    }
+
+    /**
+     * If X on frame i pressed asks the user if the want to close the program.
+     */
+    public void testClose() {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int x = JOptionPane.showConfirmDialog(null,
+                        "Do you really want to close Memoria?");
+                if(x==JOptionPane.YES_OPTION) {
+                    e.getWindow().dispose();
+                } else {
+                    System.out.println("We are happy you are back :)");
+                }
+            }
+        });
     }
 
     public void setLblScore(int score) {
