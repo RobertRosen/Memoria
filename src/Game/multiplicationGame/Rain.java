@@ -120,7 +120,8 @@ public class Rain implements Runnable {
             String problem = problemsBuffer.remove(0);
             String solved = solvedBuffer.remove(0);
 
-            fallingDropsList.add(new CardDrop(jokerGui,this, problem, solved));
+            CardDrop cardDrop = new CardDrop(jokerGui,this, problem, solved);
+            fallingDropsList.add(cardDrop);
         }
     }
 
@@ -141,16 +142,16 @@ public class Rain implements Runnable {
     }
 
     // TEST-MAIN-METOD för multiplikationsspelet.
-//    public static void main(String[] args) {
-//        new Rain();
-//    }
-//    public Rain() {
-//        jokerGui = new JokerGUI();
-//        random = new Random();
-//        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
-//
-//        setupDropList();
-//
-//        new Thread(this).start();
-//    }
+    public static void main(String[] args) {
+        new Rain();
+    }
+    public Rain() {
+        jokerGui = new JokerGUI();
+        random = new Random();
+        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
+
+        setupDropList();
+
+        new Thread(this).start();
+    }
 }

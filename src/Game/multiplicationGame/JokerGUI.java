@@ -2,6 +2,8 @@ package Game.multiplicationGame;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /**
  * Contains the main parts of the GUI, where rain and drops are painted.
@@ -15,14 +17,28 @@ public class JokerGUI extends JFrame {
     private JPanel pnlGame;
     private JTextField textFieldUserTyping;
     private JTextField textFieldPoints;
+    private JLabel labelTyping;
+
+    private JLabel lblTwoPoints;
 
     /**
      * Construct and initialize the GUI.
      */
     public JokerGUI() {
+        labelTyping = new JLabel("") {
+            @Override
+            public boolean isValidateRoot() {
+                return true;
+            }
+        };
+        labelTyping.setFont(new Font("monospaced", Font.BOLD, 90));
+        labelTyping.setBackground(Color.WHITE);
+
         setupGamePanel();
         setupTypePanel();
         setupMainPanel();
+        addTwoPointsText();
+
         setupFrame();
     }
 
@@ -32,6 +48,10 @@ public class JokerGUI extends JFrame {
         setTitle("JOKER ROUND");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setContentPane(pnlMain);
+
+        addKeyListener(new TypeListener());
+        setFocusable(true);
+
         setVisible(true);
         setResizable(false);
         pack();
@@ -50,15 +70,19 @@ public class JokerGUI extends JFrame {
         pnlTyping = new JPanel(new BorderLayout());
         pnlTyping.setBackground(Color.WHITE);
 
-        JLabel lblLogo = new JLabel();
-        lblLogo.setIcon(new ImageIcon("images/mem2.jpg"));
+        ImageIcon imageShowing = new ImageIcon("images/svar_memoria.png");
+        JLabel lblLogo = new JLabel(imageShowing);
+
         lblLogo.setBackground(Color.WHITE);
 
         setupTextFieldUserTyped();
         setupTextFieldPoints();
 
         pnlTyping.add(lblLogo, BorderLayout.WEST);
-        pnlTyping.add(textFieldUserTyping, BorderLayout.CENTER);
+        JPanel pnlCenterTyping = new JPanel(new BorderLayout());
+        pnlCenterTyping.setBackground(Color.WHITE);
+        pnlCenterTyping.add(labelTyping, BorderLayout.CENTER);
+        pnlTyping.add(pnlCenterTyping, BorderLayout.CENTER);
         pnlTyping.add(textFieldPoints, BorderLayout.EAST);
     }
 
@@ -67,13 +91,18 @@ public class JokerGUI extends JFrame {
         pnlGame.setBackground(Color.WHITE);
         pnlGame.setLayout(new BorderLayout());
 
-        JLabel lblGameChallenge = new JLabel("Get as many right answers as you can!");
-        lblGameChallenge.setLocation(0,139);
-        lblGameChallenge.setSize(1000, 200);
-        lblGameChallenge.setFont(new Font("monospaced", Font.BOLD, 45));         // Enlarge font size
-        lblGameChallenge.setForeground(Color.BLUE);
-
-        pnlGame.add(lblGameChallenge, BorderLayout.SOUTH);
+//        ImageIcon imageShowing = new ImageIcon("images/joker_get_answers.png");
+//        Image imageToScale = imageShowing.getImage();
+//        Image scaledImage = imageToScale.getScaledInstance(1000, 100, Image.SCALE_SMOOTH);
+//        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
+//        JLabel lblGameChallenge = new JLabel(scaledImageIcon);
+//
+//        lblGameChallenge.setLocation(0,139);
+//        lblGameChallenge.setSize(1000, 200);
+//        lblGameChallenge.setFont(new Font("monospaced", Font.BOLD, 45));         // Enlarge font size
+//        lblGameChallenge.setForeground(Color.BLUE);
+//
+//        pnlGame.add(lblGameChallenge, BorderLayout.SOUTH);
     }
 
     private void setupTextFieldUserTyped() {
@@ -90,6 +119,8 @@ public class JokerGUI extends JFrame {
         textFieldPoints.setFont(new Font("monospaced", Font.BOLD, 80));
         textFieldPoints.setBackground(Color.WHITE);
         textFieldPoints.setForeground(Color.BLACK);
+        textFieldPoints.setEditable(false);
+        textFieldPoints.setFocusable(false);
         textFieldPoints.setOpaque(true);
         textFieldPoints.setBorder(null);
     }
@@ -112,34 +143,99 @@ public class JokerGUI extends JFrame {
             @Override
             public void run() {
                 textFieldPoints.setText(points + "p");
+                addTwoPointsThread();
             }
         });
     }
 
-    public void setTextFieldUserTyping(String answer) {
-        SwingUtilities.invokeLater(new Runnable() {
+    private void addTwoPointsThread() {
+        new Thread(){
             @Override
             public void run() {
-                textFieldUserTyping.setText(answer);
+                lblTwoPoints.setVisible(true);
+                try {
+                    sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                lblTwoPoints.setVisible(false);
             }
-        });
-    }
-
-    public String getTextFieldUserTyping() {
-        return textFieldUserTyping.getText();
+        }.start();
     }
 
     /**
      * Show final points in large numbers after game ends.
      */
     public void addPointsText() {
-        JLabel lblFinalPoints = new JLabel(textFieldPoints.getText());
+        JLabel lblFinalPoints = new JLabel("GRATTIS: " + textFieldPoints.getText());
         lblFinalPoints.setHorizontalAlignment(SwingConstants.CENTER);
         lblFinalPoints.setVerticalAlignment(SwingConstants.CENTER);
         lblFinalPoints.setSize(1000, 500);
-        lblFinalPoints.setFont(new Font("monospaced", Font.BOLD, 290));           // Enlarge font size
-        lblFinalPoints.setForeground(Color.GREEN);
+        lblFinalPoints.setFont(new Font("monospaced", Font.BOLD, 100));           // Enlarge font size
+        lblFinalPoints.setForeground(Color.BLACK);
+
         pnlGame.add(lblFinalPoints);
         revalidate();
+    }
+
+    private void addTwoPointsText() {
+        lblTwoPoints = new JLabel(new ImageIcon("images/plus_two_points.png")){
+            @Override
+            public boolean isValidateRoot() {
+                return true;
+            }
+        };
+        lblTwoPoints.setHorizontalAlignment(SwingConstants.CENTER);
+        lblTwoPoints.setVerticalAlignment(SwingConstants.CENTER);
+        lblTwoPoints.setSize(1000, 500);
+        lblTwoPoints.setVisible(false);
+
+        pnlGame.add(lblTwoPoints);
+        revalidate();
+    }
+
+    @Override
+    public void setFocusable(boolean b) {
+        super.setFocusable(b);
+    }
+
+    private String answerTyped = "";
+
+    public String getAnswerTyped() {
+        return answerTyped;
+    }
+
+    public void setLabelTyping(String answer) {
+        answerTyped = answer;
+    }
+
+    private class TypeListener implements KeyListener {
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+            char c = e.getKeyChar();
+
+            if (answerTyped.length() == 1) {
+                answerTyped += String.valueOf(c);
+            } else {
+                answerTyped = String.valueOf(c);
+            }
+
+            labelTyping.setText(answerTyped);
+            repaint();
+
+            // Print out the code
+            System.out.println(c);
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+
+        }
     }
 }

@@ -54,7 +54,7 @@ public class Card extends JButton {
     /**
      * Turn card symbol down.
      */
-    public void hideSymbol() {
+    public void hideSymbol(int width, int height) {
         // TODO: Possibly make back side image optional in the game.
         //imageShowing = new ImageIcon("images/math4.jpg");
         //imageShowing = new ImageIcon("images/Back.png");
@@ -62,7 +62,7 @@ public class Card extends JButton {
         //imageShowing = new ImageIcon("images/BackGreen.png");
         imageShowing = new ImageIcon("images/BackMan.png");
         Image imageToScale = imageShowing.getImage();
-        Image scaledImage = imageToScale.getScaledInstance(65, 83, Image.SCALE_SMOOTH);
+        Image scaledImage = imageToScale.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
         setIcon(scaledImageIcon);
     }

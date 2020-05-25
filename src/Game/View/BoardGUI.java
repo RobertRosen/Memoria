@@ -232,7 +232,7 @@ public class BoardGUI extends JFrame {
                     controller.doTurn(card);
                 }
             });
-            card.hideSymbol();
+            card.hideSymbol(65,83);
             cards.add(card);
         }
 
