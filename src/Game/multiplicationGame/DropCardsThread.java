@@ -89,8 +89,8 @@ public class DropCardsThread implements Runnable {
         }
         jokerGui.dispose();
         controller.showBoardGUI();
+        musicController.playMusic("music/GameMusic.wav");
         controller.addJokerPoints();
-        musicController.playMusic("music/GameMusic.wav"); // TODO titta över Yasir!
     }
 
     /**
