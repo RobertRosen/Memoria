@@ -229,7 +229,7 @@ public class MenuGUI extends JFrame {
     private class MouseSinglePlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             dispose();
-            new Rain(controller, 5);
+            new Rain(controller, 20);
         }
 
         public void mousePressed(MouseEvent e) {

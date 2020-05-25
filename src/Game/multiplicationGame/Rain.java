@@ -27,6 +27,8 @@ public class Rain implements Runnable {
     private int matches = 0;
     private int NBR_OF_PROBLEMS_IN_BUFFER = 10;
 
+    private int dropSpeed = 30;
+
     private boolean singlePlayer = false;
 
     /**
@@ -82,7 +84,13 @@ public class Rain implements Runnable {
             Thread.sleep(delayDrop);                                           // Delay next drop to random interval.
 
             if (!fallingDropsList.isEmpty()) {
-                fallingDropsList.get(problemsDropped).setAlive(true);                         // Start a new drop thread.
+                CardDrop nextDrop = fallingDropsList.get(problemsDropped);
+                nextDrop.setDropSpeed(dropSpeed);
+                nextDrop.setAlive(true);// Start a new drop thread.
+
+                if (singlePlayer) {
+                    dropSpeed--;
+                }
 
                 jokerGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
 
