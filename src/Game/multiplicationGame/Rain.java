@@ -51,10 +51,10 @@ public class Rain implements Runnable {
      */
     public Rain(Controller controller, int problems) {
         this.controller = controller;
-        this.NBR_OF_PROBLEMS_IN_BUFFER = problems;
-        this.singlePlayer = true;
         jokerGui = new JokerGUI();
         random = new Random();
+        this.NBR_OF_PROBLEMS_IN_BUFFER = problems;
+        singlePlayer = true;
         fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupDropList();                                                             // Setup list of drop threads.
@@ -197,16 +197,16 @@ public class Rain implements Runnable {
     }
 
     // TEST-MAIN-METOD för multiplikationsspelet.
-//    public static void main(String[] args) {
-//        new Rain();
-//    }
-//    public Rain() {
-//        jokerGui = new JokerGUI();
-//        random = new Random();
-//        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
-//
-//        setupDropList();
-//
-//        new Thread(this).start();
-//    }
+    public static void main(String[] args) {
+        new Rain();
+    }
+    public Rain() {
+        jokerGui = new JokerGUI();
+        random = new Random();
+        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
+
+        setupDropList();
+
+        new Thread(this).start();
+    }
 }
