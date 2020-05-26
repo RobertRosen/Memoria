@@ -1,5 +1,6 @@
 package Game.View;
 
+import Game.Controller.CardDeck;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
 import Game.Model.Card;
@@ -16,7 +17,7 @@ import java.util.Collections;
  * <p>
  * This class contains the game board
  *
- * @author Adel Sabanovic
+ * @author Adel Sabanovic, Robert Rosencrantz
  * @version 3.0
  * @since 2020-04-16
  * TODO- Kommentera klassen på engelska.
@@ -81,6 +82,7 @@ public class BoardGUI extends JFrame {
     private JLabel lblPi2 = new JLabel(iconPi);
 
     Controller controller;
+
 
     public BoardGUI(Controller controller) {
         this.controller = controller;
@@ -222,9 +224,9 @@ public class BoardGUI extends JFrame {
         ArrayList<String> cardSymbolPaths;
 
         // Lägga 24 cards i arrayen
-        cardSymbolPaths = addSymbols();         // Lägg bilder på korten.
+        cardSymbolPaths = new CardDeck().addSymbols();         // Lägg bilder på korten.
         Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
-        for (String symbol : cardSymbolPaths) { // Skapa jämna par av symboler.
+        for (String symbol : cardSymbolPaths) { // Går igenom arrayen cardSymbolPaths, i varje iteration så skapas nytt cardobjekt och placerar i cardarray.
             Card card = new Card();
             card.setPathSymbol(symbol);
             card.addActionListener(new ActionListener() {
@@ -246,37 +248,6 @@ public class BoardGUI extends JFrame {
         repaint();
     }
 
-    // Lägger bilder/symboler på alla korten.
-    private ArrayList<String> addSymbols() {
-        ArrayList<String> cardSymbolPaths = new ArrayList<String>();
-
-        cardSymbolPaths.add("images/minus.png");
-        cardSymbolPaths.add("images/plus.png");
-        cardSymbolPaths.add("images/plus2.png");
-        cardSymbolPaths.add("images/minus2.png");
-        cardSymbolPaths.add("images/pi3.jpg");
-        cardSymbolPaths.add("images/pi2.jpg");
-        cardSymbolPaths.add("images/Algebra1.png");
-        cardSymbolPaths.add("images/Algebra2.png");
-        cardSymbolPaths.add("images/ALgebra3.png");
-        cardSymbolPaths.add("images/ALgebra4.png");
-        cardSymbolPaths.add("images/Agebra5.png");
-        cardSymbolPaths.add("images/Agebra6.png");
-        cardSymbolPaths.add("images/Bråk.png");
-        cardSymbolPaths.add("images/Bråk2.png");
-        cardSymbolPaths.add("images/Division.png");
-        cardSymbolPaths.add("images/Division2.png");
-        cardSymbolPaths.add("images/Joker.png");
-        cardSymbolPaths.add("images/Joker2.png");
-        cardSymbolPaths.add("images/Multiplikation.png");
-        cardSymbolPaths.add("images/Multiplikation2.png");
-        cardSymbolPaths.add("images/Ut.png");
-        cardSymbolPaths.add("images/Ut2.png");
-        cardSymbolPaths.add("images/Unit.png");
-        cardSymbolPaths.add("images/Unit2.png");
-
-        return cardSymbolPaths;
-    }
 
     /**
      * Sätter upp en timer på händelsetråden.
