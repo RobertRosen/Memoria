@@ -191,10 +191,13 @@ public class JokerGUI extends JFrame {
 
             char c = e.getKeyChar();
 
-            if (answerTyped.length() == 1) {
-                answerTyped += String.valueOf(c);
-            } else {
-                answerTyped = String.valueOf(c);
+            if ("1234567890".contains(String.valueOf(c))) {
+                if (answerTyped.length() == 1) {
+                    answerTyped += String.valueOf(c);
+
+                } else {
+                    answerTyped = String.valueOf(c);
+                }
             }
 
             labelTyping.setText(answerTyped);
