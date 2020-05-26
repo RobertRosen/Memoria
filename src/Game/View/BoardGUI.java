@@ -169,6 +169,8 @@ public class BoardGUI extends JFrame {
         lblPi.setPreferredSize(new Dimension(50,46));
         lblPi2.setPreferredSize(new Dimension(50,46));
         txtInfoArea.setPreferredSize(new Dimension(257, 140));
+        txtInfoArea.setLineWrap(true);
+        txtInfoArea.setWrapStyleWord(true);
         btnSettings.setPreferredSize(new Dimension(48, 51));
         btnInstructions.setPreferredSize(new Dimension(38, 65));
         pnlScore.setPreferredSize(new Dimension(126, 100));

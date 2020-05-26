@@ -31,3 +31,4 @@ images/TR
 images/Ty
 images/Ud
 images/Sp
+images/Di

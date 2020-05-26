@@ -260,7 +260,7 @@ public class Controller {
      */
     private void showInfoOnPanel() {
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
-        String newString = infoReader.getInfoMap().get(secondSymbol).replaceAll("!", "\n");
+        String newString = infoReader.getInfoMap().get(secondSymbol);
         boardGUI.getTxtInfoArea().setText("");
         boardGUI.getTxtInfoArea().setText(newString);
     }
