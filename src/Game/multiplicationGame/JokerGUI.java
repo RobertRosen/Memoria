@@ -15,10 +15,8 @@ public class JokerGUI extends JFrame {
     private JPanel pnlMain;
     private JPanel pnlTyping;
     private JPanel pnlGame;
-    private JTextField textFieldUserTyping;
     private JTextField textFieldPoints;
     private JLabel labelTyping;
-
     private JLabel lblTwoPoints;
 
     /**
@@ -74,8 +72,6 @@ public class JokerGUI extends JFrame {
         JLabel lblLogo = new JLabel(imageShowing);
 
         lblLogo.setBackground(Color.WHITE);
-
-        setupTextFieldUserTyped();
         setupTextFieldPoints();
 
         pnlTyping.add(lblLogo, BorderLayout.WEST);
@@ -89,29 +85,6 @@ public class JokerGUI extends JFrame {
     private void setupGamePanel() {
         pnlGame = new JPanel();
         pnlGame.setBackground(Color.WHITE);
-        pnlGame.setLayout(new BorderLayout());
-
-//        ImageIcon imageShowing = new ImageIcon("images/joker_get_answers.png");
-//        Image imageToScale = imageShowing.getImage();
-//        Image scaledImage = imageToScale.getScaledInstance(1000, 100, Image.SCALE_SMOOTH);
-//        ImageIcon scaledImageIcon = new ImageIcon(scaledImage);
-//        JLabel lblGameChallenge = new JLabel(scaledImageIcon);
-//
-//        lblGameChallenge.setLocation(0,139);
-//        lblGameChallenge.setSize(1000, 200);
-//        lblGameChallenge.setFont(new Font("monospaced", Font.BOLD, 45));         // Enlarge font size
-//        lblGameChallenge.setForeground(Color.BLUE);
-//
-//        pnlGame.add(lblGameChallenge, BorderLayout.SOUTH);
-    }
-
-    private void setupTextFieldUserTyped() {
-        textFieldUserTyping = new JTextField("");
-        textFieldUserTyping.setFont(new Font("monospaced", Font.BOLD, 24));
-        textFieldUserTyping.setBackground(Color.WHITE);
-        textFieldUserTyping.setForeground(Color.BLACK);
-        textFieldUserTyping.setOpaque(true);
-        textFieldUserTyping.setBorder(null);;
     }
 
     private void setupTextFieldPoints() {
@@ -211,9 +184,7 @@ public class JokerGUI extends JFrame {
 
     private class TypeListener implements KeyListener {
         @Override
-        public void keyTyped(KeyEvent e) {
-
-        }
+        public void keyTyped(KeyEvent e) {}
 
         @Override
         public void keyPressed(KeyEvent e) {
@@ -234,8 +205,6 @@ public class JokerGUI extends JFrame {
         }
 
         @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
+        public void keyReleased(KeyEvent e) {}
     }
 }

@@ -20,6 +20,7 @@ public class CardDrop extends Card implements Runnable {
     private boolean alive = false;
     private int xPosition = new Random().nextInt(800);                // Problem appear random to this number
     private int yPosition = 0;                                                    // Origin of the problem appearing
+    private int dropSpeed = 30;
 
     private String problem;
     private String solved;
@@ -87,7 +88,7 @@ public class CardDrop extends Card implements Runnable {
      */
     private void keepDropping() throws InterruptedException {
         while(alive) {
-            Thread.sleep(30);
+            Thread.sleep(dropSpeed);
             yPosition++;
 
             setupDrop(Color.BLACK, Color.WHITE, problem);
@@ -180,5 +181,9 @@ public class CardDrop extends Card implements Runnable {
                 jokerGui.addPointsText();
             }
         });
+    }
+
+    public void setDropSpeed(int dropSpeed) {
+        this.dropSpeed = dropSpeed;
     }
 }
