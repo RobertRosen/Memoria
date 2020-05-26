@@ -49,7 +49,7 @@ public class DropCardsThread implements Runnable {
     /**
      * Construct and initialize a thread with this class' tasks.
      */
-    public Rain(Controller controller, int problems) {
+    public DropCardsThread(Controller controller, int problems) {
         this.controller = controller;
         jokerGui = new JokerGUI();
         random = new Random();
