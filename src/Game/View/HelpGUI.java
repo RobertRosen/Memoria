@@ -22,15 +22,17 @@ public class HelpGUI extends JFrame {
     private JPanel panel4 = new JPanel();
     private JPanel panel5 = new JPanel();
     private JPanel panel6 = new JPanel();
+    private JPanel panel7 = new JPanel();
+    private JPanel panel8 = new JPanel();
 
     private ImageIcon next = new ImageIcon("images/fwdButton.png");
     private ImageIcon back = new ImageIcon("images/backButton.png");
     private ImageIcon ok = new ImageIcon("images/okButton.png");
 
 
-    private JButton btnNext[] = new JButton[6];
-    private JButton btnBack[] = new JButton[6];
-    private JButton btnOK[] = new JButton[6];
+    private JButton btnNext[] = new JButton[8];
+    private JButton btnBack[] = new JButton[8];
+    private JButton btnOK[] = new JButton[8];
 
     /**
      * This constructor brings all the methods together for the HelpGUI
@@ -67,6 +69,8 @@ public class HelpGUI extends JFrame {
         panel4.setLayout(null);
         panel5.setLayout(null);
         panel6.setLayout(null);
+        panel7.setLayout(null);
+        panel8.setLayout(null);
 
     }
 
@@ -82,6 +86,8 @@ public class HelpGUI extends JFrame {
         panel4.add(new Panel4());
         panel5.add(new Panel5());
         panel6.add(new Panel6());
+        panel7.add(new Panel7());
+        panel8.add(new Panel8());
     }
 
     /**
@@ -96,6 +102,8 @@ public class HelpGUI extends JFrame {
         container.add(panel4, "5");
         container.add(panel5, "6");
         container.add(panel6, "7");
+        container.add(panel7, "8");
+        container.add(panel8, "9");
 
     }
 
@@ -111,6 +119,8 @@ public class HelpGUI extends JFrame {
         panel4.add(btnNext[3]);
         panel5.add(btnNext[4]);
         panel6.add(btnNext[5]);
+        panel7.add(btnNext[6]);
+        panel8.add(btnNext[7]);
 
         panel1.add(btnBack[0]);
         panel2.add(btnBack[1]);
@@ -118,6 +128,8 @@ public class HelpGUI extends JFrame {
         panel4.add(btnBack[3]);
         panel5.add(btnBack[4]);
         panel6.add(btnBack[5]);
+        panel5.add(btnBack[6]);
+        panel6.add(btnBack[7]);
 
         panel1.add(btnOK[0]);
         panel2.add(btnOK[1]);
@@ -125,6 +137,8 @@ public class HelpGUI extends JFrame {
         panel4.add(btnOK[3]);
         panel5.add(btnOK[4]);
         panel6.add(btnOK[5]);
+        panel7.add(btnOK[6]);
+        panel8.add(btnOK[7]);
     }
 
     /**
@@ -241,6 +255,32 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+    private class Panel7 extends JPanel {
+        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
+
+        private JLabel lblbild = new JLabel(hjälp6Bild);
+        public Panel7(){
+            setSize(700,700);
+            setLocationRelativeTo(null);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setVisible(true);
+            add(lblbild);
+            setBackground(Color.WHITE);
+        }
+    }
+    private class Panel8 extends JPanel {
+        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
+
+        private JLabel lblbild = new JLabel(hjälp6Bild);
+        public Panel8(){
+            setSize(700,700);
+            setLocationRelativeTo(null);
+            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            setVisible(true);
+            add(lblbild);
+            setBackground(Color.WHITE);
+        }
+    }
 
     /**
      * This class contains the functions for the "Next" button in the HelpGUI
@@ -268,6 +308,12 @@ public class HelpGUI extends JFrame {
                     card.show(container, "" + 7);
                 }
                 if (e.getSource() == btnNext[5]){
+                    card.show(container, "" + 8);
+                }
+                if (e.getSource() == btnNext[6]){
+                    card.show(container, "" + 9);
+                }
+                if (e.getSource() == btnNext[7]){
                     card.show(container, "" + 2);
                 }
             }
@@ -301,6 +347,12 @@ public class HelpGUI extends JFrame {
                     card.show(container, "" + 5);
                 }
                 if (e.getSource() == btnBack[5]){
+                    card.show(container, "" + 6);
+                }
+                if (e.getSource() == btnBack[6]){
+                    card.show(container, "" + 7);
+                }
+                if (e.getSource() == btnBack[7]){
                     card.show(container, "" + 6);
                 }
             }
