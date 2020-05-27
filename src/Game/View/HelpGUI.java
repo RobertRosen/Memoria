@@ -128,8 +128,8 @@ public class HelpGUI extends JFrame {
         panel4.add(btnBack[3]);
         panel5.add(btnBack[4]);
         panel6.add(btnBack[5]);
-        panel5.add(btnBack[6]);
-        panel6.add(btnBack[7]);
+        panel7.add(btnBack[6]);
+        panel8.add(btnBack[7]);
 
         panel1.add(btnOK[0]);
         panel2.add(btnOK[1]);
@@ -256,7 +256,7 @@ public class HelpGUI extends JFrame {
         }
     }
     private class Panel7 extends JPanel {
-        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
+        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp7.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
         public Panel7(){
@@ -269,7 +269,7 @@ public class HelpGUI extends JFrame {
         }
     }
     private class Panel8 extends JPanel {
-        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
+        private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp8.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
         public Panel8(){
