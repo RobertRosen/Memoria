@@ -198,7 +198,7 @@ public class SettingsGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            musicController.playMusic("music/TakeMeBack.wav");
+            musicController.playMusic("music/MenuMusic.wav");
         }
     }
 
