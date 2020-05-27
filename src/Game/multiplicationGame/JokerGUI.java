@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Contains the main parts of the GUI, where rain and drops are painted.
@@ -38,6 +40,7 @@ public class JokerGUI extends JFrame {
         addTwoPointsText();
 
         setupFrame();
+        xButtonPressed();
     }
 
     private void setupFrame() {
@@ -209,5 +212,25 @@ public class JokerGUI extends JFrame {
 
         @Override
         public void keyReleased(KeyEvent e) {}
+    }
+
+    /**
+     * If X on frame i pressed asks the user if the want to close the program.
+     */
+    public void xButtonPressed() {
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                int x = JOptionPane.showConfirmDialog(null,
+                        "Do you really want to close Memoria?");
+                if(x==JOptionPane.YES_OPTION) {
+                    e.getWindow().dispose();
+                } else {
+                    System.out.println("We are happy you are back :)");
+                }
+            }
+        });
     }
 }
