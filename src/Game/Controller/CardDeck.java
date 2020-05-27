@@ -5,6 +5,7 @@ import java.util.Random;
 
 /**
  * This class handels the symbols for the cards in the game.
+ *
  * @author Robert Rosencrantz, Sonja Peric.
  * @version 4.0
  */
@@ -35,7 +36,7 @@ public class CardDeck {
         ArrayList<Integer> randomNbrs = new ArrayList<>(MAX_SYMBOLS_PAIRS);
 
         // Add pairs of symbol paths based on some random numbers.
-        for (int i=0; i < MAX_SYMBOLS_PAIRS; i++) {
+        for (int i = 0; i < MAX_SYMBOLS_PAIRS; i++) {
             int newNbr = random.nextInt(TOTAL_SYMBOLS_AVAILABLE);   // Random numbers based on total symbol paths.
             if (!randomNbrs.contains(newNbr)) {                     // We want only one of each path.
                 randomNbrs.add(newNbr);                             // Add to random numbers list.
@@ -55,6 +56,7 @@ public class CardDeck {
 
     /**
      * This method stores symbols for the cards.
+     *
      * @return cardSymbolPaths which contains one half of the symbols.
      */
     private ArrayList<String> SymbolListOne() {
@@ -62,7 +64,7 @@ public class CardDeck {
         ArrayList<String> cardSymbolPaths = new ArrayList<>();
 
         cardSymbolPaths.add("images/Centimeter.png");
-      /*  cardSymbolPaths.add("images/Cylinder.png");
+        cardSymbolPaths.add("images/Cylinder.png");
         cardSymbolPaths.add("images/Deci.png");
         cardSymbolPaths.add("images/DEka.png");
         cardSymbolPaths.add("images/Diameter.png");
@@ -75,7 +77,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Milli.png");
         cardSymbolPaths.add("images/Origo.png");
         cardSymbolPaths.add("images/Parallelogram.png");
-        cardSymbolPaths.add("images/Radie.png");*/
+        cardSymbolPaths.add("images/Radie.png");
         cardSymbolPaths.add("images/RektangelnsArea.png");
         cardSymbolPaths.add("images/RÄtvinkel.png");
         cardSymbolPaths.add("images/SpetsigVinkel.png");
@@ -88,26 +90,27 @@ public class CardDeck {
         cardSymbolPaths.add("images/Algebra1.PNG");
         cardSymbolPaths.add("images/ALgebra3.PNG");
         cardSymbolPaths.add("images/Bråk.PNG");
-        /*cardSymbolPaths.add("images/DIvision.PNG");
+        cardSymbolPaths.add("images/DIvision.PNG");
         cardSymbolPaths.add("images/minus.png");
         cardSymbolPaths.add("images/Multiplikation.png");
         cardSymbolPaths.add("images/pi3.jpg");
         cardSymbolPaths.add("images/plus.png");
         cardSymbolPaths.add("images/Unit.PNG");
-        cardSymbolPaths.add("images/Ut.PNG");*/
+        cardSymbolPaths.add("images/Ut.PNG");
 
         return cardSymbolPaths;
     }
 
     /**
      * This method stores symbols for the cards.
+     *
      * @return cardSymbolPaths which contains the other half of the symbols.
      */
-    private ArrayList<String> SymbolListTwo(){
+    private ArrayList<String> SymbolListTwo() {
 
         ArrayList<String> cardSymbolPaths = new ArrayList<>();
 
-    /*    cardSymbolPaths.add("images/Centimeter2.png");
+        cardSymbolPaths.add("images/Centimeter2.png");
         cardSymbolPaths.add("images/Cylinder2.png");
         cardSymbolPaths.add("images/Deci2.png");
         cardSymbolPaths.add("images/DEka2.png");
@@ -121,7 +124,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Milli2.png");
         cardSymbolPaths.add("images/Origo2.png");
         cardSymbolPaths.add("images/Parallellogram2.png");
-        cardSymbolPaths.add("images/Radie2.png");*/
+        cardSymbolPaths.add("images/Radie2.png");
         cardSymbolPaths.add("images/RektangelnsArea2.png");
         cardSymbolPaths.add("images/Rätvinkel2.png");
         cardSymbolPaths.add("images/SpetsigVinkel2.png");
@@ -134,13 +137,13 @@ public class CardDeck {
         cardSymbolPaths.add("images/Algebra2.PNG");
         cardSymbolPaths.add("images/ALgebra4.PNG");
         cardSymbolPaths.add("images/Bråk2.PNG");
-    /*    cardSymbolPaths.add("images/DIvision2.PNG");
+        cardSymbolPaths.add("images/DIvision2.PNG");
         cardSymbolPaths.add("images/minus2.png");
         cardSymbolPaths.add("images/Multiplikation2.PNG");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/plus2.png");
         cardSymbolPaths.add("images/Unit2.PNG");
-        cardSymbolPaths.add("images/Ut2.PNG");*/
+        cardSymbolPaths.add("images/Ut2.PNG");
 
         return cardSymbolPaths;
     }
