@@ -136,21 +136,21 @@ public class HelpGUI extends JFrame {
 
         for (int i = 0; i < btnNext.length; i++){
             btnNext[i] = new JButton(next);
-            btnNext[i].setBounds(530,580,60,46);
+            btnNext[i].setBounds(530,630,60,46);
             btnNext[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnNext[i].addActionListener(new NextListener());
         }
 
         for (int i = 0; i < btnBack.length; i++){
             btnBack[i] = new JButton(back);
-            btnBack[i].setBounds(100,580,56,47);
+            btnBack[i].setBounds(100,630,56,47);
             btnBack[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnBack[i].addActionListener(new BackListener());
         }
 
         for (int i = 0; i < btnOK.length; i++){
             btnOK[i] = new JButton(ok);
-            btnOK[i].setBounds(320,580,56,46);
+            btnOK[i].setBounds(320,630,56,46);
             btnOK[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnOK[i].addActionListener(new OKListener());
         }
