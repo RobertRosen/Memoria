@@ -62,7 +62,7 @@ public class CardDeck {
         ArrayList<String> cardSymbolPaths = new ArrayList<>();
 
         cardSymbolPaths.add("images/Centimeter.png");
-        cardSymbolPaths.add("images/Cylinder.png");
+      /*  cardSymbolPaths.add("images/Cylinder.png");
         cardSymbolPaths.add("images/Deci.png");
         cardSymbolPaths.add("images/DEka.png");
         cardSymbolPaths.add("images/Diameter.png");
@@ -75,26 +75,26 @@ public class CardDeck {
         cardSymbolPaths.add("images/Milli.png");
         cardSymbolPaths.add("images/Origo.png");
         cardSymbolPaths.add("images/Parallelogram.png");
-        cardSymbolPaths.add("images/Radie.png");
+        cardSymbolPaths.add("images/Radie.png");*/
         cardSymbolPaths.add("images/RektangelnsArea.png");
-        cardSymbolPaths.add("images/RÄtVinkel.png");
+        cardSymbolPaths.add("images/RÄtvinkel.png");
         cardSymbolPaths.add("images/SpetsigVinkel.png");
         cardSymbolPaths.add("images/Tjog.png");
         cardSymbolPaths.add("images/TriangelnsArea.png");
-        cardSymbolPaths.add("images/TRubbigVinkel.png");
+        cardSymbolPaths.add("images/TRubbigVinkel1.png");
         cardSymbolPaths.add("images/Typvärde.png");
         cardSymbolPaths.add("images/UddaTal.png");
         cardSymbolPaths.add("images/Agebra5.PNG");
         cardSymbolPaths.add("images/Algebra1.PNG");
         cardSymbolPaths.add("images/ALgebra3.PNG");
         cardSymbolPaths.add("images/Bråk.PNG");
-        cardSymbolPaths.add("images/DIvision.PNG");
+        /*cardSymbolPaths.add("images/DIvision.PNG");
         cardSymbolPaths.add("images/minus.png");
         cardSymbolPaths.add("images/Multiplikation.png");
-        cardSymbolPaths.add("images/pi.jpg");
+        cardSymbolPaths.add("images/pi3.jpg");
         cardSymbolPaths.add("images/plus.png");
         cardSymbolPaths.add("images/Unit.PNG");
-        cardSymbolPaths.add("images/Ut.PNG");
+        cardSymbolPaths.add("images/Ut.PNG");*/
 
         return cardSymbolPaths;
     }
@@ -107,7 +107,7 @@ public class CardDeck {
 
         ArrayList<String> cardSymbolPaths = new ArrayList<>();
 
-        cardSymbolPaths.add("images/Centimeter2.png");
+    /*    cardSymbolPaths.add("images/Centimeter2.png");
         cardSymbolPaths.add("images/Cylinder2.png");
         cardSymbolPaths.add("images/Deci2.png");
         cardSymbolPaths.add("images/DEka2.png");
@@ -121,9 +121,9 @@ public class CardDeck {
         cardSymbolPaths.add("images/Milli2.png");
         cardSymbolPaths.add("images/Origo2.png");
         cardSymbolPaths.add("images/Parallellogram2.png");
-        cardSymbolPaths.add("images/Radie2.png");
+        cardSymbolPaths.add("images/Radie2.png");*/
         cardSymbolPaths.add("images/RektangelnsArea2.png");
-        cardSymbolPaths.add("images/RätVinkel2.png");
+        cardSymbolPaths.add("images/Rätvinkel2.png");
         cardSymbolPaths.add("images/SpetsigVinkel2.png");
         cardSymbolPaths.add("images/Tjog2.png");
         cardSymbolPaths.add("images/TriangelnsArea2.png");
@@ -134,13 +134,13 @@ public class CardDeck {
         cardSymbolPaths.add("images/Algebra2.PNG");
         cardSymbolPaths.add("images/ALgebra4.PNG");
         cardSymbolPaths.add("images/Bråk2.PNG");
-        cardSymbolPaths.add("images/DIvision2.PNG");
+    /*    cardSymbolPaths.add("images/DIvision2.PNG");
         cardSymbolPaths.add("images/minus2.png");
         cardSymbolPaths.add("images/Multiplikation2.PNG");
         cardSymbolPaths.add("images/pi2.jpg");
         cardSymbolPaths.add("images/plus2.png");
         cardSymbolPaths.add("images/Unit2.PNG");
-        cardSymbolPaths.add("images/Ut2.PNG");
+        cardSymbolPaths.add("images/Ut2.PNG");*/
 
         return cardSymbolPaths;
     }
