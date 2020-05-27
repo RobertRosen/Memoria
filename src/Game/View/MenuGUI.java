@@ -15,6 +15,7 @@ import java.awt.event.WindowEvent;
  * This class contains Memorias main menu
  * @author Yasir Kakar
  * @author Adel Sabanovic
+ * @author Joakim Tell
  * @version 3.0
  * @since 2020-04-16
  *
@@ -77,7 +78,7 @@ public class MenuGUI extends JFrame {
 
         setSize(500, 400);
         setVisible(true);
-        testClose();
+        XButtonPressed();
         setLocationRelativeTo(null);
         pnlMain.setBackground(Color.WHITE);
 
@@ -307,7 +308,7 @@ public class MenuGUI extends JFrame {
     /**
      * If X on frame i pressed asks the user if the want to close the program.
      */
-    public void testClose() {
+    public void XButtonPressed() {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         this.addWindowListener(new WindowAdapter() {

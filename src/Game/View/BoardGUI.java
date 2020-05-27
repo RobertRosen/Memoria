@@ -17,7 +17,7 @@ import java.util.Collections;
  * <p>
  * This class contains the game board
  *
- * @author Adel Sabanovic, Robert Rosencrantz
+ * @author Adel Sabanovic, Robert Rosencrantz, Joakim Tell
  * @version 3.0
  * @since 2020-04-16
  * TODO- Kommentera klassen på engelska.
@@ -95,7 +95,7 @@ public class BoardGUI extends JFrame {
         setLocationRelativeTo(null);
         setupTheGame();
         addListeners();
-        testClose();
+        XButtonPressed();
     }
 
     private void setupFrame() {
@@ -365,7 +365,7 @@ public class BoardGUI extends JFrame {
     /**
      * If X on frame i pressed asks the user if the want to close the program.
      */
-    public void testClose() {
+    public void XButtonPressed() {
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
         this.addWindowListener(new WindowAdapter() {
@@ -376,7 +376,7 @@ public class BoardGUI extends JFrame {
                 if(x==JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
                 } else {
-                    System.out.println("We are happy you are back :)");
+                    JOptionPane.showMessageDialog(null,"We are happy you are back :)");
                 }
             }
         });
