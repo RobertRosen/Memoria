@@ -2,6 +2,7 @@ package Game.View;
 
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
+import Game.multiplicationGame.DropCardsThread;
 
 import javax.swing.*;
 import java.awt.*;
@@ -227,6 +228,8 @@ public class MenuGUI extends JFrame {
      */
     private class MouseSinglePlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
+            new DropCardsThread(controller, 29);
+            dispose();
         }
 
         public void mousePressed(MouseEvent e) {
