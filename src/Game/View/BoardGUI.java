@@ -375,6 +375,7 @@ public class BoardGUI extends JFrame {
                         "Do you really want to close Memoria?");
                 if(x==JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
+                    System.exit(0);
                 } else {
                     JOptionPane.showMessageDialog(null,"We are happy you are back :)");
                 }
