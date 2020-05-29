@@ -227,6 +227,7 @@ public class JokerGUI extends JFrame {
                         "Do you really want to close Memoria?");
                 if(x==JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
+                    System.exit(0);
                 } else {
                     System.out.println("We are happy you are back :)");
                 }
