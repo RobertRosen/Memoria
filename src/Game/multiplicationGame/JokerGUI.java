@@ -204,10 +204,6 @@ public class JokerGUI extends JFrame {
             }
 
             labelTyping.setText(answerTyped);
-            repaint();
-
-            // Print out the code
-            System.out.println(c);
         }
 
         @Override
