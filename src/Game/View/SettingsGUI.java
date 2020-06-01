@@ -209,8 +209,4 @@ public class SettingsGUI extends JFrame {
             musicController.stopMusic();
         }
     }
-
-    public static void main(String[] args) {
-        SettingsGUI settingsGUI = new SettingsGUI();
-    }
 }
