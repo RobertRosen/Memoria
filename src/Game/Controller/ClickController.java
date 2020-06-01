@@ -13,6 +13,12 @@ import java.io.File;
 public class ClickController {
     private Clip clip;
 
+    /**
+     * This method plays the audio for the different sounds like when the player clicks
+     * on a card or gets a point and so on
+     * @version 4.0
+     * @author Yasir Kakar
+     */
     public  void click(String filename){
 
         try {
@@ -24,8 +30,5 @@ public class ClickController {
         }catch (Exception e){
             e.printStackTrace();
         }
-    }
-    public void stop(){
-        clip.stop();
     }
 }

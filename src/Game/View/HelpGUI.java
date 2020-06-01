@@ -371,11 +371,4 @@ public class HelpGUI extends JFrame {
             dispose();
         }
     }
-
-    public static void main(String[] args) {
-        HelpGUI helpGUI = new HelpGUI();
-
-    }
-
-
 }
