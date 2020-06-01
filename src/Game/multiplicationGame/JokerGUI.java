@@ -25,15 +25,6 @@ public class JokerGUI extends JFrame {
      * Construct and initialize the GUI.
      */
     public JokerGUI() {
-        labelTyping = new JLabel("") {
-            @Override
-            public boolean isValidateRoot() {
-                return true;
-            }
-        };
-        labelTyping.setFont(new Font("monospaced", Font.BOLD, 90));
-        labelTyping.setBackground(Color.WHITE);
-
         setupGamePanel();
         setupTypePanel();
         setupMainPanel();
@@ -53,9 +44,9 @@ public class JokerGUI extends JFrame {
         addKeyListener(new TypeListener());
         setFocusable(true);
 
-        setVisible(true);
         setResizable(false);
         pack();
+        setVisible(true);
     }
 
     private void setupMainPanel() {
@@ -80,6 +71,14 @@ public class JokerGUI extends JFrame {
         pnlTyping.add(lblLogo, BorderLayout.WEST);
         JPanel pnlCenterTyping = new JPanel(new BorderLayout());
         pnlCenterTyping.setBackground(Color.WHITE);
+        labelTyping = new JLabel("") {
+            @Override
+            public boolean isValidateRoot() {
+                return true;
+            }
+        };
+        labelTyping.setFont(new Font("monospaced", Font.BOLD, 90));
+        labelTyping.setBackground(Color.WHITE);
         pnlCenterTyping.add(labelTyping, BorderLayout.CENTER);
         pnlTyping.add(pnlCenterTyping, BorderLayout.CENTER);
         pnlTyping.add(textFieldPoints, BorderLayout.EAST);
@@ -151,7 +150,7 @@ public class JokerGUI extends JFrame {
         lblFinalPoints.setForeground(Color.BLACK);
 
         pnlGame.add(lblFinalPoints);
-        revalidate();
+//        revalidate();
     }
 
     private void addTwoPointsText() {
@@ -167,7 +166,7 @@ public class JokerGUI extends JFrame {
         lblTwoPoints.setVisible(false);
 
         pnlGame.add(lblTwoPoints);
-        revalidate();
+//        revalidate();
     }
 
     @Override
@@ -204,10 +203,6 @@ public class JokerGUI extends JFrame {
             }
 
             labelTyping.setText(answerTyped);
-            repaint();
-
-            // Print out the code
-            System.out.println(c);
         }
 
         @Override
@@ -227,6 +222,7 @@ public class JokerGUI extends JFrame {
                         "Do you really want to close Memoria?");
                 if(x==JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
+                    System.exit(0);
                 } else {
                     System.out.println("We are happy you are back :)");
                 }

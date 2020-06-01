@@ -47,10 +47,6 @@ public class CardDeck {
             }
         }
 
-        System.out.println(randomNbrs); // TEST random numbers. TA BORT
-
-        System.out.println(cardSymbolPaths);    // TEST lista. TA BORT
-
         return cardSymbolPaths;
     }
 
