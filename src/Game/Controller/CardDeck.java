@@ -11,7 +11,6 @@ import java.util.Random;
  */
 public class CardDeck {
 
-    //OBS, markera bort showInfoPanel om detta ska funka!
 
     /**
      * Creates and mixes paris of symbols for the boardGUI.
