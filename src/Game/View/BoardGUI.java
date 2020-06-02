@@ -1,6 +1,6 @@
 package Game.View;
 
-import Game.Controller.CardDeck;
+import Game.Model.CardDeck;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
 import Game.Model.Card;

@@ -1,4 +1,4 @@
-package Game.multiplicationGame;
+package Game.Model;
 
 import java.util.*;
 

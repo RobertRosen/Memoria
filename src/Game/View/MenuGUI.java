@@ -2,7 +2,7 @@ package Game.View;
 
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
-import Game.multiplicationGame.DropCardsThread;
+import Game.Controller.multiplicationGame.DropCardsThread;
 
 import javax.swing.*;
 import java.awt.*;

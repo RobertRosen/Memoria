@@ -6,7 +6,7 @@ import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
 import Game.View.MenuGUI;
-import Game.multiplicationGame.DropCardsThread;
+import Game.Controller.multiplicationGame.DropCardsThread;
 
 import javax.swing.*;
 import java.util.Arrays;

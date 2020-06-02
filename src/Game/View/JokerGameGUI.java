@@ -1,4 +1,6 @@
-package Game.multiplicationGame;
+package Game.View;
+
+import Game.Controller.multiplicationGame.CardDropTask;
 
 import javax.swing.*;
 import java.awt.*;

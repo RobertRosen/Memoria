@@ -1,7 +1,8 @@
-package Game.multiplicationGame;
+package Game.Controller.multiplicationGame;
 
 import Game.Controller.ClickController;
 import Game.Model.Card;
+import Game.View.JokerGameGUI;
 
 import javax.swing.*;
 import java.awt.*;

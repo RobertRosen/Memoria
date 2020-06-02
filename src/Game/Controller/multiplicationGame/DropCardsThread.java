@@ -1,8 +1,10 @@
-package Game.multiplicationGame;
+package Game.Controller.multiplicationGame;
 
 import Game.Controller.ClickController;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
+import Game.Model.NumbersScanner;
+import Game.View.JokerGameGUI;
 
 import java.util.ArrayList;
 import java.util.Random;

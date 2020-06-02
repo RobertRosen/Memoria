@@ -1,4 +1,6 @@
-package Game.Controller;
+package Game.Model;
+
+import Game.Controller.Game;
 
 import java.util.ArrayList;
 import java.util.Random;
