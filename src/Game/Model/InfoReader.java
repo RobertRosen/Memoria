@@ -1,92 +1,72 @@
 package Game.Model;
 
-import java.io.File;
-import java.io.FileNotFoundException;       
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.List;
+import java.util.Map;
 
 /**
- * The class infopanel reads 2 textfiles and first puts them in two arraylist and then a hashmap.
+ * Reader of two text files to get formatted strings to a map.
+ * The map is a container for corresponding pairs of symbol strings and info strings.
+ *
  * @author Joakim Tell och Robert Rozencrantz
- * @version 3.0
+ * @version 4.0
  */
 public class InfoReader {
 
-    /**
-     * Variables
-     */
-    private HashMap<String,String> infoMap = new HashMap();
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ArrayList<String> arrayList2 = new ArrayList<>();
-    private File file;
-    private File file2;
-
+    private Map<String, String> infoMap;
+    private List<String> infoList;
+    private List<String> symbolsList;
 
     /**
-     * Constructor
-     * @param infoPanelFile reads the infopanelfile
-     * @param symbolfile reads the symbolfile
+     * Constructor.
+     *
+     * @param infoPath   source for
+     * @param symbolPath reads the symbolfile
      */
-    public InfoReader(String infoPanelFile, String symbolfile) {
-        file = new File(infoPanelFile);
-        file2 = new File(symbolfile);
-        readTextFile();
-        readTextFile2();
+    public InfoReader(String infoPath, String symbolPath) {
+        infoMap = new HashMap<>();
+        symbolsList = new ArrayList<>();
+        infoList = new ArrayList<>();
+        readTextFile(infoList, new File(infoPath));
+        readTextFile(symbolsList, new File(symbolPath));
         createHashMap();
     }
 
     /**
-     * reads the the first infoPanel.txt file and puts it in an arraylist
+     * Reads each line in a txt file and puts them as strings in a list.
+     *
+     * @param list the target list to store the strings
+     * @param file the source file to get text
      */
-    private void readTextFile() {
-        Scanner input = null;
-        try {
-            input = new Scanner(file);
-        } catch (FileNotFoundException e) {
+    private void readTextFile(List<String> list, File file) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new FileInputStream(file), StandardCharsets.UTF_8))) {
+            String nextLine;
+            while ((nextLine = reader.readLine()) != null) {
+                list.add(nextLine);
+            }
+        } catch (IOException e) {
             e.printStackTrace();
         }
-        if (input != null) {
-            while (input.hasNext()) {
-                String nextLine = input.nextLine();
-                arrayList.add(nextLine);
-
-            }
-            input.close();
-        }
-
     }
 
     /**
-     * reads the the first symbol.txt file and puts it in an arraylist
+     * Creates a container for corresponding pairs of symbol strings and info strings.
+     * The symbol string acts as a key for searching.
      */
-    private void readTextFile2() {
-        Scanner input = null;
-        try {
-            input = new Scanner(file2);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        if (input != null) {
-            while (input.hasNext()) {
-                String nextLine = input.nextLine();
-                arrayList2.add(nextLine);
-
-            }
-            input.close();
-        }
-
-    }
-
     public void createHashMap() {
-        for(int i = 0; i<arrayList2.size(); i++) {
-            infoMap.put(arrayList2.get(i), arrayList.get(i));
+        for (int i = 0; i < symbolsList.size(); i++) {
+            String symbolKey = symbolsList.get(i);
+            String infoValue = infoList.get(i);
+            infoMap.put(symbolKey, infoValue);
         }
     }
 
-    public HashMap<String, String> getInfoMap() {
+    public Map<String, String> getInfoMap() {
         return infoMap;
-
-
     }
 }
