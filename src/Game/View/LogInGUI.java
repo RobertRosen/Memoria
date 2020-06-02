@@ -153,8 +153,9 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
+                setVisible(false);
+                dispose();
                 controller.createUser();
-                frame.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
             }

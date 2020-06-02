@@ -229,8 +229,9 @@ public class MenuGUI extends JFrame {
      */
     private class MouseSinglePlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            new DropCardsThread(controller, 29);
+            setVisible(false);
             dispose();
+            new DropCardsThread(controller, 29);
         }
 
         public void mousePressed(MouseEvent e) {

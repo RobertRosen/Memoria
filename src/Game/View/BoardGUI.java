@@ -253,7 +253,7 @@ public class BoardGUI extends JFrame {
     private void setupTimer() {
         timer = new Timer(1500, new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                controller.checkCards();
+                controller.checkForMatch();
             }
         });
         timer.setRepeats(false);

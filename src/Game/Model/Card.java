@@ -7,9 +7,9 @@ import java.awt.*;
 
 /**
  * The card class represents a card in the memory game.
- * @version 3.0
+ *
  * @author Robert Rosencrantz, Adel Sabanovic
- * TODO: Kanske inte ärva JButton?
+ * @version 4.0
  */
 public class Card extends JButton {
     private ClickController clickcontroller = new ClickController();
@@ -28,22 +28,23 @@ public class Card extends JButton {
     }
 
     /**
-     * Turn card to show symbol.
+     * Turn card to show symbol. The image scales to fit the Card size to to
+     * maximize the image size without altering its format.
      */
     public void revealSymbol() {
         imageShowing = new ImageIcon(pathSymbol);
         clickcontroller.click("music/CardClick.wav");
-        double imageWidth   = imageShowing.getIconWidth();
-        double imageHeight  = imageShowing.getIconHeight();
-        double cardHeight   = getHeight();
-        double cardWidth    = getWidth();
+        double imageWidth = imageShowing.getIconWidth();
+        double imageHeight = imageShowing.getIconHeight();
+        double cardHeight = getHeight();
+        double cardWidth = getWidth();
 
-        double scaleHeight  = cardHeight/imageHeight;
-        double scaleWidth   = cardWidth/imageWidth;
-        double scale        = Math.min(scaleHeight, scaleWidth); // Get appropriate scale for this cards image.
+        double scaleHeight = cardHeight / imageHeight;
+        double scaleWidth = cardWidth / imageWidth;
+        double scale = Math.min(scaleHeight, scaleWidth); // Get appropriate scale for this cards image.
 
-        int width           = (int) (imageWidth*scale);
-        int height          = (int) (imageHeight*scale);
+        int width = (int) (imageWidth * scale);
+        int height = (int) (imageHeight * scale);
 
         Image imageToScale = imageShowing.getImage();
         Image scaledImage = imageToScale.getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -52,14 +53,9 @@ public class Card extends JButton {
     }
 
     /**
-     * Turn card symbol down.
+     * Turn card symbol down, backside up.
      */
     public void hideSymbol(int width, int height) {
-        // TODO: Possibly make back side image optional in the game.
-        //imageShowing = new ImageIcon("images/math4.jpg");
-        //imageShowing = new ImageIcon("images/Back.png");
-        //imageShowing = new ImageIcon("images/BackDark.png");
-        //imageShowing = new ImageIcon("images/BackGreen.png");
         imageShowing = new ImageIcon("images/BackMan.png");
         Image imageToScale = imageShowing.getImage();
         Image scaledImage = imageToScale.getScaledInstance(width, height, Image.SCALE_SMOOTH);
@@ -72,13 +68,13 @@ public class Card extends JButton {
     }
 
     public void setPathSymbol(String pathSymbol) {
-
         this.pathSymbol = pathSymbol;
     }
 
     public void setMatched(boolean matched) {
-        this.setBackground(new Color(215,215,215));
-        this.matched = matched; }
+        this.setBackground(new Color(215, 215, 215));
+        this.matched = matched;
+    }
 
     public boolean isMatched() {
         return matched;
