@@ -201,7 +201,7 @@ public class MenuGUI extends JFrame {
      */
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
-            controller.switchGUI();
+            controller.logInSecondPlayerView();
             dispose();
         }
 

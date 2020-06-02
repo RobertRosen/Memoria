@@ -8,11 +8,12 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * Contains the main parts of the GUI, where rain and drops are painted.
+ * Contains the main parts of the joker round and single player GUI, where rain and drops are painted.
+ *
  * @author Robert Rosencrantz
- * @version 3.0
+ * @version 4.0
  */
-public class JokerGUI extends JFrame {
+public class JokerGameGUI extends JFrame {
 
     private JPanel pnlMain;
     private JPanel pnlTyping;
@@ -24,7 +25,7 @@ public class JokerGUI extends JFrame {
     /**
      * Construct and initialize the GUI.
      */
-    public JokerGUI() {
+    public JokerGameGUI() {
         setupGamePanel();
         setupTypePanel();
         setupMainPanel();
@@ -104,7 +105,7 @@ public class JokerGUI extends JFrame {
      * Updates the GUI on the EDT
      * @param drop Drop (implements JTextField) to add on GUI.
      */
-    public void addDropToGamePanel(CardDrop drop) {
+    public void addDropToGamePanel(CardDropTask drop) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
@@ -150,7 +151,6 @@ public class JokerGUI extends JFrame {
         lblFinalPoints.setForeground(Color.BLACK);
 
         pnlGame.add(lblFinalPoints);
-//        revalidate();
     }
 
     private void addTwoPointsText() {
@@ -166,7 +166,6 @@ public class JokerGUI extends JFrame {
         lblTwoPoints.setVisible(false);
 
         pnlGame.add(lblTwoPoints);
-//        revalidate();
     }
 
     @Override
@@ -190,18 +189,14 @@ public class JokerGUI extends JFrame {
 
         @Override
         public void keyPressed(KeyEvent e) {
-
             char c = e.getKeyChar();
-
             if ("1234567890".contains(String.valueOf(c))) {
                 if (answerTyped.length() == 1) {
                     answerTyped += String.valueOf(c);
-
                 } else {
                     answerTyped = String.valueOf(c);
                 }
             }
-
             labelTyping.setText(answerTyped);
         }
 

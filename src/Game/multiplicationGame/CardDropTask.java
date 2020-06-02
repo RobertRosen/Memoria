@@ -12,9 +12,9 @@ import java.util.Random;
  * @author Robert Rosencrantz
  * @version 3.0
  */
-public class CardDrop extends Card implements Runnable {
+public class CardDropTask extends Card implements Runnable {
     private DropCardsThread dropCardsThread;
-    private JokerGUI jokerGui;
+    private JokerGameGUI jokerGameGui;
     private ClickController clickController = new ClickController();
 
     private boolean alive = false;
@@ -27,13 +27,13 @@ public class CardDrop extends Card implements Runnable {
 
     /**
      * Constructs and initialize this thread.
-     * @param jokerGui Where the game is played.
+     * @param jokerGameGui Where the game is played.
      * @param wordsrain the thread where this drop thread will be initiated.
      * @param problem the question to answer.
      * @param solved the answer to the problem.
      */
-    public CardDrop(JokerGUI jokerGui, DropCardsThread wordsrain, String problem, String solved) {
-        this.jokerGui = jokerGui;
+    public CardDropTask(JokerGameGUI jokerGameGui, DropCardsThread wordsrain, String problem, String solved) {
+        this.jokerGameGui = jokerGameGui;
         this.dropCardsThread = wordsrain;
         this.problem = problem;
         this.solved = solved;
@@ -103,8 +103,8 @@ public class CardDrop extends Card implements Runnable {
      * Todo: Syncronisering. Så att inte flera kort matchar.
      */
     private void matchingWord() throws InterruptedException {
-        if (jokerGui.getAnswerTyped().equals(solved)) {
-            jokerGui.setLabelTyping("");                 // Reset typing area after a matching word.
+        if (jokerGameGui.getAnswerTyped().equals(solved)) {
+            jokerGameGui.setLabelTyping("");                 // Reset typing area after a matching word.
 
             updateViewToMatchedDrop();
 
@@ -169,7 +169,7 @@ public class CardDrop extends Card implements Runnable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                jokerGui.addPointsText();
+                jokerGameGui.addPointsText();
             }
         });
     }
@@ -178,7 +178,7 @@ public class CardDrop extends Card implements Runnable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                jokerGui.addPointsText();
+                jokerGameGui.addPointsText();
             }
         });
     }

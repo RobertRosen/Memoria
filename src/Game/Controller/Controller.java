@@ -12,14 +12,13 @@ import javax.swing.*;
 import java.util.Arrays;
 
 /**
- * Controls interaction with model and view, between different views and handles game logic.
+ * Controls interaction with model and view, between different views and handles game logic for memory game.
  * <p>
- * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
+ * The memory game has som inspiration from
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
- *
+ * Stackexchange 20.04.14.
  * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
- * @version 3.0
- * TODO: Separat klass för växling mellan gui:s?
+ * @version 4.0
  */
 public class Controller {
     private ClickController clickController = new ClickController();
@@ -31,11 +30,9 @@ public class Controller {
 
     private DropCardsThread dropCardsThread;
     private InfoReader infoReader;
-    private Card selectedCard;
 
     private Card[] pairOfCards = new Card[2];   // To handle the two cards for each round of pairings.
     private User[] multiPlayer = new User[2];   // Keeps information of logged in users.
-
     private boolean turnPlayer1 = true;         // Track which players turn it is.
 
     /**
@@ -50,17 +47,19 @@ public class Controller {
     /**
      * Check if chosen card is first or second in a round.
      * Turn chosen card and delay if it is second card.
+     * Method is improved and adapted from:
+     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+     * Stackexchange 20.04.14.
      */
     public void doTurn(Card card) {
-        selectedCard = card;
 
         if (pairOfCards[0] == null) {
-            pairOfCards[0] = selectedCard;
+            pairOfCards[0] = card;
             pairOfCards[0].revealSymbol();
         }
 
-        if ((pairOfCards[0] != null) && (pairOfCards[0] != selectedCard) && (pairOfCards[1] == null)) {
-            pairOfCards[1] = selectedCard;
+        if ((pairOfCards[0] != null) && (pairOfCards[0] != card) && (pairOfCards[1] == null)) {
+            pairOfCards[1] = card;
             pairOfCards[1].revealSymbol();
             boardGUI.getTimer().start();
         }
@@ -68,6 +67,9 @@ public class Controller {
 
     /**
      * Check for matching cards and acts accordingly.
+     * Method is improved and adapted from:
+     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+     * Stackexchange 20.04.14.
      */
     public void checkCards() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
@@ -92,7 +94,7 @@ public class Controller {
                 incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
                 if(isGameWon()) {
-                    updatePoints();
+                    checkWinner();
                 }
             }
         } else {
@@ -104,8 +106,10 @@ public class Controller {
         Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
     }
 
-    //Byt namnet till whoIsWinner?
-    private void updatePoints() {
+    /**
+     *
+     */
+    private void checkWinner() {
         int score1 = multiPlayer[0].getGameScore();
         int score2 = multiPlayer[1].getGameScore();
         int score1total = multiPlayer[0].getTotalPoints();
@@ -191,7 +195,7 @@ public class Controller {
         int jokerPoints = dropCardsThread.getPoints();
         incrementScore(jokerPoints);
         if(isGameWon()) {
-            updatePoints();
+            checkWinner();
         }
     }
 
@@ -211,6 +215,9 @@ public class Controller {
 
     /**
      * Returns true when all cards are ultimately out of play.
+     * Method is reused and adapted from:
+     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+     * Stackexchange 20.04.14.
      */
     private boolean isGameWon() {
         for (Card card : boardGUI.getCards()) {
@@ -229,7 +236,7 @@ public class Controller {
     /**
      * Open login view for second player to sign in.
      */
-    public void switchGUI() {
+    public void logInSecondPlayerView() {
         logInPlayer2 = new LogInGUI(this, "Player Two");
     }
 
@@ -266,11 +273,11 @@ public class Controller {
         boardGUI.getTxtInfoArea().setText(newString);
     }
 
-    public void showBoardGUI() {
+    public void switchToBoard() {
         boardGUI.setVisible(true);
     }
 
-    public void showMenuGUI() {
+    public void switchToMenu() {
         menuGUI.setVisible(true);
     }
 }

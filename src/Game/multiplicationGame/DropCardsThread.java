@@ -3,7 +3,6 @@ package Game.multiplicationGame;
 import Game.Controller.ClickController;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
-import Game.View.MenuGUI;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,11 +16,11 @@ public class DropCardsThread implements Runnable {
     private MusicController musicController = new MusicController();
     private ClickController clickController = new ClickController();
     private Controller controller;
-    private JokerGUI jokerGui;
+    private JokerGameGUI jokerGameGui;
 
     private Random random;
 
-    private ArrayList<CardDrop> fallingDropsList;                                 // Stores drop threads.
+    private ArrayList<CardDropTask> fallingDropsList;                                 // Stores drop threads.
     private boolean gameRunning = true;                                        // Set to false to stop thread.
     private int points = 0;                                                   // Store current score.
     private int matches = 0;
@@ -36,10 +35,10 @@ public class DropCardsThread implements Runnable {
      */
     public DropCardsThread(Controller controller) {
         this.controller = controller;
-        jokerGui = new JokerGUI();
+        jokerGameGui = new JokerGameGUI();
         random = new Random();
         singlePlayer = false;
-        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
+        fallingDropsList = new ArrayList<CardDropTask>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupDropList();                                                             // Setup list of drop threads.
 
@@ -51,11 +50,11 @@ public class DropCardsThread implements Runnable {
      */
     public DropCardsThread(Controller controller, int problems) {
         this.controller = controller;
-        jokerGui = new JokerGUI();
+        jokerGameGui = new JokerGameGUI();
         random = new Random();
         this.NBR_OF_PROBLEMS_IN_BUFFER = problems;
         singlePlayer = true;
-        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
+        fallingDropsList = new ArrayList<CardDropTask>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupDropList();                                                             // Setup list of drop threads.
 
@@ -84,7 +83,7 @@ public class DropCardsThread implements Runnable {
             Thread.sleep(delayDrop);                                           // Delay next drop to random interval.
 
             if (!fallingDropsList.isEmpty()) {
-                CardDrop nextDrop = fallingDropsList.get(problemsDropped);
+                CardDropTask nextDrop = fallingDropsList.get(problemsDropped);
                 nextDrop.setDropSpeed(dropSpeed);
                 nextDrop.setAlive(true);// Start a new drop thread.
 
@@ -92,7 +91,7 @@ public class DropCardsThread implements Runnable {
                     dropSpeed--;
                 }
 
-                jokerGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
+                jokerGameGui.addDropToGamePanel(fallingDropsList.get(problemsDropped));   // Put the new drop on rain thread.
 
                 problemsDropped++;
             }
@@ -112,7 +111,7 @@ public class DropCardsThread implements Runnable {
     }
 
     private void singlePlayerGameOver() {
-        for (CardDrop drop : fallingDropsList) {
+        for (CardDropTask drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
 
@@ -125,13 +124,13 @@ public class DropCardsThread implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        jokerGui.dispose();
+        jokerGameGui.dispose();
         musicController.stopMusic();
-        controller.showMenuGUI();
+        controller.switchToMenu();
     }
 
     private void multiPlayerGameOver() {
-        for (CardDrop drop : fallingDropsList) {
+        for (CardDropTask drop : fallingDropsList) {
             drop.setAlive(false);                                 // Stop all drop threads (not really matched).
         }
         musicController.stopMusic();
@@ -142,8 +141,8 @@ public class DropCardsThread implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        jokerGui.dispose();
-        controller.showBoardGUI();
+        jokerGameGui.dispose();
+        controller.switchToBoard();
         musicController.playMusic("music/GameMusic.wav");
         controller.addJokerPoints();
     }
@@ -153,7 +152,7 @@ public class DropCardsThread implements Runnable {
      */
     public void incrementPoints() {
         points += 2;
-        jokerGui.setTextFieldPoints(points);
+        jokerGameGui.setTextFieldPoints(points);
         clickController.click("music/Point.wav");
     }
 
@@ -173,8 +172,8 @@ public class DropCardsThread implements Runnable {
             String problem = problemsBuffer.remove(0);
             String solved = solvedBuffer.remove(0);
 
-            CardDrop cardDrop = new CardDrop(jokerGui,this, problem, solved);
-            fallingDropsList.add(cardDrop);
+            CardDropTask cardDropTask = new CardDropTask(jokerGameGui,this, problem, solved);
+            fallingDropsList.add(cardDropTask);
         }
     }
 
@@ -199,9 +198,9 @@ public class DropCardsThread implements Runnable {
         new DropCardsThread();
     }
     public DropCardsThread() {
-        jokerGui = new JokerGUI();
+        jokerGameGui = new JokerGameGUI();
         random = new Random();
-        fallingDropsList = new ArrayList<CardDrop>(NBR_OF_PROBLEMS_IN_BUFFER);
+        fallingDropsList = new ArrayList<CardDropTask>(NBR_OF_PROBLEMS_IN_BUFFER);
 
         setupDropList();
 

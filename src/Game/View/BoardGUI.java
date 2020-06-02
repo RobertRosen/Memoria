@@ -12,15 +12,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Inspiration och lånade bitar ur memoryspel hämtat från stackexchange 20.04.14.
- * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
- * <p>
  * This class contains the game board
  *
  * @author Adel Sabanovic, Robert Rosencrantz, Joakim Tell
  * @version 3.0
  * @since 2020-04-16
- * TODO- Kommentera klassen på engelska.
  */
 public class BoardGUI extends JFrame {
     MusicController musicController = new MusicController();
@@ -81,8 +77,10 @@ public class BoardGUI extends JFrame {
     private JLabel lblPi = new JLabel(iconPi);
     private JLabel lblPi2 = new JLabel(iconPi);
 
-    Controller controller;
+    private Timer timer;
+    private ArrayList<Card> cards;
 
+    Controller controller;
 
     public BoardGUI(Controller controller) {
         this.controller = controller;
@@ -216,19 +214,19 @@ public class BoardGUI extends JFrame {
         btnBack.addActionListener(new ActionListener());
     }
 
-    // TODO: Skapa en CardDeck-klass för nedanstående metoder?
-    private Timer timer;
-    private ArrayList<Card> cards;
-
-    // Hjälper till att sätta upp spelet i konstruktorn.
+    /**
+     * Adds and sets upp the cards on the board panel with listeners and a timer.
+     * Method has inspiration and partially adopted from:
+     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+     * Stackexchange 20.04.14.
+     */
     private void setupTheGame() {
         cards = new ArrayList<Card>();
         ArrayList<String> cardSymbolPaths;
 
-        // Lägga 24 cards i arrayen
-        cardSymbolPaths = new CardDeck().addSymbols();         // Lägg bilder på korten.
-        Collections.shuffle(cardSymbolPaths);   // Blanda symbolerna.
-        for (String symbol : cardSymbolPaths) { // Går igenom arrayen cardSymbolPaths, i varje iteration så skapas nytt cardobjekt och placerar i cardarray.
+        cardSymbolPaths = new CardDeck().addSymbols();  // Add images to cards.
+        Collections.shuffle(cardSymbolPaths);           // Randomize symbols.
+        for (String symbol : cardSymbolPaths) {         // Setup 24 cards.
             Card card = new Card();
             card.setPathSymbol(symbol);
             card.addActionListener(new ActionListener() {
@@ -236,14 +234,12 @@ public class BoardGUI extends JFrame {
                     controller.doTurn(card);
                 }
             });
-            card.hideSymbol(65,83);
+            card.hideSymbol(65,83);       // Turn backside up.
             cards.add(card);
         }
 
         setupTimer();
-
-        // Lägga ut alla kort på panelen initialt med baksida upp
-        for (Card card : cards) {
+        for (Card card : cards) {                       // Add 24 cards to board.
             pnlCardsLayout.add(card);
         }
         revalidate();
@@ -252,7 +248,7 @@ public class BoardGUI extends JFrame {
 
 
     /**
-     * Sätter upp en timer på händelsetråden.
+     * Sets up a timer with a delay after each pairing in the game, before the cards are turned back.
      */
     private void setupTimer() {
         timer = new Timer(1500, new ActionListener() {
@@ -356,7 +352,7 @@ public class BoardGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             if (e.getSource()==btnBack){
                 dispose();
-                controller.showMenuGUI();
+                controller.switchToMenu();
                 musicController.stopMusic();
             }
         }
