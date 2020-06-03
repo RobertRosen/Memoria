@@ -223,7 +223,7 @@ public class MenuGUI extends JFrame {
     }
 
     /**
-     * This class contains the functions for the single-player button in the MenuGUI
+     * This class contains the functions for the single player button in the MenuGUI
      * @version 3.0
      * @author Yasir Kakar
      */

@@ -58,7 +58,7 @@ public class HelpGUI extends JFrame {
     }
 
     /**
-     * This method lets the developers to place the panels anywhere necessary in the Frame
+     * This method let the developers place the panels anywhere necessary in the Frame
      * @version 3.0
      * @author Yasir Kakar
      */
@@ -75,7 +75,7 @@ public class HelpGUI extends JFrame {
     }
 
     /**
-     * This method adds the constructors of the innerclasses to the panels shown in the HelpGUI
+     * This method adds the constructors of the inner classes to the panels shown in the HelpGUI
      * @version 3.0
      * @author Yasir Kakar
      */
@@ -171,7 +171,7 @@ public class HelpGUI extends JFrame {
     }
 
     /**
-     * Each panelclass below contains the images that are presented in the HelpGUI
+     * Each panel class below contains the images that are presented in the HelpGUI
      * @version 3.0
      * @author Yasir Kakar
      */

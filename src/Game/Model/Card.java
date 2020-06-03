@@ -60,7 +60,7 @@ public class Card extends JButton {
         //imageShowing = new ImageIcon("images/Back.png");
         //imageShowing = new ImageIcon("images/BackDark.png");
         //imageShowing = new ImageIcon("images/BackGreen.png");
-        imageShowing = new ImageIcon("images/BackMan.png");
+        //imageShowing = new ImageIcon("images/BackMan.png");
         Image imageToScale = imageShowing.getImage();
         Image scaledImage = imageToScale.getScaledInstance(width, height, Image.SCALE_SMOOTH);
         ImageIcon scaledImageIcon = new ImageIcon(scaledImage);

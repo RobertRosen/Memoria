@@ -40,13 +40,7 @@ public class BoardGUI extends JFrame {
     private ImageIcon iconHelp = new ImageIcon("images/questionMark1.jpg");
     private ImageIcon iconInstructions = new ImageIcon("images/gear1.jpg");
     private ImageIcon iconMemoriaLogo = new ImageIcon("images/mem2.jpg");
-    //private ImageIcon iconBlueStripe = new ImageIcon("images/blue1.jpg");
     private ImageIcon iconBlueStripe = new ImageIcon("images/blue5.jpg");
-    //private ImageIcon iconBlueStripe = new ImageIcon("images/blue3.jpg");
-    //private ImageIcon iconBlueStripe = new ImageIcon("images/black.jpg");
-    //private ImageIcon iconBlueStripe = new ImageIcon("images/red.jpg");
-    //private ImageIcon iconBlueStripe = new ImageIcon("images/red3.jpg");
-    //private ImageIcon iconBlueStripe2 = new ImageIcon("images/red4.jpg");
     private ImageIcon iconBlueStripe2 = new ImageIcon("images/blue4.jpg");
     private ImageIcon iconMathLogo = new ImageIcon("images/mathLogo.JPG");
     private ImageIcon iconPi = new ImageIcon("images/pi.jpg");
@@ -82,6 +76,10 @@ public class BoardGUI extends JFrame {
 
     Controller controller;
 
+    /**
+     * A constructor with one parameter
+     * @param controller
+     */
     public BoardGUI(Controller controller) {
         this.controller = controller;
         musicController.stopMusic();
@@ -96,6 +94,9 @@ public class BoardGUI extends JFrame {
         XButtonPressed();
     }
 
+    /**
+     * Sets up the frame and adds the main panel
+     */
     private void setupFrame() {
         setSize(900, 590);
         setVisible(true);
@@ -103,6 +104,9 @@ public class BoardGUI extends JFrame {
         add(pnlMain);
     }
 
+    /**
+     * Adds components to the main panel
+     */
     private void addComponents() {
         pnlMain.add(btnBack);
         pnlMain.add(lblMemoriaLogo);
@@ -143,6 +147,10 @@ public class BoardGUI extends JFrame {
         pnlPlayer2.add(pnlPlayer2Color2);
     }
 
+    /**
+     * Sets the sizes for all the components
+     */
+
     private void setupComponentsSizes() {
         pnlMain2.setPreferredSize(new Dimension(850, 500));
         btnBack.setPreferredSize(new Dimension(25, 20));
@@ -181,6 +189,9 @@ public class BoardGUI extends JFrame {
         pnlPlayer2Color2.setPreferredSize(new Dimension(100,10));
     }
 
+    /**
+     * Sets colors and title borders to the different components
+     */
     private void setupComponents() {
         pnlMain.setBackground(Color.WHITE);
         pnlCards.setBackground(Color.WHITE);
@@ -208,6 +219,9 @@ public class BoardGUI extends JFrame {
         lblScore2.setText("0");
     }
 
+    /**
+     * Adds the listeners to the buttons
+     */
     private void addListeners(){
         btnSettings.addMouseListener(new MouseSettings());
         btnInstructions.addMouseListener(new MouseHelp());
@@ -275,6 +289,9 @@ public class BoardGUI extends JFrame {
         return pnlPlayer2;
     }
 
+    /**
+     * Controls the color on the panel which indicate that its player 1's turn
+     */
     public void highlightPlayer1() {
         pnlPlayer1Color.setBackground(Color.GREEN);
         pnlPlayer1Color2.setBackground(Color.GREEN);
@@ -287,7 +304,9 @@ public class BoardGUI extends JFrame {
         pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
-
+    /**
+     * Controls the color on the panel which indicate that its player 2's turn
+     */
     public void highlightPlayer2() {
         pnlPlayer2Color.setBackground(Color.GREEN);
         pnlPlayer2Color2.setBackground(Color.GREEN);
@@ -301,6 +320,10 @@ public class BoardGUI extends JFrame {
         pnlPlayer2Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
+    /**
+     * An inner class that makes it so that a pi logo shows next to the button the mouse is hovering over
+     * it and shows the settings menu if clicked
+     */
     private class MouseSettings implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new SettingsGUI();
@@ -323,7 +346,10 @@ public class BoardGUI extends JFrame {
             lblEmptyLogo.setVisible(true);
         }
     }
-
+    /**
+     * An inner class that makes it so that a pi logo shows next to the button the mouse is hovering over
+     * it and shows the help menu if clicked
+     */
     private class MouseHelp implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             new HelpGUI();
@@ -346,6 +372,9 @@ public class BoardGUI extends JFrame {
         }
     }
 
+    /**
+     * An inner class that controls the function for the back button
+     */
     public class ActionListener implements java.awt.event.ActionListener {
 
         @Override

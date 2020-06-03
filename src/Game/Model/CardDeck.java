@@ -76,7 +76,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Parallelogram.png");
         cardSymbolPaths.add("images/Radie.png");
         cardSymbolPaths.add("images/RektangelnsArea.png");
-        cardSymbolPaths.add("images/RÄtvinkel.png");
+        cardSymbolPaths.add("images/Rtvinkel.png");
         cardSymbolPaths.add("images/SpetsigVinkel.png");
         cardSymbolPaths.add("images/Tjog.png");
         cardSymbolPaths.add("images/TriangelnsArea.png");
@@ -123,7 +123,7 @@ public class CardDeck {
         cardSymbolPaths.add("images/Parallellogram2.png");
         cardSymbolPaths.add("images/Radie2.png");
         cardSymbolPaths.add("images/RektangelnsArea2.png");
-        cardSymbolPaths.add("images/Rätvinkel2.png");
+        cardSymbolPaths.add("images/Rtvinkel2.png");
         cardSymbolPaths.add("images/SpetsigVinkel2.png");
         cardSymbolPaths.add("images/Tjog2.png");
         cardSymbolPaths.add("images/TriangelnsArea2.png");

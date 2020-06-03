@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 /**
- * Klassen LogInGUI är ett GUI för login. TODO-kommentera hela klassen på engelska
+ * This class contains the gui for the login menu TODO-kommentera hela klassen på engelska
  * @author Joakim Tell, Yasir Kakar, Adel Sabanovic
  * @version 3.0
  */
@@ -35,7 +35,7 @@ public class LogInGUI extends JFrame {
     private JButton btnLogin = new JButton(imgbtn);
 
     /**
-     * Konstruktor som initierar LogInGUI
+     * Constructor that initializes the different components in the class
      */
     public LogInGUI(Controller controller, String name) {
         this.controller = controller;
@@ -73,6 +73,9 @@ public class LogInGUI extends JFrame {
         listeners();
     }
 
+    /**
+     * Adds the listeners to the components
+     */
     private void listeners(){
         txtUsername.addKeyListener(new LimitUsername());
         btnLogin.addActionListener(new Listener());
@@ -82,7 +85,7 @@ public class LogInGUI extends JFrame {
     }
 
     /**
-     * This class makes the username hint disappear
+     * An inner class that makes the username hint disappear
      * @version 3.0
      * @author Yasir Kakar
      */
@@ -100,6 +103,9 @@ public class LogInGUI extends JFrame {
         }
     }
 
+    /**
+     * An inner class which limits how long a username can be
+     */
     private class LimitUsername implements KeyListener {
 
         @Override
@@ -125,6 +131,9 @@ public class LogInGUI extends JFrame {
         }
     }
 
+    /**
+     * An inner class that shows a pi logo if the mouse hovers over a certain button
+     */
     private class MouseSubmit implements MouseListener {
         public void mouseClicked(MouseEvent e) {
         }

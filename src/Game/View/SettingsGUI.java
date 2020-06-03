@@ -22,22 +22,22 @@ public class SettingsGUI extends JFrame {
     private JPanel pnlMain = new JPanel();
 
     private ImageIcon inställningarLogo = new ImageIcon("images/settings.PNG");
-    private ImageIcon musikLogo = new ImageIcon("images/music.PNG");
-    private ImageIcon påLogo = new ImageIcon("images/on.PNG");
-    private ImageIcon avLogo = new ImageIcon("images/Off.PNG");
-    private ImageIcon okLogo = new ImageIcon("images/ok.PNG");
-    private ImageIcon piLogo = new ImageIcon("images/pi.jpg");
+    private ImageIcon iconMusic = new ImageIcon("images/music.PNG");
+    private ImageIcon iconOn = new ImageIcon("images/on.PNG");
+    private ImageIcon iconOff = new ImageIcon("images/Off.PNG");
+    private ImageIcon iconOk = new ImageIcon("images/ok.PNG");
+    private ImageIcon iconPi = new ImageIcon("images/pi.jpg");
 
 
-    private JButton btnOn = new JButton(påLogo);
-    private JButton btnOff = new JButton(avLogo);
-    private JButton btnOk = new JButton(okLogo);
+    private JButton btnOn = new JButton(iconOn);
+    private JButton btnOff = new JButton(iconOff);
+    private JButton btnOk = new JButton(iconOk);
 
     private JLabel lblSettings = new JLabel(inställningarLogo);
-    private JLabel lblMusic = new JLabel(musikLogo);
-    private JLabel lblPiOn = new JLabel(piLogo);
-    private JLabel lblPiOff= new JLabel(piLogo);
-    private JLabel lblPi3Ok = new JLabel(piLogo);
+    private JLabel lblMusic = new JLabel(iconMusic);
+    private JLabel lblPiOn = new JLabel(iconPi);
+    private JLabel lblPiOff= new JLabel(iconPi);
+    private JLabel lblPi3Ok = new JLabel(iconPi);
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
@@ -90,7 +90,7 @@ public class SettingsGUI extends JFrame {
     }
 
     /**
-     * This method the buttons and labels in the SettingsGUI
+     * This method adds the buttons and labels in the SettingsGUI
      * @version 3.0
      * @author Yasir Kakar
      */
@@ -121,6 +121,9 @@ public class SettingsGUI extends JFrame {
         btnOk.addMouseListener(new MouseOk());
     }
 
+    /**
+     * Inner class shows a Pi logo while the mouse hovers over the "on" button
+     */
     private class MouseOn implements MouseListener {
         public void mouseClicked(MouseEvent e) {
 
@@ -140,7 +143,9 @@ public class SettingsGUI extends JFrame {
             lblPiOn.setVisible(false);
         }
     }
-
+    /**
+     * Inner class shows a Pi logo while the mouse hovers over the "off" button
+     */
     private class MouseOff implements MouseListener {
         public void mouseClicked(MouseEvent e) {
 
@@ -160,7 +165,9 @@ public class SettingsGUI extends JFrame {
             lblPiOff.setVisible(false);
         }
     }
-
+    /**
+     * Inner class shows a Pi logo while the mouse hovers over the "ok" button
+     */
     private class MouseOk implements MouseListener {
         public void mouseClicked(MouseEvent e) {
 
@@ -180,7 +187,6 @@ public class SettingsGUI extends JFrame {
             lblPi3Ok.setVisible(false);
         }
     }
-
 
     /**
      * This class contains the functions for the "OK" button in the SettingsGUI
