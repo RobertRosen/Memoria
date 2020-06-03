@@ -17,8 +17,6 @@ public class LogInGUI extends JFrame {
     private ImageIcon welcomeLogo = new ImageIcon("images/MemoriaWelcome.PNG");
     private ImageIcon imgbtn = new ImageIcon("images/ok.PNG");
 
-    private JFrame frame = new JFrame();
-
     private JPanel pnlMain = new JPanel();
 
     ImageIcon piLogo = new ImageIcon("images/pi.jpg");
@@ -39,11 +37,11 @@ public class LogInGUI extends JFrame {
      */
     public LogInGUI(Controller controller, String name) {
         this.controller = controller;
-        frame.setSize(380, 255);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
-        frame.setLocationRelativeTo(null);
-        frame.add(pnlMain);
+        setSize(380, 255);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+        setLocationRelativeTo(null);
+        add(pnlMain);
         pnlMain.setBackground(Color.WHITE);
 
         lblGame.setFont(myFont);
@@ -162,8 +160,10 @@ public class LogInGUI extends JFrame {
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             if ((txtUsername.getText().trim().length() <= 10) && (txtUsername.getText().trim().length() >= 3)) {
+
                 controller.createUser();
-                frame.dispose();
+                setVisible(false);
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Ogiltigt användarnamn");
             }

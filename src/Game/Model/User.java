@@ -1,24 +1,16 @@
 package Game.Model;
 
 /**
- * TODO- kommentera Klassen.
+ * A representation of a logged in user. The user has user name and a score.
+ * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
+ * @version 4.0
  */
 public class User {
-
     private String userName;
     private int totalPoints;
     private int gameScore;
 
-    public User() {
-
-    }
-
     public User(String userName) {
-        this.userName = userName;
-    }
-
-    public User(String userName, int totalPoints) {
-        this.totalPoints = totalPoints;
         this.userName = userName;
     }
 
@@ -45,10 +37,4 @@ public class User {
     public void setTotalPoints(int totalPoints) {
         this.totalPoints = totalPoints;
     }
-
-    /*
-    Som en användare behöver jag ett användarnamn, poäng under tiden jag spelar en match, totala poäng.
-    set och get metoder
-    konstruktor
-     */
 }

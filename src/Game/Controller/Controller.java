@@ -12,11 +12,13 @@ import javax.swing.*;
 import java.util.Arrays;
 
 /**
- * Controls interaction with model and view, between different views and handles game logic for memory game.
+ * Handles interaction between different views.
+ * Most of the memory game logic is handled in this class.
  * <p>
  * The memory game has som inspiration from
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  * Stackexchange 20.04.14.
+ *
  * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
  * @version 4.0
  */
@@ -27,7 +29,6 @@ public class Controller {
     private LogInGUI logInPlayer1;
     private LogInGUI logInPlayer2;
     private MenuGUI menuGUI;
-
     private DropCardsThread dropCardsThread;
     private InfoReader infoReader;
 
@@ -46,32 +47,34 @@ public class Controller {
 
     /**
      * Check if chosen card is first or second in a round.
-     * Turn chosen card and delay if it is second card.
+     * Delay and turn back cards two cards have been selected and if it is not a match.
      * Method is improved and adapted from:
      * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
      * Stackexchange 20.04.14.
      */
     public void doTurn(Card card) {
-
         if (pairOfCards[0] == null) {
             pairOfCards[0] = card;
             pairOfCards[0].revealSymbol();
-        }
-
-        if ((pairOfCards[0] != null) && (pairOfCards[0] != card) && (pairOfCards[1] == null)) {
-            pairOfCards[1] = card;
-            pairOfCards[1].revealSymbol();
-            boardGUI.getTimer().start();
+        } else {
+            if ((pairOfCards[0] != card) && (pairOfCards[1] == null)) {
+                pairOfCards[1] = card;
+                pairOfCards[1].revealSymbol();
+                boardGUI.getTimer().start();
+            }
         }
     }
 
     /**
-     * Check for matching cards and acts accordingly.
+     * Check if a selected pair of cards are matching. Switch user if no match.
+     * User plays again and gets points if it is a match, or switch to joker game view
+     * if joker symbols are matching.
+     * <p>
      * Method is improved and adapted from:
      * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
      * Stackexchange 20.04.14.
      */
-    public void checkCards() {
+    public void checkForMatch() {
         String firstSymbol = pairOfCards[0].getPathSymbol().substring(0, 9);
         String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
         final int POINTS_PER_MATCH = 10;
@@ -82,19 +85,17 @@ public class Controller {
             pairOfCards[1].setEnabled(false);
             pairOfCards[0].setMatched(true);
             pairOfCards[1].setMatched(true);
-            clickController.click("music/Point.wav");
-
             if (secondSymbol.equals("images/Jo")) {
                 dropCardsThread = new DropCardsThread(this);
                 boardGUI.setVisible(false);
                 musicController.stopMusic();
                 musicController.playMusic("music/JokerRound.wav");
-
             } else {
+                clickController.click("music/Point.wav");
                 incrementScore(POINTS_PER_MATCH);
                 showInfoOnPanel();
-                if(isGameWon()) {
-                    checkWinner();
+                if (isGameWon()) {
+                    announceWinner();
                 }
             }
         } else {
@@ -103,26 +104,118 @@ public class Controller {
             }
             switchPlayers();
         }
-        Arrays.fill(pairOfCards, null);                             // Empty the pair of cards after each round.
+        Arrays.fill(pairOfCards, null);                     // Empty the pair of cards after each round.
     }
 
     /**
-     *
+     * Access the points achieved from the joker bonus round, and update score.
      */
-    private void checkWinner() {
+    public void addJokerPoints() {
+        int jokerPoints = dropCardsThread.getPoints();
+        incrementScore(jokerPoints);
+        if (isGameWon()) {
+            announceWinner();
+        }
+    }
+
+    /**
+     * Checks if the game is over. Returns true when all cards are ultimately out of play.
+     * Method is reused and adapted from:
+     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
+     * Stackexchange 20.04.14.
+     */
+    private boolean isGameWon() {
+        for (Card card : boardGUI.getCards()) {
+            if (!card.isMatched()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Create a user based on user name input from login window.
+     * After called for user number one, view switch to menu.
+     * After called for user number two, view switch to memory game.
+     */
+    public void createUser() {
+        if (multiPlayer[0] == null) {
+            String name = logInPlayer1.getTxtUsername().getText();
+            multiPlayer[0] = new User(name);
+            JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
+            menuGUI = new MenuGUI(this);
+        } else {
+            String name = logInPlayer2.getTxtUsername().getText();
+            multiPlayer[1] = new User(name);
+            JOptionPane.showMessageDialog(null, "Välkommen spelare 2: " + name);
+            boardGUI = new BoardGUI(this);
+            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
+            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
+        }
+    }
+
+    /**
+     * Match key secondsymbol with info text from the info reader hashmap.
+     * Displays the info in the info panel in view, when called.
+     */
+    private void showInfoOnPanel() {
+        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
+        String newString = infoReader.getInfoMap().get(secondSymbol);
+        boardGUI.getTxtInfoArea().setText("");
+        boardGUI.getTxtInfoArea().setText(newString);
+    }
+
+    /**
+     * Open up a new login GUI for a second user.
+     */
+    public void logInSecondPlayerView() {
+        logInPlayer2 = new LogInGUI(this, "Player Two");
+    }
+
+    /**
+     * Go back to memory game view.
+     */
+    public void switchToBoard() {
+        boardGUI.setVisible(true);
+    }
+
+    /**
+     * Go back to menu view.
+     */
+    public void switchToMenu() {
+        menuGUI.setVisible(true);
+    }
+
+    /**
+     * Switch indicators in memory game view for which users playing turn it is.
+     */
+    private void switchPlayers() {
+        if (turnPlayer1) {
+            boardGUI.highlightPlayer2();
+            turnPlayer1 = false;
+        } else {
+            boardGUI.highlightPlayer1();
+            turnPlayer1 = true;
+        }
+    }
+
+    /**
+     * Check for the winner and ends the game.
+     */
+    private void announceWinner() {
         int score1 = multiPlayer[0].getGameScore();
         int score2 = multiPlayer[1].getGameScore();
         int score1total = multiPlayer[0].getTotalPoints();
         int score2total = multiPlayer[1].getTotalPoints();
         if (score1 > score2) {
             String messageWin = "Grattis";
-            checkWin(multiPlayer[0].getUserName(), messageWin);
+            endOfGame(multiPlayer[0].getUserName(), messageWin);
         } else if (score2 > score1) {
             String messageWin = "Grattis";
-            checkWin(multiPlayer[1].getUserName(), messageWin);
+            endOfGame(multiPlayer[1].getUserName(), messageWin);
         } else {
             String messageWin = "Poängställningen blev lika!";
-            checkWin("", messageWin);
+            endOfGame("", messageWin);
         }
         score1total += score1;
         score2total += score2;
@@ -139,7 +232,7 @@ public class Controller {
      * @param name       of who won
      * @param messageWin message depending on result
      */
-    private void checkWin (String name, String messageWin) {
+    private void endOfGame(String name, String messageWin) {
         musicController.stopMusic();
         clickController.click("music/JokerWin.wav");
 
@@ -170,114 +263,17 @@ public class Controller {
     }
 
     /**
-     * Updated score in the view.
+     * Updated a users score and update in the view.
      */
     private void incrementScore(int pointsToAdd) {
         if (turnPlayer1) {
-            int score1 = updateUserPoints(0, pointsToAdd);
-            boardGUI.setLblScore(score1);
+            int score = multiPlayer[0].getGameScore() + pointsToAdd;
+            multiPlayer[0].setGameScore(score);
+            boardGUI.setLblScore(score);
         } else {
-            int score2 = updateUserPoints(1, pointsToAdd);
-            boardGUI.setLblScore2(score2);
+            int score = multiPlayer[1].getGameScore() + pointsToAdd;
+            multiPlayer[1].setGameScore(score);
+            boardGUI.setLblScore2(score);
         }
-    }
-
-    private int updateUserPoints(int player, int pointsToAdd) {
-        int score = multiPlayer[player].getGameScore() + pointsToAdd;
-        multiPlayer[player].setGameScore(score);
-        return multiPlayer[player].getGameScore();
-    }
-
-    /**
-     * Update score from joker round.
-     */
-    public void addJokerPoints() {
-        int jokerPoints = dropCardsThread.getPoints();
-        incrementScore(jokerPoints);
-        if(isGameWon()) {
-            checkWinner();
-        }
-    }
-
-    /**
-     * To indicate in the view which player's round it is.
-     * And turn all cards, symbol down.
-     */
-    private void switchPlayers() {
-        if (turnPlayer1) {
-            boardGUI.highlightPlayer2();
-            turnPlayer1 = false;
-        } else {
-            boardGUI.highlightPlayer1();
-            turnPlayer1 = true;
-        }
-    }
-
-    /**
-     * Returns true when all cards are ultimately out of play.
-     * Method is reused and adapted from:
-     * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
-     * Stackexchange 20.04.14.
-     */
-    private boolean isGameWon() {
-        for (Card card : boardGUI.getCards()) {
-            if (!card.isMatched()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    //TEST, metod som sätts in för att vinna spelet vid 10p. Ska tas bort i slutprodukt.
-    public boolean test() {
-        return (multiPlayer[0].getGameScore() == 0) || (multiPlayer[1].getGameScore() == 0);
-    }
-
-    /**
-     * Open login view for second player to sign in.
-     */
-    public void logInSecondPlayerView() {
-        logInPlayer2 = new LogInGUI(this, "Player Two");
-    }
-
-    /**
-     * Create a player from login window.
-     * Go to menu after first player.
-     * Go to game after second player and set names at view.
-     */
-    public void createUser() {
-        if (multiPlayer[0] == null) {
-            String name = logInPlayer1.getTxtUsername().getText();
-            multiPlayer[0] = new User(name);
-            JOptionPane.showMessageDialog(null, "Välkommen spelare 1: " + name);
-            menuGUI = new MenuGUI(this);
-        } else {
-            String name = logInPlayer2.getTxtUsername().getText();
-            multiPlayer[1] = new User(name);
-            JOptionPane.showMessageDialog(null, "Välkommen spelare 2: " + name);
-            boardGUI = new BoardGUI(this);
-            boardGUI.getPnlPlayer1().setBorder(BorderFactory.createTitledBorder(multiPlayer[0].getUserName()));
-            boardGUI.getPnlPlayer2().setBorder(BorderFactory.createTitledBorder(multiPlayer[1].getUserName()));
-        }
-    }
-
-    /**
-     * Method that matches secondsymbol with the infoHashmap.
-     * Prints out a information about the pair that has been matched.
-     * Will be implemented in a panel later.
-     */
-    private void showInfoOnPanel() {
-        String secondSymbol = pairOfCards[1].getPathSymbol().substring(0, 9);
-        String newString = infoReader.getInfoMap().get(secondSymbol);
-        boardGUI.getTxtInfoArea().setText("");
-        boardGUI.getTxtInfoArea().setText(newString);
-    }
-
-    public void switchToBoard() {
-        boardGUI.setVisible(true);
-    }
-
-    public void switchToMenu() {
-        menuGUI.setVisible(true);
     }
 }

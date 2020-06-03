@@ -1,7 +1,5 @@
 package Game.Model;
 
-import Game.Controller.Game;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,7 +10,6 @@ import java.util.Random;
  * @version 4.0
  */
 public class CardDeck {
-
 
     /**
      * Creates and mixes paris of symbols for the boardGUI.
