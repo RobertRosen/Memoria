@@ -15,7 +15,7 @@ import java.awt.event.WindowEvent;
  * This class contains Memorias main menu
  *
  * @author Yasir Kakar, Adel Sabanovic, Joakim Tell
- * @version 4.0
+ * @version 5.0
  */
 public class MenuGUI extends JFrame {
     private MusicController musicController = new MusicController();
