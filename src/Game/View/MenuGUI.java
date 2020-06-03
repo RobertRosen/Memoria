@@ -202,6 +202,7 @@ public class MenuGUI extends JFrame {
     private class MouseMultiPlayer implements MouseListener {
         public void mouseClicked(MouseEvent e) {
             controller.logInSecondPlayerView();
+            setVisible(false);
             dispose();
         }
 
@@ -232,6 +233,7 @@ public class MenuGUI extends JFrame {
             setVisible(false);
             dispose();
             new DropCardsThread(controller, 29);
+
         }
 
         public void mousePressed(MouseEvent e) {
