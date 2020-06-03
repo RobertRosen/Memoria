@@ -1,16 +1,16 @@
 package Game.View;
 
 import Game.Controller.Controller;
-import Game.Controller.MusicController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 /**
- * This class contains the gui for the login menu TODO-kommentera hela klassen på engelska
+ * This class contains the gui for the login menu
+ *
  * @author Joakim Tell, Yasir Kakar, Adel Sabanovic
- * @version 3.0
+ * @version 4.0
  */
 public class LogInGUI extends JFrame {
     private Controller controller;
@@ -52,7 +52,7 @@ public class LogInGUI extends JFrame {
         lblUsername.setBounds(50, 60, 100, 100);
         txtUsername.setBounds(120, 100, 165, 25);
         btnLogin.setBounds(168, 150, 59, 38);
-        lblPi.setBounds(128,145,33,40);
+        lblPi.setBounds(128, 145, 33, 40);
 
         lblPi.setVisible(false);
 
@@ -74,7 +74,7 @@ public class LogInGUI extends JFrame {
     /**
      * Adds the listeners to the components
      */
-    private void listeners(){
+    private void listeners() {
         txtUsername.addKeyListener(new LimitUsername());
         btnLogin.addActionListener(new Listener());
         txtUsername.addFocusListener(new Focus());
@@ -84,10 +84,10 @@ public class LogInGUI extends JFrame {
 
     /**
      * An inner class that makes the username hint disappear
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
-    private class Focus implements FocusListener{
+    private class Focus implements FocusListener {
 
         @Override
         public void focusGained(FocusEvent e) {
@@ -118,11 +118,10 @@ public class LogInGUI extends JFrame {
 
         @Override
         public void keyReleased(KeyEvent e) {
-            if ((txtUsername.getText().length() > 10) || (txtUsername.getText().length() < 3)){
+            if ((txtUsername.getText().length() > 10) || (txtUsername.getText().length() < 3)) {
                 txtUsername.setForeground(Color.RED);
                 btnLogin.setEnabled(false);
-            }
-            else {
+            } else {
                 txtUsername.setForeground(Color.GREEN);
                 btnLogin.setEnabled(true);
             }
@@ -154,8 +153,8 @@ public class LogInGUI extends JFrame {
     }
 
     /**
-     * Lyssnare som kontrollerar längd på usernamet.
-     * Skapar sedan MenuGUI om giltligt användarnamn skrivits in och dispose av LogInGUI.
+     * Listener that controls the length of the username.
+     * Creates a MenuGUI if valid username is entered.
      */
     private class Listener implements ActionListener {
         public void actionPerformed(ActionEvent e) {

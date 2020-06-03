@@ -31,10 +31,10 @@ public class CardDropTask extends Card implements Runnable {
     /**
      * Constructs and initialize this Runnable.
      *
-     * @param jokerGameGui Where the game is played.
-     * @param dropCardsThread    the runnable where this drop thread will be initiated.
-     * @param problem      the question for the user to answer on this task.
-     * @param solved       the correct answer for the problem.
+     * @param jokerGameGui    Where the game is played.
+     * @param dropCardsThread the runnable where this drop thread will be initiated.
+     * @param problem         the question for the user to answer on this task.
+     * @param solved          the correct answer for the problem.
      */
     public CardDropTask(JokerGameGUI jokerGameGui, DropCardsThread dropCardsThread, String problem, String solved) {
         this.jokerGameGui = jokerGameGui;

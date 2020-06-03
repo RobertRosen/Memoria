@@ -1,9 +1,9 @@
 package Game.View;
 
-import Game.Model.CardDeck;
 import Game.Controller.Controller;
 import Game.Controller.MusicController;
 import Game.Model.Card;
+import Game.Model.CardDeck;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,8 +15,7 @@ import java.util.Collections;
  * This class contains the game board
  *
  * @author Adel Sabanovic, Robert Rosencrantz, Joakim Tell
- * @version 3.0
- * @since 2020-04-16
+ * @version 4.0
  */
 public class BoardGUI extends JFrame {
     MusicController musicController = new MusicController();
@@ -78,6 +77,7 @@ public class BoardGUI extends JFrame {
 
     /**
      * A constructor with one parameter
+     *
      * @param controller
      */
     public BoardGUI(Controller controller) {
@@ -169,11 +169,11 @@ public class BoardGUI extends JFrame {
         lblBlueStripe6.setPreferredSize(new Dimension(125, 20));
         lblGhost9.setPreferredSize(new Dimension(135, 35));
         lblGhost10.setPreferredSize(new Dimension(265, 35));
-        lblGhost11.setPreferredSize(new Dimension(10,5));
-        lblGhost12.setPreferredSize(new Dimension(10,5));
-        lblGhost13.setPreferredSize(new Dimension(50,46));
-        lblPi.setPreferredSize(new Dimension(50,46));
-        lblPi2.setPreferredSize(new Dimension(50,46));
+        lblGhost11.setPreferredSize(new Dimension(10, 5));
+        lblGhost12.setPreferredSize(new Dimension(10, 5));
+        lblGhost13.setPreferredSize(new Dimension(50, 46));
+        lblPi.setPreferredSize(new Dimension(50, 46));
+        lblPi2.setPreferredSize(new Dimension(50, 46));
         txtInfoArea.setPreferredSize(new Dimension(257, 140));
         txtInfoArea.setLineWrap(true);
         txtInfoArea.setWrapStyleWord(true);
@@ -183,10 +183,10 @@ public class BoardGUI extends JFrame {
         pnlEast.setPreferredSize(new Dimension(265, 488));
         pnlPlayer1.setPreferredSize(new Dimension(126, 100));
         pnlPlayer2.setPreferredSize(new Dimension(126, 100));
-        pnlPlayer1Color.setPreferredSize(new Dimension(100,10));
-        pnlPlayer2Color.setPreferredSize(new Dimension(100,10));
-        pnlPlayer1Color2.setPreferredSize(new Dimension(100,10));
-        pnlPlayer2Color2.setPreferredSize(new Dimension(100,10));
+        pnlPlayer1Color.setPreferredSize(new Dimension(100, 10));
+        pnlPlayer2Color.setPreferredSize(new Dimension(100, 10));
+        pnlPlayer1Color2.setPreferredSize(new Dimension(100, 10));
+        pnlPlayer2Color2.setPreferredSize(new Dimension(100, 10));
     }
 
     /**
@@ -222,7 +222,7 @@ public class BoardGUI extends JFrame {
     /**
      * Adds the listeners to the buttons
      */
-    private void addListeners(){
+    private void addListeners() {
         btnSettings.addMouseListener(new MouseSettings());
         btnInstructions.addMouseListener(new MouseHelp());
         btnBack.addActionListener(new ActionListener());
@@ -248,7 +248,7 @@ public class BoardGUI extends JFrame {
                     controller.doTurn(card);
                 }
             });
-            card.hideSymbol(65,83);       // Turn backside up.
+            card.hideSymbol(65, 83);       // Turn backside up.
             cards.add(card);
         }
 
@@ -304,6 +304,7 @@ public class BoardGUI extends JFrame {
         pnlPlayer1Color2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         pnlPlayer1Color.setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
+
     /**
      * Controls the color on the panel which indicate that its player 2's turn
      */
@@ -346,6 +347,7 @@ public class BoardGUI extends JFrame {
             lblEmptyLogo.setVisible(true);
         }
     }
+
     /**
      * An inner class that makes it so that a pi logo shows next to the button the mouse is hovering over
      * it and shows the help menu if clicked
@@ -379,7 +381,7 @@ public class BoardGUI extends JFrame {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (e.getSource()==btnBack){
+            if (e.getSource() == btnBack) {
                 dispose();
                 controller.switchToMenu();
                 musicController.stopMusic();
@@ -398,11 +400,11 @@ public class BoardGUI extends JFrame {
             public void windowClosing(WindowEvent e) {
                 int x = JOptionPane.showConfirmDialog(null,
                         "Do you really want to close Memoria?");
-                if(x==JOptionPane.YES_OPTION) {
+                if (x == JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
                     System.exit(0);
                 } else {
-                    JOptionPane.showMessageDialog(null,"We are happy you are back :)");
+                    JOptionPane.showMessageDialog(null, "We are happy you are back :)");
                 }
             }
         });
@@ -419,8 +421,4 @@ public class BoardGUI extends JFrame {
     public JTextArea getTxtInfoArea() {
         return txtInfoArea;
     }
-
-    //    public static void main(String[] args) {
-//        new Game.Controller.Game.Model.View.BoardGUI();
-//    }
 }

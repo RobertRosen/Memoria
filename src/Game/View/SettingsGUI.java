@@ -11,8 +11,9 @@ import java.awt.event.MouseListener;
 
 /**
  * This class contains all the code for the Setting interface
- * @version 3.0
+ *
  * @author Yasir Kakar, Adel Sabanovic
+ * @version 4.0
  */
 
 public class SettingsGUI extends JFrame {
@@ -36,17 +37,15 @@ public class SettingsGUI extends JFrame {
     private JLabel lblSettings = new JLabel(inställningarLogo);
     private JLabel lblMusic = new JLabel(iconMusic);
     private JLabel lblPiOn = new JLabel(iconPi);
-    private JLabel lblPiOff= new JLabel(iconPi);
+    private JLabel lblPiOff = new JLabel(iconPi);
     private JLabel lblPi3Ok = new JLabel(iconPi);
 
     private Font myFont = new Font("Serif", Font.ITALIC | Font.BOLD, 20);
 
     /**
      * This constructor contains the functions for the settingsGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    public SettingsGUI(){
+    public SettingsGUI() {
         frame.setSize(400, 300);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
@@ -74,27 +73,23 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This method sets size and location for the buttons and labels in the SettingsGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void setBoundsForContents(){
+    private void setBoundsForContents() {
         lblSettings.setBounds(40, 10, 300, 60);
-        lblMusic.setBounds(10,97,130,40);
-        btnOn.setBounds(240, 100, 60,25);
-        lblPiOn.setBounds(200,90,33,40);
-        btnOff.setBounds(240,150,71,24);
-        lblPiOff.setBounds(200,140,33,40);
-        btnOk.setBounds(150,200,59,38);
-        lblPi3Ok.setBounds(110,200,33,40);
+        lblMusic.setBounds(10, 97, 130, 40);
+        btnOn.setBounds(240, 100, 60, 25);
+        lblPiOn.setBounds(200, 90, 33, 40);
+        btnOff.setBounds(240, 150, 71, 24);
+        lblPiOff.setBounds(200, 140, 33, 40);
+        btnOk.setBounds(150, 200, 59, 38);
+        lblPi3Ok.setBounds(110, 200, 33, 40);
 
     }
 
     /**
      * This method adds the buttons and labels in the SettingsGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void addContents(){
+    private void addContents() {
 
         pnlMain.add(lblSettings);
         pnlMain.add(lblMusic);
@@ -108,10 +103,8 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This method adds listeners to the buttons in the SettingsGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void addListeners(){
+    private void addListeners() {
 
         btnOk.addActionListener(new OkListener());
         btnOn.addActionListener(new PlayMusic());
@@ -143,6 +136,7 @@ public class SettingsGUI extends JFrame {
             lblPiOn.setVisible(false);
         }
     }
+
     /**
      * Inner class shows a Pi logo while the mouse hovers over the "off" button
      */
@@ -165,6 +159,7 @@ public class SettingsGUI extends JFrame {
             lblPiOff.setVisible(false);
         }
     }
+
     /**
      * Inner class shows a Pi logo while the mouse hovers over the "ok" button
      */
@@ -190,7 +185,7 @@ public class SettingsGUI extends JFrame {
 
     /**
      * This class contains the functions for the "OK" button in the SettingsGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
     private class OkListener implements ActionListener {
@@ -200,7 +195,8 @@ public class SettingsGUI extends JFrame {
             frame.dispose();
         }
     }
-    private class PlayMusic implements ActionListener{
+
+    private class PlayMusic implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -208,7 +204,7 @@ public class SettingsGUI extends JFrame {
         }
     }
 
-    private class StopMusic implements ActionListener{
+    private class StopMusic implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {

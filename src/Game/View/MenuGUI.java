@@ -13,12 +13,9 @@ import java.awt.event.WindowEvent;
 
 /**
  * This class contains Memorias main menu
- * @author Yasir Kakar
- * @author Adel Sabanovic
- * @author Joakim Tell
- * @version 3.0
- * @since 2020-04-16
  *
+ * @author Yasir Kakar, Adel Sabanovic, Joakim Tell
+ * @version 4.0
  */
 public class MenuGUI extends JFrame {
     private MusicController musicController = new MusicController();
@@ -67,12 +64,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method contains Memorias main menu GUI
-     * @author Yasir Kakar
-     * @author Adel Sabanovic
-     * @version 3.0
-     * @since 2020-04-16
      */
-    //TODO ska kortas ner med en for-loop och hjälpmetoder
     public MenuGUI(Controller controller) {
         this.controller = controller;
 
@@ -126,10 +118,8 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method contains the contents of the west panel in the MenuGUI
-     * @version 3.0
-     * @author Adel Sabanovic
      */
-    private void panelWestContents(){
+    private void panelWestContents() {
         pnlWest.setPreferredSize(new Dimension(450, 340));
         pnlWest.setBackground(Color.WHITE);
         pnlWest.add(lblGhost);
@@ -144,10 +134,8 @@ public class MenuGUI extends JFrame {
     /**
      * This method sets the sizes and the visibility for the PI symbols the
      * gets visible when the user is hovering over the buttons in the MenuGUI
-     * @version 3.0
-     * @author Adel Sabanovic
      */
-    private void setPiSizes(){
+    private void setPiSizes() {
 
         lblPiSinglePlayer.setPreferredSize(new Dimension(40, 40));
         lblPiSinglePlayer.setVisible(false);
@@ -165,10 +153,8 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method sets the sizes for the empty labels in MenuGUI
-     * @version 3.0
-     * @author Adel Sabanovic
      */
-    private void setGhostSizes(){
+    private void setGhostSizes() {
 
         lblGhost2.setPreferredSize(new Dimension(300, 30));
         lblGhost4.setPreferredSize(new Dimension(30, 40));
@@ -182,10 +168,8 @@ public class MenuGUI extends JFrame {
 
     /**
      * This method contains all the listeners in the MenuGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void addListeners(){
+    private void addListeners() {
 
         btnSinglePlayer.addMouseListener(new MouseSinglePlayer());
         btnMultiPlayer.addMouseListener(new MouseMultiPlayer());
@@ -196,7 +180,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the multi-player in the MenuGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar, Adel Sabanovic
      */
     private class MouseMultiPlayer implements MouseListener {
@@ -225,7 +209,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the single player button in the MenuGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
     private class MouseSinglePlayer implements MouseListener {
@@ -255,7 +239,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the settings button in the MenuGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
     private class MouseSettings implements MouseListener {
@@ -283,7 +267,7 @@ public class MenuGUI extends JFrame {
 
     /**
      * This class contains the functions for the help button in the MenuGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
     private class MouseHelp implements MouseListener {
@@ -319,7 +303,7 @@ public class MenuGUI extends JFrame {
             public void windowClosing(WindowEvent e) {
                 int x = JOptionPane.showConfirmDialog(null,
                         "Do you really want to close Memoria?");
-                if(x==JOptionPane.YES_OPTION) {
+                if (x == JOptionPane.YES_OPTION) {
                     e.getWindow().dispose();
                     System.exit(0);
                 } else {

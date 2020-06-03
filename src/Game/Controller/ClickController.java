@@ -7,8 +7,9 @@ import java.io.File;
 
 /**
  * This class contains code the functions for both the click sound and the points sound
- * @version 4.0
+ *
  * @author Yasir Kakar
+ * @version 4.0
  */
 public class ClickController {
     private Clip clip;
@@ -16,10 +17,8 @@ public class ClickController {
     /**
      * This method plays the audio for the different sounds like when the player clicks
      * on a card or gets a point and so on
-     * @version 4.0
-     * @author Yasir Kakar
      */
-    public  void click(String filename){
+    public void click(String filename) {
 
         try {
             File file = new File(filename);
@@ -27,7 +26,7 @@ public class ClickController {
             clip = AudioSystem.getClip();
             clip.open(audioInputStream);
             clip.start();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

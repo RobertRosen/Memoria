@@ -4,13 +4,12 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 /**
  * This class contains everything concerning the HelpGUI
- * @version 3.0
+ *
  * @author Yasir Kakar, Adel Sabanovic
+ * @version 4.0
  */
 public class HelpGUI extends JFrame {
 
@@ -36,12 +35,10 @@ public class HelpGUI extends JFrame {
 
     /**
      * This constructor brings all the methods together for the HelpGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    public HelpGUI(){
+    public HelpGUI() {
 
-        setSize(700,700);
+        setSize(700, 700);
         setLocationRelativeTo(null);
         setVisible(true);
         add(container);
@@ -59,10 +56,8 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method let the developers place the panels anywhere necessary in the Frame
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private  void setLayouts(){
+    private void setLayouts() {
         panel1.setLayout(null);
         panel2.setLayout(null);
         panel3.setLayout(null);
@@ -76,10 +71,8 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the constructors of the inner classes to the panels shown in the HelpGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void addInnerClasses(){
+    private void addInnerClasses() {
         panel1.add(new Panel1());
         panel2.add(new Panel2());
         panel3.add(new Panel3());
@@ -92,10 +85,8 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the Panels in the HelpGUI
-     * @version 3.0
-     * @author Yasir Kakar
      */
-    private void addPanels(){
+    private void addPanels() {
         container.add(panel1, "2");
         container.add(panel2, "3");
         container.add(panel3, "4");
@@ -109,10 +100,8 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method adds the buttons in the HelpGUI
-     * @version 3.0
-     * @author Yasir Kakar, Adel Sabanovic
      */
-    private void addButtons(){
+    private void addButtons() {
         panel1.add(btnNext[0]);
         panel2.add(btnNext[1]);
         panel3.add(btnNext[2]);
@@ -143,28 +132,26 @@ public class HelpGUI extends JFrame {
 
     /**
      * This method creates the buttons in the HelpGUI
-     * @version 3.0
-     * @author Yasir Kakar, Adel Sabanovic
      */
-    private void createButtons(){
+    private void createButtons() {
 
-        for (int i = 0; i < btnNext.length; i++){
+        for (int i = 0; i < btnNext.length; i++) {
             btnNext[i] = new JButton(next);
-            btnNext[i].setBounds(530,630,60,46);
+            btnNext[i].setBounds(530, 630, 60, 46);
             btnNext[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnNext[i].addActionListener(new NextListener());
         }
 
-        for (int i = 0; i < btnBack.length; i++){
+        for (int i = 0; i < btnBack.length; i++) {
             btnBack[i] = new JButton(back);
-            btnBack[i].setBounds(100,630,56,47);
+            btnBack[i].setBounds(100, 630, 56, 47);
             btnBack[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnBack[i].addActionListener(new BackListener());
         }
 
-        for (int i = 0; i < btnOK.length; i++){
+        for (int i = 0; i < btnOK.length; i++) {
             btnOK[i] = new JButton(ok);
-            btnOK[i].setBounds(320,630,56,46);
+            btnOK[i].setBounds(320, 630, 56, 46);
             btnOK[i].setBorder(BorderFactory.createLineBorder(Color.WHITE));
             btnOK[i].addActionListener(new OKListener());
         }
@@ -172,15 +159,16 @@ public class HelpGUI extends JFrame {
 
     /**
      * Each panel class below contains the images that are presented in the HelpGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
     private class Panel1 extends JPanel {
         private ImageIcon hjälp1Bild = new ImageIcon("images/hjälp1.PNG");
 
         private JLabel lblbild = new JLabel(hjälp1Bild);
-        public Panel1(){
-            setSize(700,700);
+
+        public Panel1() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -188,40 +176,46 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel2 extends JPanel {
         private ImageIcon hjälp2Bild = new ImageIcon("images/hjälp2.PNG");
 
         private JLabel lblbild = new JLabel(hjälp2Bild);
-        public Panel2(){
-            setSize(700,700);
+
+        public Panel2() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
-            lblbild.setBounds(0,0,550,300);
+            lblbild.setBounds(0, 0, 550, 300);
             add(lblbild);
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel3 extends JPanel {
         private ImageIcon hjälp3Bild = new ImageIcon("images/hjälp3.PNG");
 
         private JLabel lblbild = new JLabel(hjälp3Bild);
-        public Panel3(){
-            setSize(700,700);
+
+        public Panel3() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
-            lblbild.setBounds(0,0,550,300);
+            lblbild.setBounds(0, 0, 550, 300);
             add(lblbild);
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel4 extends JPanel {
         private ImageIcon hjälp4Bild = new ImageIcon("images/hjälp4.PNG");
 
         private JLabel lblbild = new JLabel(hjälp4Bild);
-        public Panel4(){
-            setSize(700,700);
+
+        public Panel4() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -229,12 +223,14 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel5 extends JPanel {
         private ImageIcon hjälp5Bild = new ImageIcon("images/hjälp5.PNG");
 
         private JLabel lblbild = new JLabel(hjälp5Bild);
-        public Panel5(){
-            setSize(700,700);
+
+        public Panel5() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -242,12 +238,14 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel6 extends JPanel {
         private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp6.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
-        public Panel6(){
-            setSize(700,700);
+
+        public Panel6() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -255,12 +253,14 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel7 extends JPanel {
         private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp7.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
-        public Panel7(){
-            setSize(700,700);
+
+        public Panel7() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -268,12 +268,14 @@ public class HelpGUI extends JFrame {
             setBackground(Color.WHITE);
         }
     }
+
     private class Panel8 extends JPanel {
         private ImageIcon hjälp6Bild = new ImageIcon("images/hjälp8.PNG");
 
         private JLabel lblbild = new JLabel(hjälp6Bild);
-        public Panel8(){
-            setSize(700,700);
+
+        public Panel8() {
+            setSize(700, 700);
             setLocationRelativeTo(null);
             setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             setVisible(true);
@@ -284,36 +286,36 @@ public class HelpGUI extends JFrame {
 
     /**
      * This class contains the functions for the "Next" button in the HelpGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
-    private class NextListener implements ActionListener{
+    private class NextListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < btnNext.length; i++){
-                if (e.getSource() == btnNext[0]){
+            for (int i = 0; i < btnNext.length; i++) {
+                if (e.getSource() == btnNext[0]) {
                     card.show(container, "" + 3);
                 }
-                if (e.getSource() == btnNext[1]){
+                if (e.getSource() == btnNext[1]) {
                     card.show(container, "" + 4);
                 }
-                if (e.getSource() == btnNext[2]){
+                if (e.getSource() == btnNext[2]) {
                     card.show(container, "" + 5);
                 }
-                if (e.getSource() == btnNext[3]){
+                if (e.getSource() == btnNext[3]) {
                     card.show(container, "" + 6);
                 }
-                if (e.getSource() == btnNext[4]){
+                if (e.getSource() == btnNext[4]) {
                     card.show(container, "" + 7);
                 }
-                if (e.getSource() == btnNext[5]){
+                if (e.getSource() == btnNext[5]) {
                     card.show(container, "" + 8);
                 }
-                if (e.getSource() == btnNext[6]){
+                if (e.getSource() == btnNext[6]) {
                     card.show(container, "" + 9);
                 }
-                if (e.getSource() == btnNext[7]){
+                if (e.getSource() == btnNext[7]) {
                     card.show(container, "" + 2);
                 }
             }
@@ -322,37 +324,37 @@ public class HelpGUI extends JFrame {
 
     /**
      * A class that contains functions for the "Back" button
-     * @version 4.0
+     *
      * @author Adel Sabanovic
      */
 
-    private class BackListener implements ActionListener{
+    private class BackListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            for (int i = 0; i < btnBack.length; i++){
-                if (e.getSource() == btnBack[0]){
+            for (int i = 0; i < btnBack.length; i++) {
+                if (e.getSource() == btnBack[0]) {
                     card.show(container, "" + 7);
                 }
-                if (e.getSource() == btnBack[1]){
+                if (e.getSource() == btnBack[1]) {
                     card.show(container, "" + 2);
                 }
-                if (e.getSource() == btnBack[2]){
+                if (e.getSource() == btnBack[2]) {
                     card.show(container, "" + 3);
                 }
-                if (e.getSource() == btnBack[3]){
+                if (e.getSource() == btnBack[3]) {
                     card.show(container, "" + 4);
                 }
-                if (e.getSource() == btnBack[4]){
+                if (e.getSource() == btnBack[4]) {
                     card.show(container, "" + 5);
                 }
-                if (e.getSource() == btnBack[5]){
+                if (e.getSource() == btnBack[5]) {
                     card.show(container, "" + 6);
                 }
-                if (e.getSource() == btnBack[6]){
+                if (e.getSource() == btnBack[6]) {
                     card.show(container, "" + 7);
                 }
-                if (e.getSource() == btnBack[7]){
+                if (e.getSource() == btnBack[7]) {
                     card.show(container, "" + 6);
                 }
             }
@@ -361,10 +363,10 @@ public class HelpGUI extends JFrame {
 
     /**
      * This class contains the functions for the "OK" button in the HelpGUI
-     * @version 3.0
+     *
      * @author Yasir Kakar
      */
-    class OKListener implements ActionListener{
+    class OKListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {

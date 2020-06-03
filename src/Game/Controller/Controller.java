@@ -1,12 +1,12 @@
 package Game.Controller;
 
+import Game.Controller.multiplicationGame.DropCardsThread;
 import Game.Model.Card;
 import Game.Model.InfoReader;
 import Game.Model.User;
 import Game.View.BoardGUI;
 import Game.View.LogInGUI;
 import Game.View.MenuGUI;
-import Game.Controller.multiplicationGame.DropCardsThread;
 
 import javax.swing.*;
 import java.util.Arrays;
@@ -14,7 +14,6 @@ import java.util.Arrays;
 /**
  * Handles interaction between different views.
  * Most of the memory game logic is handled in this class.
- * <p>
  * The memory game has som inspiration from
  * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
  * Stackexchange 20.04.14.
@@ -69,7 +68,6 @@ public class Controller {
      * Check if a selected pair of cards are matching. Switch user if no match.
      * User plays again and gets points if it is a match, or switch to joker game view
      * if joker symbols are matching.
-     * <p>
      * Method is improved and adapted from:
      * https://codereview.stackexchange.com/questions/85833/basic-memory-match-game-in-java
      * Stackexchange 20.04.14.

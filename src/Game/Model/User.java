@@ -2,6 +2,7 @@ package Game.Model;
 
 /**
  * A representation of a logged in user. The user has user name and a score.
+ *
  * @author Robert Rosencrantz, Adel Sabanovic, Sonja Peric, Yasir Kakar, Joakim Tell
  * @version 4.0
  */
@@ -10,16 +11,17 @@ public class User {
     private int totalPoints;
     private int gameScore;
 
+    /**
+     * Constructor
+     *
+     * @param userName User input
+     */
     public User(String userName) {
         this.userName = userName;
     }
 
     public String getUserName() {
         return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public int getGameScore() {
